@@ -1,0 +1,15 @@
+.form-elements-container {
+  max-width: 1440px;
+  padding: 143px 140px 140px 140px;
+}
+
+.fields-buttons-container {
+  display: flex;
+}
+
+.fields-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  flex-basis: 33%;
+}

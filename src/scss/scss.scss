@@ -1,10 +1,14 @@
 @import '~normalize.css';
+@import url(./variables.scss);
 @import url(./reset.scss);
 @import url(./montserrat.scss);
 @import url(../common.blocks/UI-kit/logo-colorless/logo-colorless.scss);
 @import url(../common.blocks/UI-kit/colors-type/colors-type.scss);
 @import url(../common.blocks/UI-kit/colors-type/colors/colors.scss);
 @import url(../common.blocks/UI-kit/colors-type/type/type.scss);
+@import url(../common.blocks/UI-kit/form-elements/form-elements.scss);
+@import url(../common.blocks/UI-kit/form-elements/text-field/text-field.scss);
+
 
 
 body {

@@ -1,0 +1,38 @@
+.text-field-UI {
+  display: flex;
+  flex-wrap: wrap;
+
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+}
+
+.field-UI__description {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-field-UI__description {
+  margin-bottom: 5px;
+}
+
+.text-field-UI__heading {
+  font-weight: bold;
+}
+
+.text-field {
+  width: 100%;
+  padding: 12px 0 12px 15px;
+
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  border-radius: 4px;
+
+  font-size: 14px;
+  line-height: 18px;
+  outline: none;
+}
+
+.text-field::placeholder {
+  color: rgba(31, 32, 65, 0.25);
+}
