@@ -6,10 +6,9 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title UI-kit
   body
+    include ../common.blocks/UI-kit/logo-colorless/logo-colorless
     .colors-type-container
-      include ../common.blocks/UI-kit/logo-colorless/logo-colorless
-      .colors-type-layout
-        .colors-container
-          include ../common.blocks/UI-kit/colors-type/colors/colors.pug
-        .type-container
-          include ../common.blocks/UI-kit/colors-type/type/type.pug
+      .colors-container
+        include ../common.blocks/UI-kit/colors-type/colors/colors.pug
+      .type-container
+        include ../common.blocks/UI-kit/colors-type/type/type.pug
