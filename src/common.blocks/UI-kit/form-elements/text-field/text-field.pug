@@ -1,8 +1,16 @@
 
 block text-field-UI 
-.text-field-UI
+.text-field-UI.text-field-UI__margin
   .field-UI__description.text-field-UI__description 
     span.text-field-UI__heading text field
     span.text-field-UI__state default 
   block text-field
   input(type='text', placeholder='Email').text-field
+
+block text-field-UI-focus
+.text-field-UI
+  .field-UI__description.text-field-UI__description 
+    span.text-field-UI__heading text field
+    span.text-field-UI__state hover / focus 
+  block text-field
+  input(type='text', placeholder='This is pretty awesome').text-field.text-field--focus.text-field--hover

@@ -5,6 +5,11 @@
   font-size: 12px;
   line-height: 15px;
   text-transform: uppercase;
+  color: rgba(31, 32, 65, 0.5);
+}
+
+.text-field-UI__margin {
+  margin-bottom: 20px;
 }
 
 .field-UI__description {
@@ -18,6 +23,7 @@
 }
 
 .text-field-UI__heading {
+  color: rgba(31, 32, 65, 1);
   font-weight: bold;
 }
 
@@ -31,6 +37,14 @@
   font-size: 14px;
   line-height: 18px;
   outline: none;
+}
+
+.text-field--focus:focus, .text-field--focus:hover {
+  border: 1px solid rgba(31, 32, 65, 0.5);
+}
+
+.text-field--focus:focus::placeholder, .text-field--focus:hover::placeholder {
+  color: rgba(31, 32, 65, 0.75);
 }
 
 .text-field::placeholder {
