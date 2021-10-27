@@ -1,4 +1,4 @@
-.text-field-UI {
+.text-field {
   display: flex;
   flex-wrap: wrap;
 
@@ -8,28 +8,28 @@
   color: rgba(31, 32, 65, 0.5);
 }
 
-.text-field-UI__margin {
+.text-field__form-elements-margin {
   margin-bottom: 20px;
 }
 
-.field-UI__description {
+.text-field__description {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.text-field-UI__description {
+.text-field__description-margin {
   margin-bottom: 5px;
 }
 
-.text-field-UI__heading {
+.text-field__heading {
   color: rgba(31, 32, 65, 1);
   font-weight: bold;
 }
 
-.text-field {
+.text-field__input {
   width: 100%;
-  padding: 12px 0 12px 15px;
+  padding: 12px 15px 12px 15px;
 
   border: 1px solid rgba(31, 32, 65, 0.25);
   border-radius: 4px;
@@ -39,14 +39,14 @@
   outline: none;
 }
 
-.text-field--focus:focus, .text-field--focus:hover {
+.text-field__input--focus:focus, .text-field__input--hover:hover {
   border: 1px solid rgba(31, 32, 65, 0.5);
 }
 
-.text-field--focus:focus::placeholder, .text-field--focus:hover::placeholder {
+.text-field__input--focus:focus::placeholder, .text-field__input--hover:hover::placeholder {
   color: rgba(31, 32, 65, 0.75);
 }
 
-.text-field::placeholder {
+.text-field__input::placeholder {
   color: rgba(31, 32, 65, 0.25);
 }

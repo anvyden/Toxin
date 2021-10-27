@@ -6,9 +6,17 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title UI-kit
   body
-    include ../common.blocks/UI-kit/logo-colorless/logo-colorless
+    include ~/pages/UI-kit/logo-colorless/logo-colorless.pug
     .colors-type-container
       .colors-container
-        include ../common.blocks/UI-kit/colors-type/colors/colors.pug
+        include ~/pages/UI-kit/colors-type/colors/colors.pug
+        block primary-colors
+        for i in colorsArray
+          +colors(i.color, i.name, i.hex, i.last)
       .type-container
-        include ../common.blocks/UI-kit/colors-type/type/type.pug
+        include ~/pages/UI-kit/colors-type/type/type.pug
+        block type 
+        +type('type-H1', 'H1', 'type-H1__description', 'This one is the sub-section or widget title')
+        +type('type-H2', 'H2', 'type-H2__description', 'Next one is the item title inside widgets')
+        +type('type-H3', 'H3', 'type-H3__description', 'This is a label or CTA text')
+        +type('type-body', 'Body', 'type-body__description', 'This is the body text which is used for most of the design, like paragraphs, lists, etc.', true)

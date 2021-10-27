@@ -1,0 +1,24 @@
+mixin text-field(hasDescription, hoverInput, focusInput, heading, state, type, placeholder)
+  if (hasDescription && !hoverInput && !focusInput)
+    block text-field 
+    .text-field.text-field__form-elements-margin
+      .text-field__description.text-field__description-margin 
+        span.text-field__heading=heading
+        span.text-field__state=state 
+      block text-field-input
+      input(type=type, placeholder=placeholder).text-field__input
+  else if (hasDescription)
+    block text-field-focus
+    .text-field
+      .text-field__description.text-field__description-margin 
+        span.text-field__heading=heading
+        span.text-field__state=state 
+      block text-field-input-focus
+      input(type=type, placeholder=placeholder).text-field__input.text-field__input--focus.text-field__input--hover
+  else if (hoverInput && focusInput)
+    block text-field-input-focus
+    .text-field
+      input(type=type, placeholder=placeholder).text-field__input.text-field__input--focus.text-field__input--hover
+
+
+
