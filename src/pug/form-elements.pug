@@ -6,12 +6,16 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Form elements
   body 
-    include ~/pages/UI-kit/logo-colorless/logo-colorless.pug
-    .form-elements-container
-      .fields-buttons-container
-        .fields-container
-          include ~/pages/UI-kit/form-elements/text-field/text-field.pug
-          +text-field(true, false, false, 'text field', 'default', 'text', 'Email')
-          +text-field(true, true, true, 'text field', 'hover / focus', 'text', 'This is pretty awesome')
-          include ~/pages/UI-kit/form-elements/dropdown/dropdown.pug
-          +dropdown('dropdown', 'Сколько гостей')
+    .form-elements
+      include ~/pages/UI-kit/logo-colorless/logo-colorless.pug
+      .form-elements-container
+        .fields-buttons-container
+          .fields-container
+            include ~/pages/UI-kit/form-elements/text-field/text-field.pug
+            .form-elements__text-field
+              +text-field(true, false, false, 'text field', 'default', 'text', 'Email')
+            .form-elements__text-field-focused
+              +text-field(true, true, true, 'text field', 'hover / focus', 'text', 'This is pretty awesome')
+            include ~/pages/UI-kit/form-elements/dropdown/dropdown.pug
+            .form-elements__dropdown
+              +dropdown('dropdown', 'Сколько гостей')

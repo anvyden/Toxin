@@ -1,7 +1,7 @@
 mixin dropdown(heading, info)
-  block dropdown-UI
-  .dropdown.dropdown__UI-margin
+  block dropdown
+  .dropdown
     span.dropdown__heading=heading 
-    button(type='button').dropdown__button=info
+    button(type='button').input.dropdown__button=info
       .dropdown__arrow
         img(src='assets/img/dropdown-arrow.png')

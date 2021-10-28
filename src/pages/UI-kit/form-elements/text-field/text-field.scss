@@ -8,45 +8,15 @@
   color: rgba(31, 32, 65, 0.5);
 }
 
-.text-field__form-elements-margin {
-  margin-bottom: 20px;
-}
-
 .text-field__description {
-  width: 100%;
   display: flex;
   justify-content: space-between;
-}
 
-.text-field__description-margin {
+  width: 100%;
   margin-bottom: 5px;
 }
 
 .text-field__heading {
   color: rgba(31, 32, 65, 1);
   font-weight: bold;
-}
-
-.text-field__input {
-  width: 100%;
-  padding: 12px 15px 12px 15px;
-
-  border: 1px solid rgba(31, 32, 65, 0.25);
-  border-radius: 4px;
-
-  font-size: 14px;
-  line-height: 18px;
-  outline: none;
-}
-
-.text-field__input--focus:focus, .text-field__input--hover:hover {
-  border: 1px solid rgba(31, 32, 65, 0.5);
-}
-
-.text-field__input--focus:focus::placeholder, .text-field__input--hover:hover::placeholder {
-  color: rgba(31, 32, 65, 0.75);
-}
-
-.text-field__input::placeholder {
-  color: rgba(31, 32, 65, 0.25);
 }
