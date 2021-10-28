@@ -5,9 +5,19 @@
   font-weight: bold;
 }
 
+.dropdown--size-s {
+  max-width: 150px;
+  width: 100%;
+}
+
+.dropdown--size-m {
+  max-width: 266px;
+  width: 100%;
+}
+
 .dropdown__heading {
   display: block;
-  
+
   margin-bottom: 5px;
 
   color: rgba(31, 32, 65, 1);
@@ -22,5 +32,8 @@
 }
 
 .dropdown__arrow {
+  display: flex;
+  align-items: center;
+  
   margin-right: 5px;
 }

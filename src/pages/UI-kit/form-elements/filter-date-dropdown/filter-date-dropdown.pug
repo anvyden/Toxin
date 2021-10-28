@@ -1,0 +1,7 @@
+mixin filter-date-dropdown(heading, info)
+ block filter-date-dropdown
+  .dropdown.dropdown--size-m.filter-date-dropdown
+    span.dropdown__heading=heading 
+    button(type='button').input.dropdown__button=info
+      .dropdown__arrow
+        img(src='assets/img/dropdown-arrow.png')

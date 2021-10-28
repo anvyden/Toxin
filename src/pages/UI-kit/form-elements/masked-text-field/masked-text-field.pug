@@ -1,0 +1,7 @@
+mixin masked-text-field(heading)
+  block masked-text-field
+    .text-field.masked-text-field
+      .text-field__description
+        span.text-field__heading=heading
+      block text-field-input-focus
+      input(type='text', placeholder='ДД.ММ.ГГГГ').input.input--focus.input--hover.text-field__input
