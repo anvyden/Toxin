@@ -32,3 +32,9 @@ html(lang="en")
             include ~/pages/UI-kit/form-elements/subscription-text-field/subscription-text-field.pug
             .form-elements__subcription-text-field 
               +subscription-text-field('subscription text field', 'Email')
+          .buttons-container
+            include ~/pages/UI-kit/form-elements/checkbox-button/checkbox-button.pug
+            .form-elements__checkbox-buttons
+              +checkbox-button(true, 'checkbox buttons', 'smoke', 'Можно курить')
+              +checkbox-button(false, '', 'pets', 'Можно с питомцами', true)
+              +checkbox-button(false, '', 'guest', 'Можно пригласить гостей (до 10 человек)', true)

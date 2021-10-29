@@ -1,5 +1,6 @@
 @import url(./text-field/text-field.scss);
 @import url(./dropdown/dropdown.scss);
+@import url(./checkbox-button/checkbox-button.scss);
 
 .form-elements-container {
   max-width: 1440px;
@@ -13,8 +14,11 @@
 .fields-container {
   display: flex;
   flex-direction: column;
+
   max-width: 320px;
   flex-basis: 33%;
+  margin-right: 126px;
+
 }
 
 .form-elements__text-field {
@@ -41,5 +45,19 @@
 }
 
 .form-elements__filter-date-dropdown {
+  margin-bottom: 40px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+
+  max-width: 260px;
+  flex-basis: 33%;
+}
+
+.form-elements__checkbox-buttons {
   margin-bottom: 40px;
 }

@@ -1,0 +1,28 @@
+.checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.checkbox:checked ~ .label::before {
+  background: url('./checkbox-checked.svg') no-repeat center;
+  border-color: #BC9CFF;
+}
+
+.checkbox-button__heading {
+  display: block;
+  margin-bottom: 16px;
+
+  font-size: 12px;
+  line-height: 15px;
+  color: #1F2041;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.checkbox-button__container {
+  margin-bottom: 10px;
+}
