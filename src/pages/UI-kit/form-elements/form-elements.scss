@@ -1,6 +1,7 @@
 @import url(./text-field/text-field.scss);
 @import url(./dropdown/dropdown.scss);
 @import url(./checkbox-button/checkbox-button.scss);
+@import url(./radio-button/radio-button.scss);
 
 .form-elements-container {
   max-width: 1440px;
@@ -59,5 +60,9 @@
 }
 
 .form-elements__checkbox-buttons {
+  margin-bottom: 40px;
+}
+
+.form-elements__radio-buttons {
   margin-bottom: 40px;
 }

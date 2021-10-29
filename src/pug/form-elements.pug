@@ -38,3 +38,6 @@ html(lang="en")
               +checkbox-button(true, 'checkbox buttons', 'smoke', 'Можно курить')
               +checkbox-button(false, '', 'pets', 'Можно с питомцами', true)
               +checkbox-button(false, '', 'guest', 'Можно пригласить гостей (до 10 человек)', true)
+            include ~/pages/UI-kit/form-elements/radio-button/radio-button.pug
+            .form-elements__radio-buttons
+              +radio-button(true, 'man', 'Мужчина', 'Мужчина', 'woman', 'Женщина', 'Женщина', 'radio buttons')
