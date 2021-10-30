@@ -1,0 +1,16 @@
+mixin toggle-button(hasHeading, heading, id, labelInfo, checked, name)
+  if (hasHeading)
+    block toggle-button 
+    .toggle-button
+      span.toggle-button__heading=heading
+      .toggle-button__group.toggle-button__group-margin
+        input(type='checkbox', name=name, id=id, checked).toggle
+        label(for=id).label-toggle
+          span.label-toggle__text=labelInfo
+  else 
+    block toggle-button 
+    .toggle-button
+      .toggle-button__group
+        input(type='checkbox', name=name, id=id).toggle
+        label(for=id).label-toggle
+          span.label-toggle__text=labelInfo

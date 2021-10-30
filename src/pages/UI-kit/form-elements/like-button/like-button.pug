@@ -1,0 +1,6 @@
+mixin like-button(name, likes)
+  block like-button
+  .like-button 
+    button(name=name, value='like').like
+      img(src='assets/img/like-button-disabled.svg').like__img
+      span.like__counter=likes

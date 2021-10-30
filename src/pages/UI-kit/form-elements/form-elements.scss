@@ -2,6 +2,8 @@
 @import url(./dropdown/dropdown.scss);
 @import url(./checkbox-button/checkbox-button.scss);
 @import url(./radio-button/radio-button.scss);
+@import url(./toggle-button/toggle-button.scss);
+@import url(./like-button/like-button.scss);
 
 .form-elements-container {
   max-width: 1440px;
@@ -65,4 +67,27 @@
 
 .form-elements__radio-buttons {
   margin-bottom: 40px;
+}
+
+.form-elements__toggle-buttons {
+  margin-bottom: 40px;
+}
+
+.form-elements__like-buttons-heading {
+  display: block;
+  margin-bottom: 16px;
+
+  font-size: 12px;
+  line-height: 15px;
+  color: #1F2041;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.form-elements__like-buttons-group {
+  display: flex;
+}
+
+.form-elements__like-buttons-group > .like-button:first-child {
+  margin-right: 10px;
 }

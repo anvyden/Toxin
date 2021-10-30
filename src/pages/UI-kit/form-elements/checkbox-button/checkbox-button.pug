@@ -5,19 +5,19 @@ mixin checkbox-button(hasHeading, heading, id, labelInfo, checked, name)
       span.checkbox-button__heading=heading
       .checkbox-button__container
         input(type='checkbox', name=name, id=id).checkbox
-        label(for=id).label
-          span.label__text=labelInfo
+        label(for=id).label-checkbox
+          span.label-checkbox__text=labelInfo
   else if (!hasHeading && checked)
     block checkbox-button
     .checkbox-button
       .checkbox-button__container
         input(type='checkbox', name=name, id=id, checked).checkbox
-        label(for=id).label
-          span.label__text=labelInfo
+        label(for=id).label-checkbox
+          span.label-checkbox__text=labelInfo
   else
     block checkbox-button
     .checkbox-button
       .checkbox-button__container
         input(type='checkbox', name=name, id=id).checkbox
-        label(for=id).label
-          span.label__text=labelInfo
+        label(for=id).label-checkbox
+          span.label-checkbox__text=labelInfo

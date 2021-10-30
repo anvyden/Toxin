@@ -41,3 +41,13 @@ html(lang="en")
             include ~/pages/UI-kit/form-elements/radio-button/radio-button.pug
             .form-elements__radio-buttons
               +radio-button(true, 'man', 'Мужчина', 'Мужчина', 'woman', 'Женщина', 'Женщина', 'radio buttons')
+            include ~/pages/UI-kit/form-elements/toggle-button/toggle-button.pug
+            .form-elements__toggle-buttons 
+              +toggle-button(true, 'toggle', 'specialOfferEnabled', 'Получать спецпредложения', checked)
+              +toggle-button(false, '', 'specialOfferDisabled', 'Получать спецпредложения')
+            include ~/pages/UI-kit/form-elements/like-button/like-button.pug
+            .form-elements__like-buttons
+              span.form-elements__like-buttons-heading='like button'
+              .form-elements__like-buttons-group
+                +like-button('like', 2)
+                +like-button('likeEnabled', 12)
