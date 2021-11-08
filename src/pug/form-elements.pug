@@ -50,4 +50,10 @@ html(lang="en")
               span.form-elements__like-buttons-heading='like button'
               .form-elements__like-buttons-group
                 +like-button('like', 2)
-                +like-button('likeEnabled', 12)
+                +like-button('likeEnabled', 12, true)
+            include ~/pages/UI-kit/form-elements/rate-button/rate-button.pug
+            .form-elements__rate-button
+              span.form-elements__rate-button-heading='rate button'
+              .form-elements__rate-button-group
+                +rate-button('first-raiting', true)
+                +rate-button('second-raiting')

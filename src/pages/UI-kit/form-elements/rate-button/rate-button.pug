@@ -1,0 +1,19 @@
+mixin rate-button(name, fourStars)
+  if (fourStars)
+    block rate-button
+    .rate-button
+      .rate-button__group
+        input(type='radio', name=name, value='1' aria-label='одна звезда').rate-button__star
+        input(type='radio', name=name, value='2' aria-label='две звезды').rate-button__star
+        input(type='radio', name=name, value='3' aria-label='три звезды').rate-button__star
+        input(type='radio', name=name, value='4' aria-label='четыре звезды', checked).rate-button__star
+        input(type='radio', name=name, value='5' aria-label='пять звезд').rate-button__star
+  else 
+    block rate-button
+    .rate-button
+      .rate-button__group
+        input(type='radio', name=name, value='1' aria-label='одна звезда').rate-button__star
+        input(type='radio', name=name, value='2' aria-label='две звезды').rate-button__star
+        input(type='radio', name=name, value='3' aria-label='три звезды').rate-button__star
+        input(type='radio', name=name, value='4' aria-label='четыре звезды').rate-button__star
+        input(type='radio', name=name, value='5' aria-label='пять звезд', checked).rate-button__star

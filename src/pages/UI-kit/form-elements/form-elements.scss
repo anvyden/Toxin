@@ -4,6 +4,7 @@
 @import url(./radio-button/radio-button.scss);
 @import url(./toggle-button/toggle-button.scss);
 @import url(./like-button/like-button.scss);
+@import url(./rate-button/rate-button.scss);
 
 .form-elements-container {
   max-width: 1440px;
@@ -90,4 +91,24 @@
 
 .form-elements__like-buttons-group > .like-button:first-child {
   margin-right: 10px;
+}
+
+.form-elements__like-buttons {
+  margin-bottom: 40px;
+}
+
+.form-elements__rate-button-heading {
+  display: block;
+  margin-bottom: 16px;
+
+  font-size: 12px;
+  line-height: 15px;
+  color: #1F2041;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.form-elements__rate-button-group {
+  display: flex;
+  justify-content: space-between;
 }
