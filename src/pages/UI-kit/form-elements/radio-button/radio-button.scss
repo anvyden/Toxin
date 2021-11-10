@@ -1,4 +1,8 @@
-.label-radio {
+.radio-button {
+  display: flex;
+}
+
+.radio-button__label {
   display: flex;
   
   max-width: 98px;
@@ -9,7 +13,7 @@
   color: rgba(31, 32, 65, 0.75);
 }
 
-.label-radio::before {
+.radio-button__label::before {
   flex-shrink: 0;
   content: '';
   width: 18px;
@@ -19,7 +23,7 @@
   margin-right: 10px;
 }
 
-.radio {
+.radio-button__input {
   position: absolute;
   top: 0;
   left: 0;
@@ -28,24 +32,9 @@
   visibility: hidden;
 }
 
-.radio:checked ~ .label-radio::before {
+.radio-button__input:checked ~ .radio-button__label::before {
   background: url(./radio-checked.svg) no-repeat center;
   border-color: #BC9CFF;
-}
-
-.radio-button__heading {
-  display: block;
-  margin-bottom: 16px;
-
-  font-size: 12px;
-  line-height: 15px;
-  color: #1F2041;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.radio-button__container {
-  display: flex;
 }
 
 .radio-button__group:first-child {

@@ -1,23 +1,15 @@
-mixin checkbox-button(hasHeading, heading, id, labelInfo, checked, name)
-  if (hasHeading)
-    block checkbox-button
-    .checkbox-button
-      span.checkbox-button__heading=heading
-      .checkbox-button__container
-        input(type='checkbox', name=name, id=id).checkbox
-        label(for=id).label-checkbox
-          span.label-checkbox__text=labelInfo
-  else if (!hasHeading && checked)
+mixin checkbox-button(id, labelInfo, checked, name)
+  if (checked)
     block checkbox-button
     .checkbox-button
       .checkbox-button__container
-        input(type='checkbox', name=name, id=id, checked).checkbox
-        label(for=id).label-checkbox
+        input(type='checkbox', name=name, id=id, checked).checkbox-button__input
+        label(for=id).checkbox-button__label
           span.label-checkbox__text=labelInfo
   else
     block checkbox-button
     .checkbox-button
       .checkbox-button__container
-        input(type='checkbox', name=name, id=id).checkbox
-        label(for=id).label-checkbox
+        input(type='checkbox', name=name, id=id).checkbox-button__input
+        label(for=id).checkbox-button__label
           span.label-checkbox__text=labelInfo

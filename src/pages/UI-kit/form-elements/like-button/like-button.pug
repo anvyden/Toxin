@@ -1,13 +1,13 @@
 mixin like-button(name, likes, likeActive)
   if (likeActive)
     block like-button
-    .like-button 
-      button(name=name, value='like').like.like--active
-        img(src='assets/img/like-button-enabled.svg').like__img
-        span.like__counter=likes
+    .like-button
+      button(name=name, value='like').like-button__button.like-button__button--active
+        img(src='assets/img/like-button-enabled.svg').like-button__img
+        span.like-button__counter=likes
   else
     block like-button
     .like-button 
-      button(name=name, value='like').like
-        img(src='assets/img/like-button-disabled.svg').like__img
-        span.like__counter=likes
+      button(name=name, value='like').like-button__button
+        img(src='assets/img/like-button-disabled.svg').like-button__img
+        span.like-button__counter=likes

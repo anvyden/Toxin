@@ -7,7 +7,7 @@
   background-repeat: repeat-x;
 }
 
-.rate-button__star {
+.rate-button__input {
   position: absolute;
   top: 0;
   left: 0;
@@ -19,36 +19,36 @@
   cursor: pointer;
 }
 
-.rate-button__star:checked,
-.rate-button__star:hover { 
+.rate-button__input:checked,
+.rate-button__input:hover { 
   background-image: url(./star-checked.svg);
 }
 
-.rate-button__star:hover ~ .rate-button__star {
+.rate-button__input:hover ~ .rate-button__input {
   background-image: none;
 }
 
-.rate-button__star:nth-of-type(1) {
+.rate-button__input:nth-of-type(1) {
   z-index: 5;
   width: 24px;
 }
 
-.rate-button__star:nth-of-type(2) {
+.rate-button__input:nth-of-type(2) {
   z-index: 4;
   width: 48px;
 }
 
-.rate-button__star:nth-of-type(3) {
+.rate-button__input:nth-of-type(3) {
   z-index: 3;
   width: 72px;
 }
 
-.rate-button__star:nth-of-type(4) {
+.rate-button__input:nth-of-type(4) {
   z-index: 2;
   width: 96px;
 }
 
-.rate-button__star:nth-of-type(5) {
+.rate-button__input:nth-of-type(5) {
   z-index: 1;
   width: 120px;
 }

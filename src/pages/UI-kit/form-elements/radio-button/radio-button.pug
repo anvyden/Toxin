@@ -1,25 +1,20 @@
-mixin radio-button(hasHeading, firstId, firstValue, firstLabelInfo, secondId, secondValue, secondLabelInfo, heading)
-  if (hasHeading)
+mixin radio-button(firstId, firstValue, firstLabelInfo, secondId, secondValue, secondLabelInfo, checked)
+  if (checked)
     block radio-button
     .radio-button 
-      span.radio-button__heading=heading
-      .radio-button__container 
-        .radio-button__group
-          input(type='radio', name='sex', id=firstId, value=firstValue, checked).radio
-          label(for=firstId).label-radio
-            span.label-radio__text=firstLabelInfo
-        .radio-button__group
-          input(type='radio', name='sex', id=secondId, value=secondValue).radio
-          label(for=secondId).label-radio
-            span.label-radio__text=secondLabelInfo
+      .radio-button__group
+        input(type='radio', name='sex', id=firstId, value=firstValue, checked).radio-button__input
+        label(for=firstId).radio-button__label=firstLabelInfo
+      .radio-button__group
+        input(type='radio', name='sex', id=secondId, value=secondValue).radio-button__input
+        label(for=secondId).radio-button__label=secondLabelInfo
   else 
     block radio-button
     .radio-button 
-      .radio-button__container 
-        input(type='radio', name='sex', id=firstId, value=firstValue).radio
-        label(for=id).label-radio.radio-button__label-radio
-          span.label-radio__text=firstLabelInfo
-        input(type='radio', name='sex', id=secondId, value=secondValue).radio
-        label(for=id).label-radio
-          span.label-radio__text=secondLabelInfo
+      .radio-button__group 
+        input(type='radio', name='sex', id=firstId, value=firstValue).radio-button__input
+        label(for=firstId).radio-button__label=firstLabelInfo
+      .radio-button__group 
+        input(type='radio', name='sex', id=secondId, value=secondValue).radio-button__input
+        label(for=secondId).radio-button__label=secondLabelInfo
       

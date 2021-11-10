@@ -8,14 +8,14 @@ $(document).ready(function (){
   // give function for like-button image id
   $(function giveLikeBtnsImageId(){
     let idNumber = 1;
-    $('.like__img').each(function(){
+    $('.like-button__img').each(function(){
       $(this).attr('id', `likeImg-${idNumber}`);
       idNumber++;
     })
   });
   
   // toggle function for like-buttons через addEventListener
-  const likeBtns = document.querySelectorAll('.like')
+  const likeBtns = document.querySelectorAll('.like-button__button')
   likeBtns.forEach(likeBtn => {
     likeBtn.addEventListener('click', e => {
 
@@ -23,8 +23,8 @@ $(document).ready(function (){
       let imgId = $(currentTarget).children('img').attr('id');
       let likeCounter = $(currentTarget).children('span').html();
 
-      $(currentTarget).toggleClass('like--active');
-      if ($(currentTarget).hasClass('like--active')){
+      $(currentTarget).toggleClass('like-button__button--active');
+      if ($(currentTarget).hasClass('like-button__button--active')){
         likeCounter++;
         $(`#${imgId}`).attr('src', 'assets/img/like-button-enabled.svg');
         $(currentTarget).children('span').html(likeCounter);

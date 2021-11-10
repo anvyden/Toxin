@@ -62,12 +62,49 @@
   flex-basis: 33%;
 }
 
+.form-elements__checkbox-buttons-heading {
+  display: block;
+  margin-bottom: 16px;
+
+  font-size: 12px;
+  line-height: 15px;
+  color: #1F2041;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 .form-elements__checkbox-buttons {
   margin-bottom: 40px;
 }
 
+.form-elements__radio-button-heading {
+  display: block;
+  margin-bottom: 16px;
+
+  font-size: 12px;
+  line-height: 15px;
+  color: #1F2041;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 .form-elements__radio-buttons {
   margin-bottom: 40px;
+}
+
+.form-elements__toggle-buttons-heading {
+  display: block;
+  margin-bottom: 16px;
+
+  font-size: 12px;
+  line-height: 15px;
+  color: #1F2041;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.form-elements__toggle-buttons-group > .toggle-button:first-child {
+  margin-bottom: 14px;
 }
 
 .form-elements__toggle-buttons {

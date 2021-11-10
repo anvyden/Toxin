@@ -1,4 +1,4 @@
-.toggle {
+.toggle-button__input {
   position: absolute;
   top: 0;
   left: 0;
@@ -7,27 +7,12 @@
   visibility: hidden;
 }
 
-.toggle:checked ~ .label-toggle::before {
+.toggle-button__input:checked ~ .toggle-button__label::before {
   background: url('../radio-button/radio-checked.svg') no-repeat 24px;
   border-color: #BC9CFF;
 }
 
-.toggle-button__heading {
-  display: block;
-  margin-bottom: 16px;
-
-  font-size: 12px;
-  line-height: 15px;
-  color: #1F2041;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.toggle-button__group-margin {
-  margin-bottom: 14px;
-}
-
-.label-toggle {
+.toggle-button__label {
   display: flex;
   
   max-width: 260px;
@@ -38,7 +23,7 @@
   color: rgba(31, 32, 65, 0.75);
 }
 
-.label-toggle::before {
+.toggle-button__label::before {
   flex-shrink: 0;
   content: '';
   width: 40px;
