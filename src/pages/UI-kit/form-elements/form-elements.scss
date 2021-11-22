@@ -1,5 +1,6 @@
 @import url(./text-field/text-field.scss);
 @import url(./dropdown/dropdown.scss);
+@import url(./subscription-text-field/subscription-text-field.scss);
 @import url(./checkbox-button/checkbox-button.scss);
 @import url(./radio-button/radio-button.scss);
 @import url(./toggle-button/toggle-button.scss);
@@ -50,6 +51,17 @@
 
 .form-elements__filter-date-dropdown {
   margin-bottom: 40px;
+}
+
+.form-elements__subscription-text-field-heading {
+  display: block;
+  margin-bottom: 5px;
+  
+  font-size: 12px;
+  line-height: 15px;
+  color: #1F2041;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .buttons-container {

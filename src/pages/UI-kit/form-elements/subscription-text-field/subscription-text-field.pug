@@ -1,7 +1,6 @@
-mixin subscription-text-field(heading, info)
+mixin subscription-text-field()
  block subscription-text-field
-  .dropdown.dropdown--size-m.subscription-text-field
-    span.dropdown__heading=heading 
-    button(type='button').input.dropdown__button=info
-      .dropdown__arrow
-        img(src='assets/img/subscription-text-field-arrow.png')
+  .subscription-text-field
+    input(type='text', placeholder='Email').subscription-text-field__input
+    button(type='sumbit').subscription-text-field__button
+      img(src='assets/img/subscription-text-field-arrow.png')

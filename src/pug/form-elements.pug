@@ -30,8 +30,9 @@ html(lang="en")
             .form-elements__filter-date-dropdown 
               +filter-date-dropdown('filter date dropdown', '19 авг - 23 авг')
             include ~/pages/UI-kit/form-elements/subscription-text-field/subscription-text-field.pug
-            .form-elements__subcription-text-field 
-              +subscription-text-field('subscription text field', 'Email')
+            .form-elements__subcription-text-field
+              span.form-elements__subscription-text-field-heading='subscription text field' 
+              +subscription-text-field()
           .buttons-container
             include ~/pages/UI-kit/form-elements/checkbox-button/checkbox-button.pug
             .form-elements__checkbox-buttons
