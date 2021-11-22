@@ -30,6 +30,24 @@
   margin-bottom: 20px;
 }
 
+.form-elements__text-field-description {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  margin-bottom: 5px;
+
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: rgba(31, 32, 65, 0.5);
+}
+
+.form-elements__text-field-heading {
+  color: rgba(31, 32, 65, 1);
+  font-weight: bold;
+}
+
 .form-elements__text-field-focused {
   margin-bottom: 20px;
 }

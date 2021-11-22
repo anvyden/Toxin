@@ -1,24 +1,11 @@
-mixin text-field(hasDescription, hoverInput, focusInput, heading, state, type, placeholder)
-  if (hasDescription && !hoverInput && !focusInput)
-    block text-field 
+mixin text-field(type, placeholder, defaultState)
+  if (defaultState)
+    block text-field
     .text-field
-      .text-field__description
-        span.text-field__heading=heading
-        span.text-field__state=state 
-      block text-field-input
-      input(type=type, placeholder=placeholder).input.text-field__input
-  else if (hasDescription)
-    block text-field-focus
+      input(type=type, placeholder=placeholder).input
+  else
+    block text-field
     .text-field
-      .text-field__description
-        span.text-field__heading=heading
-        span.text-field__state=state 
-      block text-field-input-focus
-      input(type=type, placeholder=placeholder).input.input--focus.input--hover.text-field__input
-  else if (hoverInput && focusInput)
-    block text-field-input-focus
-    .text-field
-      input(type=type, placeholder=placeholder).input.input--focus.input--hover.text-field__input
-
+      input(type=type, placeholder=placeholder).input.input--focus.input--hover
 
 

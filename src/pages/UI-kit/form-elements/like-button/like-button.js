@@ -2,17 +2,16 @@ import * as $ from 'jquery'
 import './like-button-disabled.svg'
 import './like-button-enabled.svg'
 
-$(document).ready(function (){
-
-
   // give function for like-button image id
-  $(function giveLikeBtnsImageId(){
+  function giveLikeBtnsImageId(){
     let idNumber = 1;
     $('.like-button__img').each(function(){
       $(this).attr('id', `likeImg-${idNumber}`);
       idNumber++;
     })
-  });
+  }
+
+  giveLikeBtnsImageId();
   
   // toggle function for like-buttons через addEventListener
   const likeBtns = document.querySelectorAll('.like-button__button')
@@ -51,5 +50,3 @@ $(document).ready(function (){
   //     }
   //   })
   // })
-
-});
