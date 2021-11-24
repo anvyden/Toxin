@@ -1,13 +1,8 @@
 @import '~normalize.css';
-@import url(./variables.scss);
-@import url(./reset.scss);
 @import url(./montserrat.scss);
+@import url(./settings.scss);
+@import url(./variables.scss);
 @import url(./interface.scss);
 @import url(~/pages/UI-kit/logo-colorless/logo-colorless.scss);
 @import url(~/pages/UI-kit/colors-type/colors-type.scss);
 @import url(~/pages/UI-kit/form-elements/form-elements.scss);
-
-// Нужно вынести в отдельный файл настройки и подключить после нормалайза.
-body {
-  font-family: 'Montserrat', sans-serif;
-}

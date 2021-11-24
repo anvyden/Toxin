@@ -1,12 +1,12 @@
 mixin type(typeModifier, fontContent, fontDescriptionClass, fontDescription, last)
   if (last)
     div(class=typeModifier).type
-      p.type__font.type--dark-shade-25=fontContent
-      p(class=fontDescriptionClass).type--dark-shade-75=fontDescription
+      p.type__font=fontContent
+      p(class=fontDescriptionClass)=fontDescription
   else
     div(class=typeModifier).type.type__margin.type--dark-shade-100
-      p.type__font.type--dark-shade-25=fontContent
-      p(class=fontDescriptionClass).type__font-description=fontDescription
+      p.type__font=fontContent
+      p(class=fontDescriptionClass)=fontDescription
 
 //- block type 
 //- +type('type-H1', 'H1', 'type-H1__description', 'This one is the sub-section or widget title')

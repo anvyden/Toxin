@@ -9,11 +9,10 @@
 .type__font {
   width: 37px;
   margin-right: 30px;
-  text-align: right;
-}
 
-.type__font-description {
-  font-weight: 700;
+  text-align: right;
+  font-weight: normal;
+  color: $darkShade25;
 }
 
 .type--dark-shade-100 {
@@ -28,36 +27,38 @@
   color: rgba(31, 32, 65, 0.25);
 }
 
-.type-H1 {
+.h1 {
   font-size: 24px;
-  line-height: 29px;
+  font-weight: 700;
+  line-height: 29.3px;
+  letter-spacing: 0.25px;
+  word-spacing: 1.3px;
 }
 
-.type-H1__description {
+.type__h1-text {
   max-width: 370px;
 }
 
-.type-H2 {
+.h2 {
   font-size: 19px;
-  line-height: 23px;
+  font-weight: 700;
+  line-height: 23.3px;
+  word-spacing: 1.5px;
 }
 
-.type-H2__description {
+.type__h2-text {
   max-width: 312px;
 }
 
-.type-H3 {
+.h3 {
   font-size: 12px;
+  font-weight: 700;
   line-height: 15px;
   text-transform: uppercase;
+  word-spacing: 0.9px;
 }
 
-.type-body {
-  font-size: 14px;
-  line-height: 24px;
-}
-
-.type-body__description {
+.type__body-text {
   max-width: 301px;
 }
 
