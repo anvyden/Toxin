@@ -8,7 +8,7 @@
 }
 
 .checkbox-button__input:checked ~ .checkbox-button__label::before {
-  background: url('./checkbox-checked.svg') no-repeat center;
+  background: url('~/pages/UI-kit/form-elements/checkbox-button/checkbox-checked.svg') no-repeat center;
   border-color: #BC9CFF;
 }
 

@@ -1,8 +1,8 @@
 @import '~normalize.css';
-@import url(./montserrat.scss);
-@import url(./settings.scss);
-@import url(./variables.scss);
-@import url(./interface.scss);
-@import url(~/pages/UI-kit/logo-colorless/logo-colorless.scss);
-@import url(~/pages/UI-kit/colors-type/colors-type.scss);
-@import url(~/pages/UI-kit/form-elements/form-elements.scss);
+@import 'montserrat';
+@import 'variables';
+@import 'settings';
+@import 'interface';
+@import '~/pages/UI-kit/logo-colorless/logo-colorless';
+@import '~/pages/UI-kit/colors-type/colors-type';
+@import '~/pages/UI-kit/form-elements/form-elements';

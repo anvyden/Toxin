@@ -1,11 +1,11 @@
-@import url(./text-field/text-field.scss);
-@import url(./dropdown/dropdown.scss);
-@import url(./subscription-text-field/subscription-text-field.scss);
-@import url(./checkbox-button/checkbox-button.scss);
-@import url(./radio-button/radio-button.scss);
-@import url(./toggle-button/toggle-button.scss);
-@import url(./like-button/like-button.scss);
-@import url(./rate-button/rate-button.scss);
+@import './text-field/text-field';
+@import './dropdown/dropdown';
+@import './subscription-text-field/subscription-text-field';
+@import './checkbox-button/checkbox-button.scss';
+@import './radio-button/radio-button';
+@import './toggle-button/toggle-button';
+@import './like-button/like-button';
+@import './rate-button/rate-button';
 
 .form-elements-container {
   max-width: 1440px;
