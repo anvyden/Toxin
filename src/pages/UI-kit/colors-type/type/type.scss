@@ -6,25 +6,17 @@
   margin-bottom: 50.5px;
 }
 
+.type__margin:last-child {
+  margin-bottom: 0;
+}
+
 .type__font {
   width: 37px;
   margin-right: 30px;
 
   text-align: right;
   font-weight: normal;
-  color: $darkShade75;
-}
-
-.type--dark-shade-100 {
-  color: rgba(31, 32, 65, 1);
-}
-
-.type--dark-shade-75 {
-  color: rgba(31, 32, 65, 0.75);
-}
-
-.type--dark-shade-25 {
-  color: rgba(31, 32, 65, 0.25);
+  color: $darkShade25;
 }
 
 .h1 {
@@ -33,6 +25,7 @@
   line-height: 29.3px;
   letter-spacing: 0.25px;
   word-spacing: 1.3px;
+  color: $darkShade100;
 }
 
 .type__h1-text {
@@ -44,6 +37,7 @@
   font-weight: 700;
   line-height: 23.3px;
   word-spacing: 1.5px;
+  color: $darkShade100;
 }
 
 .type__h2-text {
@@ -56,6 +50,7 @@
   line-height: 15px;
   text-transform: uppercase;
   word-spacing: 0.9px;
+  color: $darkShade100;
 }
 
 .type__body-text {

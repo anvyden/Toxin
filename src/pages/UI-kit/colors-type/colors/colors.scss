@@ -1,15 +1,22 @@
 .color {
   display: flex;
   align-items: center;
+
+  color: $darkShade100;
 }
 
 .color__margin {
   margin-bottom: 20px;
 }
 
+.color__margin:last-child {
+  margin-bottom: 0px;
+}
+
 .color__img {
   width: 70px;
   height: 70px;
+  
   margin-right: 40px;
   border-radius: 6px;
 }
@@ -21,34 +28,33 @@
 }
 
 .color__name {
-  color: #1F2041;
   font-weight: bold;
 }
 
 .color__dark-shade-100 {
-  background-color: rgba(31, 32, 65, 1);
+  background-color: $darkShade100;
 }
 
 .color__dark-shade-75 {
-  background-color: rgba(31, 32, 65, 0.75);
+  background-color: $darkShade75;
 }
 
 .color__dark-shade-50 {
-  background-color: rgba(31, 32, 65, 0.5);
+  background-color: $darkShade50;
 }
 
 .color__dark-shade-25 {
-  background-color: rgba(31, 32, 65, 0.25);
+  background-color: $darkShade25;
 }
 
 .color__dark-shade-5 {
-  background-color: rgba(31, 32, 65, 0.05);
+  background-color: $darkShade5;
 }
 
 .color__purple {
-  background-color: #BC9CFF;
+  background-color: $purple;
 }
 
 .color__green {
-  background-color: #6FCF97;
+  background-color: $green;
 }

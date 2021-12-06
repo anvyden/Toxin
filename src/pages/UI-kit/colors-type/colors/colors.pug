@@ -1,19 +1,17 @@
-- var colorsArray = [{color: 'color__dark-shade-100', name: 'Dark Shade 100%', hex: '#1F2041'}, {color: 'color__dark-shade-75', name: 'Dark Shade 75%', hex: '#1F2041'}, {color: 'color__dark-shade-50', name: 'Dark Shade 50%', hex: '#1F2041'}, {color: 'color__dark-shade-25', name: 'Dark Shade 25%', hex: '#1F2041'}, {color: 'color__dark-shade-5', name: 'Dark Shade 5%', hex: '#1F2041'}, {color: 'color__purple', name: 'Purple', hex: '#BC9CFF'}, {color: 'color__green', name: 'Green', hex: '#6FCF97', last: true},]
+- 
+  let colorsArray = [
+    {color: 'color__dark-shade-100', name: 'Dark Shade 100%', hex: '#1F2041'},
+    {color: 'color__dark-shade-75', name: 'Dark Shade 75%', hex: '#1F2041'}, 
+    {color: 'color__dark-shade-50', name: 'Dark Shade 50%', hex: '#1F2041'}, 
+    {color: 'color__dark-shade-25', name: 'Dark Shade 25%', hex: '#1F2041'}, 
+    {color: 'color__dark-shade-5', name: 'Dark Shade 5%', hex: '#1F2041'},
+    {color: 'color__purple', name: 'Purple', hex: '#BC9CFF'}, 
+    {color: 'color__green', name: 'Green', hex: '#6FCF97'}
+    ]
 
-mixin colors(colorImg, colorName, colorHex, last)
-  if (last)
-    .color
-      div.color__img(class=colorImg)
-      .color__description
-        p.color__name=colorName
-        p.color__hex=colorHex
-  else
-    .color.color__margin
-      div.color__img(class=colorImg)
-      .color__description
-        p.color__name=colorName
-        p.color__hex=colorHex
-
-//- block primary-colors
-//-   for i in colorsArray
-//-     +colors(i.color, i.name, i.hex, i.last)
+mixin colors(colorImg, colorName, colorHex)
+  .color.color__margin
+    div.color__img(class=colorImg)
+    .color__description
+      p.color__name=colorName
+      p.color__hex=colorHex

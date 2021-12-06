@@ -1,3 +1,6 @@
+include ~/pages/UI-kit/colors-type/colors/colors
+include ~/pages/UI-kit/colors-type/type/type.pug
+
 doctype html
 html(lang="en")
   head
@@ -6,17 +9,21 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title UI-kit
   body
-    include ~/pages/UI-kit/logo-colorless/logo-colorless.pug
+
+    //- Добавление лого
+    include ~/pages/UI-kit/logo-colorless/logo-colorless
+
+    //- Общий контейнер
     .colors-type-container
+
+      //- блок colors
       .colors-container
-        include ~/pages/UI-kit/colors-type/colors/colors.pug
-        block primary-colors
-        for i in colorsArray
-          +colors(i.color, i.name, i.hex, i.last)
+        each color in colorsArray
+          +colors(color.color, color.name, color.hex)
+
+      //- Блок type
       .type-container
-        include ~/pages/UI-kit/colors-type/type/type.pug
-        block type 
         +type('h1', 'H1', 'type__h1-text', 'This one is the sub-section or widget title')
         +type('h2', 'H2', 'type__h2-text', 'Next one is the item title inside widgets')
         +type('h3', 'H3', 'type__h3-text', 'This is a label or CTA text')
-        +type('body-text', 'Body', 'type__body-text', 'This is the body text which is used for most of the design, like paragraphs, lists, etc.', true)
+        +type('body-text', 'Body', 'type__body-text', 'This is the body text which is used for most of the design, like paragraphs, lists, etc.')
