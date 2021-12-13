@@ -1,11 +1,15 @@
-mixin text-field(type, placeholder, defaultState)
-  if (defaultState)
-    block text-field
+-
+  let textFieldSettings = [
+    {type: 'text', placeholder: 'Email', defaultState: 'true'},
+    {type: 'text', placeholder: 'Email'}
+  ]
+
+mixin textField(textFieldSettings)
+  if (textFieldSettings.defaultState)
     .text-field
-      input(type=type, placeholder=placeholder).input
+      input(type=textFieldSettings.type, placeholder=textFieldSettings.placeholder).input
   else
-    block text-field
     .text-field
-      input(type=type, placeholder=placeholder).input.input--focus.input--hover
+      input(type=textFieldSettings.type, placeholder=textFieldSettings.placeholder).input.input--focus.input--hover
 
 

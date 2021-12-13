@@ -1,10 +1,12 @@
-mixin type(typeModifier, fontContent, fontDescriptionClass, fontDescription, last)
-  div(class=typeModifier).type.type__margin
-    p.type__font=fontContent
-    p(class=fontDescriptionClass)=fontDescription
+- 
+  let typeInfo = [
+    {typeClass: 'h1', typeContent: 'H1', typeDescriptionClass: 'type__h1-text', typeDescription: 'This one is the sub-section or widget title'},
+    {typeClass: 'h2', typeContent: 'H2', typeDescriptionClass: 'type__h2-text', typeDescription: 'Next one is the item title inside widgets'},
+    {typeClass: 'h3', typeContent: 'H3', typeDescriptionClass: 'type__h3-text', typeDescription: 'This is a label or CTA text'},
+    {typeClass: 'body-type', typeContent: 'Body', typeDescriptionClass: 'type__body-text', typeDescription: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.'}
+    ]
 
-//- block type 
-//- +type('type-H1', 'H1', 'type-H1__description', 'This one is the sub-section or widget title')
-//- +type('type-H2', 'H2', 'type-H2__description', 'Next one is the item title inside widgets')
-//- +type('type-H3', 'H3', 'type-H3__description', 'This is a label or CTA text')
-//- +type('type-body', 'Body', 'type-body__description', 'This is the body text which is used for most of the design, like paragraphs, lists, etc.', true)
+mixin type(typeClass, typeContent, typeDescriptionClass, typeDescription)
+  div(class=typeClass).type.types__type-margin
+    p.type__font=typeContent
+    p(class=typeDescriptionClass)=typeDescription

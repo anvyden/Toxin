@@ -1,5 +1,5 @@
 include ~/pages/UI-kit/colors-type/colors/colors
-include ~/pages/UI-kit/colors-type/type/type.pug
+include ~/pages/UI-kit/colors-type/type/type
 
 doctype html
 html(lang="en")
@@ -14,16 +14,16 @@ html(lang="en")
     include ~/pages/UI-kit/logo-colorless/logo-colorless
 
     //- Общий контейнер
-    .colors-type-container
+    .colors-types-container
 
       //- блок colors
-      .colors-container
-        each color in colorsArray
-          +colors(color.color, color.name, color.hex)
+      .colors
+        .colors-container
+          each color in colorsArray
+            +colors(color.colorClass, color.colorName, color.hex)
 
-      //- Блок type
-      .type-container
-        +type('h1', 'H1', 'type__h1-text', 'This one is the sub-section or widget title')
-        +type('h2', 'H2', 'type__h2-text', 'Next one is the item title inside widgets')
-        +type('h3', 'H3', 'type__h3-text', 'This is a label or CTA text')
-        +type('body-text', 'Body', 'type__body-text', 'This is the body text which is used for most of the design, like paragraphs, lists, etc.')
+      //- Блок types
+      .types
+        .types-container
+          each type in typeInfo
+            +type(type.typeClass, type.typeContent, type.typeDescriptionClass, type.typeDescription)

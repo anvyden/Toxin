@@ -166,7 +166,7 @@ module.exports = {
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'colors-type.html'
+    index: 'form-elements.html'
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),

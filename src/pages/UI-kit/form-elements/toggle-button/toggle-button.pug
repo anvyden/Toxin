@@ -1,11 +1,15 @@
-mixin toggle-button(id, labelInfo, checked, name)
-  if (checked)
-    block toggle-button 
+-
+  let toggleButtonSettings = [
+    {id: 'specialOfferEnabled', labelText: 'Получать спецпредложения', checked: true},
+    {id: 'specialOfferDisabled', labelText: 'Получать спецпредложения'}
+  ]
+
+mixin toggleButton(toggleButtonSettings)
+  if (toggleButtonSettings.checked)
     .toggle-button
-      input(type='checkbox', name=name, id=id, checked).toggle-button__input
-      label(for=id).toggle-button__label=labelInfo
+      input(type='checkbox', name=toggleButtonSettings.name, id=toggleButtonSettings.id, checked).toggle-button__input
+      label(for=toggleButtonSettings.id).toggle-button__label=toggleButtonSettings.labelText
   else 
-    block toggle-button
     .toggle-button
-      input(type='checkbox', name=name, id=id).toggle-button__input
-      label(for=id).toggle-button__label=labelInfo
+      input(type='checkbox', name=toggleButtonSettings.name, id=toggleButtonSettings.id).toggle-button__input
+      label(for=toggleButtonSettings.id).toggle-button__label=toggleButtonSettings.labelText

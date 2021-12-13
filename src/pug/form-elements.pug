@@ -1,5 +1,17 @@
+include ~/pages/UI-kit/form-elements/text-field/text-field
+include ~/pages/UI-kit/form-elements/dropdown/dropdown
+include ~/pages/UI-kit/form-elements/masked-text-field/masked-text-field
+include ~/pages/UI-kit/form-elements/date-dropdown/date-dropdown
+include ~/pages/UI-kit/form-elements/filter-date-dropdown/filter-date-dropdown
+include ~/pages/UI-kit/form-elements/subscription-text-field/subscription-text-field
+include ~/pages/UI-kit/form-elements/checkbox-button/checkbox-button
+include ~/pages/UI-kit/form-elements/radio-button/radio-button
+include ~/pages/UI-kit/form-elements/toggle-button/toggle-button
+include ~/pages/UI-kit/form-elements/like-button/like-button
+include ~/pages/UI-kit/form-elements/rate-button/rate-button
+
 doctype html
-html(lang="en")
+html(lang="ru")
   head
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
@@ -7,64 +19,84 @@ html(lang="en")
     title Form elements
   body 
     .form-elements
+
+      //- Лого Toxin
       include ~/pages/UI-kit/logo-colorless/logo-colorless.pug
+
+      //- containers
       .form-elements-container
         .fields-buttons-container
+
+          //- контейнер с полями
           .fields-container
-            include ~/pages/UI-kit/form-elements/text-field/text-field.pug
+
+            //- блок text-field default
             .form-elements__text-field
               .form-elements__text-field-description
                 .form-elements__text-field-heading='text field'
                 .form-elements__text-field-state='default'
-              +text-field('text', 'Email', true)
+              +textField(textFieldSettings[0])
+
+            //- блок text-field hovered and focused
             .form-elements__text-field-focused
               .form-elements__text-field-description
                 .form-elements__text-field-heading='text field'
                 .form-elements__text-field-state='hover / focus'
-              +text-field('text', 'This is pretty awesome')
-            include ~/pages/UI-kit/form-elements/dropdown/dropdown.pug
+              +textField(textFieldSettings[1])
+            
+            //- блок dropdown
             .form-elements__dropdown
-              +dropdown('dropdown', 'Сколько гостей')
-            include ~/pages/UI-kit/form-elements/masked-text-field/masked-text-field.pug
+              +dropdown(dropdownSettings[0])
+
+            //- блок masked-text-field
             .form-elements__masked-text-field 
-              +masked-text-field('masked text field')
-            include ~/pages/UI-kit/form-elements/date-dropdown/date-dropdown.pug
+              +maskedTextField(maskedTextFieldSettings[0])
+
+            //- блок date-dropdown
             .form-elements__date-dropdown
-              +date-dropdown('date dropdown', 'ДД.ММ.ГГГГ')
-              +date-dropdown('date dropdown', '19.08.2019')
-            include ~/pages/UI-kit/form-elements/filter-date-dropdown/filter-date-dropdown.pug
+              each dateDropdown in dateDropdownSettings
+                +dateDropdown(dateDropdown)
+
+            //- блок filter-date-dropdown
             .form-elements__filter-date-dropdown 
-              +filter-date-dropdown('filter date dropdown')
-            include ~/pages/UI-kit/form-elements/subscription-text-field/subscription-text-field.pug
+              +filterDateDropdown(filterDateDropdownSettings[0])
+
+            //- блок subcriptionTextField
             .form-elements__subcription-text-field
               span.form-elements__subscription-text-field-heading='subscription text field' 
-              +subscription-text-field()
+              +subscriptionTextField
+
+          //- контейнер с кнопками
           .buttons-container
-            include ~/pages/UI-kit/form-elements/checkbox-button/checkbox-button.pug
+
+            //- блок checkbox-buttons
             .form-elements__checkbox-buttons
               .form-elements__checkbox-buttons-heading='checkbox buttons'
-              +checkbox-button('smoke', 'Можно курить', false)
-              +checkbox-button('pets', 'Можно с питомцами', true)
-              +checkbox-button('guest', 'Можно пригласить гостей (до 10 человек)', true)
-            include ~/pages/UI-kit/form-elements/radio-button/radio-button.pug
+              each checkboxButton in checkboxButtonsSettings
+                +checkboxButton(checkboxButton)
+
+            //- блок radio-buttons
             .form-elements__radio-buttons
               span.form-elements__radio-button-heading='radio buttons'
-              +radio-button('man', 'Мужчина', 'Мужчина', 'woman', 'Женщина', 'Женщина', true)
-            include ~/pages/UI-kit/form-elements/toggle-button/toggle-button.pug
+              +radioButton(radioButtonSettings[0])
+
+            //- блок toggle-buttons
             .form-elements__toggle-buttons
               span.form-elements__toggle-buttons-heading='toggle'
               .form-elements__toggle-buttons-group
-                +toggle-button('specialOfferEnabled', 'Получать спецпредложения', true)
-                +toggle-button('specialOfferDisabled', 'Получать спецпредложения')
-            include ~/pages/UI-kit/form-elements/like-button/like-button.pug
+                each toggleButton in toggleButtonSettings
+                  +toggleButton(toggleButton)
+
+            //- блок like-buttons
             .form-elements__like-buttons
               span.form-elements__like-buttons-heading='like button'
               .form-elements__like-buttons-group
-                +like-button('like', 2, false)
-                +like-button('likeEnabled', 12, true)
-            include ~/pages/UI-kit/form-elements/rate-button/rate-button.pug
+                each likeButton in likeButtonSettings
+                  +likeButton(likeButton)
+            
+            //- блок rate-button
             .form-elements__rate-button
               span.form-elements__rate-button-heading='rate button'
               .form-elements__rate-button-group
-                +rate-button('first-raiting', true)
-                +rate-button('second-raiting')
+                each rateButton in rateButtonSettings
+                  +rate-button(rateButton)

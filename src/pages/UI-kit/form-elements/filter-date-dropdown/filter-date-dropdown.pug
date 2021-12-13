@@ -1,7 +1,11 @@
-mixin filter-date-dropdown(heading)
- block filter-date-dropdown
+-
+  let filterDateDropdownSettings = [
+    {heading: 'filter date dropdown'}
+  ]
+
+mixin filterDateDropdown(filterDateDropdownSettings)
   .dropdown.dropdown--size-m.filter-date-dropdown
-    span.dropdown__heading=heading 
+    span.dropdown__heading=filterDateDropdownSettings.heading 
     button(type='button').input.input--focus.input--hover.dropdown__button='19 авг - 23 авг'
       .dropdown__arrow
         img(src='assets/img/dropdown-arrow.png')

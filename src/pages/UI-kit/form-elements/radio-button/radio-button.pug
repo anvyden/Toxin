@@ -1,20 +1,14 @@
-mixin radio-button(firstId, firstValue, firstLabelInfo, secondId, secondValue, secondLabelInfo, checked)
-  if (checked)
-    block radio-button
-    .radio-button 
-      .radio-button__group
-        input(type='radio', name='sex', id=firstId, value=firstValue, checked).radio-button__input
-        label(for=firstId).radio-button__label=firstLabelInfo
-      .radio-button__group
-        input(type='radio', name='sex', id=secondId, value=secondValue).radio-button__input
-        label(for=secondId).radio-button__label=secondLabelInfo
-  else 
-    block radio-button
-    .radio-button 
-      .radio-button__group 
-        input(type='radio', name='sex', id=firstId, value=firstValue).radio-button__input
-        label(for=firstId).radio-button__label=firstLabelInfo
-      .radio-button__group 
-        input(type='radio', name='sex', id=secondId, value=secondValue).radio-button__input
-        label(for=secondId).radio-button__label=secondLabelInfo
+-
+  let radioButtonSettings = [
+    {firstId: 'man', firstValue: 'Мужчина', firstLabelText: 'Мужчина', secondId: 'woman', secondValue: 'Женщина', secondLabelText: 'Женщина'}
+  ]
+
+mixin radioButton(radioButtonSettings)
+  .radio-button 
+    .radio-button__group
+      input(type='radio', name='sex', id=radioButtonSettings.firstId, value=radioButtonSettings.firstValue, checked).radio-button__input
+      label(for=radioButtonSettings.firstId).radio-button__label=radioButtonSettings.firstLabelText
+    .radio-button__group
+      input(type='radio', name='sex', id=radioButtonSettings.secondId, value=radioButtonSettings.secondValue).radio-button__input
+      label(for=radioButtonSettings.secondId).radio-button__label=radioButtonSettings.secondLabelText
       

@@ -1,13 +1,17 @@
-mixin like-button(name, likes, likeActive)
-  if (likeActive)
-    block like-button
+-
+  let likeButtonSettings = [
+    {name: 'like', likes: 2, likeActive: false},
+    {name: 'likeEnabled', likes: 12, likeActive: true}
+  ]
+
+mixin likeButton(likeButtonSettings)
+  if (likeButtonSettings.likeActive)
     .like-button
-      button(name=name, value='like').like-button__button.like-button__button--active
+      button(name=likeButtonSettings.name, value='like').like-button__button.like-button__button--active
         img(src='assets/img/like-button-enabled.svg').like-button__img
-        span.like-button__counter=likes
+        span.like-button__counter=likeButtonSettings.likes
   else
-    block like-button
     .like-button 
-      button(name=name, value='like').like-button__button
+      button(name=likeButtonSettings.name, value='like').like-button__button
         img(src='assets/img/like-button-disabled.svg').like-button__img
-        span.like-button__counter=likes
+        span.like-button__counter=likeButtonSettings.likes

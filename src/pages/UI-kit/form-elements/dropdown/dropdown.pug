@@ -1,7 +1,11 @@
-mixin dropdown(heading, info)
-  block dropdown
+-
+  let dropdownSettings = [
+    {heading: 'dropdown', text: 'Сколько гостей'}
+  ]
+
+mixin dropdown(dropdownSettings)
   .dropdown
-    span.dropdown__heading=heading 
-    button(type='button').input.input--focus.input--hover.dropdown__button=info
+    span.dropdown__heading=dropdownSettings.heading 
+    button(type='button').input.input--focus.input--hover.dropdown__button=dropdownSettings.text
       .dropdown__arrow
         img(src='assets/img/dropdown-arrow.png')
