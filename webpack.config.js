@@ -18,7 +18,43 @@ const PATHS = {
 }
 
 const PAGES_DIR = `${PATHS.src}/pug/`
-const PAGES = fs.readdirSync(PAGES_DIR).filter(filename => filename.endsWith('.pug'))
+const PAGES = [] 
+const PAGES_PATH = []
+
+  // Функция перебирает директорию pages
+  // и пушит паг файлы в массив PAGES,
+  // который потом используется htmlWebpackPlugin
+
+  function pushPugFiles(pathDir){
+
+    let currentDir = fs.readdirSync(pathDir)
+    
+    // Перебираем текущую директорию на паг файлы
+    // + пути к ним, и пушим все это в массивы
+
+    for (let key in currentDir) {
+      let file = currentDir[key]
+
+      if (file.endsWith('.pug')) {
+        PAGES.push(file)
+        PAGES_PATH.push(pathDir)
+      }
+      
+      // Проверка элемента является ли он папкой,
+      // если да, то углубляемся в эту папку
+
+      let stat = fs.statSync(pathDir + file)
+
+      if (!stat.isFile()) {
+        let currentPath = pathDir + file + '/'
+
+        pushPugFiles(currentPath)
+      }
+    }
+  }
+
+  pushPugFiles(PAGES_DIR)
+
 
 const optimization = () => {
   const config = {
@@ -111,8 +147,8 @@ const jsLoaders = () => {
 
 const plugins = () => {
   const base = [
-    ...PAGES.map(page => new HTMLWebpackPlugin({
-      template: `${PAGES_DIR}/${page}`,
+    ...PAGES.map( (page, i) => new HTMLWebpackPlugin({
+      template: `${PAGES_PATH[i]}/${page}`,
       filename: `./${page.replace(/\.pug/, '.html')}`,
       inject: 'body',
       minify: {
@@ -155,9 +191,11 @@ module.exports = {
     path: PATHS.dist
   },
   resolve: {
-    extensions: ['.js', '.json'],
+    extensions: ['.js', '.json', '.pug', '.scss'],
     alias: {
-      '~': path.resolve(__dirname, 'src')
+      '~': path.resolve(__dirname, 'src'),
+      'colors-type': path.resolve(__dirname, 'src/pages/UI-kit/colors-type'),
+      'form-elements': path.resolve(__dirname, 'src/pages/UI-kit/form-elements')
     }
   },
   optimization: optimization(),

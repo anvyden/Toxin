@@ -7,11 +7,11 @@
 mixin likeButton(likeButtonSettings)
   if (likeButtonSettings.likeActive)
     .like-button
-      button(name=likeButtonSettings.name, value='like').like-button__button.like-button__button--active
-        img(src='assets/img/like-button-enabled.svg').like-button__img
+      button(name=likeButtonSettings.name, value='like').like-button__button.js-like-button__button.like-button__button--active
+        img(src=require('form-elements/like-button/like-button-enabled.svg') alt='Лайк').like-button__img.js-like-button__img
         span.like-button__counter=likeButtonSettings.likes
   else
     .like-button 
-      button(name=likeButtonSettings.name, value='like').like-button__button
-        img(src='assets/img/like-button-disabled.svg').like-button__img
+      button(name=likeButtonSettings.name, value='like').like-button__button.js-like-button__button
+        img(src=require('form-elements/like-button/like-button-disabled.svg') alt='Лайк').like-button__img.js-like-button__img
         span.like-button__counter=likeButtonSettings.likes

@@ -1,8 +1,9 @@
 import * as $ from 'jquery';
-import '~/scss/scss.scss'
-import '~/pages/UI-kit/logo-colorless/logo-colorless.js'
-import * as formElements from '~/pages/UI-kit/form-elements/form-elements.js'
+import scss from '~/scss/scss.scss'
+import {toggleLikeBtn} from '~/pages/UI-kit/form-elements//like-button/like-button.js'
 
-$(document).ready(function (){
+$(document).ready(function(){
+
+  toggleLikeBtn();
 
 });

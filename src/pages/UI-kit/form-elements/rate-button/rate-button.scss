@@ -2,7 +2,7 @@
   position: relative;
   width: 120px;
   height: 24px;
-  background-image: url(~/pages/UI-kit/form-elements/rate-button/star.svg);
+  background-image: url(form-elements/rate-button/star.svg);
   background-size: 24px auto;
   background-repeat: repeat-x;
 }
@@ -21,7 +21,7 @@
 
 .rate-button__input:checked,
 .rate-button__input:hover { 
-  background-image: url(~/pages/UI-kit/form-elements/rate-button/star-checked.svg);
+  background-image: url(form-elements/rate-button/star-checked.svg);
 }
 
 .rate-button__input:hover ~ .rate-button__input {

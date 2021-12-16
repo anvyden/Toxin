@@ -1,12 +1,3 @@
-@import './text-field/text-field';
-@import './dropdown/dropdown';
-@import './subscription-text-field/subscription-text-field';
-@import './checkbox-button/checkbox-button.scss';
-@import './radio-button/radio-button';
-@import './toggle-button/toggle-button';
-@import './like-button/like-button';
-@import './rate-button/rate-button';
-
 .form-elements-container {
   max-width: 1440px;
   padding: 143px 140px 140px 140px;
@@ -179,3 +170,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+
+@import 'form-elements/text-field/text-field';
+@import 'form-elements/dropdown/dropdown';
+@import 'form-elements/subscription-text-field/subscription-text-field';
+@import 'form-elements/checkbox-button/checkbox-button.scss';
+@import 'form-elements/radio-button/radio-button';
+@import 'form-elements/toggle-button/toggle-button';
+@import 'form-elements/like-button/like-button';
+@import 'form-elements/rate-button/rate-button';

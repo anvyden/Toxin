@@ -8,7 +8,7 @@
 }
 
 .toggle-button__input:checked ~ .toggle-button__label::before {
-  background: url('~/pages/UI-kit/form-elements/radio-button/radio.svg') no-repeat 24px;
+  background: url(form-elements/radio-button/radio.svg) no-repeat 24px;
   border-color: #BC9CFF;
 }
 
@@ -30,7 +30,7 @@
   height: 20px;
   border: 1px solid rgba(31, 32, 65, 0.25);
   border-radius: 10px;
-  background: url('~/pages/UI-kit/form-elements/toggle-button/radio-disabled.svg') no-repeat 4px;
+  background: url(form-elements/toggle-button/radio-disabled.svg) no-repeat 4px;
 
   margin-right: 10px;
 
