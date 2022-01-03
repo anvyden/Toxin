@@ -17,9 +17,20 @@ const PATHS = {
   assets: 'assets/'
 }
 
-const PAGES_DIR = `${PATHS.src}/pug/`
-const PAGES = [] 
+const PAGES_DIR = `${PATHS.src}/pages/`
+// const PAGES_FOLDERS = fs.readdirSync(PAGES_DIR)
+const PAGES = []
 const PAGES_PATH = []
+
+// const getFiles = (dir, filetype) => {
+//   return dir.map(folder => {
+//     const folderPath = PAGES_DIR + folder
+//     const folderFiles = fs.readdirSync(folderPath)
+//     const file = folderFiles.find(filename => filename.endsWith(`.${filetype}`))
+//     return file
+//   })
+// }
+
 
   // Функция перебирает директорию pages
   // и пушит паг файлы в массив PAGES,
@@ -194,8 +205,8 @@ module.exports = {
     extensions: ['.js', '.json', '.pug', '.scss'],
     alias: {
       '~': path.resolve(__dirname, 'src'),
-      'colors-type': path.resolve(__dirname, 'src/pages/UI-kit/colors-type'),
-      'form-elements': path.resolve(__dirname, 'src/pages/UI-kit/form-elements')
+      'colors-type': path.resolve(__dirname, 'src/templates/UI-kit/colors-type'),
+      'form-elements': path.resolve(__dirname, 'src/templates/UI-kit/form-elements')
     }
   },
   optimization: optimization(),
@@ -204,7 +215,7 @@ module.exports = {
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'form-elements.html'
+    index: 'colors-type.html'
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),

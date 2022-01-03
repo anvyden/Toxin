@@ -1,8 +1,9 @@
 @import '~normalize.css';
 @import 'montserrat';
 @import 'variables';
+@import 'mixins';
 @import 'settings';
 @import 'interface';
-@import '~/pages/UI-kit/logo-colorless/logo-colorless';
+@import '~/templates/UI-kit/logo/logo';
 @import 'colors-type/colors-type';
 @import 'form-elements/form-elements';

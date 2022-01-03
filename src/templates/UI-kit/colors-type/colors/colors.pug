@@ -1,0 +1,15 @@
+mixin color({ color, name, hex, hasMargin })
+  -
+    let colorClass = 'color'
+
+    if (hasMargin) {colorClass += ' color--with-margin'}
+
+    let colorImg = 'color__img'
+
+    if (color) {colorImg += ` color__${color}`}
+
+  div(class=colorClass)
+    div(class=colorImg)
+    .color__description
+      p.color__name=name
+      p.color__hex=hex

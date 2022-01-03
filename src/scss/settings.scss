@@ -4,18 +4,27 @@
   margin: 0;
 }
 
-input, div {
-  box-sizing: border-box;
-}
-
 html {
-  font-size: 14px;
+  font-size: $mainFontSize;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  line-height: 24px;
+  font-family: $mainFont;
+  font-size: rem(14);
+  font-weight: $mainFontWeight;
+  line-height: rem(24);
   color: $darkShade75;
 }
 
+a {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}

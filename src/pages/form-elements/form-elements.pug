@@ -1,14 +1,15 @@
-include ~/pages/UI-kit/form-elements/text-field/text-field
-include ~/pages/UI-kit/form-elements/dropdown/dropdown
-include ~/pages/UI-kit/form-elements/masked-text-field/masked-text-field
-include ~/pages/UI-kit/form-elements/date-dropdown/date-dropdown
-include ~/pages/UI-kit/form-elements/filter-date-dropdown/filter-date-dropdown
-include ~/pages/UI-kit/form-elements/subscription-text-field/subscription-text-field
-include ~/pages/UI-kit/form-elements/checkbox-button/checkbox-button
-include ~/pages/UI-kit/form-elements/radio-button/radio-button
-include ~/pages/UI-kit/form-elements/toggle-button/toggle-button
-include ~/pages/UI-kit/form-elements/like-button/like-button
-include ~/pages/UI-kit/form-elements/rate-button/rate-button
+include ~/templates/UI-kit/logo/logo
+include ~/templates/UI-kit/form-elements/text-field/text-field
+include ~/templates/UI-kit/form-elements/dropdown/dropdown
+include ~/templates/UI-kit/form-elements/masked-text-field/masked-text-field
+include ~/templates/UI-kit/form-elements/date-dropdown/date-dropdown
+include ~/templates/UI-kit/form-elements/filter-date-dropdown/filter-date-dropdown
+include ~/templates/UI-kit/form-elements/subscription-text-field/subscription-text-field
+include ~/templates/UI-kit/form-elements/checkbox-button/checkbox-button
+include ~/templates/UI-kit/form-elements/radio-button/radio-button
+include ~/templates/UI-kit/form-elements/toggle-button/toggle-button
+include ~/templates/UI-kit/form-elements/like-button/like-button
+include ~/templates/UI-kit/form-elements/rate-button/rate-button
 
 doctype html
 html(lang="ru")
@@ -21,7 +22,7 @@ html(lang="ru")
     .form-elements
 
       //- Лого Toxin
-      include ~/pages/UI-kit/logo-colorless/logo-colorless.pug
+      +logo({ active: false })
 
       //- containers
       .form-elements-container

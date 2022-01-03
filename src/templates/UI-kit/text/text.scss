@@ -1,0 +1,28 @@
+.text--with-type-h1 {
+  font-size: rem(24);
+  font-weight: 700;
+  line-height: rem(29.3);
+  letter-spacing: 0.25px;
+  word-spacing: 1.3px;
+  color: $darkShade100;
+}
+
+.text--with-type-h2 {
+  font-size: rem(19);
+  font-weight: 700;
+  line-height: rem(23.3);
+  word-spacing: 1.5px;
+  color: $darkShade100;
+}
+
+.text--with-type-h3 {
+  font-size: rem(12);
+  font-weight: 700;
+  line-height: rem(15);
+  word-spacing: 0.9px;
+  color: $darkShade100;
+}
+
+.text--upper {
+  text-transform: uppercase;
+}

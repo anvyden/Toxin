@@ -5,30 +5,30 @@
   color: $darkShade100;
 }
 
-.colors__color-margin {
-  margin-bottom: 20px;
+.color--with-margin {
+  margin-bottom: rem(20);
 }
 
 .colors__color-margin:last-child {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .color__img {
   width: 70px;
   height: 70px;
   
-  margin-right: 40px;
+  margin-right: rem(40);
   border-radius: 6px;
 }
 
 .color__description {
-  font-size: 19px;
-  line-height: 27.8px;
+  font-size: rem(19);
+  line-height: rem(27.8);
   letter-spacing: 0.3px;
 }
 
 .color__name {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .color__dark-shade-100 {

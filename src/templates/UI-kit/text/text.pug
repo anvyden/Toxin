@@ -1,0 +1,16 @@
+mixin text({ text, type, hasUpper })
+  -
+    let textClass = 'text'
+    const types = ['h1', 'h2', 'h3']
+
+    if (types.includes(type)) {textClass += ` text--with-type-${type}`}
+
+    if (hasUpper) {textClass += ' text--upper'}
+
+    const typeTag = {
+      'h1': 'h1',
+      'h2': 'h2',
+      'h3': 'h3'
+    }
+
+  #{typeTag[type]}(class=textClass)= text

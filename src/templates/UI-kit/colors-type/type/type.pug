@@ -1,0 +1,15 @@
+mixin type({ type, typeDescriptionClass, typeDescription, hasMargin, typeContentHasUpper })
+  -
+    let typeClass = 'type'
+
+    typeClass += ` type--with-type-${type}`
+
+    if (hasMargin) {typeClass += ' type--with-margin'}
+
+    let typeContentClass = 'type__type'
+
+    if (typeContentHasUpper) {typeContentClass += ' type__type--upper'}
+
+  div(class=typeClass)
+    p(class=typeContentClass)=type
+    p(class=typeDescriptionClass)=typeDescription

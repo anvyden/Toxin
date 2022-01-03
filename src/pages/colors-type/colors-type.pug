@@ -1,0 +1,37 @@
+include ~/templates/UI-kit/logo/logo
+include ~/templates/UI-kit/colors-type/colors/colors
+include ~/templates/UI-kit/colors-type/type/type
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title UI-kit
+  body
+
+    //- Добавление лого
+    +logo({ active: false })
+
+    //- Общий контейнер
+    .colors-types-container
+
+      //- блок colors
+      .colors
+        .colors-container
+          +color({ color: 'dark-shade-100', name: 'Dark Shade 100%', hex: '#1F2041', hasMargin: true })
+          +color({ color: 'dark-shade-75', name: 'Dark Shade 75%', hex: '#1F2041', hasMargin: true })
+          +color({ color: 'dark-shade-50', name: 'Dark Shade 50%', hex: '#1F2041', hasMargin: true })
+          +color({ color: 'dark-shade-25', name: 'Dark Shade 25%', hex: '#1F2041', hasMargin: true })
+          +color({ color: 'dark-shade-5', name: 'Dark Shade 5%', hex: '#1F2041', hasMargin: true })
+          +color({ color: 'purple', name: 'Purple', hex: '#BC9CFF', hasMargin: true })
+          +color({ color: 'green', name: 'Green', hex: '#6FCF97' })
+      
+      //- Блок types
+      .types
+        .types-container
+          +type({ type: 'h1', typeDescriptionClass: 'type__h1-text', typeDescription: 'This one is the sub-section or widget title', hasMargin: true, typeContentHasUpper: true })
+          +type({ type: 'h2', typeDescriptionClass: 'type__h2-text', typeDescription: 'Next one is the item title inside widgets', hasMargin: true, typeContentHasUpper: true })
+          +type({ type: 'h3', typeDescriptionClass: 'type__h3-text', typeDescription: 'This is a label or CTA text', hasMargin: true, typeContentHasUpper: true })
+          +type({ type: 'body', typeDescriptionClass: 'type__body-text', typeDescription: 'This is the body text which is used for most of the design, like paragraphs, lists, etc.' })
