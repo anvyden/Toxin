@@ -1,13 +1,20 @@
 {
   "parser": "babel-eslint",
   "rules": {
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "linebreak-style": 0,
+    "semi": ["error", "never"],
+    "import/no-unresolved": 0
   },
   "env": {
     "es6": true,
-    "browser": true
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "$": "readonly"
   },
   "extends": [
-    "eslint:recommended"
+    "airbnb-base"
   ]
 }

@@ -1,3 +1,10 @@
+@import '~normalize.css';
+@import '~/scss/montserrat';
+@import '~/scss/variables';
+@import '~/scss/mixins';
+@import '~/scss/settings';
+@import '~/scss/interface';
+
 .form-elements-container {
   max-width: 1440px;
   padding: 143px 140px 140px 140px;
@@ -171,7 +178,7 @@
   justify-content: space-between;
 }
 
-
+@import '~/templates/UI-kit/logo/logo';
 @import 'form-elements/text-field/text-field';
 @import 'form-elements/dropdown/dropdown';
 @import 'form-elements/subscription-text-field/subscription-text-field';

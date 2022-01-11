@@ -1,7 +1,4 @@
-import * as $ from 'jquery'
-
 class LikeButton {
-
   constructor() {
     this.$el = document.querySelectorAll('.js-like-button__button')
     this.getId()
@@ -10,41 +7,32 @@ class LikeButton {
 
   // Присваиваю id картинкам
   getId() {
-
     let idValue = 0
 
-    this.$el.forEach( element => {
+    this.$el.forEach((element) => {
       $(element).children('img').attr('id', `likeImg-${idValue}`)
-      idValue++
+      idValue += 1
     })
   }
 
   // Toggle class active
   like() {
+    this.$el.forEach((element) => {
+      element.addEventListener('click', (event) => {
+        const target = event.currentTarget
+        const imgId = $(target).children('img').attr('id')
+        let likeCounter = +$(target).children('span').html()
 
-    this.$el.forEach( element => {
-      element.addEventListener('click', event => {
+        $(target).toggleClass('like-button__button--active')
 
-        let currentTarget = event.currentTarget
-        let imgId = $(currentTarget).children('img').attr('id')
-        let likeCounter = $(currentTarget).children('span').html()
-
-        $(currentTarget).toggleClass('like-button__button--active')
-
-        if ($(currentTarget).hasClass('like-button__button--active')){
-          
-          likeCounter++
-  
+        if ($(target).hasClass('like-button__button--active')) {
+          likeCounter += 1
           $(`#${imgId}`).attr('src', 'assets/img/like-button-enabled.svg')
-          $(currentTarget).children('span').html(likeCounter)
-        
+          $(target).children('span').html(likeCounter)
         } else {
-          
-          likeCounter--
-  
+          likeCounter -= 1
           $(`#${imgId}`).attr('src', 'assets/img/like-button-disabled.svg')
-          $(currentTarget).children('span').html(likeCounter)
-
+          $(target).children('span').html(likeCounter)
         }
       })
     })

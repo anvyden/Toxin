@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path')
 const fs = require('fs')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
@@ -17,54 +18,59 @@ const PATHS = {
   assets: 'assets/'
 }
 
-const PAGES_DIR = `${PATHS.src}/pages/`
-// const PAGES_FOLDERS = fs.readdirSync(PAGES_DIR)
-const PAGES = []
-const PAGES_PATH = []
+const getFiles = (dir, filetype) => {
+  return dir.map(folder => {
+    const folderPath = `${PAGES_DIR}/${folder}`
+    const folderFiles = fs.readdirSync(folderPath)
+    const file = folderFiles.find(filename => filename.endsWith(`.${filetype}`))
+    return file
+  })
+}
 
-// const getFiles = (dir, filetype) => {
-//   return dir.map(folder => {
-//     const folderPath = PAGES_DIR + folder
-//     const folderFiles = fs.readdirSync(folderPath)
-//     const file = folderFiles.find(filename => filename.endsWith(`.${filetype}`))
-//     return file
-//   })
-// }
+const PAGES_DIR = `${PATHS.src}/pages`
+const PAGES_FOLDERS = fs.readdirSync(PAGES_DIR)
+const PAGES = getFiles(PAGES_FOLDERS, 'pug') 
+const PAGES_ENTRY_FILES = getFiles(PAGES_FOLDERS, 'js')
+const PAGES_ENTRYS = {}
 
+PAGES_ENTRY_FILES.forEach((pageEntryFile, index) => {
+  const filename = pageEntryFile.split('.')[0]
+  PAGES_ENTRYS[filename] = `${PAGES_DIR}/${PAGES_FOLDERS[index]}/${pageEntryFile}`
+})
 
   // Функция перебирает директорию pages
   // и пушит паг файлы в массив PAGES,
   // который потом используется htmlWebpackPlugin
 
-  function pushPugFiles(pathDir){
+  // function pushPugFiles(pathDir){
 
-    let currentDir = fs.readdirSync(pathDir)
+  //   let currentDir = fs.readdirSync(pathDir)
     
-    // Перебираем текущую директорию на паг файлы
-    // + пути к ним, и пушим все это в массивы
+  //   // Перебираем текущую директорию на паг файлы
+  //   // + пути к ним, и пушим все это в массивы
 
-    for (let key in currentDir) {
-      let file = currentDir[key]
+  //   for (let key in currentDir) {
+  //     let file = currentDir[key]
 
-      if (file.endsWith('.pug')) {
-        PAGES.push(file)
-        PAGES_PATH.push(pathDir)
-      }
+  //     if (file.endsWith('.pug')) {
+  //       PAGES.push(file)
+  //       PAGES_PATH.push(pathDir)
+  //     }
       
-      // Проверка элемента является ли он папкой,
-      // если да, то углубляемся в эту папку
+  //     // Проверка элемента является ли он папкой,
+  //     // если да, то углубляемся в эту папку
 
-      let stat = fs.statSync(pathDir + file)
+  //     let stat = fs.statSync(pathDir + file)
 
-      if (!stat.isFile()) {
-        let currentPath = pathDir + file + '/'
+  //     if (!stat.isFile()) {
+  //       let currentPath = pathDir + file + '/'
 
-        pushPugFiles(currentPath)
-      }
-    }
-  }
+  //       pushPugFiles(currentPath)
+  //     }
+  //   }
+  // }
 
-  pushPugFiles(PAGES_DIR)
+  // pushPugFiles(PAGES_DIR)
 
 
 const optimization = () => {
@@ -158,14 +164,20 @@ const jsLoaders = () => {
 
 const plugins = () => {
   const base = [
-    ...PAGES.map( (page, i) => new HTMLWebpackPlugin({
-      template: `${PAGES_PATH[i]}/${page}`,
+    ...PAGES.map((page, index) => new HTMLWebpackPlugin({
+      template: `${PAGES_DIR}/${PAGES_FOLDERS[index]}/${page}`,
       filename: `./${page.replace(/\.pug/, '.html')}`,
+      chunks: [`${page.replace(/\.pug/, '')}`],
       inject: 'body',
       minify: {
         collapseWhitespace: isProd
       }
     })),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jquery': 'jquery',
+    }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: `${PATHS.assets}css/${filename('css')}`
@@ -194,11 +206,9 @@ const plugins = () => {
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
-  entry: {
-    main: `${PATHS.src}/js/index.js`
-  },
+  entry: PAGES_ENTRYS,
   output: {
-    filename: `${PATHS.assets}js/${filename('js')}`,
+    filename: `${PATHS.assets}js/[name].js`,
     path: PATHS.dist
   },
   resolve: {
@@ -206,7 +216,8 @@ module.exports = {
     alias: {
       '~': path.resolve(__dirname, 'src'),
       'colors-type': path.resolve(__dirname, 'src/templates/UI-kit/colors-type'),
-      'form-elements': path.resolve(__dirname, 'src/templates/UI-kit/form-elements')
+      'form-elements': path.resolve(__dirname, 'src/templates/UI-kit/form-elements'),
+      'pages': path.resolve(__dirname, 'src/pages')
     }
   },
   optimization: optimization(),
@@ -215,7 +226,7 @@ module.exports = {
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'colors-type.html'
+    index: 'form-elements.html'
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),
