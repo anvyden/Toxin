@@ -1,10 +1,44 @@
-.text-field__heading {
-  display: block;
-  margin-bottom: 5px;
+.text-field {
+  position: relative;
+}
 
-  font-size: 12px;
-  line-height: 15px;
-  text-transform: uppercase;
-  color: rgba(31, 32, 65, 1);
-  font-weight: bold;
+.text-field__input {
+  width: 100%;
+  padding: rem(12) rem(15);
+
+  color: $darkShade75;
+  border: 1px solid $darkShade25;
+  border-radius: 4px;
+
+  outline: none;
+}
+
+.text-field__input--focused:focus, .text-field__input--hovered:hover {
+  border: 1px solid $darkShade50;
+}
+
+.text-field__input--focused:focus::placeholder, .text-field__input--hovered:hover::placeholder {
+  color: $darkShade75;
+}
+
+.text-field__input::placeholder {
+  color: $darkShade25;
+}
+
+.text-field__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: rem(10);
+  
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  font-family: 'Material Icons', Arial, sans-serif;
+  font-size: rem(24);
+  line-height: rem(24);
+  color: transparent;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background-clip: text;
 }

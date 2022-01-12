@@ -1,5 +1,6 @@
 @import '~normalize.css';
 @import '~/scss/montserrat';
+@import '~/scss/material-icons';
 @import '~/scss/variables';
 @import '~/scss/mixins';
 @import '~/scss/settings';
@@ -21,7 +22,6 @@
   max-width: 320px;
   flex-basis: 33%;
   margin-right: 126px;
-
 }
 
 .form-elements__text-field {
@@ -34,16 +34,6 @@
 
   width: 100%;
   margin-bottom: 5px;
-
-  font-size: 12px;
-  line-height: 15px;
-  text-transform: uppercase;
-  color: rgba(31, 32, 65, 0.5);
-}
-
-.form-elements__text-field-heading {
-  color: rgba(31, 32, 65, 1);
-  font-weight: bold;
 }
 
 .form-elements__text-field-focused {
@@ -69,15 +59,8 @@
   margin-bottom: 40px;
 }
 
-.form-elements__subscription-text-field-heading {
-  display: block;
-  margin-bottom: 5px;
-  
-  font-size: 12px;
-  line-height: 15px;
-  color: #1F2041;
-  text-transform: uppercase;
-  font-weight: bold;
+.form-elements__subcription-text-field {
+  max-width: rem(266);
 }
 
 .buttons-container {
@@ -179,9 +162,9 @@
 }
 
 @import '~/templates/UI-kit/logo/logo';
+@import '~/templates/UI-kit/text/text';
 @import 'form-elements/text-field/text-field';
 @import 'form-elements/dropdown/dropdown';
-@import 'form-elements/subscription-text-field/subscription-text-field';
 @import 'form-elements/checkbox-button/checkbox-button.scss';
 @import 'form-elements/radio-button/radio-button';
 @import 'form-elements/toggle-button/toggle-button';

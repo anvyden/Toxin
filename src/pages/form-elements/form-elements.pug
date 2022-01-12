@@ -1,10 +1,9 @@
 include ~/templates/UI-kit/logo/logo
+include ~/templates/UI-kit/text/text
 include ~/templates/UI-kit/form-elements/text-field/text-field
 include ~/templates/UI-kit/form-elements/dropdown/dropdown
-include ~/templates/UI-kit/form-elements/masked-text-field/masked-text-field
 include ~/templates/UI-kit/form-elements/date-dropdown/date-dropdown
 include ~/templates/UI-kit/form-elements/filter-date-dropdown/filter-date-dropdown
-include ~/templates/UI-kit/form-elements/subscription-text-field/subscription-text-field
 include ~/templates/UI-kit/form-elements/checkbox-button/checkbox-button
 include ~/templates/UI-kit/form-elements/radio-button/radio-button
 include ~/templates/UI-kit/form-elements/toggle-button/toggle-button
@@ -34,24 +33,26 @@ html(lang="ru")
             //- блок text-field default
             .form-elements__text-field
               .form-elements__text-field-description
-                .form-elements__text-field-heading='text field'
-                .form-elements__text-field-state='default'
-              +textField(textFieldSettings[0])
+                +text({ text: 'text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+                +text({ text: 'default', type: 'h3', color: 'dark-shade-50', hasUpper: true })
+              +textField({ type: 'text', name: 'textField', placeholder: 'Email' })
 
             //- блок text-field hovered and focused
             .form-elements__text-field-focused
               .form-elements__text-field-description
-                .form-elements__text-field-heading='text field'
-                .form-elements__text-field-state='hover / focus'
-              +textField(textFieldSettings[1])
+                +text({ text: 'text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+                +text({ text: 'hover / focus', type: 'h3', color: 'dark-shade-50', hasUpper: true })
+              +textField({ type: 'text', name: 'textFieldFocused', placeholder: 'Email', value: 'This is pretty awesome', isFocused: true, isHovered: true})
             
             //- блок dropdown
             .form-elements__dropdown
               +dropdown(dropdownSettings[0])
 
             //- блок masked-text-field
-            .form-elements__masked-text-field 
-              +maskedTextField(maskedTextFieldSettings[0])
+            .form-elements__masked-text-field
+              .form-elements__text-field-description 
+                +text({ text: 'masked text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true }) 
+              +textField({ type: 'text', name: 'date', placeholder: 'ДД.ММ.ГГГГ', isFocused: true, isHovered: true })
 
             //- блок date-dropdown
             .form-elements__date-dropdown
@@ -64,8 +65,9 @@ html(lang="ru")
 
             //- блок subcriptionTextField
             .form-elements__subcription-text-field
-              span.form-elements__subscription-text-field-heading='subscription text field' 
-              +subscriptionTextField
+              .form-elements__text-field-description
+                +text({ text: 'subscription text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+              +textField({ type: 'text', name: 'subcription', placeholder: 'Email', isFocused: true, isHovered: true, withButton: true })
 
           //- контейнер с кнопками
           .buttons-container
