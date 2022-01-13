@@ -2,8 +2,6 @@ include ~/templates/UI-kit/logo/logo
 include ~/templates/UI-kit/text/text
 include ~/templates/UI-kit/form-elements/text-field/text-field
 include ~/templates/UI-kit/form-elements/dropdown/dropdown
-include ~/templates/UI-kit/form-elements/date-dropdown/date-dropdown
-include ~/templates/UI-kit/form-elements/filter-date-dropdown/filter-date-dropdown
 include ~/templates/UI-kit/form-elements/checkbox-button/checkbox-button
 include ~/templates/UI-kit/form-elements/radio-button/radio-button
 include ~/templates/UI-kit/form-elements/toggle-button/toggle-button
@@ -35,48 +33,59 @@ html(lang="ru")
               .form-elements__text-field-description
                 +text({ text: 'text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
                 +text({ text: 'default', type: 'h3', color: 'dark-shade-50', hasUpper: true })
-              +textField({ type: 'text', name: 'textField', placeholder: 'Email' })
+              +textField({ type: 'text', name: 'textField', placeholder: 'Email', state: 'default' })
 
             //- блок text-field hovered and focused
             .form-elements__text-field-focused
               .form-elements__text-field-description
                 +text({ text: 'text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
                 +text({ text: 'hover / focus', type: 'h3', color: 'dark-shade-50', hasUpper: true })
-              +textField({ type: 'text', name: 'textFieldFocused', placeholder: 'Email', value: 'This is pretty awesome', isFocused: true, isHovered: true})
+              +textField({ type: 'text', name: 'textFieldFocused', placeholder: 'Email', value: 'This is pretty awesome' })
             
             //- блок dropdown
             .form-elements__dropdown
-              +dropdown(dropdownSettings[0])
+              +dropdown({ text: 'Сколько гостей' })
+                +text({ text: 'dropdown', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
 
             //- блок masked-text-field
             .form-elements__masked-text-field
               .form-elements__text-field-description 
                 +text({ text: 'masked text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true }) 
-              +textField({ type: 'text', name: 'date', placeholder: 'ДД.ММ.ГГГГ', isFocused: true, isHovered: true })
+              +textField({ type: 'text', name: 'date', placeholder: 'ДД.ММ.ГГГГ' })
 
             //- блок date-dropdown
             .form-elements__date-dropdown
-              each dateDropdown in dateDropdownSettings
-                +dateDropdown(dateDropdown)
+              +dropdown({ text: 'ДД.ММ.ГГГГ', withSmallSize: true })
+                +text({ text: 'date dropdown', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+              +dropdown({ text: '19.08.2019', withSmallSize: true })
+                +text({ text: 'date dropdown', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
 
             //- блок filter-date-dropdown
-            .form-elements__filter-date-dropdown 
-              +filterDateDropdown(filterDateDropdownSettings[0])
+            .form-elements__filter-date-dropdown
+              +dropdown({ text: '19 авг - 23 авг' })
+                +text({ text: 'filter date dropdown', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
 
             //- блок subcriptionTextField
             .form-elements__subcription-text-field
               .form-elements__text-field-description
                 +text({ text: 'subscription text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-              +textField({ type: 'text', name: 'subcription', placeholder: 'Email', isFocused: true, isHovered: true, withButton: true })
+              +textField({ type: 'text', name: 'subcription', placeholder: 'Email', withButton: true })
 
           //- контейнер с кнопками
           .buttons-container
 
             //- блок checkbox-buttons
             .form-elements__checkbox-buttons
-              .form-elements__checkbox-buttons-heading='checkbox buttons'
-              each checkboxButton in checkboxButtonsSettings
-                +checkboxButton(checkboxButton)
+              .form-elements__checkbox-buttons-heading
+                +text({ text: 'checkbox buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+              +checkboxButton({ 
+                items: [
+                  { text: 'Можно курить'},
+                  { text: 'Можно с питомцами', isChecked: true},
+                  { text: 'Можно пригласить гостей (до 10 человек)', isChecked: true }
+                ],
+              })
+                
 
             //- блок radio-buttons
             .form-elements__radio-buttons

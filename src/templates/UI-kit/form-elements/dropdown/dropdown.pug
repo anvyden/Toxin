@@ -1,11 +1,16 @@
--
-  let dropdownSettings = [
-    {heading: 'dropdown', text: 'Сколько гостей'}
-  ]
+mixin dropdown({ text, withSmallSize, classForJs })
+  -
+    let dropdownClass = 'dropdown'
+    let dropdownInputClass = 'dropdown__input' + ' dropdown__input--focused' + ' dropdown__input--hovered'
+    let dropdownButtonClass = 'dropdown__button'
 
-mixin dropdown(dropdownSettings)
-  .dropdown
-    span.dropdown__heading=dropdownSettings.heading 
-    button(type='button').input.input--focus.input--hover.dropdown__button=dropdownSettings.text
-      .dropdown__arrow
-        img(src=require('form-elements/dropdown/dropdown-arrow.png') alt='Кнопка')
+    if (withSmallSize) {
+      dropdownClass += ' dropdown--size-small'
+    }
+  
+  div(class=dropdownClass)
+    .dropdown__title
+      block 
+    .dropdown__wrap
+      input(class=dropdownInputClass, value=text, readonly)
+      button(class=dropdownButtonClass, type='button')='expand_more'

@@ -1,46 +1,53 @@
-.checkbox-button__input {
-  position: absolute;
-  top: 0;
-  left: 0;
+.checkbox-button{
+  max-width: rem(222);
+  min-height: 20px;
 
-  opacity: 0;
-  visibility: hidden;
+  line-height: 18px;
+  color: $darkShade50
 }
 
-.checkbox-button__input:checked ~ .checkbox-button__label::before {
-  background: url(form-elements/checkbox-button/checkbox-checked.svg) no-repeat center;
-  border-color: #BC9CFF;
-}
-
-.checkbox-button__container {
+.checkbox-buttons__item {
   margin-bottom: 10px;
 }
 
-.checkbox-button:last-of-type > .checkbox-button__container {
+.checkbox-buttons__item:last-child {
   margin-bottom: 0;
 }
 
 .checkbox-button__label {
-  display: flex;
+  display: inline-block;
+  position: relative;
+  margin-left: 30px;
   
-  max-width: 222px;
-
   cursor: pointer;
-  font-size: 14px;
-  line-height: 18px;  
-  color: rgba(31, 32, 65, 0.5);
 }
 
-.checkbox-button__label::before {
-  flex-shrink: 0;
+.checkbox-button__input {
+  position: absolute;
+  appearance: none;
+
+  outline: none;
+}
+
+.checkbox-button__span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: -30px;
+
   content: '';
   width: 20px;
   height: 20px;
-  border: 1px solid rgba(31, 32, 65, 0.25);
+  
+  border: 1px solid $darkShade25;
   border-radius: 4px;
-  margin-right: 10px;
 }
 
-.label-checkbox__text {
-  margin-top: 1px;
+.checkbox-button__input:checked + .checkbox-button__span {
+  background: url(form-elements/checkbox-button/checkbox-checked.svg) no-repeat center;
+  border-color: $purple;
+}
+
+.checkbox-button__input:focus + .checkbox-button__span {
+  box-shadow: 0 0 0 1px $purple;
 }

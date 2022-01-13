@@ -56,6 +56,7 @@
 }
 
 .form-elements__filter-date-dropdown {
+  max-width: rem(266);
   margin-bottom: 40px;
 }
 
@@ -74,14 +75,7 @@
 }
 
 .form-elements__checkbox-buttons-heading {
-  display: block;
   margin-bottom: 16px;
-
-  font-size: 12px;
-  line-height: 15px;
-  color: #1F2041;
-  text-transform: uppercase;
-  font-weight: bold;
 }
 
 .form-elements__checkbox-buttons {

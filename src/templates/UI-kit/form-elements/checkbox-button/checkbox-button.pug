@@ -1,20 +1,13 @@
--
-  let checkboxButtonsSettings = [
-    {id: 'smoke', labelText: 'Можно курить', checked: false},
-    {id: 'pets', labelText: 'Можно с питомцами', checked: true},
-    {id: 'guest', labelText: 'Можно пригласить гостей (до 10 человек)', checked: true}
-  ]
-
-mixin checkboxButton(checkboxButtonsSettings)
-  if (checkboxButtonsSettings.checked)
-    .checkbox-button
-      .checkbox-button__container
-        input(type='checkbox', name=checkboxButtonsSettings.name, id=checkboxButtonsSettings.id, checked).checkbox-button__input
-        label(for=checkboxButtonsSettings.id).checkbox-button__label
-          span.label-checkbox__text=checkboxButtonsSettings.labelText
-  else
-    .checkbox-button
-      .checkbox-button__container
-        input(type='checkbox', name=checkboxButtonsSettings.name, id=checkboxButtonsSettings.id).checkbox-button__input
-        label(for=checkboxButtonsSettings.id).checkbox-button__label
-          span.label-checkbox__text=checkboxButtonsSettings.labelText
+mixin checkboxButton({ items })
+  ul.checkbox-buttons
+    each item in items 
+      -
+        const { text, isChecked } = item
+        let checkboxClass = 'checkbox-button' + ' checkbox-buttons__item'
+        let checkboxInputClass = 'checkbox-button__input'
+        let checkboxLabelClass = 'checkbox-button__label'
+    
+      li(class=checkboxClass)
+        label(class=checkboxLabelClass)=text
+          input(class=checkboxInputClass, type='checkbox', checked=isChecked)
+          span.checkbox-button__span

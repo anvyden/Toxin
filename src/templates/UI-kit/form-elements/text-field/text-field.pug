@@ -1,13 +1,9 @@
-mixin textField({ type, placeholder, name, value, isFocused, isHovered, withButton, classForJs, withSmallSize })
+mixin textField({ type, placeholder, name, value, state, withButton, classForJs })
   -
-    let inputClass = 'text-field__input'
+    let inputClass = 'text-field__input' + ' text-field__input--focused' + ' text-field__input--hovered'
 
-    if (isFocused) {
-      inputClass += ' text-field__input--focused'
-    }
-
-    if (isHovered) {
-      inputClass += ' text-field__input--hovered'
+    if (state === 'default') {
+      inputClass = 'text-field__input'
     }
 
     if (classForJs) {
