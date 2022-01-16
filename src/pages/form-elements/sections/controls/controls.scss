@@ -1,0 +1,53 @@
+@import 'form-elements/checkbox-button/checkbox-button.scss';
+@import 'form-elements/radio-button/radio-button';
+@import 'form-elements/toggle-button/toggle-button';
+@import 'form-elements/like-button/like-button';
+@import 'form-elements/rate-button/rate-button';
+
+.controls-container {
+  flex-basis: 33%;
+  max-width: rem(260);
+}
+
+.controls-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.controls__title {
+  margin-bottom: 16px;
+}
+
+.controls__checkbox-buttons {
+  margin-bottom: 40px;
+}
+
+.controls__radio-buttons {
+  margin-bottom: 40px;
+}
+
+.controls__toggle-buttons {
+  margin-bottom: 40px;
+}
+
+.controls__toggle-buttons-wrap > .toggle-button:first-child {
+  margin-bottom: 14px;
+}
+
+.controls__like-buttons {
+  margin-bottom: 40px;
+}
+
+.controls__like-buttons-wrap {
+  display: flex;
+}
+
+.controls__like-buttons-wrap > .like-button:first-child {
+  margin-right: 10px;
+}
+
+.controls__rate-buttons-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+

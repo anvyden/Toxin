@@ -1,40 +1,74 @@
-.toggle-button__input {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  opacity: 0;
-  visibility: hidden;
-}
-
-.toggle-button__input:checked ~ .toggle-button__label::before {
-  background: url(form-elements/radio-button/radio.svg) no-repeat 24px;
-  border-color: #BC9CFF;
+.toggle-button {
+  line-height: 20px;
+  color: $darkShade50
 }
 
 .toggle-button__label {
-  display: flex;
-  
-  max-width: 260px;
-
+  display: inline-block;
+  position: relative;
+  margin-left: 50px;
   cursor: pointer;
-  font-size: 14px;
-  line-height: 18px;  
-  color: rgba(31, 32, 65, 0.75);
 }
 
-.toggle-button__label::before {
-  flex-shrink: 0;
+.toggle-button__input {
+  position: absolute;
+  appearance: none;
+  outline: none;
+}
+
+.toggle-button__span::before {
+  position: absolute;
+  top: 0;
+  left: -50px;
+
   content: '';
   width: 40px;
   height: 20px;
-  border: 1px solid rgba(31, 32, 65, 0.25);
+  
+  border: 1px solid $darkShade25;
   border-radius: 10px;
-  background: url(form-elements/toggle-button/radio-disabled.svg) no-repeat 4px;
+}
 
-  margin-right: 10px;
+.toggle-button__span::after {
+  position: absolute;
+  top: 4px;
+  left: -46px;
 
-  transition-property: background;
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+ 
+  background: $darkShade25;
+  transition-property: left;
   transition-duration: 0.5s;
 }
 
+.toggle-button__input:checked + .toggle-button__span::before {
+  border-color: $purple;
+}
+
+.toggle-button__input:checked + .toggle-button__span::after {
+  left: -26px;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.toggle-button__input:focus + .toggle-button__span::before {
+  box-shadow: 0 0 0 1.25px $purple;
+}
+
+.toggle-button__input:focus + .toggle-button__span {
+  color: $darkShade75;
+}
+
+.toggle-button__input:checked + .toggle-button__span {
+  color: $darkShade75;
+}
+
+.toggle-button__label:hover > .toggle-button__span::before {
+  box-shadow: 0 0 0 1.25px $purple;
+}
+
+.toggle-button__label:hover {
+  color: $darkShade75;
+}

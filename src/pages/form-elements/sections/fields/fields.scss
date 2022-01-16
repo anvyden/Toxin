@@ -1,0 +1,49 @@
+@import 'form-elements/text-field/text-field';
+@import 'form-elements/dropdown/dropdown';
+
+.fields-container {
+  flex-basis: 33%;
+  max-width: rem(320);
+  margin-right: 126px;
+}
+
+.fields-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.fields__text-field {
+  margin-bottom: 20px;
+}
+
+.fields__title {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.fields__dropdown {
+  margin-bottom: 20px;
+}
+
+.fields__masked-text-field {
+  margin-bottom: 40px;
+}
+
+.fields__date-dropdown {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 40px;
+}
+
+.fields__filter-date-dropdown {
+  max-width: rem(266);
+  margin-bottom: 40px;
+}
+
+.fields__subscription-text-field {
+  max-width: rem(266);
+}

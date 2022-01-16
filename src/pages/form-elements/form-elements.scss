@@ -5,162 +5,17 @@
 @import '~/scss/mixins';
 @import '~/scss/settings';
 @import '~/scss/interface';
+@import '~/templates/UI-kit/logo/logo';
+@import '~/templates/UI-kit/text/text';
 
 .form-elements-container {
   max-width: 1440px;
   padding: 143px 140px 140px 140px;
 }
 
-.fields-buttons-container {
+.fields-controls-buttons-container {
   display: flex;
 }
 
-.fields-container {
-  display: flex;
-  flex-direction: column;
-
-  max-width: 320px;
-  flex-basis: 33%;
-  margin-right: 126px;
-}
-
-.form-elements__text-field {
-  margin-bottom: 20px;
-}
-
-.form-elements__text-field-description {
-  display: flex;
-  justify-content: space-between;
-
-  width: 100%;
-  margin-bottom: 5px;
-}
-
-.form-elements__text-field-focused {
-  margin-bottom: 20px;
-}
-
-.form-elements__dropdown {
-  margin-bottom: 20px;
-}
-
-.form-elements__masked-text-field {
-  margin-bottom: 40px;
-}
-
-.form-elements__date-dropdown {
-  display: flex;
-  justify-content: space-between;
-
-  margin-bottom: 40px;
-}
-
-.form-elements__filter-date-dropdown {
-  max-width: rem(266);
-  margin-bottom: 40px;
-}
-
-.form-elements__subcription-text-field {
-  max-width: rem(266);
-}
-
-.buttons-container {
-  display: flex;
-  flex-direction: column;
-
-  position: relative;
-
-  max-width: 260px;
-  flex-basis: 33%;
-}
-
-.form-elements__checkbox-buttons-heading {
-  margin-bottom: 16px;
-}
-
-.form-elements__checkbox-buttons {
-  margin-bottom: 40px;
-}
-
-.form-elements__radio-button-heading {
-  display: block;
-  margin-bottom: 16px;
-
-  font-size: 12px;
-  line-height: 15px;
-  color: #1F2041;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.form-elements__radio-buttons {
-  margin-bottom: 40px;
-}
-
-.form-elements__toggle-buttons-heading {
-  display: block;
-  margin-bottom: 16px;
-
-  font-size: 12px;
-  line-height: 15px;
-  color: #1F2041;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.form-elements__toggle-buttons-group > .toggle-button:first-child {
-  margin-bottom: 14px;
-}
-
-.form-elements__toggle-buttons {
-  margin-bottom: 40px;
-}
-
-.form-elements__like-buttons-heading {
-  display: block;
-  margin-bottom: 16px;
-
-  font-size: 12px;
-  line-height: 15px;
-  color: #1F2041;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.form-elements__like-buttons-group {
-  display: flex;
-}
-
-.form-elements__like-buttons-group > .like-button:first-child {
-  margin-right: 10px;
-}
-
-.form-elements__like-buttons {
-  margin-bottom: 40px;
-}
-
-.form-elements__rate-button-heading {
-  display: block;
-  margin-bottom: 16px;
-
-  font-size: 12px;
-  line-height: 15px;
-  color: #1F2041;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-
-.form-elements__rate-button-group {
-  display: flex;
-  justify-content: space-between;
-}
-
-@import '~/templates/UI-kit/logo/logo';
-@import '~/templates/UI-kit/text/text';
-@import 'form-elements/text-field/text-field';
-@import 'form-elements/dropdown/dropdown';
-@import 'form-elements/checkbox-button/checkbox-button.scss';
-@import 'form-elements/radio-button/radio-button';
-@import 'form-elements/toggle-button/toggle-button';
-@import 'form-elements/like-button/like-button';
-@import 'form-elements/rate-button/rate-button';
+@import 'pages/form-elements/sections/fields/fields';
+@import 'pages/form-elements/sections/controls/controls';

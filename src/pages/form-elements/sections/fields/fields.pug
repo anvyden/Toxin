@@ -1,0 +1,49 @@
+include ~/templates/UI-kit/form-elements/text-field/text-field
+include ~/templates/UI-kit/form-elements/dropdown/dropdown
+
+mixin fields()
+  .fields-container 
+    .fields-wrap
+
+      //- блок text-field default
+      .fields__text-field
+        .fields__title
+          +text({ text: 'text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+          +text({ text: 'default', type: 'h3', color: 'dark-shade-50', hasUpper: true })
+        +textField({ type: 'text', name: 'textField', placeholder: 'Email', state: 'default' })
+      
+      //- блок text-field hovered and focused
+      .fields__text-field
+        .fields__title
+          +text({ text: 'text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+          +text({ text: 'hover / focus', type: 'h3', color: 'dark-shade-50', hasUpper: true })
+        +textField({ type: 'text', name: 'textFieldFocused', placeholder: 'Email', value: 'This is pretty awesome' })
+      
+      //- блок dropdown
+      .fields__dropdown
+        +dropdown({ text: 'Сколько гостей' })
+          +text({ text: 'dropdown', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+      
+      //- блок masked-text-field
+      .fields__masked-text-field
+        .fields__title
+          +text({ text: 'masked text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+        +textField({ type: 'text', name: 'date', placeholder: 'ДД.ММ.ГГГГ' })
+      
+      //- блок date-dropdown
+      .fields__date-dropdown
+        +dropdown({ text: 'ДД.ММ.ГГГГ', withSmallSize: true })
+          +text({ text: 'date dropdown', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+        +dropdown({ text: '19.08.2019', withSmallSize: true })
+          +text({ text: 'date dropdown', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+      
+      //- блок filter-date-dropdown
+      .fields__filter-date-dropdown
+        +dropdown({ text: '19 авг - 23 авг' })
+          +text({ text: 'filter date dropdown', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+
+      //- блок subscription-text-field
+      .fields__subscription-text-field
+        .fields__title
+          +text({ text: 'subscription text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+        +textField({ type: 'text', name: 'subcription', placeholder: 'Email', withButton: true })

@@ -1,17 +1,14 @@
--
-  let likeButtonSettings = [
-    {name: 'like', likes: 2, likeActive: false},
-    {name: 'likeEnabled', likes: 12, likeActive: true}
-  ]
+mixin likeButtonNew({ count, name, isActived, classForJs })
+  -
+    let likeButtonClass = 'like-button__button'
 
-mixin likeButton(likeButtonSettings)
-  if (likeButtonSettings.likeActive)
-    .like-button
-      button(name=likeButtonSettings.name, value='like').like-button__button.js-like-button__button.like-button__button--active
-        img(src=require('form-elements/like-button/like-button-enabled.svg') alt='Лайк').like-button__img.js-like-button__img
-        span.like-button__counter=likeButtonSettings.likes
-  else
-    .like-button 
-      button(name=likeButtonSettings.name, value='like').like-button__button.js-like-button__button
-        img(src=require('form-elements/like-button/like-button-disabled.svg') alt='Лайк').like-button__img.js-like-button__img
-        span.like-button__counter=likeButtonSettings.likes
+    if (isActived) {
+      likeButtonClass += ' like-button__button--active'
+    }
+
+    if (classForJs) {
+      likeButtonClass += ` ${classForJs}`
+    }
+
+  .like-button 
+    button(class=likeButtonClass, type='button', name=name)= count

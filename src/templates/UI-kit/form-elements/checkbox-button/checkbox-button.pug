@@ -1,13 +1,13 @@
-mixin checkboxButton({ items })
+mixin checkboxButtons({ items })
   ul.checkbox-buttons
     each item in items 
       -
-        const { text, isChecked } = item
+        const { text, name, isChecked } = item
         let checkboxClass = 'checkbox-button' + ' checkbox-buttons__item'
         let checkboxInputClass = 'checkbox-button__input'
         let checkboxLabelClass = 'checkbox-button__label'
     
       li(class=checkboxClass)
-        label(class=checkboxLabelClass)=text
-          input(class=checkboxInputClass, type='checkbox', checked=isChecked)
-          span.checkbox-button__span
+        label(class=checkboxLabelClass)
+          input(class=checkboxInputClass, type='checkbox', name=name, checked=isChecked)
+          span.checkbox-button__span=text

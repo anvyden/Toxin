@@ -1,114 +1,33 @@
+extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
 include ~/templates/UI-kit/logo/logo
 include ~/templates/UI-kit/text/text
-include ~/templates/UI-kit/form-elements/text-field/text-field
-include ~/templates/UI-kit/form-elements/dropdown/dropdown
-include ~/templates/UI-kit/form-elements/checkbox-button/checkbox-button
-include ~/templates/UI-kit/form-elements/radio-button/radio-button
-include ~/templates/UI-kit/form-elements/toggle-button/toggle-button
-include ~/templates/UI-kit/form-elements/like-button/like-button
-include ~/templates/UI-kit/form-elements/rate-button/rate-button
+include ~/pages/form-elements/sections/fields/fields
+include ~/pages/form-elements/sections/controls/controls
 
-doctype html
-html(lang="ru")
-  head
-    meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Form elements
-  body 
-    .form-elements
+block variables
+  -
+    const title = 'Toxin form-elemts'
+    const description = 'Toxin form-elements description'
+    const keyWords = 'Toxin form-elements keywords'
+    const faviconPaths = {
+      apple: 'static/favicon/inactive/apple-touch-icon.png',
+      big: 'static/favicon/inactive/favicon-32x32.png',
+      small: 'static/favicon/inactive/favicon-16x16.png',
+      manifest: `static/favicon/inactive/site.webmanifest`,
+      pinned: 'static/favicon/inactive/safari-pinned-tab.svg',
+    }
 
-      //- Лого Toxin
-      +logo({ active: false })
+block content  
+  .form-elements
+    +logo({ active: false })
 
-      //- containers
-      .form-elements-container
-        .fields-buttons-container
+    //- containers
+    .form-elements-container
+      .fields-controls-buttons-container
 
-          //- контейнер с полями
-          .fields-container
+        //- блок fields
+        +fields()
 
-            //- блок text-field default
-            .form-elements__text-field
-              .form-elements__text-field-description
-                +text({ text: 'text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-                +text({ text: 'default', type: 'h3', color: 'dark-shade-50', hasUpper: true })
-              +textField({ type: 'text', name: 'textField', placeholder: 'Email', state: 'default' })
-
-            //- блок text-field hovered and focused
-            .form-elements__text-field-focused
-              .form-elements__text-field-description
-                +text({ text: 'text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-                +text({ text: 'hover / focus', type: 'h3', color: 'dark-shade-50', hasUpper: true })
-              +textField({ type: 'text', name: 'textFieldFocused', placeholder: 'Email', value: 'This is pretty awesome' })
-            
-            //- блок dropdown
-            .form-elements__dropdown
-              +dropdown({ text: 'Сколько гостей' })
-                +text({ text: 'dropdown', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-
-            //- блок masked-text-field
-            .form-elements__masked-text-field
-              .form-elements__text-field-description 
-                +text({ text: 'masked text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true }) 
-              +textField({ type: 'text', name: 'date', placeholder: 'ДД.ММ.ГГГГ' })
-
-            //- блок date-dropdown
-            .form-elements__date-dropdown
-              +dropdown({ text: 'ДД.ММ.ГГГГ', withSmallSize: true })
-                +text({ text: 'date dropdown', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-              +dropdown({ text: '19.08.2019', withSmallSize: true })
-                +text({ text: 'date dropdown', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-
-            //- блок filter-date-dropdown
-            .form-elements__filter-date-dropdown
-              +dropdown({ text: '19 авг - 23 авг' })
-                +text({ text: 'filter date dropdown', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-
-            //- блок subcriptionTextField
-            .form-elements__subcription-text-field
-              .form-elements__text-field-description
-                +text({ text: 'subscription text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-              +textField({ type: 'text', name: 'subcription', placeholder: 'Email', withButton: true })
-
-          //- контейнер с кнопками
-          .buttons-container
-
-            //- блок checkbox-buttons
-            .form-elements__checkbox-buttons
-              .form-elements__checkbox-buttons-heading
-                +text({ text: 'checkbox buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-              +checkboxButton({ 
-                items: [
-                  { text: 'Можно курить'},
-                  { text: 'Можно с питомцами', isChecked: true},
-                  { text: 'Можно пригласить гостей (до 10 человек)', isChecked: true }
-                ],
-              })
-                
-
-            //- блок radio-buttons
-            .form-elements__radio-buttons
-              span.form-elements__radio-button-heading='radio buttons'
-              +radioButton(radioButtonSettings[0])
-
-            //- блок toggle-buttons
-            .form-elements__toggle-buttons
-              span.form-elements__toggle-buttons-heading='toggle'
-              .form-elements__toggle-buttons-group
-                each toggleButton in toggleButtonSettings
-                  +toggleButton(toggleButton)
-
-            //- блок like-buttons
-            .form-elements__like-buttons
-              span.form-elements__like-buttons-heading='like button'
-              .form-elements__like-buttons-group
-                each likeButton in likeButtonSettings
-                  +likeButton(likeButton)
-            
-            //- блок rate-button
-            .form-elements__rate-button
-              span.form-elements__rate-button-heading='rate button'
-              .form-elements__rate-button-group
-                each rateButton in rateButtonSettings
-                  +rate-button(rateButton)
+        //- блок controls
+        +controls()
+          

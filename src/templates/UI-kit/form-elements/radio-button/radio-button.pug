@@ -1,14 +1,14 @@
--
-  let radioButtonSettings = [
-    {firstId: 'man', firstValue: 'Мужчина', firstLabelText: 'Мужчина', secondId: 'woman', secondValue: 'Женщина', secondLabelText: 'Женщина'}
-  ]
-
-mixin radioButton(radioButtonSettings)
-  .radio-button 
-    .radio-button__group
-      input(type='radio', name='sex', id=radioButtonSettings.firstId, value=radioButtonSettings.firstValue, checked).radio-button__input
-      label(for=radioButtonSettings.firstId).radio-button__label=radioButtonSettings.firstLabelText
-    .radio-button__group
-      input(type='radio', name='sex', id=radioButtonSettings.secondId, value=radioButtonSettings.secondValue).radio-button__input
-      label(for=radioButtonSettings.secondId).radio-button__label=radioButtonSettings.secondLabelText
+mixin radioButtons({ items })
+  ul.radio-buttons
+    each item in items 
+      -
+        const { text, name, value, isChecked } = item
+        let radioClass = 'radio-button' + ' radio-button__item'
+        let radioInputClass = 'radio-button__input'
+        let radioLabelClass = 'radio-button__label'
+    
+      li(class=radioClass)
+        label(class=radioLabelClass)
+          input(class=radioInputClass, type='radio', name=name, value=value, checked=isChecked)
+          span.radio-button__span=text
       

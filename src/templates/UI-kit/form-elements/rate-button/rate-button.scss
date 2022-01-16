@@ -1,20 +1,26 @@
-.rate-button__group {
+.rate-button {
+  display: flex;
+  align-items: center;
+}
+
+.rate-button__wrap {
   position: relative;
-  width: 120px;
-  height: 24px;
+  width: 116px;
+  height: 20px;
+  
   background-image: url(form-elements/rate-button/star.svg);
-  background-size: 24px auto;
-  background-repeat: repeat-x;
+  background-size: 20px auto;
+  background-repeat: space;
 }
 
 .rate-button__input {
   position: absolute;
   top: 0;
   left: 0;
-  width: 24px;
-  height: 24px;
-  background-size: 24px auto;
-  background-repeat: repeat-x;
+  width: 20px;
+  height: 20px;
+  background-size: 20px auto;
+  background-repeat: space;
   appearance: none;
   cursor: pointer;
 }
@@ -28,27 +34,32 @@
   background-image: none;
 }
 
+.rate-button__input:focus-visible {
+  outline-style: solid;
+  outline-color: $purple;
+}
+
 .rate-button__input:nth-of-type(1) {
   z-index: 5;
-  width: 24px;
+  width: 20px;
 }
 
 .rate-button__input:nth-of-type(2) {
   z-index: 4;
-  width: 48px;
+  width: 44px;
 }
 
 .rate-button__input:nth-of-type(3) {
   z-index: 3;
-  width: 72px;
+  width: 68px;
 }
 
 .rate-button__input:nth-of-type(4) {
   z-index: 2;
-  width: 96px;
+  width: 92px;
 }
 
 .rate-button__input:nth-of-type(5) {
   z-index: 1;
-  width: 120px;
+  width: 116px;
 }
