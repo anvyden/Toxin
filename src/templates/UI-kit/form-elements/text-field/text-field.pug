@@ -6,8 +6,12 @@ mixin textField({ type, placeholder, name, value, state, withButton, classForJs 
       inputClass = 'text-field__input'
     }
 
+    if (state === 'permamentFocused') {
+      inputClass = 'text-field__input' + ' text-field__input--permament-focused'
+    }
+
     if (classForJs) {
-      inputClass += classForJs
+      inputClass += ` ${classForJs}`
     }
 
   .text-field

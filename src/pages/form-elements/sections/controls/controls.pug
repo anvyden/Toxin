@@ -14,9 +14,9 @@ mixin controls()
           +text({ text: 'checkbox buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         +checkboxButtons({ 
           items: [
-            { text: 'Можно курить'},
-            { text: 'Можно с питомцами', isChecked: true},
-            { text: 'Можно пригласить гостей (до 10 человек)', isChecked: true }
+            { text: 'Можно курить', name: 'smoke'},
+            { text: 'Можно с питомцами', name: 'pets', isChecked: true},
+            { text: 'Можно пригласить гостей (до 10 человек)', name: 'guests', isChecked: true }
           ],
         })
       
@@ -36,8 +36,8 @@ mixin controls()
         .controls__title 
           +text({ text: 'toggle', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         .controls__toggle-buttons-wrap
-          +toggleButton({ text: 'Получать спецпредложения', isChecked: true })
-          +toggleButton({ text: 'Получать спецпредложения' })
+          +toggleButton({ text: 'Получать спецпредложения', name: 'offers1', isChecked: true })
+          +toggleButton({ text: 'Получать спецпредложения', name: 'offers2' })
       
       //- блок like-buttons
       .controls__like-buttons

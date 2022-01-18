@@ -4,13 +4,12 @@
 @import '~/scss/variables';
 @import '~/scss/mixins';
 @import '~/scss/settings';
-@import '~/scss/interface';
 @import '~/templates/UI-kit/logo/logo';
 @import '~/templates/UI-kit/text/text';
 
 .form-elements-container {
   max-width: 1440px;
-  padding: 143px 140px 140px 140px;
+  padding: 143px 140px 140px 141px;
 }
 
 .fields-controls-buttons-container {

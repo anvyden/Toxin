@@ -1,4 +1,4 @@
-mixin dropdown({ text, withSmallSize, classForJs })
+mixin dropdown({ text, name, withSmallSize, classForJs })
   -
     let dropdownClass = 'dropdown'
     let dropdownInputClass = 'dropdown__input' + ' dropdown__input--focused' + ' dropdown__input--hovered'
@@ -12,5 +12,5 @@ mixin dropdown({ text, withSmallSize, classForJs })
     .dropdown__title
       block 
     .dropdown__wrap
-      input(class=dropdownInputClass, value=text, readonly)
+      input(class=dropdownInputClass, name=name, value=text, readonly)
       button(class=dropdownButtonClass, type='button')='expand_more'

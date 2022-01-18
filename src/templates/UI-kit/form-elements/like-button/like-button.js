@@ -1,28 +1,52 @@
 class LikeButton {
-  constructor() {
-    this.$el = document.querySelectorAll('.js-like-button')
+  constructor(selector) {
+    this.likeButtons = document.querySelectorAll(selector)
     this.like()
   }
 
   like() {
-    this.$el.forEach((element) => {
-      element.addEventListener('click', (event) => {
-        const target = event.currentTarget
-        let likeCounter = +$(target).html()
-        $(target).toggleClass('like-button__button--active')
-
-        if ($(target).hasClass('like-button__button--active')) {
-          likeCounter += 1
-          $(target).html(likeCounter)
-        } else {
-          likeCounter -= 1
-          $(target).html(likeCounter)
-        }
-      })
+    this.likeButtons.forEach((item) => {
+      this.handleLikeButtonClick(item)
     })
+  }
+
+  handleLikeButtonClick(item) {
+    this.clickHandler = this.clickHandler.bind(this)
+    item.addEventListener('click', this.clickHandler)
+  }
+
+  get isActived() {
+    return this.target.classList.contains('like-button__button--active')
+  }
+
+  clickHandler(event) {
+    this.target = event.currentTarget
+    this.counter = Number(this.target.value)
+
+    if (this.isActived) {
+      this.toggle()
+      this.counterDown()
+    } else {
+      this.toggle()
+      this.counterUp()
+    }
+  }
+
+  toggle() {
+    this.target.classList.toggle('like-button__button--active')
+  }
+
+  counterUp() {
+    this.target.value = this.counter + 1
+    this.target.innerHTML = this.counter + 1
+  }
+
+  counterDown() {
+    this.target.value = this.counter - 1
+    this.target.innerHTML = this.counter - 1
   }
 }
 
-const like = new LikeButton()
+const like = new LikeButton('.js-like-button')
 
 export default LikeButton

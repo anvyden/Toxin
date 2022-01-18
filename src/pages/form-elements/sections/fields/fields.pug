@@ -17,7 +17,7 @@ mixin fields()
         .fields__title
           +text({ text: 'text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
           +text({ text: 'hover / focus', type: 'h3', color: 'dark-shade-50', hasUpper: true })
-        +textField({ type: 'text', name: 'textFieldFocused', placeholder: 'Email', value: 'This is pretty awesome' })
+        +textField({ type: 'text', name: 'textFieldFocused', placeholder: 'Email', state: 'permamentFocused', value: 'This is pretty awesome' })
       
       //- блок dropdown
       .fields__dropdown
@@ -28,7 +28,7 @@ mixin fields()
       .fields__masked-text-field
         .fields__title
           +text({ text: 'masked text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        +textField({ type: 'text', name: 'date', placeholder: 'ДД.ММ.ГГГГ' })
+        +textField({ type: 'text', name: 'date', placeholder: 'ДД.ММ.ГГГГ', classForJs: 'js-masked-text-field' })
       
       //- блок date-dropdown
       .fields__date-dropdown

@@ -13,7 +13,10 @@
     "start": "cross-env NODE_ENV=development webpack serve --mode development --open firefox",
     "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json"
   },
-  "browserslist": "> 0.25%, not dead",
+  "browserslist": [
+    "> 0.25%",
+    "not dead"
+  ],
   "author": "Denis <anvyden@gmail.com>",
   "license": "ISC",
   "devDependencies": {
@@ -56,6 +59,7 @@
   },
   "dependencies": {
     "core-js": "^3.19.1",
+    "inputmask": "^5.0.7",
     "jquery": "^3.6.0",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",

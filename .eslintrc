@@ -4,7 +4,8 @@
     "no-unused-vars": "warn",
     "linebreak-style": 0,
     "semi": ["error", "never"],
-    "import/no-unresolved": 0
+    "import/no-unresolved": 0,
+    "no-underscore-dangle": 0
   },
   "env": {
     "es6": true,

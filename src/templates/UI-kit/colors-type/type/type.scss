@@ -2,8 +2,12 @@
   display: flex;
 }
 
-.type--with-margin {
-  margin-bottom: rem(50.5);
+.types__type {
+  margin-bottom: rem(52);
+}
+
+.types__type:nth-child(3) {
+  margin-bottom: rem(46);
 }
 
 .type__type {
@@ -22,17 +26,14 @@
 .type--with-type-h1 {
   font-size: rem(24);
   font-weight: 700;
-  line-height: rem(29.3);
-  letter-spacing: 0.25px;
-  word-spacing: 1.3px;
+  line-height: rem(29);
   color: $darkShade100;
 }
 
 .type--with-type-h2 {
   font-size: rem(19);
   font-weight: 700;
-  line-height: rem(23.3);
-  word-spacing: 1.5px;
+  line-height: rem(23.5);
   color: $darkShade100;
 }
 
@@ -40,7 +41,6 @@
   font-size: rem(12);
   font-weight: 700;
   line-height: rem(15);
-  word-spacing: 0.9px;
   color: $darkShade100;
 }
 

@@ -4,11 +4,12 @@
 
 .text-field__input {
   width: 100%;
-  padding: rem(12) rem(15);
+  padding: rem(12) rem(14);
 
   color: $darkShade75;
   border: 1px solid $darkShade25;
   border-radius: 4px;
+  word-spacing: -1px;
 
   outline: none;
 }
@@ -41,4 +42,8 @@
   color: transparent;
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   background-clip: text;
+}
+
+.text-field__input--permament-focused {
+  border: 1px solid $darkShade50;
 }
