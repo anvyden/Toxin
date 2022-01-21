@@ -1,0 +1,10 @@
+include ~/templates/UI-kit/form-elements/range-slider/range-slider
+
+mixin buttons()
+  .buttons-container
+    .buttons-wrap 
+
+      //- Блок range-slider
+      .buttons__range-slider 
+        +rangeSlider({ sliderIdForJs: 'js-range-slider', priceIdForJs: 'js-range-slider-price' })
+          +text({ text: 'range slider', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })

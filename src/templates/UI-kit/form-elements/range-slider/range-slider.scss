@@ -1,0 +1,52 @@
+@import 'nouislider';
+
+.range-slider__heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.range-slider__subtitle {
+  font-size: rem(12);
+  line-height: rem(15);
+  text-transform: uppercase;
+  color: $darkShade50;
+}
+
+.range-slider__target {
+  height: 6px;
+  background: #FFFFFF;
+  border: 1px solid $darkShade25;
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+.range-slider__connects {
+  position: static;
+}
+
+.range-slider__connect {
+  top: -1px;
+  height: 5.5px;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+}
+
+.range-slider__handle {
+  right: -10px !important;
+  top: -4.5px !important;
+  width: 12px !important;
+  height: 12px !important;
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  border: 2px solid #FFFFFF;
+  border-radius: 10px;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.range-slider__handle::before {
+  display: none;
+}
+
+.range-slider__handle::after {
+  display: none;
+}
