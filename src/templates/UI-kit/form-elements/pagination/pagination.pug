@@ -1,0 +1,19 @@
+mixin pagination({ classForJs })
+  -
+    let itemClass = 'pagination__item' + ' text--with-type-h3'
+    active = true
+    if(active) {
+      itemClass += ' pagination__item--active'
+    }
+
+  .pagination
+    ul.pagination__list 
+      li(class=itemClass)
+        a.pagination__link= '1'
+      li(class=itemClass)
+        a.pagination__link= '2'
+      li(class=itemClass)
+        a.pagination__link= '3'
+      li(class='pagination__item' + ' text--with-type-h3' + ' pagination__item--with-arrow')
+        a(class='pagination__link')= 'arrow_forward'
+    span.pagination__description= '1 – 12 из 100+ вариантов аренды'

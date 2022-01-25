@@ -1,0 +1,34 @@
+mixin button({ text, withBackground, withBorder, withArrow, disabled })
+  -
+    let buttonClass = 'button__button' + ' text--with-type-h3'
+
+    if (!withBackground && !withBorder && disabled) {
+      buttonClass += ' button__button--disabled'
+    }
+
+    if (!withBackground && !withBorder && !disabled && !withArrow) {
+      buttonClass += ' button__button--hovered'
+    }
+
+    if (withBackground) {
+      buttonClass += ' button__button--with-background'
+    }
+
+    if (withBackground && disabled) {
+      buttonClass += ' button__button--with-background-disabled'
+    }
+
+    if (withBorder) {
+      buttonClass += ' button__button--with-border'
+    }
+
+    if (withBorder && disabled) {
+      buttonClass += ' button__button--with-border-disabled'
+    }
+
+    if (withArrow) {
+      buttonClass += ' button__button--with-arrow'
+    }
+    
+  .button 
+    button(class=buttonClass, disabled=disabled)=text

@@ -1,9 +1,9 @@
 import noUiSlider from 'nouislider'
 
 class RangeSlider {
-  constructor(sliderId, priceSliderId, options) {
+  constructor(sliderId, priceId, options) {
     this.rangeSlider = document.getElementById(sliderId)
-    this.rangeSliderPrice = document.getElementById(priceSliderId)
+    this.rangeSliderPrice = document.getElementById(priceId)
     this.options = options
     this.cssClasses = noUiSlider.cssClasses
     this.stylization()

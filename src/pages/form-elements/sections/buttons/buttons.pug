@@ -1,4 +1,6 @@
 include ~/templates/UI-kit/form-elements/range-slider/range-slider
+include ~/templates/UI-kit/form-elements/button/button
+include ~/templates/UI-kit/form-elements/pagination/pagination
 
 mixin buttons()
   .buttons-container
@@ -8,3 +10,23 @@ mixin buttons()
       .buttons__range-slider 
         +rangeSlider({ sliderIdForJs: 'js-range-slider', priceIdForJs: 'js-range-slider-price' })
           +text({ text: 'range slider', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+      .buttons__buttons 
+        .buttons__heading
+          +text({ text: 'buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+        .buttons__buttons-wrap
+          .buttons__buttons-group
+            +button({ text: 'click me', withBackground: true })
+            +button({ text: 'click me', withBackground: true, disabled: true })
+          .buttons__buttons-group
+            +button({ text: 'click me', withBorder: true })
+            +button({ text: 'click me', withBorder: true, disabled: true })
+          .buttons__buttons-group
+            +button({ text: 'click me' })
+            +button({ text: 'click me', disabled: true })
+          .buttons__buttons-group
+            +button({ text: 'перейти к оплате', withArrow: true })
+      .buttons__pagination 
+        .buttons__heading 
+          +text({ text: 'pagination', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+        .buttons__pagination 
+          //- +pagination({ classForJs: 'js-pagination' })

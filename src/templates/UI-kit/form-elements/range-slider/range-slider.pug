@@ -1,7 +1,7 @@
 mixin rangeSlider({ sliderIdForJs, priceIdForJs })
   -
     let rangeSliderClass = 'range-slider'
-    let rangeSlider = 'range-slider__slider'
+    let sliderClass = 'range-slider__slider'
     let rangeSliderSubtitleClass = 'range-slider__subtitle'
 
   div(class=rangeSliderClass)
@@ -9,4 +9,4 @@ mixin rangeSlider({ sliderIdForJs, priceIdForJs })
       block
       span(class=rangeSliderSubtitleClass id=priceIdForJs)
     .rangle-slider__wrap 
-      div(class=rangeSlider, id=sliderIdForJs)
+      div(class=sliderClass, id=sliderIdForJs)
