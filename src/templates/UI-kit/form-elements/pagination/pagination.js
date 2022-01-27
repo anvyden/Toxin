@@ -1,10 +1,87 @@
 class Pagination {
   constructor(selector, options) {
-    this.pagination = document.getElementById(selector)
+    this.pagination = document.querySelector(`.${selector}`)
     this.options = options
     this.selector = selector
     this.dataValue = 1
     this._render()
+  }
+
+  handlePageButtonClick(item) {
+    this.clickHandlerPage = this.clickHandlerPage.bind(this)
+    item.addEventListener('click', this.clickHandlerPage)
+  }
+
+  clickHandlerPage(event) {
+    this.getTargetDataValue(event)
+    this._render()
+    this.getPage()
+    this.addActivePage()
+  }
+
+  handleArrowButtonClick(item) {
+    this.clickHandlerArrow = this.clickHandlerArrow.bind(this)
+    item.addEventListener('click', this.clickHandlerArrow)
+  }
+
+  clickHandlerArrow(event) {
+    this.getTargetArrowButton(event)
+    this.getDataValue()
+    if (this.isArrowPrev) {
+      if (this.dataValue !== 1) {
+        this.dataValue -= 1
+      }
+      this._render()
+      this.getPage()
+      this.addActivePage()
+    } else if (this.isArrowNext) {
+      if (this.dataValue !== this.countOfPages) {
+        this.dataValue += 1
+      }
+      this._render()
+      this.getPage()
+      this.addActivePage()
+    }
+  }
+
+  getPage() {
+    this.page = document.querySelector(`.${this.selector} [data-value="${this.dataValue}"]`)
+  }
+
+  addActivePage() {
+    this.item = this.page.parentNode
+    this.item.classList.add('pagination__item--active')
+  }
+
+  getDataValue() {
+    this.dataValue = Number(this.page.dataset.value)
+  }
+
+  getTargetDataValue(event) {
+    this.dataValue = Number(event.target.dataset.value)
+  }
+
+  getTargetArrowButton(event) {
+    this.arrowButton = event.target
+  }
+
+  get isArrowPrev() {
+    return this.arrowButton.classList.contains('pagination__arrow-prev')
+  }
+
+  get isArrowNext() {
+    return this.arrowButton.classList.contains('pagination__arrow-next')
+  }
+
+  destroy() {
+    this.pagination.innerHTML = ''
+    this.pagination.style.display = 'none'
+  }
+
+  _setup() {
+    const { countOfItems, itemsPerPage } = this.options
+    this.countOfPages = Math.ceil(countOfItems / itemsPerPage)
+    this.firstPage = 1
   }
 
   _render() {
@@ -15,11 +92,6 @@ class Pagination {
     this.pagination.appendChild(this.listInfoTemplate)
   }
 
-  _setup() {
-    const { countOfItems, itemsPerPage } = this.options
-    this.countOfPages = Math.ceil(countOfItems / itemsPerPage)
-  }
-
   _getTemplate() {
     this.listTemplate = this._getList()
     this.listInfoTemplate = this._getListInfo()
@@ -28,19 +100,7 @@ class Pagination {
   _getList() {
     this.list = document.createElement('ul')
     this.list.classList.add('pagination__list')
-
-    if (this.dataValue !== 1) {
-      this.list.appendChild(this._getArrowPrev())
-    }
-    this._getItems()
-    for (let i = 1; i <= this.countOfPages; i += 1) {
-      this.list.appendChild(this.items[i])
-    }
-
-    if (this.dataValue !== this.countOfPages) {
-      this.list.appendChild(this._getArrowNext())
-    }
-
+    this._renderItems()
     return this.list
   }
 
@@ -55,36 +115,80 @@ class Pagination {
     return this.listInfo
   }
 
-  _getItems() {
-    this.items = {}
-    for (let i = 1; i <= this.countOfPages; i += 1) {
-      this.item = document.createElement('li')
-      this.item.classList.add('pagination__item')
-      this.item.classList.add('text--with-type-h3')
+  _renderItems() {
+    if (this.dataValue !== 1) {
+      this.list.appendChild(this._getArrowPrev())
+    }
 
-      this.itemLink = document.createElement('a')
-      this.itemLink.classList.add('pagination__link')
-      this.itemLink.dataset.value = i
-      this.itemLink.innerHTML = i
-
-      if (i === 1) {
-        this.page = this.itemLink
-        this.item.classList.add('pagination__item--active')
+    if (this.countOfPages <= 4) {
+      for (let i = 1; i <= this.countOfPages; i += 1) {
+        this.list.appendChild(this._getItems(i))
       }
-      this.handlePageButtonClick(this.itemLink)
-      this.item.appendChild(this.itemLink)
+    }
 
-      this.items[i] = this.item
+    if (this.countOfPages >= 5) {
+      this.list.appendChild(this._getItems(this.firstPage))
+
+      if (((this.dataValue - 2) > this.firstPage) && this.dataValue === this.countOfPages) {
+        this.list.appendChild(this._getItems('...'))
+        this.list.appendChild(this._getItems(this.dataValue - 2))
+      } else if ((this.dataValue - 2) > this.firstPage) {
+        this.list.appendChild(this._getItems('...'))
+      }
+
+      if (this.dataValue > 2) {
+        this.list.appendChild(this._getItems(this.dataValue - this.firstPage))
+      }
+
+      if ((this.dataValue !== this.firstPage) && (this.dataValue !== this.countOfPages)) {
+        this.list.appendChild(this._getItems(this.dataValue))
+      }
+
+      if (this.dataValue < (this.countOfPages - this.firstPage)) {
+        this.list.appendChild(this._getItems(this.dataValue + this.firstPage))
+      }
+
+      if (((this.dataValue + 2) < this.countOfPages) && (this.dataValue === this.firstPage)) {
+        this.list.appendChild(this._getItems(this.dataValue + 2))
+        this.list.appendChild(this._getItems('...'))
+      } else if ((this.dataValue + 2) < this.countOfPages) {
+        this.list.appendChild(this._getItems('...'))
+      }
+
+      this.list.appendChild(this._getItems(this.countOfPages))
+    }
+
+    if (this.dataValue !== this.countOfPages) {
+      this.list.appendChild(this._getArrowNext())
     }
   }
 
-  _getArrow() {
-    this.arrow = document.createElement('li')
-    this.arrow.classList.add('pagination__item')
-    this.arrow.classList.add('text--with-type-h3')
-    this.arrow.classList.add('pagination__item--with-arrow')
+  _getItems(value) {
+    this.item = document.createElement('li')
+    this.item.classList.add('pagination__item')
+    this.item.classList.add('text--with-type-h3')
 
-    return this.arrow
+    this.itemLink = document.createElement('a')
+    this.itemLink.classList.add('pagination__link')
+    this.itemLink.dataset.value = value
+    this.itemLink.innerHTML = value
+
+    if (this.dataValue === 1 && value === 1) {
+      this.page = this.itemLink
+      this.item.classList.add('pagination__item--active')
+    }
+
+    if (value === '...') {
+      this.item.classList.add('pagination__item--disabled')
+    }
+
+    if ((value !== '...') && (value !== this.dataValue)) {
+      this.handlePageButtonClick(this.itemLink)
+    }
+
+    this.item.appendChild(this.itemLink)
+
+    return this.item
   }
 
   _getArrowPrev() {
@@ -111,76 +215,13 @@ class Pagination {
     return this.arrow
   }
 
-  handlePageButtonClick(item) {
-    this.clickHandlerPage = this.clickHandlerPage.bind(this)
-    item.addEventListener('click', this.clickHandlerPage)
-  }
+  _getArrow() {
+    this.arrow = document.createElement('li')
+    this.arrow.classList.add('pagination__item')
+    this.arrow.classList.add('text--with-type-h3')
+    this.arrow.classList.add('pagination__item--with-arrow')
 
-  clickHandlerPage(event) {
-    this.getTargetDataValue(event)
-    this.getPage()
-    this.removeActivePage()
-    this.addActivePage()
-  }
-
-  handleArrowButtonClick(item) {
-    this.clickHandlerArrow = this.clickHandlerArrow.bind(this)
-    item.addEventListener('click', this.clickHandlerArrow)
-  }
-
-  clickHandlerArrow(event) {
-    this.getTargetArrowButton(event)
-    if (this.isArrowPrev) {
-      this.getDataValue()
-      if (this.dataValue !== 1) {
-        this.dataValue -= 1
-      }
-      this.getPage()
-      this.removeActivePage()
-      this.addActivePage()
-    } else if (this.isArrowNext) {
-      this.getDataValue()
-      if (this.dataValue !== this.countOfPages) {
-        this.dataValue += 1
-      }
-      this.getPage()
-      this.removeActivePage()
-      this.addActivePage()
-    }
-  }
-
-  getPage() {
-    this.page = document.querySelector(`[data-value="${this.dataValue}"]`)
-  }
-
-  removeActivePage() {
-    this.prevActivePage = document.querySelector(`#${this.selector} .pagination__item--active`)
-    this.prevActivePage.classList.remove('pagination__item--active')
-  }
-
-  addActivePage() {
-    this.item = this.page.parentNode
-    this.item.classList.add('pagination__item--active')
-  }
-
-  getDataValue() {
-    this.dataValue = Number(this.page.dataset.value)
-  }
-
-  getTargetDataValue(event) {
-    this.dataValue = Number(event.target.dataset.value)
-  }
-
-  getTargetArrowButton(event) {
-    this.arrowButton = event.target
-  }
-
-  get isArrowPrev() {
-    return this.arrowButton.classList.contains('pagination__arrow-prev')
-  }
-
-  get isArrowNext() {
-    return this.arrowButton.classList.contains('pagination__arrow-next')
+    return this.arrow
   }
 }
 

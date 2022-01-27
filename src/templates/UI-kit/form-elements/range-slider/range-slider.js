@@ -27,7 +27,7 @@ class RangeSlider {
     if (this.rangeSlider) {
       noUiSlider.create(this.rangeSlider, {
         start: [minStartPrice, maxStartPrice],
-        step: 1,
+        step: 50,
         connect: true,
         range: {
           min: [min],
@@ -36,7 +36,9 @@ class RangeSlider {
       })
 
       this.rangeSlider.noUiSlider.on('update', (values) => {
-        this.rangeSliderPrice.innerHTML = `${Math.round(values[0])}₽ - ${Math.round(values[1])}₽`
+        const firstCounter = Math.round(values[0])
+        const secondCounter = Math.round(values[1])
+        this.rangeSliderPrice.innerHTML = `${firstCounter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}₽ - ${secondCounter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}₽`
       })
     }
   }
