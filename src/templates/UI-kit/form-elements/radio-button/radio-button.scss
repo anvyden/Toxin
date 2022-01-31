@@ -1,10 +1,10 @@
 .radio-buttons {
   display: flex;
-  max-width: rem(220);
+  max-width: 220px;
 }
 
 .radio-button {
-  max-width: rem(98);
+  max-width: 98px;
 
   line-height: 20px;
   color: $darkShade50
@@ -62,8 +62,8 @@
   border-color: $purple;
 }
 
-.radio-button__input:focus + .radio-button__span::before {
-  box-shadow: 0 0 0 1px $purple;
+.radio-button__input:focus-visible + .radio-button__span::before {
+  outline: 2px solid $purple;
 }
 
 .radio-button__input:checked + .radio-button__span {
@@ -71,7 +71,7 @@
 }
 
 .radio-button__label:hover > .radio-button__span::before {
-  box-shadow: 0 0 0 1px $purple;
+  border-color: $purple;
 }
 
 .radio-button__label:hover {

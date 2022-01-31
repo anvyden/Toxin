@@ -1,6 +1,7 @@
 mixin textField({ type, placeholder, name, value, state, withButton, classForJs })
   -
     let inputClass = 'text-field__input' + ' text-field__input--focused' + ' text-field__input--hovered'
+    let buttonClass = 'text-field__button' + ' material-icons'
 
     if (state === 'default') {
       inputClass = 'text-field__input'
@@ -17,4 +18,4 @@ mixin textField({ type, placeholder, name, value, state, withButton, classForJs 
   .text-field
     input(class=inputClass, type=type, name=name, placeholder=placeholder, value=value)
     if (withButton)
-      button(type='submit').text-field__button='arrow_forward'
+      button(class=buttonClass, type='submit')='arrow_forward'

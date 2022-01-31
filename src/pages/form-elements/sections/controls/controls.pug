@@ -2,7 +2,7 @@ include ~/templates/UI-kit/form-elements/checkbox-button/checkbox-button
 include ~/templates/UI-kit/form-elements/radio-button/radio-button
 include ~/templates/UI-kit/form-elements/toggle-button/toggle-button
 include ~/templates/UI-kit/form-elements/like-button/like-button
-include ~/templates/UI-kit/form-elements/rate-button/rate-button
+include ~/templates/UI-kit/form-elements/star-rating/star-rating
 
 mixin controls()
   .controls-container
@@ -52,21 +52,5 @@ mixin controls()
         .controls__title
           +text({ text: 'rate button', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         .controls__rate-buttons-wrap
-          +rateButton({ raitingName: 'firtsRaiting', 
-            items: [
-              { value: '1', ariaLabel: 'одна звезда' },
-              { value: '2', ariaLabel: 'две звезды' },
-              { value: '3', ariaLabel: 'три звезды' },
-              { value: '4', ariaLabel: 'четыре звезды', isChecked: true },
-              { value: '5', ariaLabel: 'пять звезд' }
-            ],
-          })
-          +rateButton({ raitingName: 'secondRaiting', 
-            items: [
-              { value: '1', ariaLabel: 'одна звезда' },
-              { value: '2', ariaLabel: 'две звезды' },
-              { value: '3', ariaLabel: 'три звезды' },
-              { value: '4', ariaLabel: 'четыре звезды' },
-              { value: '5', ariaLabel: 'пять звезд', isChecked: true }
-            ],
-          })
+          +starRating({ classForJs: 'js-star-rating-1' })
+          +starRating({ classForJs: 'js-star-rating-2' })

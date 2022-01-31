@@ -195,6 +195,7 @@ class Pagination {
     this._getArrow()
     this.arrowLink = document.createElement('a')
     this.arrowLink.classList.add('pagination__link')
+    this.arrowLink.classList.add('material-icons')
     this.arrowLink.classList.add('pagination__arrow-prev')
     this.arrowLink.innerHTML = 'arrow_back'
     this.handleArrowButtonClick(this.arrowLink)
@@ -207,6 +208,7 @@ class Pagination {
     this._getArrow()
     this.arrowLink = document.createElement('a')
     this.arrowLink.classList.add('pagination__link')
+    this.arrowLink.classList.add('material-icons')
     this.arrowLink.classList.add('pagination__arrow-next')
     this.arrowLink.innerHTML = 'arrow_forward'
     this.handleArrowButtonClick(this.arrowLink)

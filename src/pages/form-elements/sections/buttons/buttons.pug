@@ -8,8 +8,9 @@ mixin buttons()
 
       //- Блок range-slider
       .buttons__range-slider 
-        +rangeSlider({ sliderIdForJs: 'js-range-slider', priceIdForJs: 'js-range-slider-price' })
-          +text({ text: 'range slider', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+        +rangeSlider({ text: 'range slider', sliderIdForJs: 'js-range-slider', priceIdForJs: 'js-range-slider-price' })
+
+      //- Блок buttons
       .buttons__buttons 
         .buttons__heading
           +text({ text: 'buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
@@ -25,6 +26,8 @@ mixin buttons()
             +button({ text: 'click me', disabled: true })
           .buttons__buttons-group
             +button({ text: 'перейти к оплате', withArrow: true })
+      
+      //- Блок pagination
       .buttons__pagination 
         .buttons__heading 
           +text({ text: 'pagination', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })

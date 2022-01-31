@@ -4,6 +4,7 @@ include ~/templates/UI-kit/text/text
 include ~/pages/form-elements/sections/fields/fields
 include ~/pages/form-elements/sections/controls/controls
 include ~/pages/form-elements/sections/buttons/buttons
+include ~/pages/form-elements/sections/dropdowns/dropdowns
 
 block variables
   -
@@ -34,4 +35,7 @@ block content
 
         //- блок buttons
         +buttons()   
-        
+      
+      .dropdown-checkbox-container
+      
+        +dropdowns()

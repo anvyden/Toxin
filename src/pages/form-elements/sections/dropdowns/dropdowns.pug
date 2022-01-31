@@ -1,0 +1,16 @@
+include ~/templates/UI-kit/form-elements/dropdown/dropdown
+
+mixin dropdowns()
+  .dropdowns-container 
+    .dropdowns-wrap 
+
+      .dropdowns__dropdown-default
+        +dropdown({ text: 'dropdown', subtitle: 'default', value: '2 спальни, 2 кровати...' })
+      .dropdowns__dropdown-expanded 
+        +dropdown({ text: 'dropdown', subtitle: 'expanded', classForJs: 'js-dropdown-1', expanded: true, value: '2 спальни, 2 кровати...',
+        items: [
+          { itemName: 'спальни', itemCounter: '2' },
+          { itemName: 'кровати', itemCounter: '2' },
+          { itemName: 'ванные комнаты', itemCounter: '0' },
+        ]})
+        

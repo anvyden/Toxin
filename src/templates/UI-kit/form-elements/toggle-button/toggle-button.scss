@@ -53,11 +53,11 @@
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 }
 
-.toggle-button__input:focus + .toggle-button__span::before {
-  box-shadow: 0 0 0 1.25px $purple;
+.toggle-button__input:focus-visible + .toggle-button__span::before {
+  outline: 2px solid $purple;
 }
 
-.toggle-button__input:focus + .toggle-button__span {
+.toggle-button__input:focus-visible + .toggle-button__span {
   color: $darkShade75;
 }
 
@@ -66,7 +66,7 @@
 }
 
 .toggle-button__label:hover > .toggle-button__span::before {
-  box-shadow: 0 0 0 1.25px $purple;
+  border-color: $purple;
 }
 
 .toggle-button__label:hover {

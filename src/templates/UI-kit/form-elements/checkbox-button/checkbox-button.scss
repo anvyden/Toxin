@@ -1,5 +1,5 @@
 .checkbox-button {
-  max-width: rem(222);
+  max-width: 222px;
 
   line-height: 20px;
   color: $darkShade50
@@ -44,16 +44,16 @@
   border-color: $purple;
 }
 
-.checkbox-button__input:focus + .checkbox-button__span::before {
-  box-shadow: 0 0 0 1px $purple;
+.checkbox-button__input:focus-visible + .checkbox-button__span::before {
+  outline: 2px solid $purple;
 }
 
-.checkbox-button__input:focus + .checkbox-button__span {
+.checkbox-button__input:focus-visible + .checkbox-button__span {
   color: $darkShade75;
 }
 
 .checkbox-button__label:hover > .checkbox-button__span::before {
-  box-shadow: 0 0 0 1px $purple;
+  border-color: $purple;
 }
 
 .checkbox-button__label:hover {

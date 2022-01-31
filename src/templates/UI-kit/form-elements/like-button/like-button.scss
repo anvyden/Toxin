@@ -36,22 +36,18 @@
   content: 'favorite';
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   background-clip: text;
+  color: transparent;
 }
 
 .like-button__button--active {
-  border: 1px solid $purple;
+  border-color: $purple;
   color: $purple;
 }
 
-.like-button__button:focus {
-  outline: none;
-  box-shadow: 0 0 0 1.25px $purple;
+.like-button__button:focus-visible {
+  outline: 2px solid $purple;
 }
 
 .like-button__button:hover {
-  box-shadow: 0 0 0 1.25px $purple;
-}
-
-.like-button__button--active:hover {
-  box-shadow: 0 0 0 1.25px $purple;
+  border-color: $purple;
 }

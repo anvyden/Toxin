@@ -1,16 +1,41 @@
-mixin dropdown({ text, name, withSmallSize, classForJs })
+mixin dropdown({ text, subtitle, value, name, expanded, items, withSmallSize, classForJs })
   -
     let dropdownClass = 'dropdown'
     let dropdownInputClass = 'dropdown__input' + ' dropdown__input--focused' + ' dropdown__input--hovered'
-    let dropdownButtonClass = 'dropdown__button'
+    let dropdownButtonClass = 'dropdown__button' + ' material-icons'
+    let dropdownItemClass = 'dropdown-list__item' + ' text--with-type-h3'
 
     if (withSmallSize) {
       dropdownClass += ' dropdown--size-small'
     }
+
+    if (classForJs) {
+      dropdownClass += ` ${classForJs}`
+    }
+
+    if (expanded) {
+      dropdownInputClass += ' dropdown__input--expanded'
+    }
   
   div(class=dropdownClass)
     .dropdown__title
-      block 
+      +text({ text: text, type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+      if (subtitle)
+        +text({ text: subtitle, type: 'h3', color: 'dark-shade-50', hasUpper: true })
     .dropdown__wrap
-      input(class=dropdownInputClass, name=name, value=text, readonly)
-      button(class=dropdownButtonClass, type='button')='expand_more'
+      .dropdown__dropdown-default 
+        input(class=dropdownInputClass, name=name, value=value, readonly)
+        button(class=dropdownButtonClass, type='button')='expand_more'
+      if (expanded)
+        .dropdown__dropdown-expanded
+          ul.dropdown-list
+            each item in items
+              - const { itemName, itemCounter } = item
+
+              li(class=dropdownItemClass) 
+                span.dropdown-list__item-name= itemName 
+                .dropdown-list__item-menu
+                  button.dropdown-list__item-button.dropdown-list__item-button-decrease= '-'
+                  span.dropdown-list__item-counter= itemCounter
+                  button.dropdown-list__item-button.dropdown-list__item-button-increase= '+'
+

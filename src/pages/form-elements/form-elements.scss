@@ -9,13 +9,19 @@
 
 .form-elements-container {
   max-width: 1440px;
-  padding: 143px 140px 140px 141px;
+  padding: 143px 140px 140px 140.5px;
 }
 
 .fields-controls-buttons-container {
+  display: flex;
+  margin-bottom: 100px;
+}
+
+.dropdown-checkbox-container {
   display: flex;
 }
 
 @import 'pages/form-elements/sections/fields/fields';
 @import 'pages/form-elements/sections/controls/controls';
 @import 'pages/form-elements/sections/buttons/buttons';
+@import 'pages/form-elements/sections/dropdowns/dropdowns';

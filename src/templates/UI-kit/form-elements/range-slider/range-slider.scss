@@ -7,8 +7,6 @@
 }
 
 .range-slider__subtitle {
-  font-size: rem(12);
-  line-height: rem(15);
   text-transform: uppercase;
   color: $darkShade50;
 }
@@ -45,6 +43,10 @@
   border-radius: 10px;
   box-shadow: none;
   cursor: pointer;
+}
+
+.range-slider__handle:focus-visible {
+  outline: 2px solid $green;
 }
 
 .range-slider__handle::before {

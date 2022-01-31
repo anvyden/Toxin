@@ -2,12 +2,12 @@
 @import 'form-elements/radio-button/radio-button';
 @import 'form-elements/toggle-button/toggle-button';
 @import 'form-elements/like-button/like-button';
-@import 'form-elements/rate-button/rate-button';
+@import 'form-elements/star-rating/star-rating';
 
 .controls-container {
   flex-basis: 33%;
-  max-width: rem(260);
-  margin-right: 132px;
+  max-width: 260px;
+  margin-right: 131.5px;
 }
 
 .controls-wrap {
@@ -50,6 +50,5 @@
 .controls__rate-buttons-wrap {
   display: flex;
   justify-content: space-between;
-  padding: 2px 2px 0 2px;
 }
 

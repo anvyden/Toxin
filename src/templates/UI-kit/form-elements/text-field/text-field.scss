@@ -4,7 +4,7 @@
 
 .text-field__input {
   width: 100%;
-  padding: rem(12) rem(14);
+  padding: 12px 14px;
 
   color: $darkShade75;
   border: 1px solid $darkShade25;
@@ -30,15 +30,12 @@
   position: absolute;
   top: 0;
   right: 0;
-  margin: rem(10);
+  margin: 10px;
   
   border: none;
   background-color: transparent;
   cursor: pointer;
 
-  font-family: 'Material Icons', Arial, sans-serif;
-  font-size: 24px;
-  line-height: 24px;
   color: transparent;
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   background-clip: text;

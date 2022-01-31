@@ -25,6 +25,10 @@
   transition: opacity 0.3s ease;
 }
 
+.button__button:focus-visible {
+  outline: 3px solid $purple;
+}
+
 .button__button--disabled {
   color: $darkShade50;
 }
