@@ -46,6 +46,10 @@
   max-width: 150px;
 }
 
+.dropdown__dropdown-expanded--hidden {
+  display: none;
+}
+
 .dropdown-list {
   border-left: 1px solid $darkShade50;
   border-right: 1px solid $darkShade50;
@@ -87,4 +91,9 @@
   line-height: rem(22);
   font-weight: normal;
   color: $darkShade50;
+}
+
+.dropdown-list__item-button--disabled {
+  color: $darkShade5;
+  border-color: $darkShade5;
 }
