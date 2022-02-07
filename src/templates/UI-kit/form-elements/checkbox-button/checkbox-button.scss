@@ -1,8 +1,34 @@
+.checkbox-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.checkbox__heading {
+  margin-bottom: 17.5px;
+}
+
+.checkbox-heading__button {
+  background: transparent;
+  border: none;
+  color: $darkShade50;
+  cursor: pointer;
+}
+
 .checkbox-button {
   max-width: 222px;
 
   line-height: 20px;
   color: $darkShade50
+}
+
+.checkbox-buttons--hidden {
+  display: none;
+}
+
+.checkbox-button--wide {
+  max-width: 266px;
 }
 
 .checkbox-buttons__item {
@@ -58,4 +84,9 @@
 
 .checkbox-button__label:hover {
   color: $darkShade75;
+}
+
+.checkbox-button__description {
+  display: inline-block;
+  white-space: pre-line;
 }

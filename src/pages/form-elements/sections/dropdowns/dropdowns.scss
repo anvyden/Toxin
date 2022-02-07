@@ -1,8 +1,31 @@
 .dropdowns-container {
+  width: 100%;
+  display: flex;
+  margin-bottom: 54px;
+}
+
+.dropdowns-services-wrap {
   flex-basis: 33%;
   max-width: 266px;
+  margin-right: 181px;
 }
 
 .dropdowns__dropdown-default {
   margin-bottom: 20px;
+}
+
+.dropdowns-guests-wrap {
+  flex-basis: 66%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdowns__dropdown-guests {
+  width: 100%;
+  max-width: 320px;
+}
+
+.dropdowns__dropdown-guests-selected {
+  width: 100%;
+  max-width: 320px;
 }

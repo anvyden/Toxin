@@ -50,7 +50,7 @@
   display: none;
 }
 
-.dropdown-list {
+.dropdown__dropdown-expanded {
   border-left: 1px solid $darkShade50;
   border-right: 1px solid $darkShade50;
   border-bottom: 1px solid $darkShade50;
@@ -96,4 +96,11 @@
 .dropdown-list__item-button--disabled {
   color: $darkShade5;
   border-color: $darkShade5;
+  cursor: default;
+}
+
+.dropdown__button-wrap {
+  padding: 19px 7px 13px 14px;
+  display: flex;
+  justify-content: space-between;
 }

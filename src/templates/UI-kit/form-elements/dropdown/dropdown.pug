@@ -1,4 +1,4 @@
-mixin dropdown({ text, subtitle, value, name, expanded, items, withSmallSize, classForJs })
+mixin dropdown({ text, subtitle, value, name, placeholder, expanded, withButtons, items, withSmallSize, classForJs })
   -
     let dropdownClass = 'dropdown'
     let dropdownInputClass = 'dropdown__input' + ' dropdown__input--focused' + ' dropdown__input--hovered'
@@ -24,7 +24,7 @@ mixin dropdown({ text, subtitle, value, name, expanded, items, withSmallSize, cl
         +text({ text: subtitle, type: 'h3', color: 'dark-shade-50', hasUpper: true })
     .dropdown__wrap
       .dropdown__dropdown-default 
-        input(class=dropdownInputClass, name=name, value=value, readonly)
+        input(class=dropdownInputClass, name=name, value=value, placeholder=placeholder, readonly)
         button(class=dropdownButtonClass, type='button')='expand_more'
       if (expanded)
         .dropdown__dropdown-expanded
@@ -38,3 +38,7 @@ mixin dropdown({ text, subtitle, value, name, expanded, items, withSmallSize, cl
                   button.dropdown-list__item-button.dropdown-list__item-button-decrease= '-'
                   span.dropdown-list__item-counter= itemCounter
                   button.dropdown-list__item-button.dropdown-list__item-button-increase= '+'
+          if (withButtons)
+            .dropdown__button-wrap 
+              +button({ text: 'очистить', classForJs: 'js-dropdown-button' })
+              +button({ text: 'применить', classForJs: 'js-dropdown-button' })

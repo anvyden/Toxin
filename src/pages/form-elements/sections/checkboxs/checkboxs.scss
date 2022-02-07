@@ -1,0 +1,36 @@
+@import 'form-elements/checkbox-button/checkbox-button';
+@import 'form-elements/bullet-list/bullet-list';
+
+.checkbox-container {
+  display: flex;
+  width: 100%;
+}
+
+.expandable-checkboxs {
+  flex-basis: 33%;
+  max-width: 266px;
+  margin-right: 180px;
+}
+
+.expandable-checkboxs__checkbox {
+  margin-bottom: 50px;
+}
+
+.rich-checkboxs {
+  flex-basis: 33%;
+  max-width: 266px;
+  margin-right: 127px;
+}
+
+.rich-checkboxs__title {
+  margin-bottom: 16px;
+}
+
+.bullet-lists {
+  flex-basis: 33%;
+  max-width: 266px;
+}
+
+.bullet-lists__title {
+  margin-bottom: 20px;
+}

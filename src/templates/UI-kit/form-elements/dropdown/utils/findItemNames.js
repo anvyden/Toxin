@@ -1,16 +1,17 @@
-const itemsName = [
-  ['спальня', 'спальни', 'спален'],
-  ['кровать', 'кровати', 'кроватей'],
-  ['ванная комната', 'ванные комнаты', 'ванных комнат'],
-]
+const itemsName = {
+  спальни: ['спальня', 'спальни', 'спален'],
+  кровати: ['кровать', 'кровати', 'кроватей'],
+  'ванные комнаты': ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+  взрослые: ['гость', 'гостя', 'гостей'],
+  дети: ['гость', 'гостя', 'гостей'],
+  младенцы: ['младенец', 'младенца', 'младенцев'],
+}
 
 function findItemNames(text) {
-  let itemNames
-  itemsName.forEach((arrayOfNames) => {
-    if (arrayOfNames.includes(text)) {
-      itemNames = arrayOfNames
-    }
-  })
+  const itemNames = itemsName[text]
+  if (!itemNames) {
+    return text
+  }
   return itemNames
 }
 

@@ -5,6 +5,7 @@ import LikeButton from 'form-elements/like-button/like-button'
 import StarRating from 'form-elements/star-rating/star-rating'
 import RangeSlider from 'form-elements/range-slider/range-slider'
 import Pagination from 'form-elements/pagination/pagination'
+import Checkbox from 'form-elements/checkbox-button/checkbox-button'
 
 const dropdown1 = new Dropdown('js-dropdown-1', {
   maxLength: {
@@ -12,6 +13,26 @@ const dropdown1 = new Dropdown('js-dropdown-1', {
     item1: 15,
     item2: 6,
   },
+})
+
+const dropdown2 = new Dropdown('js-dropdown-guests-1', {
+  maxLength: {
+    item0: 10,
+    item1: 15,
+    item2: 6,
+  },
+  dropdownButtons: true,
+  combineTwoFirstItems: true,
+})
+
+const dropdown3 = new Dropdown('js-dropdown-guests-2', {
+  maxLength: {
+    item0: 10,
+    item1: 15,
+    item2: 6,
+  },
+  dropdownButtons: true,
+  combineTwoFirstItems: true,
 })
 
 const starRating1 = new StarRating('js-star-rating-1', 4)
@@ -28,3 +49,5 @@ const pagination = new Pagination('js-pagination', {
   countOfItems: 180,
   itemsPerPage: 12,
 })
+
+const expandableCheckbox = new Checkbox('js-expandable-checkbox')

@@ -31,6 +31,11 @@
 
 .button__button--disabled {
   color: $darkShade50;
+  cursor: not-allowed;
+}
+
+.button__button--hidden {
+  display: none;
 }
 
 .button__button--hovered:hover {
@@ -56,6 +61,10 @@
   border-radius: 22px;
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   transition: opacity 0.3s ease;
+}
+
+.button__button--with-background-disabled {
+  cursor: not-allowed;
 }
 
 .button__button--with-background-disabled::before {
@@ -86,6 +95,10 @@
   border-radius: 22px;
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   transition: opacity 0.3s ease;
+}
+
+.button__button--with-border-disabled {
+  cursor: not-allowed;
 }
 
 .button__button--with-border-disabled::before {

@@ -1,0 +1,52 @@
+include ~/templates/UI-kit/form-elements/checkbox-button/checkbox-button
+include ~/templates/UI-kit/form-elements/bullet-list/bullet-list
+
+mixin checkboxs()
+  .checkbox-container
+    .expandable-checkboxs
+      .expandable-checkboxs__checkbox
+        +checkboxButtons({ expandable: true, checkboxButtons: false, title: 'expandable checkbox list' })
+      .expandable-checkboxs__checkbox
+        +checkboxButtons({ expandable: true, checkboxButtons: true, title: 'expandable checkbox list', classForJs: 'js-expandable-checkbox',
+      items: [
+        { text: 'Завтрак', name: 'breakfast' },
+        { text: 'Письменный стол', name: 'table', isChecked: true },
+        { text: 'Стул для кормления', name: 'chair', isChecked: true },
+        { text: 'Кроватка', name: 'bed', isChecked: true },
+        { text: 'Телевизор', name: 'tv1' },
+        { text: 'Шампунь', name: 'shampoo1' },
+        { text: 'Телевизор', name: 'tv2' },
+        { text: 'Шампунь', name: 'shampoo2' },
+      ]})
+    .rich-checkboxs
+      .rich-checkboxs__title 
+        +text({ text: 'rich checkbox buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+      +checkboxButtons({ checkboxButtons: true, wideCheckboxButtons: true, 
+      items: [
+        {
+        text: 'Широкий коридор', 
+        description: `Ширина коридоров в номере 
+          не менее 91 см.`,
+        textBold: true,
+        color: 'dark-shade-75',
+        name: 'wide-corridor'
+        },
+        {
+        text: 'Помощник для инвалидов',
+        description: `На 1 этаже вас встретит специалист
+          и проводит до номера.`,
+        textBold: true,
+        color: 'dark-shade-75',
+        name: 'assistant-for-disabled'
+        },
+      ]})
+    .bullet-lists
+      .bullet-lists__title
+        +text({ text: 'bullet list', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+      +bulletList({
+        items: [
+          { text: 'Нельзя с питомцами' },
+          { text: 'Без вечеринок и мероприятий' },
+          { text: `Время прибытия — после 13:00,
+            а выезд до 12:00` },
+        ]})

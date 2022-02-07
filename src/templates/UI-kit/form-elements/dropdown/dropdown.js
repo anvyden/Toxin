@@ -4,38 +4,12 @@ import findItemNames from './utils/findItemNames'
 class Dropdown {
   constructor(selector, options) {
     this.dropdown = document.querySelector(`.${selector}`)
-    this.dropdownItemsButtons = document.querySelectorAll(`.${selector} .dropdown-list__item-button`)
-    this.dropdownItems = document.querySelectorAll(`.${selector} .dropdown-list__item`)
-    this.dropdownDefault = document.querySelector(`.${selector} .dropdown__dropdown-default`)
-    this.dropdownExpanded = document.querySelector(`.${selector} .dropdown__dropdown-expanded`)
     this.selector = selector
     this.options = options
-    this.itemsValue = {}
-    this.dropdownInputValueArray = []
-    this._setDataDropdownItem()
-    this.itemCounterChange()
-  }
-
-  _setDataDropdownItem() {
-    this.dropdownItems.forEach((item, i) => {
-      this.dropdownItem = item
-      this.dropdownItem.dataset.dropdownItemNumber = i
-      this._setDropdownItemsValue(i)
-    })
-    this.handleDropdownClick()
-  }
-
-  _setDropdownItemsValue(i) {
-    this.dropdownItemNumber = i
-    this.dropdownItemNameValue = document.querySelector(`.${this.selector} [data-dropdown-item-number="${i}"] .dropdown-list__item-name`).innerHTML
-    this.dropdownItemCounterValue = Number(document.querySelector(`.${this.selector} [data-dropdown-item-number="${i}"] .dropdown-list__item-counter`).innerHTML)
-    this._dropdownInputValue()
-  }
-
-  itemCounterChange() {
-    this.dropdownItemsButtons.forEach((button) => {
-      this.handleButtonClick(button)
-    })
+    this.itemsValue = []
+    this.inputValueArray = []
+    this.click = false
+    this._render()
   }
 
   handleDropdownClick() {
@@ -43,12 +17,23 @@ class Dropdown {
     this.dropdownDefault.addEventListener('click', this.clickHandlerDropdown)
   }
 
-  clickHandlerDropdown(event) {
-    this.target = event.currentTarget
-    this.toggle()
+  clickHandlerDropdown() {
+    this.dropdownToggle()
   }
 
-  handleButtonClick(button) {
+  dropdownToggle() {
+    this.dropdownExpanded.classList.toggle('dropdown__dropdown-expanded--hidden')
+    this.dropdownInput.classList.toggle('dropdown__input--expanded')
+    this._switchArrow()
+  }
+
+  CheckItemValueChange() {
+    this.itemsButtons.forEach((button) => {
+      this.handleItemButtonClick(button)
+    })
+  }
+
+  handleItemButtonClick(button) {
     if (button.classList.contains('dropdown-list__item-button-decrease')) {
       this.clickHandlerButtonDecrease = this.clickHandlerButtonDecrease.bind(this)
       button.addEventListener('click', this.clickHandlerButtonDecrease)
@@ -59,114 +44,259 @@ class Dropdown {
   }
 
   clickHandlerButtonDecrease(event) {
-    this.target = event.target
-    this._getItemName()
-    this._getItemCounter()
-    this._getItemButtonIncrease()
-    this.dropdownItemNumber = Number(this.dropdownItem.dataset.dropdownItemNumber)
-    this.dropdownItemNameValue = this.dropdownItemName.innerHTML
-    this.dropdownItemCounterValue = Number(this.dropdownItemCounter.innerHTML)
-
-    if (this.dropdownItemCounterValue !== 0) {
-      this.dropdownItemCounterValue -= 1
-    }
-
-    if (this.dropdownItemCounterValue === 0) {
-      this.target.classList.add('dropdown-list__item-button--disabled')
-    } else {
-      this.dropdownItemButtonIncrease.classList.remove('dropdown-list__item-button--disabled')
-    }
-
-    this.dropdownItemCounter.innerHTML = this.dropdownItemCounterValue
-    this._dropdownInputValue()
+    this.click = true
+    this._getItemValueOnClick(event)
+    this._decreaseItemValue()
+    this._renderButtons()
   }
 
   clickHandlerButtonIncrease(event) {
-    this.target = event.target
-    this._getItemName()
-    this._getItemCounter()
-    this._getItemButtonDecrease()
-    this.dropdownItemNumber = Number(this.dropdownItem.dataset.dropdownItemNumber)
-    this.dropdownItemNameValue = this.dropdownItemName.innerHTML
-    this.dropdownItemCounterValue = Number(this.dropdownItemCounter.innerHTML)
-
-    this.dropdownItemCounter.innerHTML = this.dropdownItemCounterValue
+    this.click = true
+    this._getItemValueOnClick(event)
     this._increaseItemValue()
+    this._renderButtons()
   }
 
-  toggle() {
-    this.dropdownExpanded.classList.toggle('dropdown__dropdown-expanded--hidden')
-    this.dropdownInput.classList.toggle('dropdown__input--expanded')
+  handleButtonClearClick() {
+    if (this.dropdownButtons) {
+      this.click = true
+      this.clickHandlerButtonClear = this.clickHandlerButtonClear.bind(this)
+      this.dropdownButtons[0].addEventListener('click', this.clickHandlerButtonClear)
+    }
+  }
+
+  clickHandlerButtonClear(event) {
+    this.target = event.target
+    this.items.forEach((item, index) => {
+      this.itemsCounters[index].innerHTML = 0
+      this.itemCounterValue = 0
+      this.itemNameValue = this.itemsNames[index].innerHTML
+      this._dropdownInputValue(this.itemNameValue, this.itemCounterValue, index)
+      this._getItemButtonDecrease(index)
+      this.itemButtonDecrease.classList.add('dropdown-list__item-button--disabled')
+      this._getItemButtonIncrease(index)
+      this.itemButtonIncrease.classList.remove('dropdown-list__item-button--disabled')
+    })
+    this.itemsCountersSum = 0
+    this.target.classList.add('button__button--hidden')
+  }
+
+  handleButtonAcceptClick() {
+    if (this.dropdownButtons) {
+      this.clickHandlerButtonAccept = this.clickHandlerButtonAccept.bind(this)
+      this.dropdownButtons[1].addEventListener('click', this.clickHandlerButtonAccept)
+    }
+  }
+
+  clickHandlerButtonAccept() {
+    this.dropdownToggle()
+  }
+
+  _render() {
+    this._getElements()
+    this.items.forEach((item, index) => {
+      this.item = item
+      this.item.dataset.dropdownItem = index
+      this._setItemsValue(index)
+      this._dropdownInputValue(this.itemNameValue, this.itemCounterValue, index)
+    })
+    this.handleDropdownClick()
+    this.CheckItemValueChange()
+    this._renderButtons()
+    this.handleButtonClearClick()
+    this.handleButtonAcceptClick()
+  }
+
+  _renderButtons() {
+    if (this.dropdownButtons) {
+      if (this.itemsCountersSum === 0) {
+        this.dropdownButtons[0].classList.add('button__button--hidden')
+      } else {
+        this.dropdownButtons[0].classList.remove('button__button--hidden')
+      }
+    }
+  }
+
+  _getElements() {
+    const { dropdownButtons } = this.options
+    this.itemsButtons = document.querySelectorAll(`.${this.selector} .dropdown-list__item-button`)
+    this.items = document.querySelectorAll(`.${this.selector} .dropdown-list__item`)
+    this.dropdownDefault = document.querySelector(`.${this.selector} .dropdown__dropdown-default`)
+    this.dropdownExpanded = document.querySelector(`.${this.selector} .dropdown__dropdown-expanded`)
+    this.itemsNames = document.querySelectorAll(`.${this.selector} .dropdown-list__item-name`)
+    this.itemsCounters = document.querySelectorAll(`.${this.selector} .dropdown-list__item-counter`)
+    this.dropdownInput = document.querySelector(`.${this.selector} .dropdown__input`)
+    this.dropdownButtonArrow = document.querySelector(`.${this.selector} .dropdown__button`)
+    if (dropdownButtons) {
+      this.dropdownButtons = document.querySelectorAll(`.${this.selector} .js-dropdown-button`)
+    }
+  }
+
+  _switchArrow() {
+    if (!this.dropdownExpanded.classList.contains('dropdown__dropdown-expanded--hidden')) {
+      this.dropdownButtonArrow.innerHTML = 'expand_less'
+    } else {
+      this.dropdownButtonArrow.innerHTML = 'expand_more'
+    }
+  }
+
+  _getItemsCounterSum() {
+    if (this.dropdownButtons) {
+      this.itemsCountersSum = 0
+      this.itemsCounterSum += this.itemCounterValue
+    }
+  }
+
+  _setItemsValue(index) {
+    this.itemNumber = index
+    this.itemNameValue = this.itemsNames[index].innerHTML
+    this.itemCounterValue = Number(this.itemsCounters[index].innerHTML)
+    this._getItemsCounterSum()
+    if (this.itemCounterValue === 0) {
+      this._getItemButtonDecrease(index)
+      this.itemsButtons[this.index].classList.add('dropdown-list__item-button--disabled')
+    }
+  }
+
+  _getItemValueOnClick(event) {
+    this.target = event.target
+    this.item = this.target.closest('.dropdown-list__item')
+    this.itemNumber = Number(this.item.dataset.dropdownItem)
+    this.itemCounter = this.itemsCounters[this.itemNumber]
+    this.itemNameValue = this.itemsNames[this.itemNumber].innerHTML
+    this.itemCounterValue = Number(this.itemsCounters[this.itemNumber].innerHTML)
+  }
+
+  _decreaseItemValue() {
+    this._getMaxLenghtItem()
+
+    if (this.itemCounterValue !== 0) {
+      this.itemCounterValue -= 1
+      this.itemsCountersSum -= 1
+    }
+
+    if (this.itemCounterValue === 0) {
+      this._getItemButtonDecrease(this.itemNumber)
+      this.itemButtonDecrease.classList.add('dropdown-list__item-button--disabled')
+    }
+
+    if (this.itemCounterValue !== this.maxLengthItem) {
+      this._getItemButtonIncrease(this.itemNumber)
+      this.itemButtonIncrease.classList.remove('dropdown-list__item-button--disabled')
+    }
+
+    this.itemCounter.innerHTML = this.itemCounterValue
+    this._dropdownInputValue(this.itemNameValue, this.itemCounterValue, this.itemNumber)
   }
 
   _increaseItemValue() {
+    this._getMaxLenghtItem()
+
+    if (this.itemCounterValue < this.maxLengthItem) {
+      this.itemCounterValue += 1
+      this.itemsCountersSum += 1
+    }
+
+    if (this.itemCounterValue === this.maxLengthItem) {
+      this._getItemButtonIncrease(this.itemNumber)
+      this.itemButtonIncrease.classList.add('dropdown-list__item-button--disabled')
+    }
+
+    if (this.itemCounterValue !== 0) {
+      this._getItemButtonDecrease(this.itemNumber)
+      this.itemButtonDecrease.classList.remove('dropdown-list__item-button--disabled')
+    }
+
+    this.itemCounter.innerHTML = this.itemCounterValue
+    this._dropdownInputValue(this.itemNameValue, this.itemCounterValue, this.itemNumber)
+  }
+
+  _getMaxLenghtItem() {
     const { maxLength } = this.options
-    this.maxLengthItem = maxLength[`item${this.dropdownItemNumber}`]
-      ? maxLength[`item${this.dropdownItemNumber}`]
+    this.maxLengthItem = maxLength[`item${this.itemNumber}`]
+      ? maxLength[`item${this.itemNumber}`]
       : 5
-
-    if (this.dropdownItemCounterValue < this.maxLengthItem) {
-      this.dropdownItemCounterValue += 1
-
-      if (this.dropdownItemCounterValue === this.maxLengthItem) {
-        this.target.classList.add('dropdown-list__item-button--disabled')
-      } else {
-        this.dropdownItemButtonDecrease.classList.remove('dropdown-list__item-button--disabled')
-      }
-
-      this.dropdownItemCounter.innerHTML = this.dropdownItemCounterValue
-      this._dropdownInputValue()
-    }
   }
 
-  _dropdownInputValue() {
-    this.itemNames = findItemNames(this.dropdownItemNameValue)
-    this.itemName = declination(this.dropdownItemCounterValue, this.itemNames)
-
-    if (this.dropdownItemCounterValue === 0) {
-      this.itemsValue[`item${this.dropdownItemNumber}`] = ''
+  _dropdownInputValue(name, value, index) {
+    const { combineTwoFirstItems } = this.options
+    if (combineTwoFirstItems) {
+      this._inputValueWithCombine(name, value, index)
     } else {
-      this.itemValue = [`${this.dropdownItemCounterValue} ${this.itemName}`]
-      this.itemsValue[`item${this.dropdownItemNumber}`] = this.itemValue
+      this._inputValue(name, value, index)
     }
 
-    for (let n = 0; n < this.dropdownItems.length; n += 1) {
-      if (this.itemsValue[`item${n}`] !== '') {
-        this.dropdownInputValueArray.push(this.itemsValue[`item${n}`])
+    if (this.click) {
+      this.dropdownInput.value = this.inputValueArray.join(', ')
+    }
+    this.inputValueArray = []
+  }
+
+  _inputValue(name, value, index) {
+    this.itemNames = findItemNames(name)
+    this.itemName = declination(value, this.itemNames)
+
+    this._setItemValue(name, value, index)
+
+    this.itemsValue.forEach((item) => {
+      if (item !== '') {
+        this.inputValueArray.push(item)
       }
+    })
+  }
+
+  _inputValueWithCombine(name, value, index) {
+    this.itemNames = findItemNames(name)
+    this.CounterValue = value
+
+    if (index < 2) {
+      let twoFirstCountersSum = 0
+      this.twoFirstCounters = Array.from(this.itemsCounters).slice(0, 2)
+
+      this.twoFirstCounters.forEach((item) => {
+        twoFirstCountersSum += Number(item.innerHTML)
+      })
+
+      this.CounterValue = twoFirstCountersSum
+      this.itemName = declination(this.CounterValue, this.itemNames)
+      this._setItemValue(this.itemName, this.CounterValue, 0)
+    } else if (index >= 2) {
+      this.itemName = declination(this.CounterValue, this.itemNames)
+      this._setItemValue(this.itemName, this.CounterValue, index - 1)
     }
 
-    this.dropdownInput = document.querySelector(`.${this.selector} .dropdown__input`)
-    this.dropdownInput.value = this.dropdownInputValueArray.join(', ')
-    this.dropdownInputValueArray = []
-  }
-
-  _getItemName() {
-    this.dropdownItem = this.target.closest('.dropdown-list__item')
-    this._getChildren({ parentElem: this.dropdownItem, childrenClass: 'dropdown-list__item-name', childElemName: 'dropdownItemName' })
-  }
-
-  _getItemCounter() {
-    this.dropdownItemMenu = this.target.closest('.dropdown-list__item-menu')
-    this._getChildren({ parentElem: this.dropdownItemMenu, childrenClass: 'dropdown-list__item-counter', childElemName: 'dropdownItemCounter' })
-  }
-
-  _getItemButtonDecrease() {
-    this.dropdownItemMenu = this.target.closest('.dropdown-list__item-menu')
-    this._getChildren({ parentElem: this.dropdownItemMenu, childrenClass: 'dropdown-list__item-button-decrease', childElemName: 'dropdownItemButtonDecrease' })
-  }
-
-  _getItemButtonIncrease() {
-    this.dropdownItemMenu = this.target.closest('.dropdown-list__item-menu')
-    this._getChildren({ parentElem: this.dropdownItemMenu, childrenClass: 'dropdown-list__item-button-increase', childElemName: 'dropdownItemButtonIncrease' })
-  }
-
-  _getChildren({ parentElem, childrenClass, childElemName }) {
-    for (let i = 0; i < parentElem.children.length; i += 1) {
-      if (parentElem.children[i].classList.contains(childrenClass)) {
-        this[childElemName] = parentElem.children[i]
+    this.itemsValue.forEach((item) => {
+      if (item !== '') {
+        this.inputValueArray.push(item)
       }
+    })
+  }
+
+  _setItemValue(name, value, index) {
+    if (value === 0) {
+      this.itemsValue[index] = ''
+    } else {
+      this.itemValue = [`${value} ${name}`]
+      this.itemsValue[index] = this.itemValue
     }
+  }
+
+  _getItemButtonDecrease(dataNumber) {
+    this._getButtonDecreaseIndex(dataNumber)
+    this.itemButtonDecrease = this.itemsButtons[this.index]
+  }
+
+  _getItemButtonIncrease(dataNumber) {
+    this._getButtonIncreaseIndex(dataNumber)
+    this.itemButtonIncrease = this.itemsButtons[this.index]
+  }
+
+  _getButtonDecreaseIndex(dataNumber) {
+    this.index = (dataNumber * 4) / 2
+  }
+
+  _getButtonIncreaseIndex(dataNumber) {
+    this.index = Math.round(((dataNumber * 4) + 1) / 2)
   }
 }
 

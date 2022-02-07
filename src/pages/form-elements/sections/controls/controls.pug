@@ -12,7 +12,7 @@ mixin controls()
       .controls__checkbox-buttons 
         .controls__title
           +text({ text: 'checkbox buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        +checkboxButtons({ 
+        +checkboxButtons({ checkboxButtons: true,
           items: [
             { text: 'Можно курить', name: 'smoke'},
             { text: 'Можно с питомцами', name: 'pets', isChecked: true},
