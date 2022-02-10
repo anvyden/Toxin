@@ -6,7 +6,7 @@
 }
 
 .checkbox__heading {
-  margin-bottom: 17.5px;
+  margin-bottom: 12px;
 }
 
 .checkbox-heading__button {
@@ -32,7 +32,7 @@
 }
 
 .checkbox-buttons__item {
-  margin-bottom: 10.5px;
+  margin-bottom: 10px;
 }
 
 .checkbox-buttons__item:last-child {
@@ -88,5 +88,10 @@
 
 .checkbox-button__description {
   display: inline-block;
+  margin-top: 3px;
   white-space: pre-line;
+}
+
+.checkbox-button__rich-item {
+  margin-bottom: 8px;
 }

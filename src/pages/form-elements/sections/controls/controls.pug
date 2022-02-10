@@ -44,8 +44,8 @@ mixin controls()
         .controls__title
           +text({ text: 'like button', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         .controls__like-buttons-wrap
-          +likeButtonNew({ count: 2, classForJs: 'js-like-button' })
-          +likeButtonNew({ count: 12, isActived: true, classForJs: 'js-like-button' })
+          +likeButton({ count: 2, classForJs: 'js-like-button' })
+          +likeButton({ count: 12, isActived: true, classForJs: 'js-like-button' })
         
       //- блок rate-buttons
       .controls__rate-buttons

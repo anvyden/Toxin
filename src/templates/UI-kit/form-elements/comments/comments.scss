@@ -1,0 +1,46 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile {
+  display: flex;
+}
+
+.profile__avatar-wrap {
+  margin-right: 10px;
+}
+
+.profile__avatar {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #FFFFFF;
+  filter: drop-shadow(0px 10px 20px rgba(31, 32, 65, 0.1));
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile__text-wrap {
+  color: $darkShade75;
+  max-width: 220px;
+}
+
+.profile__name {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.profile__comment-time {
+  display: inline-block;
+}
+
+.comment__like-wrap {
+  margin-top: 2px;
+  margin-right: 15px;
+}
+
+.comment__description {
+  display: flex;
+  margin-top: 3px;
+  margin-left: 4px;
+}

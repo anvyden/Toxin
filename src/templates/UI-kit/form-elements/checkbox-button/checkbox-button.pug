@@ -1,3 +1,5 @@
+include ~/templates/UI-kit/text/text
+
 mixin checkboxButtons({ expandable, checkboxButtons, wideCheckboxButtons, classForJs, title, items })
   -
     let checkboxClass = 'checkbox'
@@ -36,9 +38,14 @@ mixin checkboxButtons({ expandable, checkboxButtons, wideCheckboxButtons, classF
             if (color) {
               checkboxItemText += ` text--${color}`
             }
+
+            if (description) {
+              checkboxItemClass += ' checkbox-button__rich-item'
+            }
         
           li(class=checkboxItemClass)
             label(class=checkboxItemLabelClass)
               input(class=checkboxItemInputClass, type='checkbox', name=name, checked=isChecked)
               span(class=checkboxItemText)=text
-              span(class=checkboxItemDescriptionClass)=description
+              if (description)
+                span(class=checkboxItemDescriptionClass)=description

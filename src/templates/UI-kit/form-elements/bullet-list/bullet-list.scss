@@ -5,7 +5,7 @@
 }
 
 .bullet-list__item {
-  margin-bottom: 10.5px;
+  margin-bottom: 10px;
   margin-left: 20px;
 }
 
@@ -16,11 +16,12 @@
 .bullet-item__span {
   color: $darkShade75;
   white-space: pre-line;
+  line-height: 24px;
 }
 
 .bullet-item__span::before {
   position: absolute;
-  top: 5px;
+  top: 7px;
   left: -20px;
 
   content: '';

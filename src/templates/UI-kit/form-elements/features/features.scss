@@ -1,0 +1,36 @@
+.features__item {
+  display: flex;
+  border-bottom: 1px solid rgba(31, 32, 65, 0.1);
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+}
+
+.features__item:last-child {
+  margin-bottom: 0;
+}
+
+.features__icon-wrap {
+  margin-right: 10px;
+}
+
+.features__icon {
+  font-size: rem(48);
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background-clip: text;
+  color: transparent;
+  user-select: none;
+}
+
+.features__text-wrap {
+  color: $darkShade75;
+  user-select: none;
+}
+
+.features__title {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.features__description {
+  display: inline-block;
+}

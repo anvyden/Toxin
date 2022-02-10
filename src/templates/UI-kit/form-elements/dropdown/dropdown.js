@@ -94,6 +94,7 @@ class Dropdown {
 
   _render() {
     this._getElements()
+    this.itemsCountersSum = 0
     this.items.forEach((item, index) => {
       this.item = item
       this.item.dataset.dropdownItem = index
@@ -142,8 +143,7 @@ class Dropdown {
 
   _getItemsCounterSum() {
     if (this.dropdownButtons) {
-      this.itemsCountersSum = 0
-      this.itemsCounterSum += this.itemCounterValue
+      this.itemsCountersSum += this.itemCounterValue
     }
   }
 

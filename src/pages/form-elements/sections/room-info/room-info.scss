@@ -1,0 +1,18 @@
+@import 'form-elements/features/features';
+@import 'form-elements/comments/comments';
+
+.room-info__container {
+  display: flex;
+  width: 100%;
+}
+
+.room-info__features {
+  flex-basis: 33%;
+  max-width: 280px;
+  margin-right: 166px;
+}
+
+.room-info__comments {
+  flex-basis: 66%;
+  margin-top: 11px;
+}
