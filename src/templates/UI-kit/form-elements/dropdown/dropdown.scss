@@ -1,7 +1,7 @@
 .dropdown__title {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: rem(5);
 }
 
 .dropdown__wrap {
@@ -10,7 +10,7 @@
 
 .dropdown__input {
   width: 100%;
-  padding: 12px 44px 12px 14px;
+  padding: rem(12) rem(44) rem(12) rem(14);
 
   color: $darkShade75;
   border: 1px solid $darkShade25;
@@ -34,7 +34,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  margin: 10px;
+  margin: rem(10);
   
   border: none;
   background-color: transparent;
@@ -43,7 +43,7 @@
 }
 
 .dropdown--size-small {
-  max-width: 150px;
+  max-width: rem(150);
 }
 
 .dropdown__dropdown-expanded--hidden {
@@ -55,13 +55,14 @@
   border-right: 1px solid $darkShade50;
   border-bottom: 1px solid $darkShade50;
   border-radius: 0 0 4px 4px;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
 }
 
 .dropdown-list__item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 7px 7px 0 14px;
+  padding: rem(6) rem(7) rem(1) rem(14);
 
   text-transform: uppercase;
   font-weight: bold;
@@ -69,11 +70,11 @@
 }
 
 .dropdown-list__item:last-child {
-  padding-bottom: 7px;
+  padding-bottom: rem(7);
 }
 
 .dropdown-list__item-menu {
-  width: 92px;
+  width: rem(92);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -100,7 +101,7 @@
 }
 
 .dropdown__button-wrap {
-  padding: 12px 7px 13px 14px;
+  padding: rem(13) rem(7) rem(12) rem(14);
   display: flex;
   justify-content: space-between;
 }

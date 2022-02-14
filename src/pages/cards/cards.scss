@@ -1,0 +1,35 @@
+@import '~normalize.css';
+@import '~/scss/montserrat';
+@import '~/scss/material-icons';
+@import '~/scss/variables';
+@import '~/scss/mixins';
+@import '~/scss/settings';
+@import '~/templates/UI-kit/logo/logo';
+@import '~/templates/UI-kit/text/text';
+@import '~/templates/UI-kit/form-elements/text-field/text-field';
+@import '~/templates/UI-kit/form-elements/dropdown/dropdown';
+@import '~/templates/UI-kit/form-elements/radio-button/radio-button';
+@import '~/templates/UI-kit/form-elements/toggle-button/toggle-button';
+@import '~/templates/UI-kit/form-elements/button/button';
+@import '~/templates/UI-kit/cards/find-room-card/find-room-card';
+@import '~/templates/UI-kit/cards/sign-up-card/sign-up-card';
+@import '~/templates/UI-kit/cards/booking-card/booking-card';
+
+.cards {
+  background-color: #F4F4F6;
+}
+
+.cards-container {
+  display: flex;
+  padding: rem(150) rem(140) rem(140) rem(140);
+}
+
+.cards__wrapper {
+  width: 100%;
+  max-width: rem(380);
+  margin-right: rem(40);
+}
+
+.cards__find-room-card {
+  margin-bottom: rem(40);
+}

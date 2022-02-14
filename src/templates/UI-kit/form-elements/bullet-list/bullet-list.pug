@@ -1,11 +1,12 @@
 mixin bulletList({ items })
-  ul.bullet-list
-    each item in items 
-      -
-        const { text } = item
-        let bulletItemClass = 'bullet-item' + ' bullet-list__item'
-        let bulletItemText = 'bullet-item__span'
-        
-      li(class=bulletItemClass)
-        span(class=bulletItemText)=text
+  .bullet-list 
+    ul.bullet-list__list
+      each item in items 
+        -
+          const { text } = item
+          let bulletItemClass = 'bullet-item' + ' bullet-list__item'
+          let bulletItemText = 'bullet-item__span'
+          
+        li(class=bulletItemClass)
+          span(class=bulletItemText)=text
       

@@ -1,0 +1,32 @@
+extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
+include ~/templates/UI-kit/logo/logo
+include ~/templates/UI-kit/text/text
+include ~/templates/UI-kit/cards/find-room-card/find-room-card
+include ~/templates/UI-kit/cards/sign-up-card/sign-up-card
+include ~/templates/UI-kit/cards/booking-card/booking-card
+
+block variables
+  -
+    const title = 'Toxin cards'
+    const description = 'Toxin cards description'
+    const keywords = 'Toxin cards keywords'
+    const faviconPaths = {
+      apple: 'static/favicon/inactive/apple-touch-icon.png',
+      big: 'static/favicon/inactive/favicon-32x32.png',
+      small: 'static/favicon/inactive/favicon-16x16.png',
+      manifest: `static/favicon/inactive/site.webmanifest`,
+      pinned: 'static/favicon/inactive/safari-pinned-tab.svg',
+    }
+
+block content 
+  .cards 
+    +logo({ active: false })
+    .cards-container
+      .cards__wrapper
+        .cards__find-room-card 
+          +findRoomCard()
+        .cards__sing-up-card
+          +signUpCard()
+      .cards__wrapper 
+        .cards__booking-card 
+          +bookingCard()

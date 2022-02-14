@@ -1,0 +1,31 @@
+include ~/templates/UI-kit/text/text
+include ~/templates/UI-kit/form-elements/dropdown/dropdown
+include ~/templates/UI-kit/form-elements/button/button
+
+mixin bookingCard()
+  .booking-card 
+    .booking-card__container 
+      .booking-card__room-info 
+        +text({ text: '№ 888', type: 'h1', color: 'dark-shade-100', bold: true })
+        +text({ text: '9 990₽ в сутки', type: 'span', color: 'dark-shade-100', bold: true })
+      .booking-card__date-picker 
+        +dropdown({ text: 'прибытие', value: 'ДД.ММ.ГГГГ', withSmallSize: true })
+        +dropdown({ text: 'выезд', value: '19.08.2019', withSmallSize: true })
+      .booking-card__dropdown-guests 
+        +dropdown({ text: 'гости', value: 'Сколько гостей' })
+      .booking-card__calculate-price 
+        .booking-card__calculate-price-item
+          p.booking-card__days-text='9 990₽ х 4 суток'
+          p.booking-card__days-sum='39 960₽'
+        .booking-card__calculate-price-item 
+          p.booking-card__services-text='Сбор за услуги: скидка 2 179₽'
+          p.booking-card__services-sum='0₽'
+        .booking-card__calculate-price-item
+          p.booking-card__additional-services-text='Сбор за дополнительные услуги'
+          p.booking-card__additional-services-sum='300₽'
+      .booking-card__total-price 
+        p.booking-card__total-text='Итого'
+        .booking-card__total-separator 
+        p.booking-card__total-sum='38 081₽'
+      .booking-card__booking-button 
+        +button({ text: 'забронировать', withArrow: true })

@@ -1,4 +1,6 @@
-mixin textField({ type, placeholder, name, value, state, withButton, classForJs })
+include ~/templates/UI-kit/text/text
+
+mixin textField({ type, placeholder, hasTitle, title, subtitle, name, value, state, withButton, classForJs })
   -
     let inputClass = 'text-field__input' + ' text-field__input--focused' + ' text-field__input--hovered'
     let buttonClass = 'text-field__button' + ' material-icons'
@@ -16,6 +18,11 @@ mixin textField({ type, placeholder, name, value, state, withButton, classForJs 
     }
 
   .text-field
-    input(class=inputClass, type=type, name=name, placeholder=placeholder, value=value)
-    if (withButton)
-      button(class=buttonClass, type='submit')='arrow_forward'
+    if (hasTitle)
+      .text-field__title
+        +text({ text: title, type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+        +text({ text: subtitle, type: 'h3', color: 'dark-shade-50', hasUpper: true })
+    .text-field__wrap 
+      input(class=inputClass, type=type, name=name, placeholder=placeholder, value=value)
+      if (withButton)
+        button(class=buttonClass, type='submit')='arrow_forward'

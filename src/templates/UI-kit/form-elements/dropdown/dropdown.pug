@@ -35,10 +35,10 @@ mixin dropdown({ text, subtitle, value, name, placeholder, expanded, withButtons
               - const { itemName, itemCounter } = item
 
               li(class=dropdownItemClass) 
-                span.dropdown-list__item-name= itemName 
+                p.dropdown-list__item-name= itemName 
                 .dropdown-list__item-menu
                   button.dropdown-list__item-button.dropdown-list__item-button-decrease= '-'
-                  span.dropdown-list__item-counter= itemCounter
+                  p.dropdown-list__item-counter= itemCounter
                   button.dropdown-list__item-button.dropdown-list__item-button-increase= '+'
           if (withButtons)
             .dropdown__button-wrap 

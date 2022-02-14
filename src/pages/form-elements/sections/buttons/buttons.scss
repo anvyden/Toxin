@@ -3,17 +3,16 @@
 @import 'form-elements/pagination/pagination';
 
 .buttons-container {
-  flex-basis: 33%;
-  max-width: 320px;
+  max-width: rem(320);
 }
 
 .buttons__range-slider {
-  max-width: 266px;
-  margin-bottom: 44px;
+  max-width: rem(266);
+  margin-bottom: rem(44.5);
 }
 
 .buttons__buttons {
-  margin-bottom: 41px;
+  margin-bottom: rem(41);
 }
 
 .buttons__buttons-wrap {
@@ -23,22 +22,22 @@
 
 .buttons__buttons-group {
   width: 100%;
-  max-width: 218px;
+  max-width: rem(218);
   display: flex;
   justify-content: space-between;
-  margin-bottom: 33px;
+  margin-bottom: rem(31);
 }
 
 .buttons__buttons-group:nth-child(3) {
-  max-width: 142px;
-  margin-bottom: 30.5px;
+  max-width: rem(142);
+  margin-bottom: rem(30.5);
 }
 
 .buttons__buttons-group:last-child {
-  max-width: 320px;
+  max-width: rem(320);
   margin-bottom: 0;
 }
 
 .buttons__heading {
-  margin-bottom: 16px;
+  margin-bottom: rem(16);
 }

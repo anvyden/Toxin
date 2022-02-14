@@ -38,41 +38,6 @@ PAGES_ENTRY_FILES.forEach((pageEntryFile, index) => {
   PAGES_ENTRYS[filename] = `${PAGES_DIR}/${PAGES_FOLDERS[index]}/${pageEntryFile}`
 })
 
-  // Функция перебирает директорию pages
-  // и пушит паг файлы в массив PAGES,
-  // который потом используется htmlWebpackPlugin
-
-  // function pushPugFiles(pathDir){
-
-  //   let currentDir = fs.readdirSync(pathDir)
-    
-  //   // Перебираем текущую директорию на паг файлы
-  //   // + пути к ним, и пушим все это в массивы
-
-  //   for (let key in currentDir) {
-  //     let file = currentDir[key]
-
-  //     if (file.endsWith('.pug')) {
-  //       PAGES.push(file)
-  //       PAGES_PATH.push(pathDir)
-  //     }
-      
-  //     // Проверка элемента является ли он папкой,
-  //     // если да, то углубляемся в эту папку
-
-  //     let stat = fs.statSync(pathDir + file)
-
-  //     if (!stat.isFile()) {
-  //       let currentPath = pathDir + file + '/'
-
-  //       pushPugFiles(currentPath)
-  //     }
-  //   }
-  // }
-
-  // pushPugFiles(PAGES_DIR)
-
-
 const optimization = () => {
   const config = {
     runtimeChunk: 'single',
@@ -184,18 +149,10 @@ const plugins = () => {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        // {
-        //   from: `${PATHS.src}/${PATHS.assets}`,
-        //   to: `${PATHS.assets}img`
-        // },
         {
           from: `${PATHS.src}/static`,
           to: `${PATHS.dist}/static`
         },
-        // {
-        //   from: `${PATHS.src}/${PATHS.assets}/fonts`,
-        //   to: `${PATHS.assets}fonts`
-        // },
       ]
     })
   ]
@@ -226,7 +183,7 @@ module.exports = {
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'form-elements.html'
+    index: 'cards.html'
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),

@@ -1,31 +1,34 @@
-.dropdowns-container {
+.dropdowns {
   width: 100%;
-  display: flex;
-  margin-bottom: 49.5px;
 }
 
-.dropdowns-services-wrap {
+.dropdowns__container {
+  display: flex;
+  margin-bottom: rem(49.5);
+}
+
+.dropdowns__services {
   flex-basis: 33%;
-  max-width: 266px;
-  margin-right: 181px;
+  max-width: rem(266);
+  margin-right: rem(180);
 }
 
 .dropdowns__dropdown-default {
-  margin-bottom: 20px;
+  margin-bottom: rem(20.5);
 }
 
-.dropdowns-guests-wrap {
+.dropdowns__guests {
   flex-basis: 66%;
   display: flex;
-  justify-content: space-between;
 }
 
 .dropdowns__dropdown-guests {
   width: 100%;
-  max-width: 320px;
+  max-width: rem(320);
+  margin-right: 72.5px;
 }
 
 .dropdowns__dropdown-guests-selected {
   width: 100%;
-  max-width: 320px;
+  max-width: rem(320);
 }

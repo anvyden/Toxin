@@ -5,9 +5,11 @@
 @import 'form-elements/star-rating/star-rating';
 
 .controls-container {
-  flex-basis: 33%;
-  max-width: 260px;
-  margin-right: 131.5px;
+  max-width: rem(260);
+}
+
+.controls__container {
+  margin-right: rem(133);
 }
 
 .controls-wrap {
@@ -16,27 +18,27 @@
 }
 
 .controls__title {
-  margin-bottom: 16px;
+  margin-bottom: rem(16);
 }
 
 .controls__checkbox-buttons {
-  margin-bottom: 40px;
+  margin-bottom: rem(40);
 }
 
 .controls__radio-buttons {
-  margin-bottom: 40px;
+  margin-bottom: rem(40);
 }
 
 .controls__toggle-buttons {
-  margin-bottom: 45px;
+  margin-bottom: rem(45);
 }
 
 .controls__toggle-buttons-wrap > .toggle-button:first-child {
-  margin-bottom: 14px;
+  margin-bottom: rem(14);
 }
 
 .controls__like-buttons {
-  margin-bottom: 41px;
+  margin-bottom: rem(41);
 }
 
 .controls__like-buttons-wrap {
@@ -44,7 +46,7 @@
 }
 
 .controls__like-buttons-wrap > .like-button:first-child {
-  margin-right: 10px;
+  margin-right: rem(10);
 }
 
 .controls__rate-buttons-wrap {

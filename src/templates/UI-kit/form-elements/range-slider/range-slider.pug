@@ -1,10 +1,18 @@
 include ~/templates/UI-kit/text/text
 
-mixin rangeSlider({ text, sliderIdForJs, priceIdForJs })
+mixin rangeSlider({ text, sliderClassForJs, priceClassForJs })
   -
     let rangeSliderClass = 'range-slider'
     let sliderClass = 'range-slider__slider'
-    let rangeSliderSubtitleClass = 'range-slider__subtitle' + ' text--with-type-h3'
+    let rangeSliderSubtitleClass = 'range-slider__text' + ' text--with-type-h3'
+
+    if (sliderClassForJs) {
+      sliderClass += ` ${sliderClassForJs}`
+    }
+
+    if (priceClassForJs) {
+      rangeSliderSubtitleClass += ` ${priceClassForJs}`
+    }
 
   div(class=rangeSliderClass)
     .range-slider__heading

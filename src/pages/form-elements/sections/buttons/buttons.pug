@@ -3,12 +3,12 @@ include ~/templates/UI-kit/form-elements/button/button
 include ~/templates/UI-kit/form-elements/pagination/pagination
 
 mixin buttons()
-  .buttons-container
-    .buttons-wrap 
+  .buttons
+    .buttons-container
 
       //- Блок range-slider
       .buttons__range-slider 
-        +rangeSlider({ text: 'range slider', sliderIdForJs: 'js-range-slider', priceIdForJs: 'js-range-slider-price' })
+        +rangeSlider({ text: 'range slider', sliderClassForJs: 'js-range-slider', priceClassForJs: 'js-range-slider-price' })
 
       //- Блок buttons
       .buttons__buttons 

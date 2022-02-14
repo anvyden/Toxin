@@ -3,10 +3,10 @@
 .range-slider__heading {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 23px;
+  margin-bottom: rem(23);
 }
 
-.range-slider__subtitle {
+.range-slider__text {
   text-transform: uppercase;
   color: $darkShade50;
 }
@@ -16,7 +16,7 @@
 }
 
 .range-slider__target {
-  height: 6px;
+  height: rem(6);
   background: #FFFFFF;
   border: 1px solid $darkShade25;
   border-radius: 3px;
@@ -28,16 +28,16 @@
 }
 
 .range-slider__connect {
-  top: -1px;
-  height: 5.5px;
+  top: rem(-1);
+  height: rem(5.5);
   background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
 }
 
-.range-slider__handle {
-  right: -2px !important;
-  top: -6px !important;
-  width: 16px !important;
-  height: 16px !important;
+.range-slider__origin > .range-slider__handle {
+  right: rem(-2);
+  top: rem(-6);
+  width: rem(16);
+  height: rem(16);
   background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
   border: 2px solid #FFFFFF;
   border-radius: 10px;

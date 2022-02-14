@@ -1,12 +1,12 @@
 .toggle-button {
-  line-height: 20px;
+  line-height: rem(20);
   color: $darkShade50
 }
 
 .toggle-button__label {
   display: inline-block;
   position: relative;
-  margin-left: 50px;
+  margin-left: rem(50);
   cursor: pointer;
 }
 
@@ -19,11 +19,11 @@
 .toggle-button__span::before {
   position: absolute;
   top: 0;
-  left: -50px;
+  left: rem(-50);
 
   content: '';
-  width: 40px;
-  height: 20px;
+  width: rem(40);
+  height: rem(20);
   
   border: 1px solid $darkShade25;
   border-radius: 10px;
@@ -31,12 +31,12 @@
 
 .toggle-button__span::after {
   position: absolute;
-  top: 4px;
-  left: -46px;
+  top: rem(4);
+  left: rem(-46);
 
   content: '';
-  width: 12px;
-  height: 12px;
+  width: rem(12);
+  height: rem(12);
   border-radius: 50%;
  
   background: $darkShade25;
@@ -49,7 +49,7 @@
 }
 
 .toggle-button__input:checked + .toggle-button__span::after {
-  left: -26px;
+  left: rem(-26);
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 }
 

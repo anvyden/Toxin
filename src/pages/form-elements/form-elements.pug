@@ -10,9 +10,9 @@ include ~/pages/form-elements/sections/room-info/room-info
 
 block variables
   -
-    const title = 'Toxin form-elemts'
+    const title = 'Toxin form-elements'
     const description = 'Toxin form-elements description'
-    const keyWords = 'Toxin form-elements keywords'
+    const keywords = 'Toxin form-elements keywords'
     const faviconPaths = {
       apple: 'static/favicon/inactive/apple-touch-icon.png',
       big: 'static/favicon/inactive/favicon-32x32.png',
@@ -25,23 +25,13 @@ block content
   .form-elements
     +logo({ active: false })
 
-    //- containers
     .form-elements-container
       .fields-controls-buttons-container
-
-        //- блок fields
         +fields()
-
-        //- блок controls
         +controls()
-
-        //- блок buttons
         +buttons()   
       
-      .dropdown-checkbox-container
-      
+      .dropdown-checkbox-room-info-container
         +dropdowns()
-
         +checkboxs()
-
         +room-info()

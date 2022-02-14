@@ -1,9 +1,9 @@
-mixin toggleButton({ text, name, isChecked })
+mixin toggleButton({ text, name, value, isChecked })
   -
     let toggleInputClass = 'toggle-button__input'
     let toggleLabelClass = 'toggle-button__label'
     
   .toggle-button
     label(class=toggleLabelClass)
-      input(class=toggleInputClass, type='checkbox', name=name, checked=isChecked)
+      input(class=toggleInputClass, type='checkbox', name=name, value=value, checked=isChecked)
       span.toggle-button__span=text

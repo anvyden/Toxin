@@ -1,10 +1,17 @@
-.text-field {
+.text-field__title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: rem(5);
+}
+
+.text-field__wrap {
   position: relative;
 }
 
 .text-field__input {
   width: 100%;
-  padding: 12px 14px;
+  padding: rem(12) rem(14);
 
   color: $darkShade75;
   border: 1px solid $darkShade25;
@@ -30,7 +37,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  margin: 10px;
+  margin: rem(10);
   
   border: none;
   background-color: transparent;

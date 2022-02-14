@@ -1,23 +1,23 @@
-.radio-buttons {
+.radio-buttons__list {
   display: flex;
-  max-width: 220px;
+  max-width: rem(220);
 }
 
 .radio-button {
-  max-width: 98px;
+  max-width: rem(98);
 
-  line-height: 20px;
+  line-height: rem(20);
   color: $darkShade50
 }
 
 .radio-button__item:first-child {
-  margin-right: 20px;
+  margin-right: rem(20);
 }
 
 .radio-button__label {
   display: inline-block;
   position: relative;
-  margin-left: 30px;
+  margin-left: rem(30);
   cursor: pointer;
 }
 
@@ -30,11 +30,11 @@
 .radio-button__span::before {
   position: absolute;
   top: 0;
-  left: -30px;
+  left: rem(-30);
 
   content: '';
-  width: 20px;
-  height: 20px;
+  width: rem(20);
+  height: rem(20);
   
   border: 1px solid $darkShade25;
   border-radius: 10px;
@@ -43,12 +43,12 @@
 .radio-button__span::after {
   display: none;
   position: absolute;
-  top: 4px;
-  left: -26px;
+  top: rem(4);
+  left: rem(-26);
 
   content: '';
-  width: 12px;
-  height: 12px;
+  width: rem(12);
+  height: rem(12);
 
   border-radius: 50%;
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);

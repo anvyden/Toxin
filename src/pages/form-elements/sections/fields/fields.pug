@@ -2,22 +2,16 @@ include ~/templates/UI-kit/form-elements/text-field/text-field
 include ~/templates/UI-kit/form-elements/dropdown/dropdown
 
 mixin fields()
-  .fields-container 
-    .fields-wrap
+  .fields
+    .fields-container
 
       //- блок text-field default
       .fields__text-field
-        .fields__title
-          +text({ text: 'text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-          +text({ text: 'default', type: 'h3', color: 'dark-shade-50', hasUpper: true })
-        +textField({ type: 'text', name: 'textField', placeholder: 'Email', state: 'default' })
+        +textField({ type: 'text', hasTitle: true, title: 'text field', subtitle: 'default', name: 'textField', placeholder: 'Email', state: 'default' })
       
       //- блок text-field hovered and focused
       .fields__text-field
-        .fields__title
-          +text({ text: 'text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-          +text({ text: 'hover / focus', type: 'h3', color: 'dark-shade-50', hasUpper: true })
-        +textField({ type: 'text', name: 'textFieldFocused', placeholder: 'Email', state: 'permamentFocused', value: 'This is pretty awesome' })
+        +textField({ type: 'text', hasTitle: true, title: 'text field', subtitle: 'hover / focus', name: 'textFieldFocused', placeholder: 'Email', state: 'permamentFocused', value: 'This is pretty awesome' })
       
       //- блок dropdown
       .fields__dropdown
@@ -25,9 +19,7 @@ mixin fields()
       
       //- блок masked-text-field
       .fields__masked-text-field
-        .fields__title
-          +text({ text: 'masked text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        +textField({ type: 'text', name: 'date', placeholder: 'ДД.ММ.ГГГГ', classForJs: 'js-masked-text-field' })
+        +textField({ type: 'text', hasTitle: true, title: 'masked text field', name: 'date', placeholder: 'ДД.ММ.ГГГГ', classForJs: 'js-masked-text-field' })
       
       //- блок date-dropdown
       .fields__date-dropdown
@@ -40,6 +32,4 @@ mixin fields()
 
       //- блок subscription-text-field
       .fields__subscription-text-field
-        .fields__title
-          +text({ text: 'subscription text field', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        +textField({ type: 'text', name: 'subcription', placeholder: 'Email', withButton: true })
+        +textField({ type: 'text', hasTitle: true, title: 'subscription text field', name: 'subcription', placeholder: 'Email', withButton: true })

@@ -1,0 +1,25 @@
+.find-room-card {
+  max-width: rem(380);
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+}
+
+.find-room-card__container {
+  padding: rem(40) rem(30) rem(30) rem(30);
+}
+
+.find-room-card__title {
+  margin-bottom: rem(21);
+}
+
+.find-room-card__date-picker {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(21);
+}
+
+.find-room-card__dropdown-guests {
+  margin-bottom: rem(31);
+}

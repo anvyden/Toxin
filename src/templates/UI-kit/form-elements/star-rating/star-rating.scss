@@ -1,6 +1,6 @@
 .star-rating {
   display: flex;
-  line-height: 24px;
+  line-height: rem(24);
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   background-clip: text;
   color: transparent;

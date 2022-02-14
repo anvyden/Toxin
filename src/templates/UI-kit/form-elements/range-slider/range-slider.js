@@ -1,9 +1,10 @@
 import noUiSlider from 'nouislider'
+import wNumb from 'wnumb'
 
 class RangeSlider {
-  constructor(sliderId, priceId, options) {
-    this.rangeSlider = document.getElementById(sliderId)
-    this.rangeSliderPrice = document.getElementById(priceId)
+  constructor(sliderClass, priceClass, options) {
+    this.rangeSlider = document.querySelector(`.${sliderClass}`)
+    this.rangeSliderPrice = document.querySelector(`.${priceClass}`)
     this.options = options
     this.cssClasses = noUiSlider.cssClasses
     this.stylization()
@@ -15,6 +16,7 @@ class RangeSlider {
     this.cssClasses.handle += ' range-slider__handle'
     this.cssClasses.connect += ' range-slider__connect'
     this.cssClasses.connects += ' range-slider__connects'
+    this.cssClasses.origin += ' range-slider__origin'
   }
 
   _init() {
@@ -33,41 +35,19 @@ class RangeSlider {
           min: [min],
           max: [max],
         },
+        format: wNumb({
+          decimals: 0,
+          thousand: ' ',
+        }),
       })
 
       this.rangeSlider.noUiSlider.on('update', (values) => {
-        const firstCounter = Math.round(values[0])
-        const secondCounter = Math.round(values[1])
-        this.rangeSliderPrice.innerHTML = `${firstCounter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}₽ - ${secondCounter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}₽`
+        const firstCounter = values[0]
+        const secondCounter = values[1]
+        this.rangeSliderPrice.innerHTML = `${firstCounter}₽ - ${secondCounter}₽`
       })
     }
   }
 }
 
 export default RangeSlider
-
-// const rangeSlider = document.getElementById('js-range-slider')
-// const rangeSliderPrice = document.getElementById('js-range-slider-price')
-
-// // Стилизация слайдера
-// noUiSlider.cssClasses.target += ' range-slider__target'
-// noUiSlider.cssClasses.handle += ' range-slider__handle'
-// noUiSlider.cssClasses.connect += ' range-slider__connect'
-// noUiSlider.cssClasses.connects += ' range-slider__connects'
-
-// // Инициализация range-slider
-// if (rangeSlider) {
-//   noUiSlider.create(rangeSlider, {
-//     start: [5000, 10000],
-//     step: 1,
-//     connect: true,
-//     range: {
-//       min: [0],
-//       max: [15000],
-//     },
-//   })
-
-//   rangeSlider.noUiSlider.on('update', (values) => {
-//     rangeSliderPrice.innerHTML = `${Math.round(values[0])}₽ - ${Math.round(values[1])}₽`
-//   })
-// }

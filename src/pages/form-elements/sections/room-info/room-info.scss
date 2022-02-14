@@ -8,11 +8,11 @@
 
 .room-info__features {
   flex-basis: 33%;
-  max-width: 280px;
-  margin-right: 166px;
+  max-width: rem(280);
+  margin-right: rem(166);
 }
 
 .room-info__comments {
   flex-basis: 66%;
-  margin-top: 11px;
+  margin-top: rem(11);
 }

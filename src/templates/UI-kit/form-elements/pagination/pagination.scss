@@ -3,12 +3,12 @@
 }
 
 .pagination--size-small {
-  max-width: 240px;
+  max-width: rem(240);
 }
 
 .pagination__list {
   display: flex;
-  margin-bottom: 8px;
+  margin-bottom: rem(8);
 }
 
 .pagination__item {
