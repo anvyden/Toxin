@@ -33,9 +33,9 @@ class Checkbox {
 
   _switchArrow() {
     if (!this.checkboxButtons.classList.contains('checkbox-buttons--hidden')) {
-      this.checkboxButtonArrow.innerHTML = 'expand_less'
+      this.checkboxButtonArrow.classList.add('checkbox-heading__button--rotate')
     } else {
-      this.checkboxButtonArrow.innerHTML = 'expand_more'
+      this.checkboxButtonArrow.classList.remove('checkbox-heading__button--rotate')
     }
   }
 }

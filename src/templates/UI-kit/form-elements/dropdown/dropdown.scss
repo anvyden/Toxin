@@ -40,6 +40,11 @@
   background-color: transparent;
   cursor: pointer;
   color: $darkShade50;
+  transition: transform 0.4s ease;
+}
+
+.dropdown__button--rotate {
+  transform: rotateX(180deg);
 }
 
 .dropdown--size-small {

@@ -15,6 +15,11 @@
   border: none;
   color: $darkShade50;
   cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.checkbox-heading__button--rotate {
+  transform: rotateX(180deg);
 }
 
 .checkbox-button {

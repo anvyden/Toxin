@@ -135,9 +135,9 @@ class Dropdown {
 
   _switchArrow() {
     if (!this.dropdownExpanded.classList.contains('dropdown__dropdown-expanded--hidden')) {
-      this.dropdownButtonArrow.innerHTML = 'expand_less'
+      this.dropdownButtonArrow.classList.add('dropdown__button--rotate')
     } else {
-      this.dropdownButtonArrow.innerHTML = 'expand_more'
+      this.dropdownButtonArrow.classList.remove('dropdown__button--rotate')
     }
   }
 
