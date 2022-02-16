@@ -1,0 +1,43 @@
+@import 'form-elements/range-slider/range-slider';
+@import 'form-elements/button/button';
+@import 'form-elements/pagination/pagination';
+
+.buttons-container {
+  max-width: rem(320);
+}
+
+.buttons__range-slider {
+  max-width: rem(266);
+  margin-bottom: rem(44.5);
+}
+
+.buttons__buttons {
+  margin-bottom: rem(41);
+}
+
+.buttons__buttons-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.buttons__buttons-group {
+  width: 100%;
+  max-width: rem(218);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(31);
+}
+
+.buttons__buttons-group:nth-child(3) {
+  max-width: rem(142);
+  margin-bottom: rem(30.5);
+}
+
+.buttons__buttons-group:last-child {
+  max-width: rem(320);
+  margin-bottom: 0;
+}
+
+.buttons__heading {
+  margin-bottom: rem(16);
+}

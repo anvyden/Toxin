@@ -1,0 +1,56 @@
+.booking-card {
+  max-width: rem(380);
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+}
+
+.booking-card__container {
+  padding: rem(40) rem(30) rem(30) rem(30);
+}
+
+.booking-card__room-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: rem(20);
+}
+
+.booking-card__date-picker {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(20);
+}
+
+.booking-card__dropdown-guests {
+  margin-bottom: rem(20);
+}
+
+.booking-card__calculate-price-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking-card__calculate-price {
+  margin-bottom: rem(30);
+}
+
+.booking-card__total-price {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(20);
+}
+
+.booking-card__total-separator {
+  position: relative;
+  flex-grow: 1;
+}
+
+.booking-card__total-separator::after {
+  position: absolute;
+  bottom: 5px;
+  content: '';
+  width: 100%;
+  border-bottom: 1px dashed $darkShade25
+}

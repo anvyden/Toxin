@@ -1,0 +1,31 @@
+.bullet-item {
+  position: relative;
+  color: $darkShade50
+}
+
+.bullet-list__item {
+  margin-bottom: rem(10);
+  margin-left: rem(20);
+}
+
+.bullet-list__item:last-child {
+  margin-bottom: 0;
+}
+
+.bullet-item__span {
+  color: $darkShade75;
+  white-space: pre-line;
+}
+
+.bullet-item__span::before {
+  position: absolute;
+  top: rem(7);
+  left: rem(-20);
+
+  content: '';
+  width: rem(10);
+  height: rem(10);
+  
+  background: $darkShade25;
+  border-radius: 50%;
+}

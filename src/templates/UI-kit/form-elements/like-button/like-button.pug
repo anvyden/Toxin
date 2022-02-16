@@ -1,0 +1,14 @@
+mixin likeButton({ count, name, isActived, classForJs })
+  -
+    let likeButtonClass = 'like-button__button'
+
+    if (isActived) {
+      likeButtonClass += ' like-button__button--active'
+    }
+
+    if (classForJs) {
+      likeButtonClass += ` ${classForJs}`
+    }
+
+  .like-button 
+    button(class=likeButtonClass, type='button', name=name, value=count)= count

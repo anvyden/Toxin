@@ -1,0 +1,53 @@
+.sign-up-card {
+  max-width: rem(380);
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+}
+
+.sign-up-card__container {
+  padding: rem(40) rem(30) rem(30) rem(30);
+}
+
+.sign-up-card__title {
+  margin-bottom: rem(21);
+}
+
+.sign-up-card__person-first-name {
+  margin-bottom: rem(10);
+}
+
+.sign-up-card__person-second-name {
+  margin-bottom: rem(10);
+}
+
+.sign-up-card__person {
+  margin-bottom: rem(24);
+}
+
+.sign-up-card__date-birth {
+  margin-bottom: rem(20);
+}
+
+.sign-up-card__email {
+  margin-bottom: rem(10);
+}
+
+.sign-up-card__password {
+  margin-bottom: rem(10);
+}
+
+.sign-up-card__data-login {
+  margin-bottom: rem(24);
+}
+
+.sign-up-card__pay-button {
+  margin-bottom: rem(30);
+}
+
+.sign-up-card__log-in {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

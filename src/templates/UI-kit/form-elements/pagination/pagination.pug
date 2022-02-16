@@ -1,0 +1,13 @@
+mixin pagination({ classForJs, smallSize })
+  -
+    let paginationClass = 'pagination'
+
+    if (classForJs) {
+      paginationClass += ` ${classForJs}`
+    }
+
+    if (smallSize) {
+      paginationClass += ' pagination--size-small'
+    }
+
+  div(class=paginationClass)

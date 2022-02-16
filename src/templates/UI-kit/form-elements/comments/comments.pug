@@ -1,0 +1,20 @@
+include ~/templates/UI-kit/form-elements/like-button/like-button
+
+mixin comments({ items })
+  each item in items 
+    -
+      const { name, avatar, avatarName, time, text, likeCount, likeClassForJs, likeIsActived, likeButtonName } = item 
+    
+    .comment
+      .profile
+        .profile__avatar-wrap 
+          img(class='profile__avatar', src=require(`~/templates/UI-kit/form-elements/comments/${avatar}.jpg`), alt=avatarName)
+        .profile__text-wrap 
+          span.profile__name=name
+          span.profile__comment-time=time
+      .comment__description 
+        .comment__like-wrap
+          +likeButton({ count: likeCount, classForJs: likeClassForJs, isActived: likeIsActived, name: likeButtonName })
+        .comment__text-wrap
+          span.comment__text=text
+  

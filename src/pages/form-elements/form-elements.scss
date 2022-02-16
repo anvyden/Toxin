@@ -1,0 +1,30 @@
+@import '~normalize.css';
+@import '~/scss/montserrat';
+@import '~/scss/material-icons';
+@import '~/scss/variables';
+@import '~/scss/mixins';
+@import '~/scss/settings';
+@import '~/templates/UI-kit/logo/logo';
+@import '~/templates/UI-kit/text/text';
+
+.form-elements-container {
+  max-width: 1440px;
+  padding: 143px 140px 140px 140.5px;
+}
+
+.fields-controls-buttons-container {
+  display: flex;
+  margin-bottom: 100px;
+}
+
+.dropdown-checkbox-room-info-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@import 'pages/form-elements/sections/fields/fields';
+@import 'pages/form-elements/sections/controls/controls';
+@import 'pages/form-elements/sections/buttons/buttons';
+@import 'pages/form-elements/sections/dropdowns/dropdowns';
+@import 'pages/form-elements/sections/checkboxs/checkboxs';
+@import 'pages/form-elements/sections/room-info/room-info';

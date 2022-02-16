@@ -1,0 +1,74 @@
+.toggle-button {
+  line-height: rem(20);
+  color: $darkShade50
+}
+
+.toggle-button__label {
+  display: inline-block;
+  position: relative;
+  margin-left: rem(50);
+  cursor: pointer;
+}
+
+.toggle-button__input {
+  position: absolute;
+  appearance: none;
+  outline: none;
+}
+
+.toggle-button__span::before {
+  position: absolute;
+  top: 0;
+  left: rem(-50);
+
+  content: '';
+  width: rem(40);
+  height: rem(20);
+  
+  border: 1px solid $darkShade25;
+  border-radius: 10px;
+}
+
+.toggle-button__span::after {
+  position: absolute;
+  top: rem(4);
+  left: rem(-46);
+
+  content: '';
+  width: rem(12);
+  height: rem(12);
+  border-radius: 50%;
+ 
+  background: $darkShade25;
+  transition-property: left;
+  transition-duration: 0.5s;
+}
+
+.toggle-button__input:checked + .toggle-button__span::before {
+  border-color: $purple;
+}
+
+.toggle-button__input:checked + .toggle-button__span::after {
+  left: rem(-26);
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+}
+
+.toggle-button__input:focus-visible + .toggle-button__span::before {
+  outline: 2px solid $purple;
+}
+
+.toggle-button__input:focus-visible + .toggle-button__span {
+  color: $darkShade75;
+}
+
+.toggle-button__input:checked + .toggle-button__span {
+  color: $darkShade75;
+}
+
+.toggle-button__label:hover > .toggle-button__span::before {
+  border-color: $purple;
+}
+
+.toggle-button__label:hover {
+  color: $darkShade75;
+}

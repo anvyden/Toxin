@@ -1,0 +1,22 @@
+mixin text({ text, type, color, bold, hasUpper })
+  -
+    let textClass = 'text'
+    const types = ['h1', 'h2', 'h3']
+    const colors = ['dark-shade-100', 'dark-shade-75', 'dark-shade-50', 'dark-shade-25', 'dark-shade-5']
+
+    if (types.includes(type)) {textClass += ` text--with-type-${type}`}
+
+    if (colors.includes(color)) {textClass += ` text--${color}`}
+
+    if (bold) {textClass += ' text--bold'}
+
+    if (hasUpper) {textClass += ' text--upper'}
+
+    const typeTag = {
+      'h1': 'h1',
+      'h2': 'h2',
+      'h3': 'h3',
+      'span': 'span'
+    }
+
+  #{typeTag[type]}(class=textClass)= text

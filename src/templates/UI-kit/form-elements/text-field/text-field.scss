@@ -1,0 +1,53 @@
+.text-field__title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: rem(5);
+}
+
+.text-field__wrap {
+  position: relative;
+}
+
+.text-field__input {
+  width: 100%;
+  padding: rem(12) rem(14);
+
+  color: $darkShade75;
+  border: 1px solid $darkShade25;
+  border-radius: 4px;
+  word-spacing: -1px;
+
+  outline: none;
+}
+
+.text-field__input--focused:focus, .text-field__input--hovered:hover {
+  border: 1px solid $darkShade50;
+}
+
+.text-field__input--focused:focus::placeholder, .text-field__input--hovered:hover::placeholder {
+  color: $darkShade75;
+}
+
+.text-field__input::placeholder {
+  color: $darkShade25;
+}
+
+.text-field__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: rem(10);
+  
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  color: transparent;
+  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background-clip: text;
+}
+
+.text-field__input--permament-focused {
+  border: 1px solid $darkShade50;
+}

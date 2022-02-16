@@ -1,0 +1,7 @@
+mixin logo({ active })
+  if (active)
+    .logo
+      img(src=require('~/templates/UI-kit/logo/logo-active.svg') alt='Лого')
+  else 
+    .logo
+      img(src=require('~/templates/UI-kit/logo/logo-inactive.svg') alt='Лого')

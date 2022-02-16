@@ -1,0 +1,59 @@
+.color {
+  display: flex;
+  align-items: center;
+
+  color: $darkShade100;
+}
+
+.color--with-margin {
+  margin-bottom: rem(20);
+}
+
+.colors__color-margin:last-child {
+  margin-bottom: 0;
+}
+
+.color__img {
+  width: 70px;
+  height: 70px;
+  
+  margin-right: rem(40);
+  border-radius: 6px;
+}
+
+.color__description {
+  font-size: rem(19);
+  line-height: rem(27.8);
+}
+
+.color__name {
+  font-weight: 700;
+}
+
+.color__dark-shade-100 {
+  background-color: $darkShade100;
+}
+
+.color__dark-shade-75 {
+  background-color: $darkShade75;
+}
+
+.color__dark-shade-50 {
+  background-color: $darkShade50;
+}
+
+.color__dark-shade-25 {
+  background-color: $darkShade25;
+}
+
+.color__dark-shade-5 {
+  background-color: $darkShade5;
+}
+
+.color__purple {
+  background-color: $purple;
+}
+
+.color__green {
+  background-color: $green;
+}

@@ -1,0 +1,20 @@
+@import '~normalize.css';
+@import '~/scss/montserrat';
+@import '~/scss/variables';
+@import '~/scss/mixins';
+@import '~/scss/settings';
+
+.colors-types-container {
+  padding: 145px 158px 145px 150px;
+  display: flex;
+}
+
+.colors-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 415px;
+}
+
+@import '~/templates/UI-kit/logo/logo';
+@import 'colors-type/colors/colors';
+@import 'colors-type/type/type';

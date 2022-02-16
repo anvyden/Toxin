@@ -1,0 +1,35 @@
+include ~/templates/UI-kit/form-elements/text-field/text-field
+include ~/templates/UI-kit/form-elements/dropdown/dropdown
+
+mixin fields()
+  .fields
+    .fields-container
+
+      //- блок text-field default
+      .fields__text-field
+        +textField({ type: 'text', hasTitle: true, title: 'text field', subtitle: 'default', name: 'textField', placeholder: 'Email', state: 'default' })
+      
+      //- блок text-field hovered and focused
+      .fields__text-field
+        +textField({ type: 'text', hasTitle: true, title: 'text field', subtitle: 'hover / focus', name: 'textFieldFocused', placeholder: 'Email', state: 'permamentFocused', value: 'This is pretty awesome' })
+      
+      //- блок dropdown
+      .fields__dropdown
+        +dropdown({ text: 'dropdown', value: 'Сколько гостей' })
+      
+      //- блок masked-text-field
+      .fields__masked-text-field
+        +textField({ type: 'text', hasTitle: true, title: 'masked text field', name: 'date', placeholder: 'ДД.ММ.ГГГГ', classForJs: 'js-masked-text-field' })
+      
+      //- блок date-dropdown
+      .fields__date-dropdown
+        +dropdown({ text: 'date dropdown', value: 'ДД.ММ.ГГГГ', withSmallSize: true })
+        +dropdown({ text: 'date dropdown', value: '19.08.2019', withSmallSize: true })
+      
+      //- блок filter-date-dropdown
+      .fields__filter-date-dropdown
+        +dropdown({ text: 'filter date dropdown', value: '19 авг - 23 авг' })
+
+      //- блок subscription-text-field
+      .fields__subscription-text-field
+        +textField({ type: 'text', hasTitle: true, title: 'subscription text field', name: 'subcription', placeholder: 'Email', withButton: true })
