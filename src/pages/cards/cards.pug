@@ -4,6 +4,7 @@ include ~/templates/UI-kit/text/text
 include ~/templates/UI-kit/cards/find-room-card/find-room-card
 include ~/templates/UI-kit/cards/sign-up-card/sign-up-card
 include ~/templates/UI-kit/cards/booking-card/booking-card
+include ~/templates/UI-kit/cards/sign-in-card/sign-in-card
 
 block variables
   -
@@ -29,4 +30,6 @@ block content
           +signUpCard()
       .cards__wrapper 
         .cards__booking-card 
-          +bookingCard()
+          +bookingCard({ luxe: true })
+        .cards__sing-in-card 
+          +signInCard()

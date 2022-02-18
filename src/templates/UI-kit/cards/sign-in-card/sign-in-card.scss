@@ -1,0 +1,33 @@
+.sign-in-card {
+  max-width: rem(380);
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+}
+
+.sign-in-card__container {
+  padding: rem(40) rem(30) rem(30) rem(30);
+}
+
+.sign-in-card__title {
+  margin-bottom: rem(20);
+}
+
+.sign-in-card__email {
+  margin-bottom: rem(10);
+}
+
+.sign-in-card__data-login {
+  margin-bottom: rem(20);
+}
+
+.sign-in-card__sign-in-button {
+  margin-bottom: rem(30);
+}
+
+.sign-in-card__sign-up {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

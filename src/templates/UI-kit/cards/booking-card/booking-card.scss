@@ -17,6 +17,35 @@
   margin-bottom: rem(20);
 }
 
+.booking-card__room-number-info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.booking-card__room-number {
+  margin-right: rem(8);
+  font-size: rem(24);
+  line-height: rem(29.26);
+  font-weight: bold;
+  color: $darkShade100;
+}
+
+.booking-card__room-number-symbol {
+  font-size: rem(14);
+  line-height: rem(17.07);
+}
+
+.booking-card__room-price {
+  font-size: rem(12);
+  line-height: rem(18);
+  color: $darkShade50;
+}
+
+.booking-card__room-price-value {
+  font-size: rem(14);
+  font-weight: bold;
+}
+
 .booking-card__date-picker {
   display: flex;
   justify-content: space-between;
@@ -27,19 +56,58 @@
   margin-bottom: rem(20);
 }
 
+.booking-card__calculate-price {
+  margin-bottom: rem(30);
+}
+
 .booking-card__calculate-price-item {
   display: flex;
   justify-content: space-between;
+  margin-bottom: rem(10);
 }
 
-.booking-card__calculate-price {
-  margin-bottom: rem(30);
+.booking-card__calculate-price-item:last-child {
+  margin-bottom: 0;
+}
+
+.booking-card__services-text {
+  position: relative;
+}
+
+.booking-card__additional-services-text {
+  position: relative;
+  max-width: rem(214);
+  line-height: rem(18);
+}
+
+.booking-card__text--with-arrow::after {
+  content: 'i';
+  position: absolute;
+  top: rem(1);
+  right: rem(-25);
+  width: rem(20);
+  height: rem(20);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: rem(12);
+  line-height: rem(14);
+  color: $darkShade25;
+  border: 1px solid $darkShade25;
+  border-radius: 50%;
 }
 
 .booking-card__total-price {
   display: flex;
   justify-content: space-between;
   margin-bottom: rem(20);
+}
+
+.booking-card__total-text {
+  font-size: rem(19);
+  line-height: rem(23.16);
+  font-weight: bold;
+  color: $darkShade100;
 }
 
 .booking-card__total-separator {
@@ -53,4 +121,11 @@
   content: '';
   width: 100%;
   border-bottom: 1px dashed $darkShade25
+}
+
+.booking-card__total-sum {
+  font-size: rem(19);
+  line-height: rem(23.16);
+  font-weight: bold;
+  color: $darkShade100;
 }

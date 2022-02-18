@@ -30,7 +30,7 @@ mixin signUpCard()
         .sign-up-card__special-offers 
           +toggleButton({ text: 'Получать спецпредложения', name: 'specialOffers' })
       .sign-up-card__pay-button 
-        +button({ text: 'перейти к оплате', withArrow: true })
+        +button({ text: 'Перейти к оплате', withArrow: true })
       .sign-up-card__log-in
         +text({ text: 'Уже есть аккаунт на Toxin', type: 'span', color: 'black' })
-        +button({ text: 'Войти', withBorder: true })
+        +button({ text: 'Войти', isLink: true, withBorder: true })
