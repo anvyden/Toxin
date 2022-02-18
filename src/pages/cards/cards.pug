@@ -5,6 +5,7 @@ include ~/templates/UI-kit/cards/find-room-card/find-room-card
 include ~/templates/UI-kit/cards/sign-up-card/sign-up-card
 include ~/templates/UI-kit/cards/booking-card/booking-card
 include ~/templates/UI-kit/cards/sign-in-card/sign-in-card
+include ~/templates/UI-kit/cards/datepicker/datepicker
 
 block variables
   -
@@ -33,3 +34,6 @@ block content
           +bookingCard({ luxe: true })
         .cards__sing-in-card 
           +signInCard()
+      .cards__wrapper 
+        .cards__datepicker
+          +datepicker({ classForJs: 'js-datepicker' })

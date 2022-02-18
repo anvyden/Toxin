@@ -1,0 +1,9 @@
+mixin datepicker({ classForJs })
+  -
+    let datepickerClass = 'datepicker'
+
+    if (classForJs) {
+      datepickerClass += ` ${classForJs}`
+    }
+
+  div(class=datepickerClass)
