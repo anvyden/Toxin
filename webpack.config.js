@@ -7,6 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -42,14 +43,35 @@ const optimization = () => {
   const config = {
     runtimeChunk: 'single',
     splitChunks: {
-      chunks: 'all'
+      cacheGroups: {
+        vendor: {
+          name: 'vendors',
+          test: /node_modules/,
+          chunks: 'all',
+          enforce: true
+        }
+      }
     }
   }
 
   if (isProd) {
     config.minimizer = [
       new CssMinimizerWebpackPlugin(),
-      new TerserWebpackPlugin()
+      new TerserWebpackPlugin(),
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            exclude: [/fonts/],
+            plugins: [
+              'imagemin-gifsicle',
+              'imagemin-mozjpeg',
+              'imagemin-pngquant',
+              'imagemin-svgo',
+            ],
+          },
+        },
+      }),
     ]
   }
 
@@ -57,6 +79,7 @@ const optimization = () => {
 }
 
 const filename = ext => isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`
+const assetFileName = isDev ? `[name][ext]` : `[hash][ext][query]`
 
 const cssLoaders = extra => {
   const loaders = [
@@ -72,10 +95,6 @@ const cssLoaders = extra => {
           plugins: [
             [
               'postcss-preset-env',
-              {
-                browsers: 'last 3 versions',
-                autoprefixer: {grid: true},
-              }
             ]
           ]
         }
@@ -102,7 +121,8 @@ const babelOptions = preset => {
     ],
     plugins: [
       '@babel/plugin-proposal-class-properties'
-    ]
+    ],
+    cacheDirectory: true,
   }
 
   if (preset) {
@@ -168,6 +188,9 @@ module.exports = {
     filename: `${PATHS.assets}js/[name].js`,
     path: PATHS.dist
   },
+  cache: {
+    type: 'memory'
+  },
   resolve: {
     extensions: ['.js', '.json', '.pug', '.scss'],
     alias: {
@@ -180,10 +203,11 @@ module.exports = {
   optimization: optimization(),
   target: 'web',
   devServer: {
+    compress: true,
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'form-elements.html'
+    index: 'form-elements.html',
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),
@@ -194,7 +218,7 @@ module.exports = {
         use: {
           loader: 'pug-loader',
           options: {
-            pretty: true
+            pretty: isDev
           }
         }
       },
@@ -209,15 +233,17 @@ module.exports = {
       {
         test: /\.(?:ico|png|jpg|jpeg|svg|gif)$/,
         type: 'asset/resource',
+        exclude: [/fonts/],
         generator: {
-          filename: `${PATHS.assets}img/[name][ext]`
+          filename: `${PATHS.assets}img/${assetFileName}`
         }
       },
       {
-        test: /\.(ttf|woff|woff2|eot|otf)$/,
+        test: /\.(ttf|woff|woff2|eot|otf|svg)$/,
         type: 'asset/resource',
+        include: [/fonts/],
         generator: {
-          filename: `${PATHS.assets}fonts/[name][ext]`
+          filename: `${PATHS.assets}fonts/${assetFileName}`
         }
       },
       {
