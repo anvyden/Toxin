@@ -197,7 +197,8 @@ module.exports = {
       '~': path.resolve(__dirname, 'src'),
       'colors-type': path.resolve(__dirname, 'src/templates/UI-kit/colors-type'),
       'form-elements': path.resolve(__dirname, 'src/templates/UI-kit/form-elements'),
-      'pages': path.resolve(__dirname, 'src/pages')
+      'pages': path.resolve(__dirname, 'src/pages'),
+      'cards': path.resolve(__dirname, 'src/templates/UI-kit/cards'),
     }
   },
   optimization: optimization(),

@@ -1,2 +1,4 @@
 import cards from 'pages/cards/cards.scss'
-import * as airDatepicker from '~/templates/UI-kit/cards/datepicker/datepicker'
+import Datepicker from 'cards/datepicker/datepicker'
+
+const datepicker = new Datepicker('.js-datepicker')
