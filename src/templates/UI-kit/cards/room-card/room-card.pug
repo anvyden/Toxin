@@ -1,0 +1,39 @@
+include ~/templates/UI-kit/text/text
+include ~/templates/UI-kit/form-elements/star-rating/star-rating
+
+mixin roomCard({ roomNumber, roomPrice, roomReviews, roomImg, luxe, sliderClassForJs, ratingClassForJs })
+  .room-card 
+    .room-card__container 
+      .room-card__slider
+        .swiper.slider
+          .swiper-wrapper.slider-wrapper
+            .swiper-slide
+              img(class='room-card__image', src=require(`~/templates/UI-kit/cards/room-card/${roomImg}.jpg`))
+            .swiper-slide
+              img(class='room-card__image', src=require(`~/templates/UI-kit/cards/room-card/${roomImg}.jpg`))
+            .swiper-slide
+              img(class='room-card__image', src=require(`~/templates/UI-kit/cards/room-card/${roomImg}.jpg`))
+            .swiper-slide
+              img(class='room-card__image', src=require(`~/templates/UI-kit/cards/room-card/${roomImg}.jpg`))
+          .swiper-pagination.slider__pagination
+          .swiper-button-prev.slider__button-prev.material-icons='expand_more'
+          .swiper-button-next.slider__button-next.material-icons='expand_more'
+      .room-card__room-info 
+        .room-card__room-main-info
+          .room-card__room-number-info
+            h2(class='room-card__room-number').
+              #[span.room-card__room-number-symbol № ]
+              #[span.room-card__room-number-value=roomNumber]
+            if (luxe)
+              +text({ text: 'люкс', type: 'h3', color: 'purple', bold: true, hasUpper: true })
+          .room-card__room-price-info 
+            p(class='room-card__room-price').
+              #[span.room-card__room-price-value=roomPrice]
+              #[span.room-card__room-price-day в сутки]
+        .room-card__room-additional-info 
+          .room-card__room-rating-info
+            +starRating({ classForJs: ratingClassForJs })
+          .room-card__room-reviews-info
+            p(class='room-card__room-reviews').
+              #[span.room-card__room-reviews-value=roomReviews]
+              #[span.room-card__room-reviews-text Отзывов]

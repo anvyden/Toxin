@@ -1,6 +1,8 @@
 import cards from 'pages/cards/cards.scss'
 import AirDatepicker from 'air-datepicker'
 import Datepicker from 'cards/datepicker/datepicker'
+import StarRating from 'form-elements/star-rating/star-rating'
+import Slider from 'libs/swiper/swiper'
 
 const acceptButton = {
   content: 'Применить',
@@ -37,3 +39,8 @@ const datepickerSelectors = {
 }
 
 const datepickerInput = new Datepicker(datepickerSelectors)
+
+const roomRating1 = new StarRating('js-room-rating-1', 5)
+const roomRating2 = new StarRating('js-room-rating-2', 4)
+
+const cardSlider = new Slider('.swiper')

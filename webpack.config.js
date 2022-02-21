@@ -199,6 +199,7 @@ module.exports = {
       'form-elements': path.resolve(__dirname, 'src/templates/UI-kit/form-elements'),
       'pages': path.resolve(__dirname, 'src/pages'),
       'cards': path.resolve(__dirname, 'src/templates/UI-kit/cards'),
+      'libs': path.resolve(__dirname, 'src/libs'),
     }
   },
   optimization: optimization(),

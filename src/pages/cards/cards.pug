@@ -6,6 +6,7 @@ include ~/templates/UI-kit/cards/sign-up-card/sign-up-card
 include ~/templates/UI-kit/cards/booking-card/booking-card
 include ~/templates/UI-kit/cards/sign-in-card/sign-in-card
 include ~/templates/UI-kit/cards/datepicker/datepicker
+include ~/templates/UI-kit/cards/room-card/room-card
 
 block variables
   -
@@ -37,3 +38,8 @@ block content
       .cards__wrapper 
         .cards__datepicker
           +datepicker({ classForJs: 'js-datepicker' })
+        .cards__room-cards
+          .cards__room-card
+            +roomCard({ roomNumber: '888', roomPrice: '9 990₽', roomReviews: '145', roomImg: 'room-888', luxe: true, ratingClassForJs: 'js-room-rating-1' })
+          .cards__room-card
+            +roomCard({ roomNumber: '840', roomPrice: '9 990₽', roomReviews: '65', roomImg: 'room-840', ratingClassForJs: 'js-room-rating-2' })

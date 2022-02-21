@@ -10,12 +10,15 @@
 @import '~/templates/UI-kit/form-elements/dropdown/dropdown';
 @import '~/templates/UI-kit/form-elements/radio-button/radio-button';
 @import '~/templates/UI-kit/form-elements/toggle-button/toggle-button';
+@import '~/templates/UI-kit/form-elements/star-rating/star-rating';
 @import '~/templates/UI-kit/form-elements/button/button';
 @import '~/templates/UI-kit/cards/find-room-card/find-room-card';
 @import '~/templates/UI-kit/cards/sign-up-card/sign-up-card';
 @import '~/templates/UI-kit/cards/booking-card/booking-card';
 @import '~/templates/UI-kit/cards/sign-in-card/sign-in-card';
 @import '~/templates/UI-kit/cards/datepicker/datepicker';
+@import '~/templates/UI-kit/cards/room-card/room-card';
+@import '~/libs/swiper/swiper';
 
 .cards {
   background-color: #F4F4F6;
@@ -29,7 +32,7 @@
 .cards__wrapper {
   width: 100%;
   max-width: rem(380);
-  margin-right: rem(40);
+  margin-right: rem(40.3);
 }
 
 .cards__find-room-card {
@@ -38,4 +41,16 @@
 
 .cards__booking-card {
   margin-bottom: rem(40);
+}
+
+.cards__datepicker {
+  margin-bottom: rem(420);
+}
+
+.cards__room-card {
+  margin-bottom: rem(30);
+}
+
+.cards__room-card:last-child {
+  margin-bottom: 0;
 }
