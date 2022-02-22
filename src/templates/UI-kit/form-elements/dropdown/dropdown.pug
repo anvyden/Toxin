@@ -1,22 +1,35 @@
 include ~/templates/UI-kit/text/text
 
-mixin dropdown({ text, subtitle, value, name, placeholder, expanded, withButtons, items, withSmallSize, classForJs })
+mixin dropdown({ text, subtitle, value, name, placeholder, expanded, expandedHidden, expandedPosAbsolute, withButtons, items, withSmallSize, classForJs, inputClassForJs })
   -
     let dropdownClass = 'dropdown'
     let dropdownInputClass = 'dropdown__input' + ' dropdown__input--focused' + ' dropdown__input--hovered'
     let dropdownButtonClass = 'dropdown__button' + ' material-icons'
     let dropdownItemClass = 'dropdown-list__item' + ' text--with-type-h3'
+    let dropdownExpandedClass = 'dropdown__dropdown-expanded'
 
     if (withSmallSize) {
       dropdownClass += ' dropdown--size-small'
     }
 
     if (classForJs) {
-      dropdownInputClass += ` ${classForJs}`
+      dropdownClass += ` ${classForJs}`
     }
 
-    if (expanded) {
-      dropdownInputClass += ' dropdown__input--expanded'
+    if (inputClassForJs) {
+      dropdownInputClass += ` ${inputClassForJs}`
+    }
+
+    //- if (expanded) {
+    //-   dropdownInputClass += ' dropdown__input--expanded'
+    //- }
+
+    if (expandedPosAbsolute) {
+      dropdownExpandedClass += ' dropdown__dropdown-expanded--absolute'
+    }
+
+    if (expandedHidden) {
+      dropdownExpandedClass += ' dropdown__dropdown-expanded--hidden'
     }
   
   div(class=dropdownClass)
@@ -29,7 +42,7 @@ mixin dropdown({ text, subtitle, value, name, placeholder, expanded, withButtons
         input(class=dropdownInputClass, name=name, value=value, placeholder=placeholder, readonly)
         button(class=dropdownButtonClass, type='button')='expand_more'
       if (expanded)
-        .dropdown__dropdown-expanded
+        div(class=dropdownExpandedClass)
           ul.dropdown-list
             each item in items
               - const { itemName, itemCounter } = item

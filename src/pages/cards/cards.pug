@@ -27,14 +27,14 @@ block content
     .cards-container
       .cards__wrapper
         .cards__find-room-card 
-          +findRoomCard()
+          +findRoomCard({ firstInputClassForJs: 'js-datepicker-input-1', secondInputClassForJs: 'js-datepicker-input-2', guestsClassForJs: 'js-find-room-guest' })
         .cards__sing-up-card
-          +signUpCard()
+          +signUpCard({})
       .cards__wrapper 
         .cards__booking-card 
           +bookingCard({ luxe: true })
         .cards__sing-in-card 
-          +signInCard()
+          +signInCard({})
       .cards__wrapper 
         .cards__datepicker
           +datepicker({ classForJs: 'js-datepicker' })
@@ -42,4 +42,4 @@ block content
           .cards__room-card
             +roomCard({ roomNumber: '888', roomPrice: '9 990₽', roomReviews: '145', roomImg: 'room-888', luxe: true, ratingClassForJs: 'js-room-rating-1' })
           .cards__room-card
-            +roomCard({ roomNumber: '840', roomPrice: '9 990₽', roomReviews: '65', roomImg: 'room-840', ratingClassForJs: 'js-room-rating-2' })
+            +roomCard({ roomNumber: '840', roomPrice: '9 900₽', roomReviews: '65', roomImg: 'room-840', ratingClassForJs: 'js-room-rating-2' })

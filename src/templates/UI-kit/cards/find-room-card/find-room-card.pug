@@ -2,15 +2,20 @@ include ~/templates/UI-kit/text/text
 include ~/templates/UI-kit/form-elements/dropdown/dropdown
 include ~/templates/UI-kit/form-elements/button/button
 
-mixin findRoomCard()
+mixin findRoomCard({ firstInputClassForJs, secondInputClassForJs, guestsClassForJs })
   .find-room-card 
     .find-room-card__container 
       .find-room-card__title 
         +text({ text: 'Найдём номера под ваши пожелания', type: 'h1', color: 'dark-shade-100', bold: true })
       .find-room-card__date-picker
-        +dropdown({ text: 'прибытие', value: 'ДД.ММ.ГГГГ', withSmallSize: true, classForJs: 'js-datepicker-input-1' })
-        +dropdown({ text: 'выезд', value: 'ДД.ММ.ГГГГ', withSmallSize: true, classForJs: 'js-datepicker-input-2' })
+        +dropdown({ text: 'прибытие', value: 'ДД.ММ.ГГГГ', withSmallSize: true, inputClassForJs: firstInputClassForJs })
+        +dropdown({ text: 'выезд', value: 'ДД.ММ.ГГГГ', withSmallSize: true, inputClassForJs: secondInputClassForJs })
       .find-room-card__dropdown-guests 
-        +dropdown({ text: 'гости', value: 'Сколько гостей' })
+        +dropdown({ text: 'гости', expanded: true, expandedHidden: true, expandedPosAbsolute: true, withButtons: true, value: 'Сколько гостей', classForJs: guestsClassForJs, 
+        items: [
+            { itemName: 'взрослые', itemCounter: '0' },
+            { itemName: 'дети', itemCounter: '0' },
+            { itemName: 'младенцы', itemCounter: '0' },
+          ]})
       .find-room-card__button 
         +button({ text: 'подобрать номер', withArrow: true })

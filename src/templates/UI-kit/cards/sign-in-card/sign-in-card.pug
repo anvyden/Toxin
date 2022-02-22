@@ -2,7 +2,7 @@ include ~/templates/UI-kit/text/text
 include ~/templates/UI-kit/form-elements/text-field/text-field
 include ~/templates/UI-kit/form-elements/button/button
 
-mixin signInCard()
+mixin signInCard({ signUpButtonLink })
   .sign-in-card 
     .sign-in-card__container 
       .sign-in-card__title
@@ -16,4 +16,4 @@ mixin signInCard()
         +button({ text: 'Войти', withArrow: true })
       .sign-in-card__sign-up
         +text({ text: 'Нет аккаунта на Toxin?', type: 'span', color: 'black' })
-        +button({ text: 'Создать', isLink: true, withBorder: true })
+        +button({ text: 'Создать', isLink: true, link: signUpButtonLink, withBorder: true })

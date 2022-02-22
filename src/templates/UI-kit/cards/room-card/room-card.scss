@@ -5,15 +5,20 @@
   border-radius: 4px;
 }
 
+.room-card__image {
+  background-size: contain;
+  border-radius: 4px 4px 0 0;
+}
+
 .room-card__room-info {
-  padding: rem(20) rem(17) rem(20) rem(20);
+  padding: rem(19) rem(17) rem(18) rem(20);
 }
 
 .room-card__room-main-info {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding-bottom: rem(10);
+  padding-bottom: rem(11);
   border-bottom: 1px solid rgba(31, 32, 65, 0.1);
 }
 
@@ -35,7 +40,7 @@
 }
 
 .room-card__room-price {
-  font-size: rem(14);
+  font-size: rem(12);
   line-height: rem(18);
   color: $darkShade50;
 }
@@ -49,12 +54,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: rem(8);
+  margin-top: rem(8.5);
 }
 
 .room-card__room-reviews {
   font-size: rem(14);
   line-height: rem(18);
+  margin-right: rem(4);
   color: $darkShade50;
 }
 

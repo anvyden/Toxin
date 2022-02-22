@@ -4,7 +4,7 @@ include ~/templates/UI-kit/form-elements/radio-button/radio-button
 include ~/templates/UI-kit/form-elements/toggle-button/toggle-button
 include ~/templates/UI-kit/form-elements/button/button
 
-mixin signUpCard()
+mixin signUpCard({ logInButtonLink })
   .sign-up-card 
     .sign-up-card__container 
       .sign-up-card__title 
@@ -33,4 +33,4 @@ mixin signUpCard()
         +button({ text: 'Перейти к оплате', withArrow: true })
       .sign-up-card__log-in
         +text({ text: 'Уже есть аккаунт на Toxin', type: 'span', color: 'black' })
-        +button({ text: 'Войти', isLink: true, withBorder: true })
+        +button({ text: 'Войти', isLink: true, link: logInButtonLink, withBorder: true })

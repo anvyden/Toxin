@@ -4,11 +4,7 @@
 
 .slider {
   position: relative;
-  max-height: rem(151);
-}
-
-.slider-wrapper {
-  max-height: rem(151);
+  max-height: rem(151.38);
 }
 
 .slider > .slider__pagination {
@@ -16,13 +12,13 @@
   justify-content: flex-end;
   left: auto;
   bottom: rem(15);
-  right: rem(15);
+  right: rem(16);
 }
 
 .slider__pagination-bullet {
   display: block;
-  width: rem(7.5);
-  height: rem(7.5);
+  width: rem(7.2);
+  height: rem(7.2);
   margin-right: rem(3.75);
   border: 1px solid #FFFFFF;
   border-radius: 50%;
@@ -39,7 +35,8 @@
 }
 
 .slider__button-prev {
-  transform: rotate(90deg);
+  left: rem(8);
+  transform: rotate(90deg) translate(rem(-1),0);
   color: #FFFFFF;
   cursor: pointer;
   user-select: none;
@@ -50,7 +47,8 @@
 }
 
 .slider__button-next {
-  transform: rotate(-90deg);
+  right: rem(9);
+  transform: rotate(-90deg) translate(rem(1),0);
   color: #FFFFFF;
   cursor: pointer;
   user-select: none;

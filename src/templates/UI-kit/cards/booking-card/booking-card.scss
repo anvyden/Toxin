@@ -7,19 +7,23 @@
 }
 
 .booking-card__container {
-  padding: rem(40) rem(30) rem(30) rem(30);
+  padding: rem(39) rem(29) rem(30) rem(29);
 }
 
 .booking-card__room-info {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: rem(20);
+  margin-bottom: rem(21);
 }
 
 .booking-card__room-number-info {
   display: flex;
   align-items: flex-end;
+}
+
+.booking-card__room-number-info > .text {
+  padding-bottom: rem(2);
 }
 
 .booking-card__room-number {
@@ -33,6 +37,10 @@
 .booking-card__room-number-symbol {
   font-size: rem(14);
   line-height: rem(17.07);
+}
+
+.booking-card__room-price-info {
+  padding-bottom: rem(1);
 }
 
 .booking-card__room-price {
@@ -49,15 +57,16 @@
 .booking-card__date-picker {
   display: flex;
   justify-content: space-between;
-  margin-bottom: rem(20);
+  margin-bottom: rem(21);
 }
 
 .booking-card__dropdown-guests {
-  margin-bottom: rem(20);
+  margin-bottom: rem(18.5);
 }
 
 .booking-card__calculate-price {
   margin-bottom: rem(30);
+  margin-left: rem(1);
 }
 
 .booking-card__calculate-price-item {
@@ -78,9 +87,10 @@
   position: relative;
   max-width: rem(214);
   line-height: rem(18);
+  margin-top: rem(2);
 }
 
-.booking-card__text--with-arrow::after {
+.booking-card__text--with-icon::after {
   content: 'i';
   position: absolute;
   top: rem(1);
@@ -95,12 +105,14 @@
   color: $darkShade25;
   border: 1px solid $darkShade25;
   border-radius: 50%;
+  font-weight: bold;
 }
 
 .booking-card__total-price {
   display: flex;
   justify-content: space-between;
-  margin-bottom: rem(20);
+  margin-bottom: rem(21.5);
+  margin-left: rem(1);
 }
 
 .booking-card__total-text {
