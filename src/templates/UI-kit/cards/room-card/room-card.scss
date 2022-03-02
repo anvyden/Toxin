@@ -27,6 +27,11 @@
   align-items: flex-end;
 }
 
+.room-card__room-number-info > .text {
+  margin-bottom: rem(1.5);
+  margin-left: rem(1);
+}
+
 .room-card__room-number {
   font-size: rem(19);
   line-height: rem(23.75);
@@ -54,7 +59,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: rem(8.5);
+  margin-top: rem(8);
 }
 
 .room-card__room-reviews {

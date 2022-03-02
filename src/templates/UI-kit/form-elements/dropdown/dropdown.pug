@@ -1,6 +1,7 @@
 include ~/templates/UI-kit/text/text
+include ~/templates/UI-kit/form-elements/button/button
 
-mixin dropdown({ text, subtitle, value, name, placeholder, expanded, expandedHidden, expandedPosAbsolute, withButtons, items, withSmallSize, classForJs, inputClassForJs })
+mixin dropdown({ text, subtitle, value, name, placeholder, expanded, expandedVisible, expandedBlock, withStraightBorders, withButtons, items, withSmallSize, classForJs, inputClassForJs })
   -
     let dropdownClass = 'dropdown'
     let dropdownInputClass = 'dropdown__input' + ' dropdown__input--focused' + ' dropdown__input--hovered'
@@ -20,16 +21,20 @@ mixin dropdown({ text, subtitle, value, name, placeholder, expanded, expandedHid
       dropdownInputClass += ` ${inputClassForJs}`
     }
 
-    //- if (expanded) {
-    //-   dropdownInputClass += ' dropdown__input--expanded'
-    //- }
+    if (withStraightBorders) {
+      dropdownInputClass += ' dropdown__input--with-straight-borders'
+    }
 
-    if (expandedPosAbsolute) {
+    if (!expandedBlock) {
       dropdownExpandedClass += ' dropdown__dropdown-expanded--absolute'
     }
 
-    if (expandedHidden) {
+    if (!expandedVisible) {
       dropdownExpandedClass += ' dropdown__dropdown-expanded--hidden'
+    }
+
+    if (expandedVisible) {
+      dropdownInputClass += ' dropdown__input--expanded'
     }
   
   div(class=dropdownClass)
@@ -50,9 +55,9 @@ mixin dropdown({ text, subtitle, value, name, placeholder, expanded, expandedHid
               li(class=dropdownItemClass) 
                 p.dropdown-list__item-name= itemName 
                 .dropdown-list__item-menu
-                  button.dropdown-list__item-button.dropdown-list__item-button-decrease= '-'
+                  button(class='dropdown-list__item-button dropdown-list__item-button-decrease', type='button')= '-'
                   p.dropdown-list__item-counter= itemCounter
-                  button.dropdown-list__item-button.dropdown-list__item-button-increase= '+'
+                  button(class='dropdown-list__item-button dropdown-list__item-button-increase', type='button')= '+'
           if (withButtons)
             .dropdown__button-wrap 
               +button({ text: 'очистить', classForJs: 'js-dropdown-button' })

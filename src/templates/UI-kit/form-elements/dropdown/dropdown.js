@@ -70,7 +70,7 @@ class Dropdown {
     this.items.forEach((item, index) => {
       this.itemsCounters[index].innerHTML = 0
       this.itemCounterValue = 0
-      this.itemNameValue = this.itemsNames[index].innerHTML
+      this.itemNameValue = this.itemsNames[index].innerHTML.toLowerCase()
       this._dropdownInputValue(this.itemNameValue, this.itemCounterValue, index)
       this._getItemButtonDecrease(index)
       this.itemButtonDecrease.classList.add('dropdown-list__item-button--disabled')
@@ -149,7 +149,7 @@ class Dropdown {
 
   _setItemsValue(index) {
     this.itemNumber = index
-    this.itemNameValue = this.itemsNames[index].innerHTML
+    this.itemNameValue = this.itemsNames[index].innerHTML.toLowerCase()
     this.itemCounterValue = Number(this.itemsCounters[index].innerHTML)
     this._getItemsCounterSum()
     if (this.itemCounterValue === 0) {
@@ -163,7 +163,7 @@ class Dropdown {
     this.item = this.target.closest('.dropdown-list__item')
     this.itemNumber = Number(this.item.dataset.dropdownItem)
     this.itemCounter = this.itemsCounters[this.itemNumber]
-    this.itemNameValue = this.itemsNames[this.itemNumber].innerHTML
+    this.itemNameValue = this.itemsNames[this.itemNumber].innerHTML.toLowerCase()
     this.itemCounterValue = Number(this.itemsCounters[this.itemNumber].innerHTML)
   }
 

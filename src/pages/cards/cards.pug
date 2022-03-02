@@ -27,12 +27,12 @@ block content
     .cards-container
       .cards__wrapper
         .cards__find-room-card 
-          +findRoomCard({ firstInputClassForJs: 'js-datepicker-input-1', secondInputClassForJs: 'js-datepicker-input-2', guestsClassForJs: 'js-find-room-guest' })
+          +findRoomCard({ dropdownClassForJs: 'js-find-room-datepicker-dropdown', firstInputClassForJs: 'js-find-room-datepicker-1', secondInputClassForJs: 'js-find-room-datepicker-2', guestsClassForJs: 'js-find-room-guests', firstInputName: 'findRoomStartDate', secondInputName: 'findRoomFinishDate', guestsName: 'findRoomGuests' })
         .cards__sing-up-card
           +signUpCard({})
       .cards__wrapper 
         .cards__booking-card 
-          +bookingCard({ luxe: true })
+          +bookingCard({ luxe: true, dropdownClassForJs: 'js-booking-room-datepicker-dropdown', firstInputClassForJs: 'js-booking-card-datepicker-1', secondInputClassForJs: 'js-booking-card-datepicker-2', guestsClassForJs: 'js-booking-card-guests', firstInputName: 'bookingRoomStartDate', secondInputName: 'bookingRoomFinishDate', guestsName: 'bookingRoomGuests' })
         .cards__sing-in-card 
           +signInCard({})
       .cards__wrapper 

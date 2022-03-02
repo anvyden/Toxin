@@ -2,20 +2,21 @@ include ~/templates/UI-kit/text/text
 include ~/templates/UI-kit/form-elements/dropdown/dropdown
 include ~/templates/UI-kit/form-elements/button/button
 
-mixin findRoomCard({ firstInputClassForJs, secondInputClassForJs, guestsClassForJs })
+mixin findRoomCard({ dropdownClassForJs, firstInputClassForJs, secondInputClassForJs, guestsClassForJs, firstInputName, secondInputName, guestsName, formAction, formMethod })
   .find-room-card 
     .find-room-card__container 
-      .find-room-card__title 
-        +text({ text: 'Найдём номера под ваши пожелания', type: 'h1', color: 'dark-shade-100', bold: true })
-      .find-room-card__date-picker
-        +dropdown({ text: 'прибытие', value: 'ДД.ММ.ГГГГ', withSmallSize: true, inputClassForJs: firstInputClassForJs })
-        +dropdown({ text: 'выезд', value: 'ДД.ММ.ГГГГ', withSmallSize: true, inputClassForJs: secondInputClassForJs })
-      .find-room-card__dropdown-guests 
-        +dropdown({ text: 'гости', expanded: true, expandedHidden: true, expandedPosAbsolute: true, withButtons: true, value: 'Сколько гостей', classForJs: guestsClassForJs, 
-        items: [
-            { itemName: 'взрослые', itemCounter: '0' },
-            { itemName: 'дети', itemCounter: '0' },
-            { itemName: 'младенцы', itemCounter: '0' },
-          ]})
-      .find-room-card__button 
-        +button({ text: 'подобрать номер', withArrow: true })
+      form(class='find-room-card__form', action=formAction, method=formMethod)
+        .find-room-card__title 
+          +text({ text: 'Найдём номера под ваши пожелания', type: 'h1', color: 'dark-shade-100', bold: true })
+        .find-room-card__date-picker
+          +dropdown({ text: 'прибытие', placeholder: 'ДД.ММ.ГГГГ', name: firstInputName, value: 'ДД.ММ.ГГГГ', withSmallSize: true, classForJs: dropdownClassForJs, inputClassForJs: firstInputClassForJs })
+          +dropdown({ text: 'выезд', placeholder: 'ДД.ММ.ГГГГ', name: secondInputName, value: 'ДД.ММ.ГГГГ', withSmallSize: true, classForJs: dropdownClassForJs, inputClassForJs: secondInputClassForJs })
+        .find-room-card__dropdown-guests 
+          +dropdown({ text: 'гости', placeholder: 'Сколько гостей', expanded: true, withButtons: true, name: guestsName, value: 'Сколько гостей', classForJs: guestsClassForJs, 
+          items: [
+              { itemName: 'взрослые', itemCounter: '0' },
+              { itemName: 'дети', itemCounter: '0' },
+              { itemName: 'младенцы', itemCounter: '0' },
+            ]})
+        .find-room-card__button 
+          +button({ text: 'подобрать номер', type: 'submit', withArrow: true }) 

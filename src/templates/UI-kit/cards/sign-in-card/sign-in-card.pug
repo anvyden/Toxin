@@ -2,18 +2,19 @@ include ~/templates/UI-kit/text/text
 include ~/templates/UI-kit/form-elements/text-field/text-field
 include ~/templates/UI-kit/form-elements/button/button
 
-mixin signInCard({ signUpButtonLink })
+mixin signInCard({ signUpButtonLink, formAction, formMethod })
   .sign-in-card 
     .sign-in-card__container 
-      .sign-in-card__title
-        +text({ text: 'Войти', type: 'h1', color: 'dark-shade-100', bold: true })
-      .sign-in-card__data-login
-        .sign-in-card__email 
-          +textField({ type: 'email', placeholder: 'Email', name: 'email' })
-        .sign-in-card__password 
-          +textField({ type: 'password', placeholder: 'Пароль', name: 'password' })
-      .sign-in-card__sign-in-button
-        +button({ text: 'Войти', withArrow: true })
-      .sign-in-card__sign-up
-        +text({ text: 'Нет аккаунта на Toxin?', type: 'span', color: 'black' })
-        +button({ text: 'Создать', isLink: true, link: signUpButtonLink, withBorder: true })
+      form(class='sign-up-card__form', action=formAction, method=formMethod)
+        .sign-in-card__title
+          +text({ text: 'Войти', type: 'h1', color: 'dark-shade-100', bold: true })
+        .sign-in-card__data-login
+          .sign-in-card__email 
+            +textField({ type: 'email', placeholder: 'Email', name: 'email' })
+          .sign-in-card__password 
+            +textField({ type: 'password', placeholder: 'Пароль', name: 'password' })
+        .sign-in-card__sign-in-button
+          +button({ text: 'Войти', type: 'submit', withArrow: true })
+        .sign-in-card__sign-up
+          +text({ text: 'Нет аккаунта на Toxin?', type: 'span', color: 'black' })
+          +button({ text: 'Создать', isLink: true, link: signUpButtonLink, withBorder: true })

@@ -25,6 +25,10 @@
   border: 1px solid $darkShade50;
 }
 
+.dropdown__input--with-straight-borders {
+  border-radius: 4px 4px 0 0;
+}
+
 .dropdown__input--expanded {
   border-radius: 4px 4px 0 0;
   border-color: $darkShade50;

@@ -1,4 +1,5 @@
 import AirDatepicker from 'air-datepicker'
+import BookingCard from 'cards/booking-card/booking-card'
 
 const datepickerButtons = {
   acceptButton: {
@@ -34,14 +35,18 @@ const calcDays = (input, inputSecond) => {
   return days
 }
 
-class Datepicker {
-  constructor(datepickerElements) {
+export class DatepickerSelected {
+  constructor(datepickerElements, props, bookingCardParams) {
     this.datepickerElements = datepickerElements
+    this.props = props
+    this.bookingCardParams = bookingCardParams
     this._init()
   }
 
   _init() {
     const { input, inputSecond } = this.datepickerElements
+    const { dates } = this.props
+    const params = this.bookingCardParams
     const options = {
       dateFormat(date) {
         return date[0]
@@ -64,10 +69,12 @@ class Datepicker {
       },
       onSelect() {
         datepickerValues.amountSelectedDays = calcDays(input, inputSecond)
+        new BookingCard(params).render()
       },
       multipleDates: true,
       range: true,
       multipleDatesSeparator: '-',
+      selectedDates: [dates[0], dates[1]],
       buttons: [datepickerButtons.clearButton, datepickerButtons.acceptButton],
       navTitles: {
         days: 'MMMM yyyy',
@@ -76,6 +83,7 @@ class Datepicker {
       nextHtml: '<span class="material-icons air-datepicker-arrow">arrow_forward</span>',
     }
     this.input = new AirDatepicker(input, options)
+    datepickerValues.amountSelectedDays = calcDays(input, inputSecond)
     this.addEventListenerDropdowns()
   }
 
@@ -89,4 +97,4 @@ class Datepicker {
   }
 }
 
-export default Datepicker
+export default datepickerValues
