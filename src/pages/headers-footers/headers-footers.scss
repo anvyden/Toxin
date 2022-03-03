@@ -1,0 +1,20 @@
+@import '~normalize.css';
+@import '~/scss/montserrat';
+@import '~/scss/material-icons';
+@import '~/scss/variables';
+@import '~/scss/mixins';
+@import '~/scss/settings';
+@import '~/templates/UI-kit/logo/logo';
+@import '~/templates/UI-kit/text/text';
+@import '~/templates/UI-kit/headers-footers/menu/menu';
+@import '~/templates/UI-kit/form-elements/button/button';
+@import '~/templates/UI-kit/headers-footers/header-not-logged/header-not-logged';
+
+.headers-footers {
+  background: #F4F4F6;
+}
+
+.headers-footers__header-not-logged {
+  margin-top: rem(140);
+  margin-bottom: rem(40);
+}

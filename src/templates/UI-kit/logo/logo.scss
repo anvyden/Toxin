@@ -1,5 +1,13 @@
-.logo {
+.logo--pos-absolute {
   position: absolute;
   left: rem(30);
   top: rem(30);
+}
+
+.logo--active {
+  cursor: pointer;
+}
+
+.logo__link {
+  display: flex;
 }

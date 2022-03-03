@@ -199,6 +199,7 @@ module.exports = {
       'form-elements': path.resolve(__dirname, 'src/templates/UI-kit/form-elements'),
       'pages': path.resolve(__dirname, 'src/pages'),
       'cards': path.resolve(__dirname, 'src/templates/UI-kit/cards'),
+      'headers-footers': path.resolve(__dirname, 'src/templates/UI-kit/headers-footers'),
       'libs': path.resolve(__dirname, 'src/libs'),
     }
   },
@@ -209,7 +210,7 @@ module.exports = {
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'cards.html',
+    index: 'headers-footers.html',
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),

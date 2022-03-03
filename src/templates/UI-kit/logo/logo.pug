@@ -1,7 +1,19 @@
-mixin logo({ active })
+mixin logo({ active, posAbsolute, link })
+  -
+    let logoClass = 'logo'
+
+    if (posAbsolute) {
+      logoClass += ' logo--pos-absolute'
+    }
+
+    if (active) {
+      logoClass += ' logo--active'
+    }
+
   if (active)
-    .logo
-      img(src=require('~/templates/UI-kit/logo/logo-active.svg') alt='Лого')
+    div(class=logoClass)
+      a(class='logo__link', href=link)
+        img(src=require('~/templates/UI-kit/logo/logo-active.svg') alt='Лого')
   else 
-    .logo
+    div(class=logoClass)
       img(src=require('~/templates/UI-kit/logo/logo-inactive.svg') alt='Лого')

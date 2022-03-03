@@ -1,8 +1,14 @@
-mixin button({ text, type, withBackground, withBorder, withArrow, disabled, classForJs, isLink, link })
+mixin button({ text, type, withBackground, withBorder, withArrow, disabled, classForJs, isLink, link, size })
   -
     let buttonContainerClass = 'button'
     let buttonClass = 'button__button' + ' text--with-type-h3'
     let typeButton = type ? type : 'button'
+
+    const sizeModifiers = ['large', 'medium']
+
+    if (sizeModifiers.includes(size)) {
+      buttonContainerClass += ` button--width-${size}`
+    }
 
     if (!withBackground && !withBorder && disabled && !withArrow) {
       buttonClass += ' button__button--disabled'
