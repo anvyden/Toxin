@@ -3,40 +3,41 @@ include ~/templates/UI-kit/headers-footers/menu/menu
 include ~/templates/UI-kit/form-elements/button/button
 
 mixin headerNotLogged()
-  .header-not-logged 
+  header.header-not-logged 
     .header-not-logged__container
       +logo({ active: true })
       .header-not-logged__menu-wrapper
         +menu({
-          items: [
-            {
-              linkText: 'О нас',
-              isActive: true,
-            },
-            {
-              linkText: 'Услуги',
-              subMenu: true,
-              subItems: [
-                { subLinkText: 'Услуги' },
-                { subLinkText: 'Услуги' }
-              ]
-            },
-            {
-              linkText: 'Вакансии',
-            },
-            {
-              linkText: 'Новости',
-            },
-            {
-              linkText: 'Соглашения',
-              subMenu: true,
-              subItems: [
-                { subLinkText: 'Соглашения' },
-                { subLinkText: 'Соглашения' }
-              ]
-            }
-          ]
-        })
-        +button({ text: 'Войти', isLink: true, withBorder: true })
-        +button({ text: 'Зарегистрироваться', isLink: true, withBackground: true, size: 'medium' })
+            items: [
+              {
+                linkText: 'О нас',
+                isActive: true,
+              },
+              {
+                linkText: 'Услуги',
+                subMenu: true,
+                subItems: [
+                  { subLinkText: 'Услуги' },
+                  { subLinkText: 'Услуги' }
+                ]
+              },
+              {
+                linkText: 'Вакансии',
+              },
+              {
+                linkText: 'Новости',
+              },
+              {
+                linkText: 'Соглашения',
+                subMenu: true,
+                subItems: [
+                  { subLinkText: 'Соглашения' },
+                  { subLinkText: 'Соглашения' }
+                ]
+              }
+            ]
+          })
+        +button({ text: 'Войти', isLink: true, withBorder: true, widthSize: 'small', smallHeight: true })
+        +button({ text: 'Зарегистрироваться', isLink: true, withBackground: true, widthSize: 'medium', smallHeight: true })
+          
 

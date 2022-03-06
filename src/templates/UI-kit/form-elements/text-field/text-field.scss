@@ -33,6 +33,10 @@
   color: $darkShade25;
 }
 
+.text-field__input--with-button {
+  padding: rem(12) rem(44) rem(12) rem(14);
+}
+
 .text-field__button {
   position: absolute;
   top: 0;

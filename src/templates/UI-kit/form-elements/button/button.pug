@@ -1,13 +1,13 @@
-mixin button({ text, type, withBackground, withBorder, withArrow, disabled, classForJs, isLink, link, size })
+mixin button({ text, type, withBackground, withBorder, withArrow, disabled, classForJs, isLink, link, widthSize, smallHeight })
   -
     let buttonContainerClass = 'button'
     let buttonClass = 'button__button' + ' text--with-type-h3'
     let typeButton = type ? type : 'button'
 
-    const sizeModifiers = ['large', 'medium']
+    const widthSizeModifiers = ['large', 'medium', 'small']
 
-    if (sizeModifiers.includes(size)) {
-      buttonContainerClass += ` button--width-${size}`
+    if (widthSizeModifiers.includes(widthSize)) {
+      buttonContainerClass += ` button--width-${widthSize}`
     }
 
     if (!withBackground && !withBorder && disabled && !withArrow) {
@@ -30,6 +30,10 @@ mixin button({ text, type, withBackground, withBorder, withArrow, disabled, clas
       buttonContainerClass += ' button--with-background-disabled'
     }
 
+    if (withBackground && smallHeight) {
+      buttonClass += ' button__button--with-background-height-small'
+    }
+
     if (withBorder) {
       buttonClass += ' button__button--with-border'
       buttonContainerClass += ' button--with-border'
@@ -38,6 +42,14 @@ mixin button({ text, type, withBackground, withBorder, withArrow, disabled, clas
     if (withBorder && disabled) {
       buttonClass += ' button__button--with-border-disabled'
       buttonContainerClass += ' button--with-border-disabled'
+    }
+
+    if (withBorder && smallHeight) {
+      buttonClass += ' button__button--with-border-height-small'
+    }
+
+    if (withBorder && widthSize === 'small') {
+      buttonClass += ' button__button--with-border-width-small'
     }
 
     if (withArrow) {

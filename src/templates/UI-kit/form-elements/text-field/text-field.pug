@@ -13,6 +13,10 @@ mixin textField({ type, placeholder, hasTitle, title, subtitle, name, value, sta
       inputClass = 'text-field__input' + ' text-field__input--permament-focused'
     }
 
+    if (withButton) {
+      inputClass += ' text-field__input--with-button'
+    }
+
     if (classForJs) {
       inputClass += ` ${classForJs}`
     }

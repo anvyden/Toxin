@@ -1,0 +1,25 @@
+mixin copyrightBar({ mobile, items })
+  -
+    let copyrightBarCLass = 'copyright-bar'
+    let copyrightBarContainerClass = 'copyright-bar__container'
+    let copyrightClass = 'copyright-bar__copyright'
+
+    if (mobile) {
+      copyrightBarCLass += ' copyright-bar--without-shadow'
+      copyrightBarContainerClass += ' copyright-bar__container--column'
+      copyrightClass += ' copyright-bar__copyright--mobile'
+    }
+
+  div(class=copyrightBarCLass)
+    div(class=copyrightBarContainerClass) 
+      div(class=copyrightClass)
+        span.copyright-bar__copyright-text='Copyright © 2018 Toxin отель. Все права защищены.'
+      .copyright-bar__socials 
+        ul.copyright-bar__socials-list
+          each item in items
+            -
+              const { fontAwesomeIconClass, link } = item
+            
+            li.copyright-bar__socials-item
+              a(class='copyright-bar__socials-link', href=link, target='_blank')
+                i(class=`fa-brands ${fontAwesomeIconClass}`)

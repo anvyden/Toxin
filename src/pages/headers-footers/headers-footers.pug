@@ -1,6 +1,9 @@
 extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
 include ~/templates/UI-kit/logo/logo
 include ~/templates/UI-kit/headers-footers/header-not-logged/header-not-logged
+include ~/templates/UI-kit/headers-footers/header-logged-in/header-logged-in
+include ~/templates/UI-kit/headers-footers/footer/footer
+include ~/templates/UI-kit/headers-footers/copyright-bar/copyright-bar
 
 block variables
   -
@@ -21,3 +24,26 @@ block content
     .headers-footers__container
       .headers-footers__header-not-logged
         +headerNotLogged()
+      .headers-footers__header-logged-in 
+        +headerLoggedIn()
+      .headers-footers__footer
+        +footer()
+      .headers-footers__copyright-bar
+        +copyrightBar({ 
+          items: [
+            { fontAwesomeIconClass: 'fa-twitter' },
+            { fontAwesomeIconClass: 'fa-facebook-square' },
+            { fontAwesomeIconClass: 'fa-instagram' },
+          ]
+        })
+      .headers-footers__footer-mobile
+        .headers-footers__footer-mobile-logo
+          +logo({ active: true })
+        .headers-footers__footer-mobile-copyright-bar
+          +copyrightBar({ mobile: true,
+            items: [
+              { fontAwesomeIconClass: 'fa-twitter' },
+              { fontAwesomeIconClass: 'fa-facebook-square' },
+              { fontAwesomeIconClass: 'fa-instagram' },
+            ]
+          })

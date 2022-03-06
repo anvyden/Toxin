@@ -3,6 +3,7 @@
   max-width: rem(99);
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .button--width-auto {
@@ -15,6 +16,10 @@
 
 .button--width-medium {
   max-width: rem(196);
+}
+
+.button--width-small {
+  max-width: rem(87);
 }
 
 .button__button {
@@ -71,6 +76,10 @@
   cursor: not-allowed;
 }
 
+.button__button--with-background-height-small {
+  padding: rem(9.5) 0;
+}
+
 .button--with-border {
   padding: rem(2) 0;
   border-radius: 22px;
@@ -97,6 +106,14 @@
 
 .button--with-border-disabled {
   opacity: 0.5;
+}
+
+.button__button--with-border-height-small {
+  padding: rem(7.5) 0;
+}
+
+.button__button--with-border-width-small {
+  max-width: rem(83);
 }
 
 .button--with-border:hover {
