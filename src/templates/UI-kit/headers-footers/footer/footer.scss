@@ -3,13 +3,9 @@
   box-shadow: 0px 1px 0px rgba(31, 32, 65, 0.1);
 }
 
-.footer__container {
-  padding: rem(100) rem(140);
-  margin-bottom: 1px;
-}
-
 .footer__widgets {
   display: flex;
+  padding: rem(100) rem(140);
 }
 
 .footer__company {
@@ -52,4 +48,63 @@
 
 .footer__subscription-text {
   margin-bottom: rem(23.5);
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .footer__widgets {
+    justify-content: space-between;
+  }
+
+  .footer__menu > .text {
+    font-size: rem(11);
+  }
+
+  .footer__subscription > .text {
+    font-size: rem(11);
+  }
+
+  .footer__subscription-text {
+    font-size: rem(13);
+  }
+
+  .footer__company {
+    font-size: rem(13);
+    margin-right: 0;
+  }
+  
+  .footer__menu:nth-child(2) {
+    margin-right: 0;
+  }
+  
+  .footer__menu:nth-child(3) {
+    margin-right: 0;
+  }
+  
+  .footer__menu:nth-child(4) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  .footer__widgets {
+    padding: rem(120) 0 0 0;
+    justify-content: center;
+  }
+  
+  .footer__company {
+    margin-right: 0;
+  }
+
+  .footer__company-achievment {
+    display: none;
+  }
+
+  .footer__menu {
+    display: none;
+  }
+
+  .footer__subscription {
+    display: none;
+  }
 }

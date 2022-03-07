@@ -149,3 +149,15 @@
 .button__button--with-arrow:hover {
   opacity: 0.5;
 }
+
+@media screen and (max-width: 1200px) {
+  .button__button--with-border-height-small {
+    padding: rem(7) 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .button--width-small {
+    max-width: rem(89);
+  }
+}

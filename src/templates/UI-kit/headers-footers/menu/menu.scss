@@ -67,3 +67,16 @@
 .sub-menu-list__link {
   color: $darkShade50;
 }
+
+@media screen and (max-width: 1440px) {
+  .menu-list__item {
+    font-size: rem(13);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  // .menu-list__item {
+  //   margin-right: rem(10);
+  //   font-size: rem(11);
+  // }
+}

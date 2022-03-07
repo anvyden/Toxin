@@ -12,11 +12,16 @@
   justify-content: space-between;
   align-items: center;
   padding: rem(23) rem(140);
+  border-top: 1px solid #F4F4F6;
 }
 
 .copyright-bar__container--column {
   flex-direction: column;
   padding: 0;
+}
+
+.copyright-bar__container--without-border {
+  border-top: none;
 }
 
 .copyright-bar__copyright--mobile {
@@ -48,4 +53,17 @@
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   background-clip: text;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .copyright-bar__container {
+    flex-direction: column;
+    margin-top: rem(20);
+    padding: 0 0 rem(120) 0;
+    border-top: 0;
+  }
+
+  .copyright-bar__copyright {
+    margin-bottom: rem(21);
+  }
 }

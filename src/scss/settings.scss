@@ -32,3 +32,15 @@ img {
 h1 {
   margin: 0;
 }
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 12px;
+  } 
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 11px;
+  } 
+}
