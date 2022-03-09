@@ -23,19 +23,10 @@ block content
     +logo({ active: false, posAbsolute: true })
     .headers-footers__container
       .headers-footers__header-not-logged
-        +headerNotLogged()
+        +headerNotLogged({})
       .headers-footers__header-logged-in 
-        +headerLoggedIn()
+        +headerNotLogged({ logIn: true })
       .headers-footers__footer
-        +footer()
+        +footer({})
       .headers-footers__footer-mobile
-        .headers-footers__footer-mobile-logo
-          +logo({ active: true })
-        .headers-footers__footer-mobile-copyright-bar
-          +copyrightBar({ mobile: true,
-            items: [
-              { fontAwesomeIconClass: 'fa-twitter' },
-              { fontAwesomeIconClass: 'fa-facebook-square' },
-              { fontAwesomeIconClass: 'fa-instagram' },
-            ]
-          })
+        +footer({ mobile: true, mobileVisibile: true })

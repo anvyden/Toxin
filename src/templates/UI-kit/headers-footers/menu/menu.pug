@@ -25,9 +25,11 @@ mixin menu({ column, items })
           }
 
         li(class=menulistItemClass)
-          .menu-list__link-wrapper
+          if (!subMenu)
             a(class=menuLinkClass, href=link)= linkText
-            if (subMenu)
+          else
+            .menu-list__link-wrapper
+              a(class=menuLinkClass, href=link)= linkText
               span(class=arrowClass)='expand_more'
           if (subMenu)
             ul.sub-menu-list 

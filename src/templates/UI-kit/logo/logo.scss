@@ -1,6 +1,5 @@
 .logo {
   display: flex;
-  max-width: 106px;
 }
 
 .logo__link {
@@ -15,8 +14,4 @@
 
 .logo--active {
   cursor: pointer;
-}
-
-.logo__img {
-  height: rem(40);
 }

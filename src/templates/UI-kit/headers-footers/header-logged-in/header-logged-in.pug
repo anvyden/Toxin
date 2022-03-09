@@ -6,36 +6,37 @@ mixin headerLoggedIn()
     .header-logged-in__container
       +logo({ active: true })
       .header-logged-in__menu-wrapper
-        +menu({
-          items: [
-            {
-              linkText: 'О нас',
-              isActive: true,
-            },
-            {
-              linkText: 'Услуги',
-              subMenu: true,
-              subItems: [
-                { subLinkText: 'Услуги' },
-                { subLinkText: 'Услуги' }
-              ]
-            },
-            {
-              linkText: 'Вакансии',
-            },
-            {
-              linkText: 'Новости',
-            },
-            {
-              linkText: 'Соглашения',
-              subMenu: true,
-              subItems: [
-                { subLinkText: 'Соглашения' },
-                { subLinkText: 'Соглашения' }
-              ]
-            }
-          ]
-        })
-        .header-logged-in__user-wrapper 
+        .header-not-logged__menu
+          +menu({
+            items: [
+              {
+                linkText: 'О нас',
+                isActive: true,
+              },
+              {
+                linkText: 'Услуги',
+                subMenu: true,
+                subItems: [
+                  { subLinkText: 'Услуги' },
+                  { subLinkText: 'Услуги' }
+                ]
+              },
+              {
+                linkText: 'Вакансии',
+              },
+              {
+                linkText: 'Новости',
+              },
+              {
+                linkText: 'Соглашения',
+                subMenu: true,
+                subItems: [
+                  { subLinkText: 'Соглашения' },
+                  { subLinkText: 'Соглашения' }
+                ]
+              }
+            ]
+          })
+        .header-logged-in__authorization-complete
           span.header-logged-in__user='Юлий Цезарь'
 

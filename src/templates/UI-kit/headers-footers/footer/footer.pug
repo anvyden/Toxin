@@ -3,48 +3,69 @@ include ~/templates/UI-kit/text/text
 include ~/templates/UI-kit/form-elements/text-field/text-field
 include ~/templates/UI-kit/headers-footers/menu/menu
 
-mixin footer()
-  footer.footer 
-    .footer__container 
-      .footer__widgets
-        .footer__company 
+mixin footer({ mobile, mobileVisibile })
+  -
+    let footerMobileClass = 'footer-mobile'
+
+    if (mobileVisibile) {
+      footerMobileClass += ' footer-mobile--visible'
+    }
+
+  if (!mobile)
+    footer.footer 
+      .footer__container 
+        .footer__widgets
+          .footer__company 
+            +logo({ active: true })
+            p.footer__company-achievment='Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»'
+          .footer__menu
+            +text({ text: 'Навигация', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+            +menu({ column: true,
+              items: [
+                { linkText: 'О нас' },
+                { linkText: 'Новости' },
+                { linkText: 'Служба поддержки' },
+                { linkText: 'Услуги' },
+              ]
+            })
+          .footer__menu
+            +text({ text: 'О нас', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+            +menu({ column: true,
+              items: [
+                { linkText: 'О сервисе' },
+                { linkText: 'Наша команда' },
+                { linkText: 'Вакансии' },
+                { linkText: 'Инвесторы' },
+              ]
+            })
+          .footer__menu
+            +text({ text: 'Служба поддержки', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+            +menu({ column: true,
+              items: [
+                { linkText: 'Соглашения' },
+                { linkText: 'Сообщества' },
+                { linkText: 'Связь с нами' },
+              ]
+            })
+          .footer__subscription 
+            +text({ text: 'Подписка', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+            p.footer__subscription-text='Получайте специальные предложения и новости сервиса'
+            +textField({ type: 'email', placeholder: 'Email', name: 'email', withButton: true })
+        .footer__copyright-bar 
+          +copyrightBar({
+              items: [
+                { fontAwesomeIconClass: 'fa-twitter' },
+                { fontAwesomeIconClass: 'fa-facebook-square' },
+                { fontAwesomeIconClass: 'fa-instagram' },
+              ]
+            })
+  else
+    footer(class=footerMobileClass)
+      .footer-mobile__container
+        .footer-mobile__logo
           +logo({ active: true })
-          p.footer__company-achievment='Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»'
-        .footer__menu
-          +text({ text: 'Навигация', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-          +menu({ column: true,
-            items: [
-              { linkText: 'О нас' },
-              { linkText: 'Новости' },
-              { linkText: 'Служба поддержки' },
-              { linkText: 'Услуги' },
-            ]
-          })
-        .footer__menu
-          +text({ text: 'О нас', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-          +menu({ column: true,
-            items: [
-              { linkText: 'О сервисе' },
-              { linkText: 'Наша команда' },
-              { linkText: 'Вакансии' },
-              { linkText: 'Инвесторы' },
-            ]
-          })
-        .footer__menu
-          +text({ text: 'Служба поддержки', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-          +menu({ column: true,
-            items: [
-              { linkText: 'Соглашения' },
-              { linkText: 'Сообщества' },
-              { linkText: 'Связь с нами' },
-            ]
-          })
-        .footer__subscription 
-          +text({ text: 'Подписка', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-          p.footer__subscription-text='Получайте специальные предложения и новости сервиса'
-          +textField({ type: 'email', placeholder: 'Email', name: 'email', withButton: true })
-      .footer__copyright-bar 
-        +copyrightBar({
+        .footer-mobile__copyright-bar
+          +copyrightBar({ mobile: true,
             items: [
               { fontAwesomeIconClass: 'fa-twitter' },
               { fontAwesomeIconClass: 'fa-facebook-square' },

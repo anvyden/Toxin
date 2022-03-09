@@ -54,16 +54,3 @@
   background-clip: text;
   cursor: pointer;
 }
-
-@media screen and (max-width: 1024px) {
-  .copyright-bar__container {
-    flex-direction: column;
-    margin-top: rem(20);
-    padding: 0 0 rem(120) 0;
-    border-top: 0;
-  }
-
-  .copyright-bar__copyright {
-    margin-bottom: rem(21);
-  }
-}
