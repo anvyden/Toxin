@@ -7,13 +7,13 @@
 @import '~/scss/settings';
 @import '~/templates/UI-kit/logo/logo';
 @import '~/templates/UI-kit/text/text';
-@import '~/templates/UI-kit/form-elements/text-field/text-field';
-@import '~/templates/UI-kit/form-elements/button/button';
-@import '~/templates/UI-kit/headers-footers/menu/menu';
-@import '~/templates/UI-kit/headers-footers/header-not-logged/header-not-logged';
-@import '~/templates/UI-kit/headers-footers/header-logged-in/header-logged-in';
-@import '~/templates/UI-kit/headers-footers/copyright-bar/copyright-bar';
-@import '~/templates/UI-kit/headers-footers/footer/footer';
+@import '@form-elements/text-field/text-field';
+@import '@form-elements/button/button';
+@import '@headers-footers/menu/menu';
+@import '@headers-footers/header-not-logged/header-not-logged';
+@import '@headers-footers/header-logged-in/header-logged-in';
+@import '@headers-footers/copyright-bar/copyright-bar';
+@import '@headers-footers/footer/footer';
 
 .headers-footers {
   background: #F4F4F6;

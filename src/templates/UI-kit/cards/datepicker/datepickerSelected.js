@@ -1,5 +1,5 @@
 import AirDatepicker from 'air-datepicker'
-import BookingCard from 'cards/booking-card/booking-card'
+import BookingCard from '@cards/booking-card/booking-card'
 
 const datepickerButtons = {
   acceptButton: {

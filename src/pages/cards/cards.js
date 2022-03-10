@@ -1,11 +1,11 @@
-import cards from 'pages/cards/cards.scss'
-import Dropdown from 'form-elements/dropdown/dropdown'
+import cards from '@pages/cards/cards.scss'
+import Dropdown from '@form-elements/dropdown/dropdown'
 import AirDatepicker from 'air-datepicker'
-import Datepicker from 'cards/datepicker/datepicker'
-import { DatepickerSelected } from 'cards/datepicker/datepickerSelected'
-import BookingCard from 'cards/booking-card/booking-card'
-import StarRating from 'form-elements/star-rating/star-rating'
-import Slider from 'libs/swiper/swiper'
+import Datepicker from '@cards/datepicker/datepicker'
+import { DatepickerSelected } from '@cards/datepicker/datepickerSelected'
+import BookingCard from '@cards/booking-card/booking-card'
+import StarRating from '@form-elements/star-rating/star-rating'
+import Slider from '@libs/swiper/swiper'
 
 const findRoomDatepickerElements = {
   input: document.querySelector('.js-find-room-datepicker-1'),

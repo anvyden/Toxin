@@ -195,12 +195,12 @@ module.exports = {
     extensions: ['.js', '.json', '.pug', '.scss'],
     alias: {
       '~': path.resolve(__dirname, 'src'),
-      'colors-type': path.resolve(__dirname, 'src/templates/UI-kit/colors-type'),
-      'form-elements': path.resolve(__dirname, 'src/templates/UI-kit/form-elements'),
-      'pages': path.resolve(__dirname, 'src/pages'),
-      'cards': path.resolve(__dirname, 'src/templates/UI-kit/cards'),
-      'headers-footers': path.resolve(__dirname, 'src/templates/UI-kit/headers-footers'),
-      'libs': path.resolve(__dirname, 'src/libs'),
+      '@colors-type': path.resolve(__dirname, 'src/templates/UI-kit/colors-type'),
+      '@form-elements': path.resolve(__dirname, 'src/templates/UI-kit/form-elements'),
+      '@pages': path.resolve(__dirname, 'src/pages'),
+      '@cards': path.resolve(__dirname, 'src/templates/UI-kit/cards'),
+      '@headers-footers': path.resolve(__dirname, 'src/templates/UI-kit/headers-footers'),
+      '@libs': path.resolve(__dirname, 'src/libs'),
     }
   },
   optimization: optimization(),

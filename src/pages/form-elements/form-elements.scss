@@ -22,9 +22,9 @@
   flex-wrap: wrap;
 }
 
-@import 'pages/form-elements/sections/fields/fields';
-@import 'pages/form-elements/sections/controls/controls';
-@import 'pages/form-elements/sections/buttons/buttons';
-@import 'pages/form-elements/sections/dropdowns/dropdowns';
-@import 'pages/form-elements/sections/checkboxs/checkboxs';
-@import 'pages/form-elements/sections/room-info/room-info';
+@import '@pages/form-elements/sections/fields/fields';
+@import '@pages/form-elements/sections/controls/controls';
+@import '@pages/form-elements/sections/buttons/buttons';
+@import '@pages/form-elements/sections/dropdowns/dropdowns';
+@import '@pages/form-elements/sections/checkboxs/checkboxs';
+@import '@pages/form-elements/sections/room-info/room-info';

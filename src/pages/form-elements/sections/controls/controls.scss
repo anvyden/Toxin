@@ -1,8 +1,8 @@
-@import 'form-elements/checkbox-button/checkbox-button.scss';
-@import 'form-elements/radio-button/radio-button';
-@import 'form-elements/toggle-button/toggle-button';
-@import 'form-elements/like-button/like-button';
-@import 'form-elements/star-rating/star-rating';
+@import '@form-elements/checkbox-button/checkbox-button.scss';
+@import '@form-elements/radio-button/radio-button';
+@import '@form-elements/toggle-button/toggle-button';
+@import '@form-elements/like-button/like-button';
+@import '@form-elements/star-rating/star-rating';
 
 .controls-container {
   max-width: rem(260);

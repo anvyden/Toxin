@@ -1,11 +1,11 @@
-import formElements from 'pages/form-elements/form-elements.scss'
-import * as textField from 'form-elements/text-field/text-field'
-import Dropdown from 'form-elements/dropdown/dropdown'
-import LikeButton from 'form-elements/like-button/like-button'
-import StarRating from 'form-elements/star-rating/star-rating'
-import RangeSlider from 'form-elements/range-slider/range-slider'
-import Pagination from 'form-elements/pagination/pagination'
-import Checkbox from 'form-elements/checkbox-button/checkbox-button'
+import formElements from '@pages/form-elements/form-elements.scss'
+import * as textField from '@form-elements/text-field/text-field'
+import Dropdown from '@form-elements/dropdown/dropdown'
+import LikeButton from '@form-elements/like-button/like-button'
+import StarRating from '@form-elements/star-rating/star-rating'
+import RangeSlider from '@form-elements/range-slider/range-slider'
+import Pagination from '@form-elements/pagination/pagination'
+import Checkbox from '@form-elements/checkbox-button/checkbox-button'
 
 const dropdown1 = new Dropdown('js-dropdown-1', {
   maxLength: {
