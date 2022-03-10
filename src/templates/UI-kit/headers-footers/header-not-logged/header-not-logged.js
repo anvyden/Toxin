@@ -4,6 +4,7 @@ class Header {
     this.burgerButton = document.querySelector('.header__burger-button')
     this.burgerLines = [...document.querySelectorAll('.header__burger-line')]
     this.handleBurgerButtonClick(this.burgerButton)
+    this.handleBurgerButtonKeyup(this.burgerButton)
   }
 
   handleBurgerButtonClick(button) {
@@ -12,36 +13,37 @@ class Header {
   }
 
   clickHandlerBurgerButton() {
-    if (this.burgerButton.classList.contains('header__burger-button--clicked')) {
-      this.burgerButton.classList.remove('header__burger-button--clicked')
+    this.burgerLines.forEach((item, i) => {
+      const line = item
+      if (i === 1) {
+        line.classList.toggle('header__burger-line-cross-1')
+      } else if (i === 2) {
+        line.classList.toggle('header__burger-line-cross-2')
+      } else {
+        line.classList.toggle('header__burger-line--hidden')
+      }
+    })
+    this.burgerMenu.classList.toggle('header__burger-menu-wrapper--visible')
+  }
 
+  handleBurgerButtonKeyup(button) {
+    this.keyupHandlerBurgerButton = this.keyupHandlerBurgerButton.bind(this)
+    button.addEventListener('keyup', this.keyupHandlerBurgerButton)
+  }
+
+  keyupHandlerBurgerButton(event) {
+    if (event.key === 'Enter') {
       this.burgerLines.forEach((item, i) => {
         const line = item
         if (i === 1) {
-          line.classList.remove('header__burger-line-cross-1')
+          line.classList.toggle('header__burger-line-cross-1')
         } else if (i === 2) {
-          line.classList.remove('header__burger-line-cross-2')
+          line.classList.toggle('header__burger-line-cross-2')
         } else {
-          line.classList.remove('header__burger-line--hidden')
+          line.classList.toggle('header__burger-line--hidden')
         }
       })
-
-      this.burgerMenu.classList.remove('header__burger-menu-wrapper--visible')
-    } else {
-      this.burgerButton.classList.add('header__burger-button--clicked')
-
-      this.burgerLines.forEach((item, i) => {
-        const line = item
-        if (i === 1) {
-          line.classList.add('header__burger-line-cross-1')
-        } else if (i === 2) {
-          line.classList.add('header__burger-line-cross-2')
-        } else {
-          line.classList.add('header__burger-line--hidden')
-        }
-      })
-
-      this.burgerMenu.classList.add('header__burger-menu-wrapper--visible')
+      this.burgerMenu.classList.toggle('header__burger-menu-wrapper--visible')
     }
   }
 }

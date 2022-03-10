@@ -1,42 +1,43 @@
 mixin menu({ column, items })
   .menu
     -
-      let menuListClass = 'menu-list'
-      let menulistItemClass = 'menu-list__item'
+      let menuListClass = 'menu__list'
+      let menulistItemClass = 'menu__item'
       
       if (column) {
-        menuListClass += ' menu-list--column'
-        menulistItemClass += ' menu-list__item--column'
+        menuListClass += ' menu__list--column'
+        menulistItemClass += ' menu__item--column'
       }
+    nav.menu__menu
+      ul(class=menuListClass) 
+        each item in items  
+          -
+            const { linkText, link, isActive, subMenu, subItems } = item 
+            let menuLinkClass = 'menu__item-link'
+            let arrowClass = 'menu__item-arrow'
 
-    ul(class=menuListClass) 
-      each item in items  
-        -
-          const { linkText, link, isActive, subMenu, subItems } = item 
-          let menuLinkClass = 'menu-list__link'
-          let arrowClass = 'menu-list__arrow'
+            if (isActive) {
+              menuLinkClass += ' menu__item-link--active'
+            }
 
-          if (isActive) {
-            menuLinkClass += ' menu-list__link--active'
-          }
+            if (subMenu) {
+              arrowClass +=' material-icons'
+            }
 
-          if (subMenu) {
-            arrowClass +=' material-icons'
-          }
-
-        li(class=menulistItemClass)
-          if (!subMenu)
-            a(class=menuLinkClass, href=link)= linkText
-          else
-            .menu-list__link-wrapper
-              a(class=menuLinkClass, href=link)= linkText
-              span(class=arrowClass)='expand_more'
-          if (subMenu)
-            ul.sub-menu-list 
-              each subItem in subItems 
-                -
-                  const { subLinkText, subLink } = subItem 
-                  let subMenuLinkClass = 'sub-menu-list__link'
-                
-                li.sub-menu-list__item 
-                  a(class=subMenuLinkClass, href=subLink)= subLinkText
+          li(class=menulistItemClass, tabindex='0')
+            if (!subMenu)
+              a(class=menuLinkClass, href=link, tabindex='-1')= linkText
+            else
+              .menu__item-link-wrapper
+                a(class=menuLinkClass, href=link, tabindex='-1')= linkText
+                span(class=arrowClass)='expand_more'
+            if (subMenu)
+              .sub-menu
+                ul.sub-menu__list 
+                  each subItem in subItems 
+                    -
+                      const { subLinkText, subLink } = subItem 
+                      let subMenuLinkClass = 'sub-menu__item-link'
+                    
+                    li(class='sub-menu__item', tabindex='0')
+                      a(class=subMenuLinkClass, href=subLink, tabindex='-1')= subLinkText

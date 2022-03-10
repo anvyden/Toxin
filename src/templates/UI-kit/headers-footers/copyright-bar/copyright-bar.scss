@@ -54,3 +54,7 @@
   background-clip: text;
   cursor: pointer;
 }
+
+.copyright-bar__socials-link:focus-visible {
+  outline: 2px solid $purple;
+}

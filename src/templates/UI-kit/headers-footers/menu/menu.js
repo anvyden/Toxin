@@ -1,9 +1,13 @@
 class Menu {
   constructor() {
-    this.subMenuLists = document.querySelectorAll('.sub-menu-list')
+    this.subMenuLists = document.querySelectorAll('.sub-menu')
     this.subMenus = []
-    this._getSubMenus()
+    this.menuItems = document.querySelectorAll('.menu__item')
+    this._getSubMenus(this.subMenuLists)
     this.handleSubMenuClick(this.subMenus)
+    this.handleMenuItemKeyup(this.menuItems)
+    // this.textSubMenus = document.querySelectorAll('.menu__item-link-wrapper .menu__item-link')
+    // this.handleSubMenuKeyup(this.textSubMenus)
   }
 
   handleSubMenuClick(subMenus) {
@@ -17,32 +21,149 @@ class Menu {
     const { currentTarget } = event
     this.subMenuElements = [...currentTarget.children]
 
-    this.subMenuElements.forEach((elem) => {
-      if (elem.classList.contains('sub-menu-list')) {
+    this._findSubMenuElements(this.subMenuElements)
+
+    this.subMenuList.classList.toggle('sub-menu--visible')
+    this.subMenuArrow.classList.toggle('menu__item-arrow--expanded')
+
+    this._getTargetElemsByFirstClick(currentTarget)
+
+    if (this.currentTarget !== currentTarget) {
+      this.currentTargetList.classList.remove('sub-menu--visible')
+      this.currentTargetArrow.classList.remove('menu__item-arrow--expanded')
+      this.currentTarget = currentTarget
+      this.currentTargetList = this.subMenuList
+      this.currentTargetArrow = this.subMenuArrow
+    }
+  }
+
+  handleMenuItemKeyup(menuItems) {
+    this.keyupHandlerMenuItem = this.keyupHandlerMenuItem.bind(this)
+    menuItems.forEach((menuItem) => {
+      menuItem.addEventListener('keyup', this.keyupHandlerMenuItem)
+    })
+  }
+
+  keyupHandlerMenuItem(event) {
+    if (event.key === 'Enter') {
+      const { target } = event
+      const [...itemElements] = target.children
+
+      if (itemElements.find((elem) => elem.classList.contains('menu__item-link-wrapper'))) {
+        this._findSubMenuElements(itemElements)
+        this.subMenuList.classList.toggle('sub-menu--visible')
+        this.subMenuArrow.classList.toggle('menu__item-arrow--expanded')
+
+        this._getTargetElemsByFirstClick(target)
+
+        if (this.currentTarget !== target) {
+          this.currentTargetList.classList.remove('sub-menu--visible')
+          this.currentTargetArrow.classList.remove('menu__item-arrow--expanded')
+          this.currentTarget = target
+          this.currentTargetList = this.subMenuList
+          this.currentTargetArrow = this.subMenuArrow
+        }
+
+        this.subMenuItems = document.querySelectorAll('.sub-menu__item')
+        this.keyupHandlerSubMenuItem = this.keyupHandlerSubMenuItem.bind(this)
+
+        if (this.subMenuList.classList.contains('sub-menu--visible')) {
+          this.subMenuItems.forEach((item) => {
+            item.addEventListener('keyup', this.keyupHandlerSubMenuItem)
+          })
+        } else {
+          this.subMenuItems.forEach((item) => {
+            item.removeEventListener('keyup', this.keyupHandlerSubMenuItem)
+          })
+        }
+      } else {
+        itemElements.forEach((elem) => {
+          if (elem.classList.contains('menu__item-link')) {
+            this.itemLink = elem
+          }
+        })
+
+        this.itemLinkHref = this.itemLink.href
+        if (this.itemLinkHref) {
+          window.location = this.itemLinkHref
+        }
+      }
+    }
+  }
+
+  keyupHandlerSubMenuItem(event) {
+    if (event.key === 'Enter') {
+      const { target } = event
+      const [...itemElements] = target.children
+
+      itemElements.forEach((elem) => {
+        if (elem.classList.contains('sub-menu__item-link')) {
+          this.itemLink = elem
+        }
+      })
+
+      this.itemLinkHref = this.itemLink.href
+      if (this.itemLinkHref) {
+        window.location = this.itemLinkHref
+      }
+    }
+  }
+
+  // handleSubMenuKeyup(textSubMenus) {
+  //   this.keyupHandlerSubMenu = this.keyupHandlerSubMenu.bind(this)
+  //   textSubMenus.forEach((textSubMenu) => {
+  //     textSubMenu.addEventListener('keyup', this.keyupHandlerSubMenu)
+  //   })
+  // }
+
+  // keyupHandlerSubMenu(event) {
+  //   if (event.key === 'Enter') {
+  //     const { target } = event
+  //     const subMenu = target.offsetParent
+  //     this.subMenuElements = [...subMenu.children]
+
+  //     this._findSubMenuElements(this.subMenuElements)
+
+  //     this.subMenuList.classList.toggle('sub-menu--visible')
+  //     this.subMenuArrow.classList.toggle('menu__item-arrow--expanded')
+
+  //     this._getTargetElemsByFirstClick(target)
+
+  //     if (this.currentTarget !== target) {
+  //       this.currentTargetList.classList.remove('sub-menu--visible')
+  //       this.currentTargetArrow.classList.remove('menu__item-arrow--expanded')
+  //       this.currentTarget = target
+  //       this.currentTargetList = this.subMenuList
+  //       this.currentTargetArrow = this.subMenuArrow
+  //     }
+  //   }
+  // }
+
+  _findSubMenuElements(subMenuElements) {
+    subMenuElements.forEach((elem) => {
+      if (elem.classList.contains('sub-menu')) {
         this.subMenuList = elem
-      } else if (elem.classList.contains('menu-list__link-wrapper')) {
+      } else if (elem.classList.contains('menu__item-link-wrapper')) {
         const items = [...elem.children]
         items.forEach((item) => {
-          if (item.classList.contains('menu-list__arrow')) {
+          if (item.classList.contains('menu__item-arrow')) {
             this.subMenuArrow = item
           }
         })
       }
     })
+  }
 
-    if (currentTarget.classList.contains('menu-list__item--clicked')) {
-      currentTarget.classList.remove('menu-list__item--clicked')
-      this.subMenuList.classList.remove('sub-menu-list--visible')
-      this.subMenuArrow.classList.remove('menu-list__arrow--expanded')
-    } else {
-      currentTarget.classList.add('menu-list__item--clicked')
-      this.subMenuList.classList.add('sub-menu-list--visible')
-      this.subMenuArrow.classList.add('menu-list__arrow--expanded')
+  _getTargetElemsByFirstClick(target) {
+    if (this.currentTarget === undefined) {
+      this.currentTarget = target
+      this.currentTargetList = this.subMenuList
+      this.currentTargetArrow = this.subMenuArrow
     }
   }
 
-  _getSubMenus() {
-    this.subMenuLists.forEach((item) => {
+  _getSubMenus(menus) {
+    menus.forEach((item) => {
       this.subMenus.push(item.parentElement)
     })
   }

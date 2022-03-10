@@ -12,7 +12,7 @@ mixin logo({ active, posAbsolute, link })
 
   if (active)
     div(class=logoClass)
-      a(class='logo__link', href=link)
+      a(class='logo__link' href=link)
         img(class='logo__img' src=require('~/templates/UI-kit/logo/logo-active.svg') alt='Лого')
   else 
     div(class=logoClass)
