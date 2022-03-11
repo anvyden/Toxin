@@ -1,8 +1,8 @@
 class Header {
   constructor() {
-    this.burgerMenu = document.querySelector('.header__burger-menu-wrapper')
-    this.burgerButton = document.querySelector('.header__burger-button')
-    this.burgerLines = [...document.querySelectorAll('.header__burger-line')]
+    this.burgerMenu = document.querySelector('.js-header__burger-menu-wrapper')
+    this.burgerButton = document.querySelector('.js-header__burger-button')
+    this.burgerLines = [...document.querySelectorAll('.js-header__burger-line')]
     this.handleBurgerButtonClick(this.burgerButton)
     this.handleBurgerButtonKeyup(this.burgerButton)
   }

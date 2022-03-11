@@ -31,7 +31,7 @@ mixin signUpCard({ logInButtonLink, formAction, formMethod })
           .sign-up-card__special-offers 
             +toggleButton({ text: 'Получать спецпредложения', name: 'specialOffers' })
         .sign-up-card__pay-button 
-          +button({ text: 'Перейти к оплате', type: 'submit', withArrow: true })
+          +button({ text: 'Перейти к оплате', type: 'submit', variant: 'with-arrow' })
         .sign-up-card__log-in
           +text({ text: 'Уже есть аккаунт на Toxin', type: 'span', color: 'black' })
-          +button({ text: 'Войти', isLink: true, link: logInButtonLink, withBorder: true }) 
+          +button({ text: 'Войти', isLink: true, link: logInButtonLink, variant: 'border' }) 

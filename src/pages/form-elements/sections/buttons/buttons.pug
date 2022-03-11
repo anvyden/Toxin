@@ -16,16 +16,27 @@ mixin buttons()
           +text({ text: 'buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         .buttons__buttons-wrap
           .buttons__buttons-group
-            +button({ text: 'click me', withBackground: true })
-            +button({ text: 'click me', withBackground: true, disabled: true })
-          .buttons__buttons-group
-            +button({ text: 'click me', withBorder: true })
-            +button({ text: 'click me', withBorder: true, disabled: true })
-          .buttons__buttons-group
             +button({ text: 'click me' })
             +button({ text: 'click me', disabled: true })
           .buttons__buttons-group
-            +button({ text: 'перейти к оплате', withArrow: true })
+            +button({ text: 'click me', variant: 'border' })
+            +button({ text: 'click me', variant: 'border', disabled: true })
+          .buttons__buttons-group
+            +button({ text: 'click me', variant: 'text' })
+            +button({ text: 'click me', variant: 'text', disabled: true })
+          .buttons__buttons-group
+            +button({ text: 'перейти к оплате', variant: 'with-arrow' })
+          //- .buttons__buttons-group
+          //-   +button({ text: 'click me', withBackground: true })
+          //-   +button({ text: 'click me', withBackground: true, disabled: true })
+          //- .buttons__buttons-group
+          //-   +button({ text: 'click me', withBorder: true })
+          //-   +button({ text: 'click me', withBorder: true, disabled: true })
+          //- .buttons__buttons-group
+          //-   +button({ text: 'click me' })
+          //-   +button({ text: 'click me', disabled: true })
+          //- .buttons__buttons-group
+          //-   +button({ text: 'перейти к оплате', withArrow: true })
       
       //- Блок pagination
       .buttons__pagination 

@@ -40,18 +40,18 @@ mixin headerNotLogged({ logIn })
             })
         if (!logIn)
           .header__default-authorization
-            +button({ text: 'Войти', isLink: true, withBorder: true, widthSize: 'small', smallHeight: true, link: '#' })
-            +button({ text: 'Зарегистрироваться', isLink: true, withBackground: true, widthSize: 'medium', smallHeight: true, link: '#' })
+            +button({ text: 'Войти', isLink: true, variant: 'border', size: 'medium', link: '#' })
+            +button({ text: 'Зарегистрироваться', isLink: true, size: 'medium', link: '#' })
         else
           .header__authorization-complete
             span.header__user='Юлий Цезарь'
     .header__burger-container
-      div(class='header__burger-button', tabindex='0')
-        .header__burger-line
-        .header__burger-line
-        .header__burger-line
-        .header__burger-line
-      .header__burger-menu-wrapper
+      div(class='header__burger-button js-header__burger-button', tabindex='0')
+        .header__burger-line.js-header__burger-line
+        .header__burger-line.js-header__burger-line
+        .header__burger-line.js-header__burger-line
+        .header__burger-line.js-header__burger-line
+      .header__burger-menu-wrapper.js-header__burger-menu-wrapper
         .header__burger-menu
           +menu({
               items: [
@@ -85,8 +85,8 @@ mixin headerNotLogged({ logIn })
             })
         if (!logIn)
           .header__burger-authorization
-            +button({ text: 'Войти', isLink: true, withBorder: true, widthSize: 'small', smallHeight: true })
-            +button({ text: 'Зарегистрироваться', isLink: true, withBackground: true, widthSize: 'medium', smallHeight: true })
+            +button({ text: 'Войти', isLink: true, variant: 'border', size: 'medium' })
+            +button({ text: 'Зарегистрироваться', isLink: true, size: 'medium' })
         else
           .header__burger-authorization-complete
             span.header__user='Юлий Цезарь'

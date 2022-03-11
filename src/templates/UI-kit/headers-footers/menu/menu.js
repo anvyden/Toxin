@@ -1,8 +1,8 @@
 class Menu {
   constructor() {
-    this.subMenuLists = document.querySelectorAll('.sub-menu')
+    this.subMenuLists = document.querySelectorAll('.js-sub-menu')
     this.subMenus = []
-    this.menuItems = document.querySelectorAll('.menu__item')
+    this.menuItems = document.querySelectorAll('.js-menu__item')
     this._getSubMenus(this.subMenuLists)
     this.handleSubMenuClick(this.subMenus)
     this.handleMenuItemKeyup(this.menuItems)
@@ -64,7 +64,7 @@ class Menu {
           this.currentTargetArrow = this.subMenuArrow
         }
 
-        this.subMenuItems = document.querySelectorAll('.sub-menu__item')
+        this.subMenuItems = document.querySelectorAll('.js-sub-menu__item')
         this.keyupHandlerSubMenuItem = this.keyupHandlerSubMenuItem.bind(this)
 
         if (this.subMenuList.classList.contains('sub-menu--visible')) {

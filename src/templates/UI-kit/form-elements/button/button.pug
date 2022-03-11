@@ -1,61 +1,85 @@
-mixin button({ text, type, withBackground, withBorder, withArrow, disabled, classForJs, isLink, link, widthSize, smallHeight })
+mixin button(options)
   -
+    const { text, type, withBackground, withBorder, withArrow, disabled, classForJs, isLink, link, size, smallHeight, variant } = options
+
     let buttonContainerClass = 'button'
     let buttonClass = 'button__button' + ' text--with-type-h3'
     let typeButton = type ? type : 'button'
 
-    const widthSizeModifiers = ['large', 'medium', 'small']
+    const variants = ['border', 'text', 'with-arrow']
+    const sizeModifiers = ['large', 'medium', 'small']
 
-    if (widthSizeModifiers.includes(widthSize)) {
-      buttonContainerClass += ` button--width-${widthSize}`
+    if (variants.includes(variant)) {
+      buttonClass += ` button__button--variant-${variant}`
+      buttonContainerClass += ` button--variant-${variant}`
     }
 
-    if (!withBackground && !withBorder && disabled && !withArrow) {
+    if (sizeModifiers.includes(size)) {
+      if (variant === 'border') {
+        buttonClass += ` button__button--variant-border-size-${size}`
+        buttonContainerClass += ` button--variant-border-size-${size}`
+      } else {
+        buttonClass += ` button__button--size-${size}`
+        buttonContainerClass += ` button--size-${size}`
+      }
+    }
+
+    if (disabled) {
       buttonClass += ' button__button--disabled'
-      buttonContainerClass += ' button--width-auto'
+      buttonContainerClass += ' button--disabled'
     }
 
-    if (!withBackground && !withBorder && !disabled && !withArrow) {
-      buttonClass += ' button__button--hovered'
-      buttonContainerClass += ' button--width-auto'
+    if (variant === 'text' && disabled) {
+      buttonClass += ' button__button--disabled-variant-text'
+      buttonContainerClass += ' button--disabled-variant-text'
     }
 
-    if (withBackground) {
-      buttonClass += ' button__button--with-background'
-      buttonContainerClass += ' button--with-background'
-    }
+    //- if (!withBackground && !withBorder && disabled && !withArrow) {
+    //-   buttonClass += ' button__button--disabled'
+    //-   buttonContainerClass += ' button--width-auto'
+    //- }
 
-    if (withBackground && disabled) {
-      buttonClass += ' button__button--with-background-disabled'
-      buttonContainerClass += ' button--with-background-disabled'
-    }
+    //- if (!withBackground && !withBorder && !disabled && !withArrow) {
+    //-   buttonClass += ' button__button--hovered'
+    //-   buttonContainerClass += ' button--width-auto'
+    //- }
 
-    if (withBackground && smallHeight) {
-      buttonClass += ' button__button--with-background-height-small'
-    }
+    //- if (withBackground) {
+    //-   buttonClass += ' button__button--with-background'
+    //-   buttonContainerClass += ' button--with-background'
+    //- }
 
-    if (withBorder) {
-      buttonClass += ' button__button--with-border'
-      buttonContainerClass += ' button--with-border'
-    }
+    //- if (withBackground && disabled) {
+    //-   buttonClass += ' button__button--with-background-disabled'
+    //-   buttonContainerClass += ' button--with-background-disabled'
+    //- }
 
-    if (withBorder && disabled) {
-      buttonClass += ' button__button--with-border-disabled'
-      buttonContainerClass += ' button--with-border-disabled'
-    }
+    //- if (withBackground && smallHeight) {
+    //-   buttonClass += ' button__button--with-background-height-small'
+    //- }
 
-    if (withBorder && smallHeight) {
-      buttonClass += ' button__button--with-border-height-small'
-    }
+    //- if (withBorder) {
+    //-   buttonClass += ' button__button--with-border'
+    //-   buttonContainerClass += ' button--with-border'
+    //- }
 
-    if (withBorder && widthSize === 'small') {
-      buttonClass += ' button__button--with-border-width-small'
-    }
+    //- if (withBorder && disabled) {
+    //-   buttonClass += ' button__button--with-border-disabled'
+    //-   buttonContainerClass += ' button--with-border-disabled'
+    //- }
 
-    if (withArrow) {
-      buttonClass += ' button__button--with-arrow'
-      buttonContainerClass += ' button--width-large' + ' button--with-arrow'
-    }
+    //- if (withBorder && smallHeight) {
+    //-   buttonClass += ' button__button--with-border-height-small'
+    //- }
+
+    //- if (withBorder && widthSize === 'small') {
+    //-   buttonClass += ' button__button--with-border-width-small'
+    //- }
+
+    //- if (withArrow) {
+    //-   buttonClass += ' button__button--with-arrow'
+    //-   buttonContainerClass += ' button--width-large' + ' button--with-arrow'
+    //- }
 
     if (classForJs) {
       buttonClass += ` ${classForJs}`

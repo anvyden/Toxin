@@ -60,5 +60,5 @@ mixin dropdown({ text, subtitle, value, name, placeholder, expanded, expandedVis
                   button(class='dropdown-list__item-button dropdown-list__item-button-increase', type='button')= '+'
           if (withButtons)
             .dropdown__button-wrap 
-              +button({ text: 'очистить', classForJs: 'js-dropdown-button' })
-              +button({ text: 'применить', classForJs: 'js-dropdown-button' })
+              +button({ text: 'очистить', variant: 'text', classForJs: 'js-dropdown-button' })
+              +button({ text: 'применить', variant: 'text', classForJs: 'js-dropdown-button' })

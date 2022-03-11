@@ -62,11 +62,11 @@ const bookingCardOpts = {
 const datepickerStaticButtons = {
   acceptButton: {
     content: 'Применить',
-    className: 'button button__button text--with-type-h3',
+    className: 'button button--variant-text button__button button__button--variant-text',
   },
   clearButton: {
     content: 'Очистить',
-    className: 'button button__button text--with-type-h3',
+    className: 'button button--variant-text button__button button__button--variant-text',
   },
 }
 
