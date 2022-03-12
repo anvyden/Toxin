@@ -34,53 +34,6 @@ mixin button(options)
       buttonContainerClass += ' button--disabled-variant-text'
     }
 
-    //- if (!withBackground && !withBorder && disabled && !withArrow) {
-    //-   buttonClass += ' button__button--disabled'
-    //-   buttonContainerClass += ' button--width-auto'
-    //- }
-
-    //- if (!withBackground && !withBorder && !disabled && !withArrow) {
-    //-   buttonClass += ' button__button--hovered'
-    //-   buttonContainerClass += ' button--width-auto'
-    //- }
-
-    //- if (withBackground) {
-    //-   buttonClass += ' button__button--with-background'
-    //-   buttonContainerClass += ' button--with-background'
-    //- }
-
-    //- if (withBackground && disabled) {
-    //-   buttonClass += ' button__button--with-background-disabled'
-    //-   buttonContainerClass += ' button--with-background-disabled'
-    //- }
-
-    //- if (withBackground && smallHeight) {
-    //-   buttonClass += ' button__button--with-background-height-small'
-    //- }
-
-    //- if (withBorder) {
-    //-   buttonClass += ' button__button--with-border'
-    //-   buttonContainerClass += ' button--with-border'
-    //- }
-
-    //- if (withBorder && disabled) {
-    //-   buttonClass += ' button__button--with-border-disabled'
-    //-   buttonContainerClass += ' button--with-border-disabled'
-    //- }
-
-    //- if (withBorder && smallHeight) {
-    //-   buttonClass += ' button__button--with-border-height-small'
-    //- }
-
-    //- if (withBorder && widthSize === 'small') {
-    //-   buttonClass += ' button__button--with-border-width-small'
-    //- }
-
-    //- if (withArrow) {
-    //-   buttonClass += ' button__button--with-arrow'
-    //-   buttonContainerClass += ' button--width-large' + ' button--with-arrow'
-    //- }
-
     if (classForJs) {
       buttonClass += ` ${classForJs}`
     }
