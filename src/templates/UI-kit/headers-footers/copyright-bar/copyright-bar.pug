@@ -1,5 +1,7 @@
-mixin copyrightBar({ mobile, items })
+mixin copyrightBar(options)
   -
+    const { mobile, items } = options 
+
     let copyrightBarCLass = 'copyright-bar'
     let copyrightBarContainerClass = 'copyright-bar__container'
     let copyrightClass = 'copyright-bar__copyright'
@@ -21,5 +23,5 @@ mixin copyrightBar({ mobile, items })
               const { fontAwesomeIconClass, link } = item
             
             li.copyright-bar__socials-item
-              a(class='copyright-bar__socials-link', href=link, target='_blank')
+              a(class='copyright-bar__socials-item-link' href=link target='_blank' rel='noopener noreferrer')
                 i(class=`fa-brands ${fontAwesomeIconClass}`)

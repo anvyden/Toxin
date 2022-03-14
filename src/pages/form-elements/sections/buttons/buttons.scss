@@ -2,7 +2,7 @@
 @import '@form-elements/button/button';
 @import '@form-elements/pagination/pagination';
 
-.buttons-container {
+.buttons__container {
   max-width: rem(320);
 }
 
@@ -15,7 +15,11 @@
   margin-bottom: rem(41);
 }
 
-.buttons__buttons-wrap {
+.buttons__heading {
+  margin-bottom: rem(16);
+}
+
+.buttons__buttons-wrapper {
   display: flex;
   flex-wrap: wrap;
 }
@@ -36,8 +40,4 @@
 .buttons__buttons-group:last-child {
   max-width: rem(320);
   margin-bottom: 0;
-}
-
-.buttons__heading {
-  margin-bottom: rem(16);
 }

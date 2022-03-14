@@ -21,6 +21,10 @@
   margin-top: rem(4);
 }
 
+.footer__menu > .text {
+  margin-bottom: rem(22);
+}
+
 .footer__menu:nth-child(2) {
   margin-right: rem(57.5);
 }
@@ -31,10 +35,6 @@
 
 .footer__menu:nth-child(4) {
   margin-right: rem(51.8);
-}
-
-.footer__menu > .text {
-  margin-bottom: rem(22);
 }
 
 .footer__subscription {
@@ -77,23 +77,15 @@
     justify-content: space-between;
   }
 
-  .footer__menu > .text {
-    font-size: rem(11);
-  }
-
-  .footer__subscription > .text {
-    font-size: rem(11);
-  }
-
-  .footer__subscription-text {
-    font-size: rem(13);
-  }
-
   .footer__company {
     font-size: rem(13);
     margin-right: 0;
   }
-  
+
+  .footer__menu > .text {
+    font-size: rem(11);
+  }
+
   .footer__menu:nth-child(2) {
     margin-right: 0;
   }
@@ -104,6 +96,14 @@
   
   .footer__menu:nth-child(4) {
     margin-right: 0;
+  }
+
+  .footer__subscription > .text {
+    font-size: rem(11);
+  }
+
+  .footer__subscription-text {
+    font-size: rem(13);
   }
 }
 

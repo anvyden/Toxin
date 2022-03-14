@@ -1,17 +1,18 @@
-mixin features({ items })
+mixin features(options)
   -
-    let iconClass = 'features-list__icon' + ' material-icons'
+    const { items } = options
+    let iconClass = 'features__item-icon material-icons'
   
   .features 
-    ul.features-list 
+    ul.features__list 
       each item in items 
         -
           const { icon, title, description } = item 
         
-        li.features-list__item
-          .features-list__icon-wrap 
+        li.features__item
+          .features__item-icon-wrapper 
             span(class=iconClass)=icon 
-          .features-list__text-wrap
-            span.features-list__title=title
-            span.features-list__description=description
+          .features__item-text-wrapper
+            span.features__item-title=title
+            span.features__item-description=description
   

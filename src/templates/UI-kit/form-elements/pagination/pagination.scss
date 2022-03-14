@@ -21,7 +21,7 @@
   font-weight: bold;
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 
-  .pagination__link {
+  .pagination__item-link {
     color: #fff;
   }
 }
@@ -39,7 +39,20 @@
   cursor: default;
 }
 
-.pagination__link {
+.pagination__item--with-arrow {
+  font-size: rem(24);
+  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+
+  .pagination__item-link {
+    color: #fff;
+  }
+}
+
+.pagination__item--with-arrow:hover {
+  background: rgba(111, 207, 151, 0.5);
+}
+
+.pagination__item-link {
   display: inline-block;
   width: rem(40);
   height: rem(40);
@@ -51,19 +64,6 @@
   user-select: none;
 }
 
-.pagination__link:focus-visible {
+.pagination__item-link:focus-visible {
   outline: 2px solid $purple;
-}
-
-.pagination__item--with-arrow {
-  font-size: rem(24);
-  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
-
-  .pagination__link {
-    color: #fff;
-  }
-}
-
-.pagination__item--with-arrow:hover {
-  background: rgba(111, 207, 151, 0.5);
 }

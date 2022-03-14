@@ -46,7 +46,7 @@
   margin-right: 0;
 }
 
-.copyright-bar__socials-link {
+.copyright-bar__socials-item-link {
   font-size: rem(24);
   line-height: rem(23);
   color: transparent;
@@ -55,6 +55,6 @@
   cursor: pointer;
 }
 
-.copyright-bar__socials-link:focus-visible {
+.copyright-bar__socials-item-link:focus-visible {
   outline: 2px solid $purple;
 }

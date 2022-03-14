@@ -1,5 +1,7 @@
-mixin datepicker({ classForJs })
+mixin datepicker(options)
   -
+    const { classForJs } = options 
+
     let datepickerClass = 'datepicker'
 
     if (classForJs) {

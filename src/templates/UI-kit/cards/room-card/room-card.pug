@@ -1,20 +1,23 @@
 include ~/templates/UI-kit/text/text
 include ~/templates/UI-kit/form-elements/star-rating/star-rating
 
-mixin roomCard({ roomNumber, roomPrice, roomReviews, roomImg, luxe, sliderClassForJs, ratingClassForJs })
+mixin roomCard(options)
+  -
+    const { roomNumber, roomPrice, roomReviews, roomImg, luxe, sliderClassForJs, ratingClassForJs } = options 
+
   .room-card 
     .room-card__container 
       .room-card__slider
         .swiper.slider
           .swiper-wrapper.slider-wrapper
             .swiper-slide
-              img(class='room-card__image', src=require(`~/templates/UI-kit/cards/room-card/${roomImg}.jpg`), alt='Фото комнаты 1')
+              img(class='room-card__image' src=require(`~/templates/UI-kit/cards/room-card/${roomImg}.jpg`) alt='Фото комнаты 1')
             .swiper-slide
-              img(class='room-card__image', src=require(`~/templates/UI-kit/cards/room-card/${roomImg}.jpg`), alt='Фото комнаты 2')
+              img(class='room-card__image' src=require(`~/templates/UI-kit/cards/room-card/${roomImg}.jpg`) alt='Фото комнаты 2')
             .swiper-slide
-              img(class='room-card__image', src=require(`~/templates/UI-kit/cards/room-card/${roomImg}.jpg`), alt='Фото комнаты 3')
+              img(class='room-card__image' src=require(`~/templates/UI-kit/cards/room-card/${roomImg}.jpg`) alt='Фото комнаты 3')
             .swiper-slide
-              img(class='room-card__image', src=require(`~/templates/UI-kit/cards/room-card/${roomImg}.jpg`), alt='Фото комнаты 4')
+              img(class='room-card__image' src=require(`~/templates/UI-kit/cards/room-card/${roomImg}.jpg`) alt='Фото комнаты 4')
           .swiper-pagination.slider__pagination
           .swiper-button-prev.slider__button-prev.material-icons='expand_more'
           .swiper-button-next.slider__button-next.material-icons='expand_more'

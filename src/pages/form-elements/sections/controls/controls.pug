@@ -1,4 +1,4 @@
-include ~/templates/UI-kit/form-elements/checkbox-button/checkbox-button
+include ~/templates/UI-kit/form-elements/checkbox-list/checkbox-list
 include ~/templates/UI-kit/form-elements/radio-button/radio-button
 include ~/templates/UI-kit/form-elements/toggle-button/toggle-button
 include ~/templates/UI-kit/form-elements/like-button/like-button
@@ -6,21 +6,15 @@ include ~/templates/UI-kit/form-elements/star-rating/star-rating
 
 mixin controls()
   .controls
-    .controls-container.controls__container
-      
-      //- блок checkbox-buttons
-      .controls__checkbox-buttons 
-        .controls__title
-          +text({ text: 'checkbox buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        +checkboxButtons({ checkboxButtons: true,
+    .controls__container
+      .controls__checkbox-buttons
+        +checkboxList({ title: 'checkbox buttons',
           items: [
             { text: 'Можно курить', name: 'smoke'},
             { text: 'Можно с питомцами', name: 'pets', isChecked: true},
             { text: 'Можно пригласить гостей (до 10 человек)', name: 'guests', isChecked: true }
           ],
         })
-      
-      //- блок radio-buttons
       .controls__radio-buttons
         .controls__title 
           +text({ text: 'radio buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
@@ -30,27 +24,21 @@ mixin controls()
             { text: 'Женщина', name: 'sex', value: 'woman'}
           ],
         })
-
-      //- блок toggle-buttons
       .controls__toggle-buttons
         .controls__title 
           +text({ text: 'toggle', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        .controls__toggle-buttons-wrap
+        .controls__toggle-buttons-wrapper
           +toggleButton({ text: 'Получать спецпредложения', name: 'offers1', isChecked: true })
           +toggleButton({ text: 'Получать спецпредложения', name: 'offers2' })
-      
-      //- блок like-buttons
       .controls__like-buttons
         .controls__title
           +text({ text: 'like button', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        .controls__like-buttons-wrap
+        .controls__like-buttons-wrapper
           +likeButton({ count: 2, classForJs: 'js-like-button' })
           +likeButton({ count: 12, isActived: true, classForJs: 'js-like-button' })
-        
-      //- блок rate-buttons
       .controls__rate-buttons
         .controls__title
           +text({ text: 'rate button', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        .controls__rate-buttons-wrap
+        .controls__rate-buttons-wrapper
           +starRating({ classForJs: 'js-star-rating-1' })
           +starRating({ classForJs: 'js-star-rating-2' })

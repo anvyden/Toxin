@@ -3,14 +3,14 @@
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
 }
 
-.header__default-container {
+.header__container {
   padding: rem(15) rem(140);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.header__default-menu-wrapper {
+.header__menu-wrapper {
   width: 100%;
   max-width: rem(770);
   display: flex;
@@ -18,18 +18,17 @@
   justify-content: flex-end;
 }
 
-.header__default-menu {
+.header__menu {
   margin-right: rem(20);
 }
 
-.header__default-authorization {
-  // width: 100%;
+.header__authorization {
   max-width: rem(303);
   display: flex;
   justify-content: space-between;
 }
 
-.header__default-authorization > .button:first-child {
+.header__authorization > .button:first-child {
   margin-right: rem(20);
 }
 
@@ -86,18 +85,6 @@
   opacity: 0
 }
 
-.header__burger-line-cross-1 {
-  height: 3px;
-  transform: translate(50%,0) rotate(45deg);
-  border-radius: 30%;
-}
-
-.header__burger-line-cross-2 {
-  height: 3px;
-  transform: translate(50%,0) rotate(-45deg);
-  border-radius: 30%;
-}
-
 .header__burger-line:first-child {
   top: 6px;
 }
@@ -112,6 +99,18 @@
 
 .header__burger-line:last-child {
   top: 22px;
+}
+
+.header__burger-line-cross-1 {
+  height: 3px;
+  transform: translate(50%,0) rotate(45deg);
+  border-radius: 30%;
+}
+
+.header__burger-line-cross-2 {
+  height: 3px;
+  transform: translate(50%,0) rotate(-45deg);
+  border-radius: 30%;
 }
 
 .header__burger-menu-wrapper {
@@ -130,7 +129,15 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .header__default-menu {
+  .header__menu {
+    display: none;
+  }
+
+  .header__authorization-complete {
+    margin: 0;
+  }
+
+  .header__authorization-complete::before {
     display: none;
   }
 
@@ -140,14 +147,6 @@
 
   .header__burger-menu {
     padding-bottom: 80px;
-  }
-
-  .header__authorization-complete {
-    margin: 0;
-  }
-
-  .header__authorization-complete::before {
-    display: none;
   }
 
   .header__burger-authorization {
@@ -160,11 +159,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .header__default-container {
+  .header__container {
     justify-content: center;
   }
 
-  .header__default-menu-wrapper {
+  .header__menu-wrapper {
     display: none;
   }
 

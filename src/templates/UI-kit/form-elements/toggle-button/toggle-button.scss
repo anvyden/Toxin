@@ -16,7 +16,7 @@
   outline: none;
 }
 
-.toggle-button__span::before {
+.toggle-button__text::before {
   position: absolute;
   top: 0;
   left: rem(-50);
@@ -29,7 +29,7 @@
   border-radius: 10px;
 }
 
-.toggle-button__span::after {
+.toggle-button__text::after {
   position: absolute;
   top: rem(4);
   left: rem(-46);
@@ -44,28 +44,28 @@
   transition-duration: 0.5s;
 }
 
-.toggle-button__input:checked + .toggle-button__span::before {
+.toggle-button__input:checked + .toggle-button__text::before {
   border-color: $purple;
 }
 
-.toggle-button__input:checked + .toggle-button__span::after {
+.toggle-button__input:checked + .toggle-button__text::after {
   left: rem(-26);
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 }
 
-.toggle-button__input:focus-visible + .toggle-button__span::before {
+.toggle-button__input:focus-visible + .toggle-button__text::before {
   outline: 2px solid $purple;
 }
 
-.toggle-button__input:focus-visible + .toggle-button__span {
+.toggle-button__input:focus-visible + .toggle-button__text {
   color: $darkShade75;
 }
 
-.toggle-button__input:checked + .toggle-button__span {
+.toggle-button__input:checked + .toggle-button__text {
   color: $darkShade75;
 }
 
-.toggle-button__label:hover > .toggle-button__span::before {
+.toggle-button__label:hover > .toggle-button__text::before {
   border-color: $purple;
 }
 

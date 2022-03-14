@@ -4,14 +4,14 @@ import BookingCard from '@cards/booking-card/booking-card'
 const datepickerButtons = {
   acceptButton: {
     content: 'Применить',
-    className: 'button button__button text--with-type-h3',
+    className: 'button button--variant-text button__button button__button--variant-text',
     onClick: (accept) => {
       accept.hide()
     },
   },
   clearButton: {
     content: 'Очистить',
-    className: 'button button__button text--with-type-h3',
+    className: 'button button--variant-text button__button button__button--variant-text',
     onClick: (clear) => {
       clear.clear()
     },

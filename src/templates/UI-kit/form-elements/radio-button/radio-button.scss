@@ -3,31 +3,34 @@
   max-width: rem(220);
 }
 
-.radio-button {
+.radio-buttons__item {
   max-width: rem(98);
-
   line-height: rem(20);
   color: $darkShade50
 }
 
-.radio-button__item:first-child {
+.radio-buttons__item:first-child {
   margin-right: rem(20);
 }
 
-.radio-button__label {
+.radio-buttons__item-label {
   display: inline-block;
   position: relative;
   margin-left: rem(30);
   cursor: pointer;
 }
 
-.radio-button__input {
+.radio-buttons__item-label:hover {
+  color: $darkShade75;
+}
+
+.radio-buttons__item-input {
   position: absolute;
   appearance: none;
   outline: none;
 }
 
-.radio-button__span::before {
+.radio-buttons__item-text::before {
   position: absolute;
   top: 0;
   left: rem(-30);
@@ -40,7 +43,7 @@
   border-radius: 10px;
 }
 
-.radio-button__span::after {
+.radio-buttons__item-text::after {
   display: none;
   position: absolute;
   top: rem(4);
@@ -54,26 +57,22 @@
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 }
 
-.radio-button__input:checked + .radio-button__span::after {
+.radio-buttons__item-input:checked + .radio-buttons__item-text::after {
   display: block;
 }
 
-.radio-button__input:checked + .radio-button__span::before {
+.radio-buttons__item-input:checked + .radio-buttons__item-text::before {
   border-color: $purple;
 }
 
-.radio-button__input:focus-visible + .radio-button__span::before {
+.radio-buttons__item-input:focus-visible + .radio-buttons__item-text::before {
   outline: 2px solid $purple;
 }
 
-.radio-button__input:checked + .radio-button__span {
+.radio-buttons__item-input:checked + .radio-buttons__item-text {
   color: $darkShade75;
 }
 
-.radio-button__label:hover > .radio-button__span::before {
+.radio-buttons__item-label:hover > .radio-buttons__item-text::before {
   border-color: $purple;
-}
-
-.radio-button__label:hover {
-  color: $darkShade75;
 }

@@ -1,14 +1,14 @@
-include ~/templates/UI-kit/form-elements/checkbox-button/checkbox-button
+include ~/templates/UI-kit/form-elements/checkbox-list/checkbox-list
 include ~/templates/UI-kit/form-elements/bullet-list/bullet-list
 
 mixin checkboxs()
   .checkboxs 
-    .checkboxs-container.checkboxs__container
-      .expandable-checkboxs.checkboxs__expandable-checkboxs
-        .expandable-checkboxs__checkbox
-          +checkboxButtons({ expandable: true, checkboxButtons: false, title: 'expandable checkbox list' })
-        .expandable-checkboxs__checkbox
-          +checkboxButtons({ expandable: true, checkboxButtons: true, title: 'expandable checkbox list', classForJs: 'js-expandable-checkbox',
+    .checkboxs__container
+      .checkboxs__expandable-checkboxs
+        .checkboxs__expandable-checkbox
+          +checkboxList({ expandable: true, emptyCheckboxList: true, title: 'expandable checkbox list' })
+        .checkboxs__expandable-checkbox
+          +checkboxList({ expandable: true, title: 'expandable checkbox list', classForJs: 'js-expandable-checkbox',
         items: [
           { text: 'Завтрак', name: 'breakfast' },
           { text: 'Письменный стол', name: 'table', isChecked: true },
@@ -19,10 +19,8 @@ mixin checkboxs()
           { text: 'Телевизор', name: 'tv2' },
           { text: 'Шампунь', name: 'shampoo2' },
         ]})
-      .rich-checkboxs.checkboxs__rich-checkboxs
-        .rich-checkboxs__title 
-          +text({ text: 'rich checkbox buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        +checkboxButtons({ checkboxButtons: true, wideCheckboxButtons: true, 
+      .checkboxs__rich-checkboxs
+        +checkboxList({ title: 'rich checkbox buttons', wideCheckboxItems: true, 
         items: [
           {
           text: 'Широкий коридор', 
@@ -41,8 +39,8 @@ mixin checkboxs()
           name: 'assistant-for-disabled'
           },
         ]})
-      .bullet-lists.checkboxs__bullet-lists
-        .bullet-lists__title
+      .checkboxs__bullet-lists
+        .checkboxs__bullet-lists-title
           +text({ text: 'bullet list', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         +bulletList({
           items: [

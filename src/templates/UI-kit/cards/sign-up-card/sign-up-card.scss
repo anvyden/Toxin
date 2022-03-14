@@ -14,6 +14,10 @@
   margin-bottom: rem(21);
 }
 
+.sign-up-card__person {
+  margin-bottom: rem(24);
+}
+
 .sign-up-card__person-first-name {
   margin-bottom: rem(10);
 }
@@ -22,12 +26,12 @@
   margin-bottom: rem(10);
 }
 
-.sign-up-card__person {
-  margin-bottom: rem(24);
-}
-
 .sign-up-card__date-birth {
   margin-bottom: rem(20.5);
+}
+
+.sign-up-card__data-login {
+  margin-bottom: rem(24);
 }
 
 .sign-up-card__email {
@@ -36,10 +40,6 @@
 
 .sign-up-card__password {
   margin-bottom: rem(10);
-}
-
-.sign-up-card__data-login {
-  margin-bottom: rem(24);
 }
 
 .sign-up-card__pay-button {

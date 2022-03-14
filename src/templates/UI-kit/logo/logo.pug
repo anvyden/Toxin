@@ -1,5 +1,7 @@
-mixin logo({ active, posAbsolute, link })
+mixin logo(options)
   -
+    const { active, posAbsolute, link } = options
+    
     let logoClass = 'logo'
 
     if (posAbsolute) {

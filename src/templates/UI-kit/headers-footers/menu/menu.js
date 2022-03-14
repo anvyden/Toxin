@@ -6,8 +6,6 @@ class Menu {
     this._getSubMenus(this.subMenuLists)
     this.handleSubMenuClick(this.subMenus)
     this.handleMenuItemKeyup(this.menuItems)
-    // this.textSubMenus = document.querySelectorAll('.menu__item-link-wrapper .menu__item-link')
-    // this.handleSubMenuKeyup(this.textSubMenus)
   }
 
   handleSubMenuClick(subMenus) {
@@ -108,36 +106,6 @@ class Menu {
       }
     }
   }
-
-  // handleSubMenuKeyup(textSubMenus) {
-  //   this.keyupHandlerSubMenu = this.keyupHandlerSubMenu.bind(this)
-  //   textSubMenus.forEach((textSubMenu) => {
-  //     textSubMenu.addEventListener('keyup', this.keyupHandlerSubMenu)
-  //   })
-  // }
-
-  // keyupHandlerSubMenu(event) {
-  //   if (event.key === 'Enter') {
-  //     const { target } = event
-  //     const subMenu = target.offsetParent
-  //     this.subMenuElements = [...subMenu.children]
-
-  //     this._findSubMenuElements(this.subMenuElements)
-
-  //     this.subMenuList.classList.toggle('sub-menu--visible')
-  //     this.subMenuArrow.classList.toggle('menu__item-arrow--expanded')
-
-  //     this._getTargetElemsByFirstClick(target)
-
-  //     if (this.currentTarget !== target) {
-  //       this.currentTargetList.classList.remove('sub-menu--visible')
-  //       this.currentTargetArrow.classList.remove('menu__item-arrow--expanded')
-  //       this.currentTarget = target
-  //       this.currentTargetList = this.subMenuList
-  //       this.currentTargetArrow = this.subMenuArrow
-  //     }
-  //   }
-  // }
 
   _findSubMenuElements(subMenuElements) {
     subMenuElements.forEach((elem) => {

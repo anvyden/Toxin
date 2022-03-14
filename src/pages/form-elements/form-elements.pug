@@ -24,14 +24,12 @@ block variables
 block content  
   .form-elements
     +logo({ active: false, posAbsolute: true })
-
-    .form-elements-container
-      .fields-controls-buttons-container
-        +fields()
-        +controls()
-        +buttons()   
-      
-      .dropdown-checkbox-room-info-container
-        +dropdowns()
-        +checkboxs()
-        +room-info()
+    .form-elements__container
+      .fields-controls-buttons__container
+        +fields
+        +controls
+        +buttons
+      .dropdown-checkbox-room-info__container
+        +dropdowns
+        +checkboxs
+        +room-info

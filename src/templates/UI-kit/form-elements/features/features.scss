@@ -1,19 +1,19 @@
-.features-list__item {
+.features__item {
   display: flex;
   border-bottom: 1px solid rgba(31, 32, 65, 0.1);
   margin-bottom: rem(20);
   padding-bottom: rem(14);
 }
 
-.features-list__item:last-child {
+.features__item:last-child {
   margin-bottom: 0;
 }
 
-.features-list__icon-wrap {
+.features__item-icon-wrapper {
   margin-right: rem(10);
 }
 
-.features-list__icon {
+.features__item-icon {
   font-size: rem(48);
   background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   background-clip: text;
@@ -21,16 +21,16 @@
   user-select: none;
 }
 
-.features-list__text-wrap {
+.features__item-text-wrapper {
   color: $darkShade75;
   user-select: none;
 }
 
-.features-list__title {
+.features__item-title {
   display: inline-block;
   font-weight: bold;
 }
 
-.features-list__description {
+.features__item-description {
   display: inline-block;
 }

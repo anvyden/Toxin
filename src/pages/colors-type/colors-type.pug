@@ -16,15 +16,10 @@ block variables
     }
 
 block content 
-  //- Добавление лого
   +logo({ active: false, posAbsolute: true })
-
-  //- Общий контейнер
-  .colors-types-container
-
-    //- блок colors
+  .colors-types__container
     .colors
-      .colors-container
+      .colors__container
         +color({ color: 'dark-shade-100', name: 'Dark Shade 100%', hex: '#1F2041', hasMargin: true })
         +color({ color: 'dark-shade-75', name: 'Dark Shade 75%', hex: '#1F2041', hasMargin: true })
         +color({ color: 'dark-shade-50', name: 'Dark Shade 50%', hex: '#1F2041', hasMargin: true })
@@ -32,10 +27,8 @@ block content
         +color({ color: 'dark-shade-5', name: 'Dark Shade 5%', hex: '#1F2041', hasMargin: true })
         +color({ color: 'purple', name: 'Purple', hex: '#BC9CFF', hasMargin: true })
         +color({ color: 'green', name: 'Green', hex: '#6FCF97' })
-      
-    //- Блок types
     .types
-      .types-container
+      .types__container
         +type({ type: 'h1', typeDescriptionClass: 'type__h1-text', typeDescription: 'This one is the sub-section or widget title', typeContentHasUpper: true })
         +type({ type: 'h2', typeDescriptionClass: 'type__h2-text', typeDescription: 'Next one is the item title inside widgets', typeContentHasUpper: true })
         +type({ type: 'h3', typeDescriptionClass: 'type__h3-text', typeDescription: 'This is a label or CTA text', typeContentHasUpper: true })

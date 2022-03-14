@@ -4,12 +4,12 @@
 @import '~/scss/mixins';
 @import '~/scss/settings';
 
-.colors-types-container {
+.colors-types__container {
   padding: 145px 158px 145px 150px;
   display: flex;
 }
 
-.colors-container {
+.colors__container {
   display: flex;
   flex-direction: column;
   margin-right: 415px;

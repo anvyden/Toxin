@@ -7,7 +7,7 @@
   display: flex;
 }
 
-.profile__avatar-wrap {
+.profile__avatar-wrapper {
   margin-right: rem(10);
 }
 
@@ -20,9 +20,9 @@
   object-fit: cover;
 }
 
-.profile__text-wrap {
-  color: $darkShade75;
+.profile__text-wrapper {
   max-width: rem(220);
+  color: $darkShade75;
 }
 
 .profile__name {
@@ -34,13 +34,13 @@
   display: inline-block;
 }
 
-.comment__like-wrap {
-  margin-top: rem(2);
-  margin-right: rem(15);
-}
-
 .comment__description {
   display: flex;
   margin-top: rem(3);
   margin-left: rem(4);
+}
+
+.comment__like-wrapper {
+  margin-top: rem(2);
+  margin-right: rem(15);
 }

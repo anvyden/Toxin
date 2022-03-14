@@ -34,7 +34,7 @@ class Dropdown {
   }
 
   handleItemButtonClick(button) {
-    if (button.classList.contains('dropdown-list__item-button-decrease')) {
+    if (button.classList.contains('dropdown__item-button-decrease')) {
       this.clickHandlerButtonDecrease = this.clickHandlerButtonDecrease.bind(this)
       button.addEventListener('click', this.clickHandlerButtonDecrease)
     } else {
@@ -73,9 +73,9 @@ class Dropdown {
       this.itemNameValue = this.itemsNames[index].innerHTML.toLowerCase()
       this._dropdownInputValue(this.itemNameValue, this.itemCounterValue, index)
       this._getItemButtonDecrease(index)
-      this.itemButtonDecrease.classList.add('dropdown-list__item-button--disabled')
+      this.itemButtonDecrease.classList.add('dropdown__item-button--disabled')
       this._getItemButtonIncrease(index)
-      this.itemButtonIncrease.classList.remove('dropdown-list__item-button--disabled')
+      this.itemButtonIncrease.classList.remove('dropdown__item-button--disabled')
     })
     this.itemsCountersSum = 0
     this.target.classList.add('button__button--hidden')
@@ -120,12 +120,12 @@ class Dropdown {
 
   _getElements() {
     const { dropdownButtons } = this.options
-    this.itemsButtons = document.querySelectorAll(`.${this.selector} .dropdown-list__item-button`)
-    this.items = document.querySelectorAll(`.${this.selector} .dropdown-list__item`)
+    this.itemsButtons = document.querySelectorAll(`.${this.selector} .dropdown__item-button`)
+    this.items = document.querySelectorAll(`.${this.selector} .dropdown__item`)
     this.dropdownDefault = document.querySelector(`.${this.selector} .dropdown__dropdown-default`)
     this.dropdownExpanded = document.querySelector(`.${this.selector} .dropdown__dropdown-expanded`)
-    this.itemsNames = document.querySelectorAll(`.${this.selector} .dropdown-list__item-name`)
-    this.itemsCounters = document.querySelectorAll(`.${this.selector} .dropdown-list__item-counter`)
+    this.itemsNames = document.querySelectorAll(`.${this.selector} .dropdown__item-name`)
+    this.itemsCounters = document.querySelectorAll(`.${this.selector} .dropdown__item-counter`)
     this.dropdownInput = document.querySelector(`.${this.selector} .dropdown__input`)
     this.dropdownButtonArrow = document.querySelector(`.${this.selector} .dropdown__button`)
     if (dropdownButtons) {
@@ -154,13 +154,13 @@ class Dropdown {
     this._getItemsCounterSum()
     if (this.itemCounterValue === 0) {
       this._getItemButtonDecrease(index)
-      this.itemsButtons[this.index].classList.add('dropdown-list__item-button--disabled')
+      this.itemsButtons[this.index].classList.add('dropdown__item-button--disabled')
     }
   }
 
   _getItemValueOnClick(event) {
     this.target = event.target
-    this.item = this.target.closest('.dropdown-list__item')
+    this.item = this.target.closest('.dropdown__item')
     this.itemNumber = Number(this.item.dataset.dropdownItem)
     this.itemCounter = this.itemsCounters[this.itemNumber]
     this.itemNameValue = this.itemsNames[this.itemNumber].innerHTML.toLowerCase()
@@ -177,12 +177,12 @@ class Dropdown {
 
     if (this.itemCounterValue === 0) {
       this._getItemButtonDecrease(this.itemNumber)
-      this.itemButtonDecrease.classList.add('dropdown-list__item-button--disabled')
+      this.itemButtonDecrease.classList.add('dropdown__item-button--disabled')
     }
 
     if (this.itemCounterValue !== this.maxLengthItem) {
       this._getItemButtonIncrease(this.itemNumber)
-      this.itemButtonIncrease.classList.remove('dropdown-list__item-button--disabled')
+      this.itemButtonIncrease.classList.remove('dropdown__item-button--disabled')
     }
 
     this.itemCounter.innerHTML = this.itemCounterValue
@@ -199,12 +199,12 @@ class Dropdown {
 
     if (this.itemCounterValue === this.maxLengthItem) {
       this._getItemButtonIncrease(this.itemNumber)
-      this.itemButtonIncrease.classList.add('dropdown-list__item-button--disabled')
+      this.itemButtonIncrease.classList.add('dropdown__item-button--disabled')
     }
 
     if (this.itemCounterValue !== 0) {
       this._getItemButtonDecrease(this.itemNumber)
-      this.itemButtonDecrease.classList.remove('dropdown-list__item-button--disabled')
+      this.itemButtonDecrease.classList.remove('dropdown__item-button--disabled')
     }
 
     this.itemCounter.innerHTML = this.itemCounterValue

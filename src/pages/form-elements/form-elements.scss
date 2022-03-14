@@ -7,17 +7,17 @@
 @import '~/templates/UI-kit/logo/logo';
 @import '~/templates/UI-kit/text/text';
 
-.form-elements-container {
+.form-elements__container {
   max-width: 1440px;
   padding: 143px 140px 140px 140.5px;
 }
 
-.fields-controls-buttons-container {
+.fields-controls-buttons__container {
   display: flex;
   margin-bottom: 100px;
 }
 
-.dropdown-checkbox-room-info-container {
+.dropdown-checkbox-room-info__container {
   display: flex;
   flex-wrap: wrap;
 }

@@ -16,15 +16,6 @@
   opacity: 0.5;
 }
 
-.button--disabled-variant-text {
-  opacity: 1;
-  color: $darkShade50;
-}
-
-.button--disabled-variant-text:hover {
-  opacity: 1;
-}
-
 .button--size-medium {
   width: auto;
   max-width: none;
@@ -87,6 +78,15 @@
   max-width: none;
 }
 
+.button--variant-text-disabled {
+  opacity: 1;
+  color: $darkShade50;
+}
+
+.button--variant-text-disabled:hover {
+  opacity: 1;
+}
+
 .button__button--variant-text {
   padding: 0;
   border-radius: 0;
@@ -94,7 +94,7 @@
   background: transparent;
 }
 
-.button__button--disabled-variant-text {
+.button__button--variant-text-disabled {
   color: $darkShade50;
 }
 

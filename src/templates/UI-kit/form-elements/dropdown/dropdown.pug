@@ -1,15 +1,17 @@
 include ~/templates/UI-kit/text/text
 include ~/templates/UI-kit/form-elements/button/button
 
-mixin dropdown({ text, subtitle, value, name, placeholder, expanded, expandedVisible, expandedBlock, withStraightBorders, withButtons, items, withSmallSize, classForJs, inputClassForJs })
+mixin dropdown(options)
   -
+    const { text, subtitle, value, name, placeholder, expanded, expandedVisible, expandedBlock, withStraightBorders, withButtons, items, smallSize, classForJs, inputClassForJs } = options
+    
     let dropdownClass = 'dropdown'
-    let dropdownInputClass = 'dropdown__input' + ' dropdown__input--focused' + ' dropdown__input--hovered'
-    let dropdownButtonClass = 'dropdown__button' + ' material-icons'
-    let dropdownItemClass = 'dropdown-list__item' + ' text--with-type-h3'
+    let dropdownInputClass = 'dropdown__input dropdown__input--focused dropdown__input--hovered'
+    let dropdownButtonClass = 'dropdown__button material-icons'
+    let dropdownItemClass = 'dropdown__item text--with-type-h3'
     let dropdownExpandedClass = 'dropdown__dropdown-expanded'
 
-    if (withSmallSize) {
+    if (smallSize) {
       dropdownClass += ' dropdown--size-small'
     }
 
@@ -42,23 +44,23 @@ mixin dropdown({ text, subtitle, value, name, placeholder, expanded, expandedVis
       +text({ text: text, type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
       if (subtitle)
         +text({ text: subtitle, type: 'h3', color: 'dark-shade-50', hasUpper: true })
-    .dropdown__wrap
+    .dropdown__wrapper
       .dropdown__dropdown-default 
-        input(class=dropdownInputClass, name=name, value=value, placeholder=placeholder, readonly)
-        button(class=dropdownButtonClass, type='button')='expand_more'
+        input(class=dropdownInputClass name=name value=value placeholder=placeholder readonly)
+        button(class=dropdownButtonClass type='button')='expand_more'
       if (expanded)
         div(class=dropdownExpandedClass)
-          ul.dropdown-list
+          ul.dropdown__list
             each item in items
               - const { itemName, itemCounter } = item
 
               li(class=dropdownItemClass) 
-                p.dropdown-list__item-name= itemName 
-                .dropdown-list__item-menu
-                  button(class='dropdown-list__item-button dropdown-list__item-button-decrease', type='button')= '-'
-                  p.dropdown-list__item-counter= itemCounter
-                  button(class='dropdown-list__item-button dropdown-list__item-button-increase', type='button')= '+'
+                p.dropdown__item-name= itemName 
+                .dropdown__item-menu
+                  button(class='dropdown__item-button dropdown__item-button-decrease' type='button')= '-'
+                  p.dropdown__item-counter= itemCounter
+                  button(class='dropdown__item-button dropdown__item-button-increase' type='button')= '+'
           if (withButtons)
-            .dropdown__button-wrap 
+            .dropdown__buttons-wrapper
               +button({ text: 'очистить', variant: 'text', classForJs: 'js-dropdown-button' })
               +button({ text: 'применить', variant: 'text', classForJs: 'js-dropdown-button' })

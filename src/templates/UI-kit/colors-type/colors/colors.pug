@@ -1,12 +1,16 @@
-mixin color({ color, name, hex, hasMargin })
+mixin color(options)
   -
+    const { color, name, hex, hasMargin } = options
     let colorClass = 'color'
-
-    if (hasMargin) {colorClass += ' color--with-margin'}
-
     let colorImg = 'color__img'
 
-    if (color) {colorImg += ` color__${color}`}
+    if (hasMargin) {
+      colorClass += ' color--with-margin'
+    }
+
+    if (color) {
+      colorImg += ` color__${color}`
+    }
 
   div(class=colorClass)
     div(class=colorImg)

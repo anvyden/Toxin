@@ -1,12 +1,16 @@
-mixin type({ type, typeDescriptionClass, typeDescription, typeContentHasUpper })
+mixin type(options)
   -
+    const { type, typeDescriptionClass, typeDescription, typeContentHasUpper } = options
     let typeClass = 'type' + ' types__type'
-
-    typeClass += ` type--with-type-${type}`
-
     let typeContentClass = 'type__type'
 
-    if (typeContentHasUpper) {typeContentClass += ' type__type--upper'}
+    if (type) {
+      typeClass += ` type--with-type-${type}`
+    }
+
+    if (typeContentHasUpper) {
+      typeContentClass += ' type__type--upper'
+    }
 
   div(class=typeClass)
     p(class=typeContentClass)=type

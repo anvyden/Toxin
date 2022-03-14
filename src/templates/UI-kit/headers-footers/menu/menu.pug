@@ -1,4 +1,7 @@
-mixin menu({ column, items })
+mixin menu(options)
+  -
+    const { column, items } = options 
+
   .menu
     -
       let menuListClass = 'menu__list'

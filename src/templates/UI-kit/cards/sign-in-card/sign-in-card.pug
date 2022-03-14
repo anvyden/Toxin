@@ -2,10 +2,13 @@ include ~/templates/UI-kit/text/text
 include ~/templates/UI-kit/form-elements/text-field/text-field
 include ~/templates/UI-kit/form-elements/button/button
 
-mixin signInCard({ signUpButtonLink, formAction, formMethod })
+mixin signInCard(options)
+  -
+    const { signUpButtonLink, formAction, formMethod } = options 
+
   .sign-in-card 
     .sign-in-card__container 
-      form(class='sign-up-card__form', action=formAction, method=formMethod)
+      form(class='sign-up-card__form' action=formAction method=formMethod)
         .sign-in-card__title
           +text({ text: 'Войти', type: 'h1', color: 'dark-shade-100', bold: true })
         .sign-in-card__data-login

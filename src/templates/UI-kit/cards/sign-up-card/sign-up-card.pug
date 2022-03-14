@@ -4,10 +4,13 @@ include ~/templates/UI-kit/form-elements/radio-button/radio-button
 include ~/templates/UI-kit/form-elements/toggle-button/toggle-button
 include ~/templates/UI-kit/form-elements/button/button
 
-mixin signUpCard({ logInButtonLink, formAction, formMethod })
+mixin signUpCard(options)
+  -
+    const { logInButtonLink, formAction, formMethod } = options 
+
   .sign-up-card 
     .sign-up-card__container 
-      form(class='sign-up-card__form', action=formAction, method=formMethod)
+      form(class='sign-up-card__form' action=formAction method=formMethod)
         .sign-up-card__title 
           +text({ text: 'Регистрация аккаунта', type: 'h1', color: 'dark-shade-100', bold: true })
         .sign-up-card__person 
@@ -22,7 +25,7 @@ mixin signUpCard({ logInButtonLink, formAction, formMethod })
                 { text: 'Женщина', name: 'sex', value: 'woman' }
               ]})
         .sign-up-card__date-birth 
-          +textField({ type: 'text', hasTitle: true, title: 'дата рождения', placeholder: 'ДД.ММ.ГГГГ', name: 'birthday' })
+          +textField({ type: 'text', hasTitle: true, title: 'дата рождения', placeholder: 'ДД.ММ.ГГГГ', name: 'birthday', classForJs: 'js-masked-text-field' })
         .sign-up-card__data-login 
           .sign-up-card__email 
             +textField({ type: 'email', hasTitle: true, title: 'данные для входа в сервис', placeholder: 'Email', name: 'email' })

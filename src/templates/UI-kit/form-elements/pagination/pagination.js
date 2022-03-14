@@ -169,7 +169,7 @@ class Pagination {
     this.item.classList.add('text--with-type-h3')
 
     this.itemLink = document.createElement('a')
-    this.itemLink.classList.add('pagination__link')
+    this.itemLink.classList.add('pagination__item-link')
     this.itemLink.dataset.value = value
     this.itemLink.innerHTML = value
 
@@ -194,7 +194,7 @@ class Pagination {
   _getArrowPrev() {
     this._getArrow()
     this.arrowLink = document.createElement('a')
-    this.arrowLink.classList.add('pagination__link')
+    this.arrowLink.classList.add('pagination__item-link')
     this.arrowLink.classList.add('material-icons')
     this.arrowLink.classList.add('pagination__arrow-prev')
     this.arrowLink.innerHTML = 'arrow_back'
@@ -207,7 +207,7 @@ class Pagination {
   _getArrowNext() {
     this._getArrow()
     this.arrowLink = document.createElement('a')
-    this.arrowLink.classList.add('pagination__link')
+    this.arrowLink.classList.add('pagination__item-link')
     this.arrowLink.classList.add('material-icons')
     this.arrowLink.classList.add('pagination__arrow-next')
     this.arrowLink.innerHTML = 'arrow_forward'

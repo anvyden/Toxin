@@ -2,15 +2,18 @@ include ~/templates/UI-kit/text/text
 include ~/templates/UI-kit/form-elements/dropdown/dropdown
 include ~/templates/UI-kit/form-elements/button/button
 
-mixin findRoomCard({ dropdownClassForJs, firstInputClassForJs, secondInputClassForJs, guestsClassForJs, firstInputName, secondInputName, guestsName, formAction, formMethod })
+mixin findRoomCard(options)
+  -
+    const { dropdownClassForJs, firstInputClassForJs, secondInputClassForJs, guestsClassForJs, firstInputName, secondInputName, guestsName, formAction, formMethod } = options 
+
   .find-room-card 
-    .find-room-card__container 
-      form(class='find-room-card__form', action=formAction, method=formMethod)
+    .find-room-card__container
+      form(class='find-room-card__form' action=formAction method=formMethod)
         .find-room-card__title 
           +text({ text: 'Найдём номера под ваши пожелания', type: 'h1', color: 'dark-shade-100', bold: true })
         .find-room-card__date-picker
-          +dropdown({ text: 'прибытие', placeholder: 'ДД.ММ.ГГГГ', name: firstInputName, value: 'ДД.ММ.ГГГГ', withSmallSize: true, classForJs: dropdownClassForJs, inputClassForJs: firstInputClassForJs })
-          +dropdown({ text: 'выезд', placeholder: 'ДД.ММ.ГГГГ', name: secondInputName, value: 'ДД.ММ.ГГГГ', withSmallSize: true, classForJs: dropdownClassForJs, inputClassForJs: secondInputClassForJs })
+          +dropdown({ text: 'прибытие', placeholder: 'ДД.ММ.ГГГГ', name: firstInputName, value: 'ДД.ММ.ГГГГ', smallSize: true, classForJs: dropdownClassForJs, inputClassForJs: firstInputClassForJs })
+          +dropdown({ text: 'выезд', placeholder: 'ДД.ММ.ГГГГ', name: secondInputName, value: 'ДД.ММ.ГГГГ', smallSize: true, classForJs: dropdownClassForJs, inputClassForJs: secondInputClassForJs })
         .find-room-card__dropdown-guests 
           +dropdown({ text: 'гости', placeholder: 'Сколько гостей', expanded: true, withButtons: true, name: guestsName, value: 'Сколько гостей', classForJs: guestsClassForJs, 
           items: [

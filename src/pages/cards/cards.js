@@ -6,6 +6,7 @@ import { DatepickerSelected } from '@cards/datepicker/datepickerSelected'
 import BookingCard from '@cards/booking-card/booking-card'
 import StarRating from '@form-elements/star-rating/star-rating'
 import Slider from '@libs/swiper/swiper'
+import * as textField from '@form-elements/text-field/text-field'
 
 const findRoomDatepickerElements = {
   input: document.querySelector('.js-find-room-datepicker-1'),

@@ -2,46 +2,52 @@ include ~/templates/UI-kit/logo/logo
 include ~/templates/UI-kit/headers-footers/menu/menu
 include ~/templates/UI-kit/form-elements/button/button
 
-mixin headerNotLogged({ logIn })
+mixin header(options)
+  -
+    const { logIn } = options 
+
   header.header 
-    .header__default-container
+    .header__container
       +logo({ active: true })
-      .header__default-menu-wrapper
-        .header__default-menu
+      .header__menu-wrapper
+        .header__menu
           +menu({
               items: [
                 {
                   linkText: 'О нас',
+                  link: 'change-me',
                   isActive: true,
                 },
                 {
                   linkText: 'Услуги',
                   subMenu: true,
                   subItems: [
-                    { subLinkText: 'Услуги' },
-                    { subLinkText: 'Услуги' }
+                    { subLinkText: 'Услуги', subLink: 'change-me' },
+                    { subLinkText: 'Услуги', subLink: 'change-me' }
                   ]
                 },
                 {
                   linkText: 'Вакансии',
+                  link: 'change-me',
                 },
                 {
                   linkText: 'Новости',
+                  link: 'change-me',
                 },
                 {
                   linkText: 'Соглашения',
                   subMenu: true,
                   subItems: [
-                    { subLinkText: 'Соглашения' },
-                    { subLinkText: 'Соглашения' }
+                    { subLinkText: 'Соглашения', subLink: 'change-me' },
+                    { subLinkText: 'Соглашения', subLink: 'change-me' }
                   ]
                 }
               ]
             })
         if (!logIn)
-          .header__default-authorization
-            +button({ text: 'Войти', isLink: true, variant: 'border', size: 'medium', link: '#' })
-            +button({ text: 'Зарегистрироваться', isLink: true, size: 'medium', link: '#' })
+          .header__authorization
+            +button({ text: 'Войти', isLink: true, variant: 'border', size: 'medium', link: 'change-me' })
+            +button({ text: 'Зарегистрироваться', isLink: true, size: 'medium', link: 'change-me' })
         else
           .header__authorization-complete
             span.header__user='Юлий Цезарь'
@@ -57,36 +63,39 @@ mixin headerNotLogged({ logIn })
               items: [
                 {
                   linkText: 'О нас',
+                  link: 'change-me',
                   isActive: true,
                 },
                 {
                   linkText: 'Услуги',
                   subMenu: true,
                   subItems: [
-                    { subLinkText: 'Услуги' },
-                    { subLinkText: 'Услуги' }
+                    { subLinkText: 'Услуги', subLink: 'change-me' },
+                    { subLinkText: 'Услуги', subLink: 'change-me' }
                   ]
                 },
                 {
                   linkText: 'Вакансии',
+                  link: 'change-me',
                 },
                 {
                   linkText: 'Новости',
+                  link: 'change-me',
                 },
                 {
                   linkText: 'Соглашения',
                   subMenu: true,
                   subItems: [
-                    { subLinkText: 'Соглашения' },
-                    { subLinkText: 'Соглашения' }
+                    { subLinkText: 'Соглашения', subLink: 'change-me' },
+                    { subLinkText: 'Соглашения', subLink: 'change-me' }
                   ]
                 }
               ]
             })
         if (!logIn)
           .header__burger-authorization
-            +button({ text: 'Войти', isLink: true, variant: 'border', size: 'medium' })
-            +button({ text: 'Зарегистрироваться', isLink: true, size: 'medium' })
+            +button({ text: 'Войти', isLink: true, variant: 'border', size: 'medium', link: 'change-me' })
+            +button({ text: 'Зарегистрироваться', isLink: true, size: 'medium', link: 'change-me' })
         else
           .header__burger-authorization-complete
             span.header__user='Юлий Цезарь'

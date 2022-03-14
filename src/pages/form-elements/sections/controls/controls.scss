@@ -1,28 +1,20 @@
-@import '@form-elements/checkbox-button/checkbox-button.scss';
+@import '@form-elements/checkbox-list/checkbox-list.scss';
 @import '@form-elements/radio-button/radio-button';
 @import '@form-elements/toggle-button/toggle-button';
 @import '@form-elements/like-button/like-button';
 @import '@form-elements/star-rating/star-rating';
 
-.controls-container {
-  max-width: rem(260);
-}
-
 .controls__container {
+  max-width: rem(260);
   margin-right: rem(133);
-}
-
-.controls-wrap {
-  display: flex;
-  flex-direction: column;
-}
-
-.controls__title {
-  margin-bottom: rem(16);
 }
 
 .controls__checkbox-buttons {
   margin-bottom: rem(40);
+}
+
+.controls__title {
+  margin-bottom: rem(16);
 }
 
 .controls__radio-buttons {
@@ -33,7 +25,7 @@
   margin-bottom: rem(45);
 }
 
-.controls__toggle-buttons-wrap > .toggle-button:first-child {
+.controls__toggle-buttons-wrapper > .toggle-button:first-child {
   margin-bottom: rem(14);
 }
 
@@ -41,15 +33,15 @@
   margin-bottom: rem(41);
 }
 
-.controls__like-buttons-wrap {
+.controls__like-buttons-wrapper {
   display: flex;
 }
 
-.controls__like-buttons-wrap > .like-button:first-child {
+.controls__like-buttons-wrapper > .like-button:first-child {
   margin-right: rem(10);
 }
 
-.controls__rate-buttons-wrap {
+.controls__rate-buttons-wrapper {
   display: flex;
   justify-content: space-between;
 }

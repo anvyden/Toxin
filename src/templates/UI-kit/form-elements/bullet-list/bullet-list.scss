@@ -1,9 +1,6 @@
-.bullet-item {
-  position: relative;
-  color: $darkShade50
-}
-
 .bullet-list__item {
+  position: relative;
+  color: $darkShade50;
   margin-bottom: rem(10);
   margin-left: rem(20);
 }
@@ -12,12 +9,12 @@
   margin-bottom: 0;
 }
 
-.bullet-item__span {
+.bullet-item__text {
   color: $darkShade75;
   white-space: pre-line;
 }
 
-.bullet-item__span::before {
+.bullet-item__text::before {
   position: absolute;
   top: rem(7);
   left: rem(-20);

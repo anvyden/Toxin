@@ -3,8 +3,10 @@ include ~/templates/UI-kit/text/text
 include ~/templates/UI-kit/form-elements/text-field/text-field
 include ~/templates/UI-kit/headers-footers/menu/menu
 
-mixin footer({ mobile, mobileVisibile })
+mixin footer(options)
   -
+    const { mobile, mobileVisibile } = options 
+
     let footerMobileClass = 'footer-mobile'
 
     if (mobileVisibile) {
@@ -22,29 +24,29 @@ mixin footer({ mobile, mobileVisibile })
             +text({ text: 'Навигация', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
             +menu({ column: true,
               items: [
-                { linkText: 'О нас' },
-                { linkText: 'Новости' },
-                { linkText: 'Служба поддержки' },
-                { linkText: 'Услуги' },
+                { linkText: 'О нас', link: 'change-me' },
+                { linkText: 'Новости', link: 'change-me' },
+                { linkText: 'Служба поддержки', link: 'change-me' },
+                { linkText: 'Услуги', link: 'change-me' },
               ]
             })
           .footer__menu
             +text({ text: 'О нас', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
             +menu({ column: true,
               items: [
-                { linkText: 'О сервисе' },
-                { linkText: 'Наша команда' },
-                { linkText: 'Вакансии' },
-                { linkText: 'Инвесторы' },
+                { linkText: 'О сервисе', link: 'change-me' },
+                { linkText: 'Наша команда', link: 'change-me' },
+                { linkText: 'Вакансии', link: 'change-me' },
+                { linkText: 'Инвесторы', link: 'change-me' },
               ]
             })
           .footer__menu
             +text({ text: 'Служба поддержки', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
             +menu({ column: true,
               items: [
-                { linkText: 'Соглашения' },
-                { linkText: 'Сообщества' },
-                { linkText: 'Связь с нами' },
+                { linkText: 'Соглашения', link: 'change-me' },
+                { linkText: 'Сообщества', link: 'change-me' },
+                { linkText: 'Связь с нами', link: 'change-me' },
               ]
             })
           .footer__subscription 
@@ -67,8 +69,8 @@ mixin footer({ mobile, mobileVisibile })
         .footer-mobile__copyright-bar
           +copyrightBar({ mobile: true,
             items: [
-              { fontAwesomeIconClass: 'fa-twitter' },
-              { fontAwesomeIconClass: 'fa-facebook-square' },
-              { fontAwesomeIconClass: 'fa-instagram' },
+              { fontAwesomeIconClass: 'fa-twitter', link: 'change-me' },
+              { fontAwesomeIconClass: 'fa-facebook-square', link: 'change-me' },
+              { fontAwesomeIconClass: 'fa-instagram', link: 'change-me' },
             ]
           })

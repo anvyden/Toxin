@@ -1,9 +1,9 @@
 mixin button(options)
   -
-    const { text, type, withBackground, withBorder, withArrow, disabled, classForJs, isLink, link, size, smallHeight, variant } = options
+    const { text, type, variant, disabled, classForJs, isLink, link, size } = options
 
     let buttonContainerClass = 'button'
-    let buttonClass = 'button__button' + ' text--with-type-h3'
+    let buttonClass = 'button__button'
     let typeButton = type ? type : 'button'
 
     const variants = ['border', 'text', 'with-arrow']
@@ -30,8 +30,8 @@ mixin button(options)
     }
 
     if (variant === 'text' && disabled) {
-      buttonClass += ' button__button--disabled-variant-text'
-      buttonContainerClass += ' button--disabled-variant-text'
+      buttonClass += ' button__button--variant-text-disabled'
+      buttonContainerClass += ' button--variant-text-disabled'
     }
 
     if (classForJs) {
@@ -40,6 +40,6 @@ mixin button(options)
     
   div(class=buttonContainerClass)
     if (isLink)
-      a(href=link, class=buttonClass)=text
+      a(href=link class=buttonClass)=text
     else 
-      button(class=buttonClass, type=typeButton, disabled=disabled)=text 
+      button(class=buttonClass type=typeButton disabled=disabled)=text 
