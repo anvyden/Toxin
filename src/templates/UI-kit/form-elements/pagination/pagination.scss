@@ -12,6 +12,8 @@
 }
 
 .pagination__item {
+  font-size: rem(12);
+  line-height: rem(14.63);
   border-radius: 22px;
   color: $darkShade50;
   cursor: pointer;
@@ -19,7 +21,7 @@
 
 .pagination__item--active {
   font-weight: bold;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
 
   .pagination__item-link {
     color: #fff;
@@ -31,7 +33,7 @@
 }
 
 .pagination__item--active:hover {
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
 }
 
 .pagination__item--disabled:hover {
@@ -41,7 +43,7 @@
 
 .pagination__item--with-arrow {
   font-size: rem(24);
-  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  background: $secondaryGradient;
 
   .pagination__item-link {
     color: #fff;

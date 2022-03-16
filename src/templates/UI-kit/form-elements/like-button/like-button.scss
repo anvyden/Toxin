@@ -34,7 +34,7 @@
 
 .like-button__button--active::before {
   content: 'favorite';
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   background-clip: text;
   color: transparent;
 }

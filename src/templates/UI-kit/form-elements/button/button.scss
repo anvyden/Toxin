@@ -27,7 +27,7 @@
   padding: 14.5px 0;
   border: none;
   border-radius: 22px;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   font-size: rem(12);
   line-height: rem(14.63);
   font-weight: bold;
@@ -55,7 +55,7 @@
 .button--variant-border {
   padding: 2px 2px;
   border-radius: 22px;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   cursor: pointer;
 }
 
@@ -106,7 +106,7 @@
 .button__button--variant-with-arrow {
   width: 100%;
   position: relative;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
 }
   
 .button__button--variant-with-arrow::after {

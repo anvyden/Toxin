@@ -54,7 +54,7 @@
   height: rem(12);
 
   border-radius: 50%;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
 }
 
 .radio-buttons__item-input:checked + .radio-buttons__item-text::after {

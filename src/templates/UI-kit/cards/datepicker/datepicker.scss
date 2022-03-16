@@ -140,21 +140,21 @@
 .air-datepicker-cell.-day-.-selected- {
   color: #fff;
   font-weight: bold;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   border-radius: 22px;
 }
 
 .air-datepicker-cell.-day-.-focus- {
   border: none;
   border-radius: 22px;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   font-weight: bold;
   color: #fff;
 }
 
 .air-datepicker-cell.-day-.-range-from- {
   position: relative;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   color: #fff;
   font-weight: bold;
   border-radius: 22px;
@@ -172,7 +172,7 @@
 
 .air-datepicker-cell.-day-.-range-to- {
   position: relative;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   color: #fff;
   font-weight: bold;
   border-radius: 22px;
@@ -195,12 +195,12 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   opacity: 0.25;
 }
 
 .air-datepicker-cell.-day-.-in-range-.-focus- {
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
 }
 
 .air-datepicker-cell.-day-.-range-from-.-weekend- + .air-datepicker-cell.-day-.-range-to-:not(.-weekend-)::before {
@@ -213,7 +213,7 @@
   width: rem(20);
   height: 100%;
   z-index: -1;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   opacity: 0.25;
 }
 
@@ -227,7 +227,7 @@
   width: rem(20);
   height: 100%;
   z-index: -1;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   opacity: 0.25;
 }
 
@@ -241,7 +241,7 @@
   width: rem(20);
   height: 100%;
   z-index: -1;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   opacity: 0.25;
 }
 
@@ -255,7 +255,7 @@
   width: rem(20);
   height: 100%;
   z-index: -1;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   opacity: 0.25;
 }
 
@@ -269,7 +269,7 @@
   width: rem(20);
   height: 100%;
   z-index: -1;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   opacity: 0.25;
 }
 
@@ -283,24 +283,24 @@
   width: rem(20);
   height: 100%;
   z-index: -1;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   opacity: 0.25;
 }
 
 .air-datepicker-cell.-day-.-current- {
   color: #fff;
   font-weight: bold;
-  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  background: $secondaryGradient;
   border-radius: 22px;
 }
 
 .air-datepicker-cell.-day-.-current-.-selected- {
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
 }
 
 .air-datepicker-cell.-day-.-current-.-focus- {
   color: #fff;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
 }
 
 .air-datepicker-cell.-day-.-current-.-in-range- {
@@ -320,13 +320,13 @@
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   opacity: 0.25;
 }
 
 .air-datepicker-cell.-day-.-current-.-in-range-.-focus- {
   color: #fff;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   font-weight: bold;
 }
 
@@ -343,7 +343,7 @@
 }
 
 .air-datepicker-cell.-day-.-other-month-.-selected- {
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
 }
 
 .air-datepicker-cell.-day-.-other-month-.-focus- {
@@ -351,7 +351,7 @@
 }
 
 .air-datepicker-cell.-day-.-other-month-.-selected-.-focus- {
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
 }
 
 .air-datepicker-cell.-day-.-other-month-.-in-range- {
@@ -360,7 +360,7 @@
 }
 
 .air-datepicker-cell.-day-.-other-month-.-in-range-.-focus- {
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   color: #fff;
 }
 

@@ -15,8 +15,7 @@ class StarRating {
 
     for (let i = 1; i <= 5; i += 1) {
       this.star = document.createElement('span')
-      this.star.classList.add('star-rating__star')
-      this.star.classList.add('material-icons')
+      this.star.classList.add('star-rating__star', 'material-icons')
       if (i <= this.score) {
         this.star.innerHTML = 'star'
       } else {

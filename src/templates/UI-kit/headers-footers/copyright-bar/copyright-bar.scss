@@ -50,7 +50,7 @@
   font-size: rem(24);
   line-height: rem(23);
   color: transparent;
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
   background-clip: text;
   cursor: pointer;
 }

@@ -5,15 +5,27 @@
 }
 
 html {
+  font-family: $mainFont;
   font-size: $mainFontSize;
+  font-weight: $mainFontWeight;
+  color: $darkShade75;
+}
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 12px;
+  } 
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 11px;
+  } 
 }
 
 body {
-  font-family: $mainFont;
   font-size: rem(14);
-  font-weight: $mainFontWeight;
   line-height: rem(24);
-  color: $darkShade75;
 }
 
 a {
@@ -31,16 +43,4 @@ img {
 
 h1 {
   margin: 0;
-}
-
-@media screen and (max-width: 1200px) {
-  html {
-    font-size: 12px;
-  } 
-}
-
-@media screen and (max-width: 1024px) {
-  html {
-    font-size: 11px;
-  } 
 }

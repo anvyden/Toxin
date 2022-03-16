@@ -166,7 +166,6 @@ class Pagination {
   _getItems(value) {
     this.item = document.createElement('li')
     this.item.classList.add('pagination__item')
-    this.item.classList.add('text--with-type-h3')
 
     this.itemLink = document.createElement('a')
     this.itemLink.classList.add('pagination__item-link')
@@ -194,9 +193,7 @@ class Pagination {
   _getArrowPrev() {
     this._getArrow()
     this.arrowLink = document.createElement('a')
-    this.arrowLink.classList.add('pagination__item-link')
-    this.arrowLink.classList.add('material-icons')
-    this.arrowLink.classList.add('pagination__arrow-prev')
+    this.arrowLink.classList.add('pagination__item-link', 'material-icons', 'pagination__arrow-prev')
     this.arrowLink.innerHTML = 'arrow_back'
     this.handleArrowButtonClick(this.arrowLink)
     this.arrow.appendChild(this.arrowLink)
@@ -207,9 +204,7 @@ class Pagination {
   _getArrowNext() {
     this._getArrow()
     this.arrowLink = document.createElement('a')
-    this.arrowLink.classList.add('pagination__item-link')
-    this.arrowLink.classList.add('material-icons')
-    this.arrowLink.classList.add('pagination__arrow-next')
+    this.arrowLink.classList.add('pagination__item-link', 'material-icons', 'pagination__arrow-next')
     this.arrowLink.innerHTML = 'arrow_forward'
     this.handleArrowButtonClick(this.arrowLink)
     this.arrow.appendChild(this.arrowLink)
@@ -219,9 +214,7 @@ class Pagination {
 
   _getArrow() {
     this.arrow = document.createElement('li')
-    this.arrow.classList.add('pagination__item')
-    this.arrow.classList.add('text--with-type-h3')
-    this.arrow.classList.add('pagination__item--with-arrow')
+    this.arrow.classList.add('pagination__item', 'pagination__item--with-arrow')
 
     return this.arrow
   }

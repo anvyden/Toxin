@@ -50,7 +50,7 @@
 
 .toggle-button__input:checked + .toggle-button__text::after {
   left: rem(-26);
-  background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+  background: $primaryGradient;
 }
 
 .toggle-button__input:focus-visible + .toggle-button__text::before {
