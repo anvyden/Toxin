@@ -1,0 +1,58 @@
+@import '~normalize.css';
+@import '~/scss/montserrat';
+@import '~/scss/material-icons';
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import '~/scss/variables';
+@import '~/scss/mixins';
+@import '~/scss/settings';
+@import '~/templates/UI-kit/logo/logo';
+@import '~/templates/UI-kit/text/text';
+@import '@form-elements/text-field/text-field';
+@import '@form-elements/button/button';
+@import '@form-elements/dropdown/dropdown';
+@import '@cards/find-room-card/find-room-card';
+@import '@cards/datepicker/datepicker';
+@import '@headers-footers/menu/menu';
+@import '@headers-footers/header/header';
+@import '@headers-footers/copyright-bar/copyright-bar';
+@import '@headers-footers/footer/footer';
+
+.main {
+  padding: rem(70) rem(140) rem(18) rem(140);
+  background: url('./landing-page-img.jpg') no-repeat center/cover;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding: rem(70) 0 rem(18) 0;
+  }
+}
+
+.main__container {
+  max-width: rem(1440);
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .main__container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.main__text-wrapper {
+  margin-top: rem(320);
+  text-align: right;
+}
+
+.main__text {
+  display: inline-block;
+  max-width: rem(297);
+}
+
+@media screen and (max-width: 768px) {
+  .main__text {
+    text-align: center;
+  }
+}

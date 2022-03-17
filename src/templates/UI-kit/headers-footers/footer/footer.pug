@@ -15,7 +15,7 @@ mixin footer(options)
 
   if (!mobile)
     footer.footer 
-      .footer__container 
+      .footer__widgets-container 
         .footer__widgets
           .footer__company 
             +logo({ active: true })
@@ -53,14 +53,14 @@ mixin footer(options)
             +text({ text: 'Подписка', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
             p.footer__subscription-text='Получайте специальные предложения и новости сервиса'
             +textField({ type: 'email', placeholder: 'Email', name: 'email', withButton: true })
-        .footer__copyright-bar 
-          +copyrightBar({
-              items: [
-                { fontAwesomeIconClass: 'fa-twitter' },
-                { fontAwesomeIconClass: 'fa-facebook-square' },
-                { fontAwesomeIconClass: 'fa-instagram' },
-              ]
-            })
+      .footer__copyright-bar 
+        +copyrightBar({
+            items: [
+              { fontAwesomeIconClass: 'fa-twitter' },
+              { fontAwesomeIconClass: 'fa-facebook-square' },
+              { fontAwesomeIconClass: 'fa-instagram' },
+            ]
+          })
   else
     footer(class=footerMobileClass)
       .footer-mobile__container

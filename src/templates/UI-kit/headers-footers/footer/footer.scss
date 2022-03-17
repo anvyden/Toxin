@@ -1,17 +1,20 @@
-.footer {
-  background: #fff;
-  box-shadow: 0px 1px 0px rgba(31, 32, 65, 0.1);
-}
-
 @media screen and (max-width: 1024px) {
   .footer {
     display: none;
   }
 }
 
+.footer__widgets-container {
+  padding: rem(100) rem(140);
+  background: #fff;
+  box-shadow: 0px 1px 0px rgba(31, 32, 65, 0.1);
+}
+
 .footer__widgets {
   display: flex;
-  padding: rem(100) rem(140);
+  justify-content: space-between;
+  max-width: rem(1440);
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
@@ -99,6 +102,13 @@
   .footer__subscription-text {
     font-size: rem(13);
   }
+}
+
+.footer__copyright-bar {
+  padding: rem(23) rem(140);
+  background: #fff;
+  border-top: 1px solid #F4F4F6;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
 }
 
 .footer-mobile {
