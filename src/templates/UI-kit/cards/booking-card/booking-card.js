@@ -2,7 +2,7 @@ import wNumb from 'wnumb'
 
 import declination from '@form-elements/dropdown/utils/declination'
 import findItemNames from '@form-elements/dropdown/utils/findItemNames'
-import datepickerValues from '@cards/datepicker/datepickerSelected'
+import { datepickerValues } from '@cards/datepicker/datepickerSelected'
 
 const moneyFormat = wNumb({
   thousand: ' ',
@@ -18,7 +18,7 @@ class BookingCard {
   }
 
   render() {
-    const params = this._getIntParams(this.params)
+    const params = this._getIntParams()
 
     this.calcPriceInDays = params.roomPrice * params.amountSelectedDays
     this.calcTotalSum = this.calcPriceInDays - params.discount + params.additionalServicesSum
@@ -30,17 +30,24 @@ class BookingCard {
     this.servicesPrice.innerHTML = `Сбор за услуги: скидка ${moneyFormat.to(params.discount)}₽`
     this.servicesSumPrice.innerHTML = '0₽'
     this.additionalServicesSum.innerHTML = `${params.additionalServicesSum}₽`
-    this.totalSum.innerHTML = `${moneyFormat.to(this.calcTotalSum)}₽`
+
+    if (this.calcTotalSum < 0) {
+      this.totalSum.innerHTML = '0₽'
+    } else {
+      this.totalSum.innerHTML = `${moneyFormat.to(this.calcTotalSum)}₽`
+    }
   }
 
-  _getIntParams(params) {
+  _getIntParams() {
     const {
       roomNumber,
       roomPrice,
       discount,
       additionalServicesSum,
     } = this.params
-    const { amountSelectedDays } = datepickerValues
+
+    let { amountSelectedDays } = datepickerValues
+    amountSelectedDays = Number.isNaN(amountSelectedDays) ? 0 : amountSelectedDays
 
     return {
       roomNumber: Number(roomNumber),

@@ -40,6 +40,20 @@ block content
           +datepicker({ classForJs: 'js-datepicker' })
         .cards__room-cards
           .cards__room-card
-            +roomCard({ roomNumber: '888', roomPrice: '9 990₽', roomReviews: '145', roomImg: 'room-888', luxe: true, ratingClassForJs: 'js-room-rating-1' })
+            +roomCard({ roomNumber: '888', roomPrice: '9 990₽', roomReviews: '145', luxe: true, ratingClassForJs: 'js-room-rating-1',
+            roomImgs: [
+              '/src/templates/UI-kit/cards/room-card/room-888.jpg',
+              '/src/templates/UI-kit/cards/room-card/room-888.jpg',
+              '/src/templates/UI-kit/cards/room-card/room-888.jpg',
+              '/src/templates/UI-kit/cards/room-card/room-888.jpg',
+              ]
+            })
           .cards__room-card
-            +roomCard({ roomNumber: '840', roomPrice: '9 900₽', roomReviews: '65', roomImg: 'room-840', ratingClassForJs: 'js-room-rating-2' })
+            +roomCard({ roomNumber: '840', roomPrice: '9 900₽', roomReviews: '65', ratingClassForJs: 'js-room-rating-2',
+            roomImgs: [
+              '/src/templates/UI-kit/cards/room-card/room-840.jpg',
+              '/src/templates/UI-kit/cards/room-card/room-840.jpg',
+              '/src/templates/UI-kit/cards/room-card/room-840.jpg',
+              '/src/templates/UI-kit/cards/room-card/room-840.jpg',
+              ]
+            })

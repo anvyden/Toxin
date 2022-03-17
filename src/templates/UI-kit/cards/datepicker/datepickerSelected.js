@@ -18,9 +18,7 @@ const datepickerButtons = {
   },
 }
 
-const datepickerValues = {
-  amountSelectedDays: 0,
-}
+const datepickerValues = {}
 
 const calcDays = (input, inputSecond) => {
   const inputValue = input.value
@@ -35,7 +33,7 @@ const calcDays = (input, inputSecond) => {
   return days
 }
 
-export class DatepickerSelected {
+class DatepickerSelected {
   constructor(datepickerElements, props, bookingCardParams) {
     this.datepickerElements = datepickerElements
     this.props = props
@@ -97,4 +95,4 @@ export class DatepickerSelected {
   }
 }
 
-export default datepickerValues
+export { DatepickerSelected, datepickerValues }

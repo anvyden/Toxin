@@ -23,6 +23,7 @@ class Slider {
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
+        hideOnClick: true,
       },
     })
   }

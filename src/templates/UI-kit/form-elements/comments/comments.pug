@@ -11,7 +11,7 @@ mixin comments(options)
     .comment
       .profile
         .profile__avatar-wrapper
-          img(class='profile__avatar' src=require(`~/templates/UI-kit/form-elements/comments/${avatar}.jpg`) alt='Аватарка пользователя')
+          img(class='profile__avatar' src=avatar alt='Аватарка пользователя')
         .profile__text-wrapper
           span.profile__name=name
           span.profile__comment-time=time

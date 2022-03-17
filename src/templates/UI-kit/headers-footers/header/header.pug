@@ -4,11 +4,11 @@ include ~/templates/UI-kit/form-elements/button/button
 
 mixin header(options)
   -
-    const { logIn } = options 
+    const { logIn, logoLink } = options 
 
   header.header 
     .header__container
-      +logo({ active: true })
+      +logo({ active: true, link: logoLink })
       .header__menu-wrapper
         .header__menu
           +menu({

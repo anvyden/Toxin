@@ -55,6 +55,7 @@
 
 .toggle-button__input:focus-visible + .toggle-button__text::before {
   outline: 2px solid $purple;
+  border: 0;
 }
 
 .toggle-button__input:focus-visible + .toggle-button__text {

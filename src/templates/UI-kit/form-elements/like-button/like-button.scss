@@ -23,8 +23,8 @@
 
 .like-button__button::before {
   position: absolute;
-  top: rem(5);
-  left: rem(4);
+  top: 30%;
+  left: 10.5%;
 
   content: 'favorite_border';
   font-family: 'Material Icons', Arial, sans-serif;
@@ -46,6 +46,7 @@
 
 .like-button__button:focus-visible {
   outline: 2px solid $purple;
+  border: 0;
 }
 
 .like-button__button:hover {

@@ -34,12 +34,52 @@
   box-shadow: 0px 5px 5px rgba(31, 32, 65, 0.3);
 }
 
-.slider__button-prev {
-  left: rem(8);
+.slider__button-wrapper {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: rem(42);
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.slider:hover > .slider__button-wrapper {
+  opacity: 1;
+}
+
+.slider__button-prev-wrapper {
+  left: 0;
+}
+
+.slider__button-next-wrapper {
+  right: 0;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.slider__button {
+  opacity: 0;
   transform: rotate(90deg) translate(rem(-1),0);
   color: #FFFFFF;
   cursor: pointer;
   user-select: none;
+}
+
+.slider:hover .slider__button {
+  opacity: 1;
+}
+
+.slider__button.swiper-button-disabled {
+  opacity: 0;
+}
+
+.slider:hover .slider__button.swiper-button-disabled {
+  opacity: 0.35;
+}
+
+.slider__button-prev {
+  left: rem(8);
 }
 
 .slider__button-prev::after {
@@ -47,11 +87,7 @@
 }
 
 .slider__button-next {
-  right: rem(9);
-  transform: rotate(-90deg) translate(rem(1),0);
-  color: #FFFFFF;
-  cursor: pointer;
-  user-select: none;
+  right: rem(6);
 }
 
 .slider__button-next::after {

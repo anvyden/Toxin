@@ -5,8 +5,11 @@
   border-radius: 4px;
 }
 
-.room-card__image {
-  background-size: contain;
+.room-card .room-card__slider .swiper-autoheight {
+  border-radius: 4px 4px 0 0;
+}
+
+.room-card__img {
   border-radius: 4px 4px 0 0;
 }
 

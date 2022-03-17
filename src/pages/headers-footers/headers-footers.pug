@@ -22,9 +22,9 @@ block content
     +logo({ active: false, posAbsolute: true })
     .headers-footers__container
       .headers-footers__header-not-logged
-        +header({})
+        +header({ logoLink: 'change-me' })
       .headers-footers__header-logged-in 
-        +header({ logIn: true })
+        +header({ logIn: true, logoLink: 'change-me' })
       .headers-footers__footer
         +footer({})
       .headers-footers__footer-mobile

@@ -51,6 +51,10 @@
   transition: transform 0.4s ease;
 }
 
+.dropdown__button:focus-visible {
+  outline: 3px solid $purple;
+}
+
 .dropdown__button--rotate {
   transform: rotateX(180deg);
 }
@@ -110,6 +114,11 @@
   line-height: rem(22);
   font-weight: normal;
   color: $darkShade50;
+}
+
+.dropdown__item-button:focus-visible {
+  outline: 3px solid $purple;
+  border: 0;
 }
 
 .dropdown__item-button--disabled {
