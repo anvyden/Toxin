@@ -1,21 +1,21 @@
 extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
 include ~/templates/UI-kit/logo/logo
+include ~/templates/UI-kit/cards/find-room-card/find-room-card
 include ~/templates/UI-kit/headers-footers/header/header
 include ~/templates/UI-kit/headers-footers/footer/footer
 include ~/templates/UI-kit/headers-footers/copyright-bar/copyright-bar
-include ~/templates/UI-kit/cards/find-room-card/find-room-card
 
 block variables
   -
-    const title = 'Toxin headers-footers'
-    const description = 'Toxin headers-footers description'
-    const keywords = 'Toxin headers-footers keywords'
+    const title = 'Toxin landing-page'
+    const description = 'Toxin landing-page description'
+    const keywords = 'Toxin landing-page keywords'
     const faviconPaths = {
-      apple: 'static/favicon/inactive/apple-touch-icon.png',
-      big: 'static/favicon/inactive/favicon-32x32.png',
-      small: 'static/favicon/inactive/favicon-16x16.png',
-      manifest: `static/favicon/inactive/site.webmanifest`,
-      pinned: 'static/favicon/inactive/safari-pinned-tab.svg',
+      apple: 'static/favicon/active/apple-touch-icon.png',
+      big: 'static/favicon/active/favicon-32x32.png',
+      small: 'static/favicon/active/favicon-16x16.png',
+      manifest: `static/favicon/active/site.webmanifest`,
+      pinned: 'static/favicon/active/safari-pinned-tab.svg',
     }
 
 block content
@@ -23,11 +23,12 @@ block content
     .landing-page__container
       +header({ logoLink: 'change-me' })
       main.main
-        .main__container
-          .main__find-room-card
-            +findRoomCard({ dropdownClassForJs: 'js-landing-page-datepicker-dropdown', firstInputClassForJs: 'js-landing-page-datepicker-1', secondInputClassForJs: 'js-landing-page-datepicker-2', guestsClassForJs: 'js-landing-page-guests', firstInputName: 'landingPageStartDate', secondInputName: 'landingPageFinishDate', guestsName: 'landingPageGuests' })
-          .main__text-wrapper 
-            span.main__text='Лучшие номера для вашей работы, отдыха и просто вдохновения'
+        section.main-section
+          .main-section__container
+            .main-section__find-room-card
+              +findRoomCard({ dropdownClassForJs: 'js-landing-page-datepicker-dropdown', firstInputClassForJs: 'js-landing-page-datepicker-1', secondInputClassForJs: 'js-landing-page-datepicker-2', guestsClassForJs: 'js-landing-page-guests', firstInputName: 'landingPageStartDate', secondInputName: 'landingPageFinishDate', guestsName: 'landingPageGuests' })
+            .main-section__text-wrapper 
+              span.main-section__text='Лучшие номера для вашей работы, отдыха и просто вдохновения'
       +footer({})
       +footer({ mobile: true })
           

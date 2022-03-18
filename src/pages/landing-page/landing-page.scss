@@ -12,47 +12,58 @@
 @import '@form-elements/dropdown/dropdown';
 @import '@cards/find-room-card/find-room-card';
 @import '@cards/datepicker/datepicker';
-@import '@headers-footers/menu/menu';
 @import '@headers-footers/header/header';
-@import '@headers-footers/copyright-bar/copyright-bar';
+@import '@headers-footers/menu/menu';
 @import '@headers-footers/footer/footer';
+@import '@headers-footers/copyright-bar/copyright-bar';
 
 .main {
-  padding: rem(70) rem(140) rem(18) rem(140);
-  background: url('./landing-page-img.jpg') no-repeat center/cover;
+  background: url('./landing-page-background.jpg') no-repeat;
+  background-size: cover;
+  background-position: 50% -70px;
 }
 
-@media screen and (max-width: 768px) {
-  .main {
-    padding: rem(70) 0 rem(18) 0;
+.main-section {
+  padding: rem(70) rem(30) rem(21) rem(30);
+}
+
+@media screen and (max-width: 767px) {
+  .main-section {
+    padding: rem(70) 0 rem(21) 0;
   }
 }
 
-.main__container {
-  max-width: rem(1440);
+.main-section__container {
+  max-width: rem(1160);
   margin: 0 auto;
 }
 
-@media screen and (max-width: 768px) {
-  .main__container {
+@media screen and (max-width: 767px) {
+  .main-section__container {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
 }
 
-.main__text-wrapper {
-  margin-top: rem(320);
+.main-section__text-wrapper {
+  margin-top: rem(317);
   text-align: right;
 }
 
-.main__text {
+@media screen and (max-width: 767px) {
+  .main-section__text-wrapper {
+    margin-top: rem(160);
+  }
+}
+
+.main-section__text {
   display: inline-block;
   max-width: rem(297);
 }
 
-@media screen and (max-width: 768px) {
-  .main__text {
+@media screen and (max-width: 767px) {
+  .main-section__text {
     text-align: center;
   }
 }

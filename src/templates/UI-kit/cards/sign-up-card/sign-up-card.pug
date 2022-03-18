@@ -6,7 +6,7 @@ include ~/templates/UI-kit/form-elements/button/button
 
 mixin signUpCard(options)
   -
-    const { logInButtonLink, formAction, formMethod } = options 
+    const { logInButtonLink, formAction, formMethod, buttonText } = options 
 
   .sign-up-card 
     .sign-up-card__container 
@@ -33,8 +33,8 @@ mixin signUpCard(options)
             +textField({ type: 'password', placeholder: 'Пароль', name: 'password' })
           .sign-up-card__special-offers 
             +toggleButton({ text: 'Получать спецпредложения', name: 'specialOffers' })
-        .sign-up-card__pay-button 
-          +button({ text: 'Перейти к оплате', type: 'submit', variant: 'with-arrow' })
+        .sign-up-card__button 
+          +button({ text: buttonText, type: 'submit', variant: 'with-arrow' })
         .sign-up-card__log-in
-          +text({ text: 'Уже есть аккаунт на Toxin', type: 'span', color: 'black' })
+          +text({ text: 'Уже есть аккаунт на Toxin', type: 'p', color: 'black' })
           +button({ text: 'Войти', isLink: true, link: logInButtonLink, variant: 'border' }) 

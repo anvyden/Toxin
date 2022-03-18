@@ -4,7 +4,7 @@ include ~/templates/UI-kit/form-elements/button/button
 
 mixin header(options)
   -
-    const { logIn, logoLink } = options 
+    const { logIn, logoLink, firstMenuItemActive } = options 
 
   header.header 
     .header__container
@@ -16,7 +16,7 @@ mixin header(options)
                 {
                   linkText: 'О нас',
                   link: 'change-me',
-                  isActive: true,
+                  isActive: firstMenuItemActive,
                 },
                 {
                   linkText: 'Услуги',

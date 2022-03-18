@@ -29,7 +29,7 @@ block content
         .cards__find-room-card 
           +findRoomCard({ dropdownClassForJs: 'js-find-room-datepicker-dropdown', firstInputClassForJs: 'js-find-room-datepicker-1', secondInputClassForJs: 'js-find-room-datepicker-2', guestsClassForJs: 'js-find-room-guests', firstInputName: 'findRoomStartDate', secondInputName: 'findRoomFinishDate', guestsName: 'findRoomGuests' })
         .cards__sing-up-card
-          +signUpCard({ logInButtonLink: 'change-me' })
+          +signUpCard({ logInButtonLink: 'change-me', buttonText: 'Перейти к оплате' })
       .cards__wrapper
         .cards__booking-card 
           +bookingCard({ luxe: true, dropdownClassForJs: 'js-booking-room-datepicker-dropdown', firstInputClassForJs: 'js-booking-card-datepicker-1', secondInputClassForJs: 'js-booking-card-datepicker-2', guestsClassForJs: 'js-booking-card-guests', firstInputName: 'bookingRoomStartDate', secondInputName: 'bookingRoomFinishDate', guestsName: 'bookingRoomGuests' })

@@ -1,0 +1,43 @@
+@import '~normalize.css';
+@import '~/scss/montserrat';
+@import '~/scss/material-icons';
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import '~/scss/variables';
+@import '~/scss/mixins';
+@import '~/scss/settings';
+@import '~/templates/UI-kit/logo/logo';
+@import '~/templates/UI-kit/text/text';
+@import '@form-elements/text-field/text-field';
+@import '@form-elements/button/button';
+@import '@form-elements/radio-button/radio-button';
+@import '@form-elements/toggle-button/toggle-button';
+@import '@cards/sign-up-card/sign-up-card';
+@import '@headers-footers/header/header';
+@import '@headers-footers/menu/menu';
+@import '@headers-footers/footer/footer';
+@import '@headers-footers/copyright-bar/copyright-bar';
+
+.main {
+  background: url('./registration-background.jpg') no-repeat;
+  background-size: cover;
+  background-position: 50% -70px;
+}
+
+.main-section {
+  padding: rem(19) rem(10) rem(19) rem(10);
+}
+
+@media screen and (max-width: 767px) {
+  .main-section {
+    padding: rem(19) 0 rem(18) 0;
+  }
+}
+
+.main-section__container {
+  display: flex;
+  justify-content: center;
+}
+
+.main-section__sign-up-card {
+  width: rem(380);
+}

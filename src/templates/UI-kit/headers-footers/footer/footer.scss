@@ -1,11 +1,11 @@
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .footer {
     display: none;
   }
 }
 
 .footer__widgets-container {
-  padding: rem(100) rem(140);
+  padding: rem(100) rem(30);
   background: #fff;
   box-shadow: 0px 1px 0px rgba(31, 32, 65, 0.1);
 }
@@ -13,11 +13,11 @@
 .footer__widgets {
   display: flex;
   justify-content: space-between;
-  max-width: rem(1440);
+  max-width: rem(1160);
   margin: 0 auto;
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1440px) {
+@media screen and (max-width: 1439px) {
   .footer__widgets {
     justify-content: space-between;
   }
@@ -26,13 +26,6 @@
 .footer__company {
   max-width: rem(260);
   margin-right: rem(40);
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1440px) {
-  .footer__company {
-    font-size: rem(13);
-    margin-right: 0;
-  }
 }
 
 .footer__company-achievment {
@@ -47,12 +40,6 @@
   margin-bottom: rem(22);
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1440px) {
-  .footer__menu > .text {
-    font-size: rem(11);
-  }
-}
-
 .footer__menu:nth-child(2) {
   margin-right: rem(57.5);
 }
@@ -65,7 +52,11 @@
   margin-right: rem(51.8);
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1440px) {
+@media screen and (max-width: 1439px) {
+  .footer__company {
+    margin-right: 0;
+  }
+
   .footer__menu:nth-child(2) {
     margin-right: 0;
   }
@@ -88,24 +79,12 @@
   margin-bottom: rem(18);
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1440px) {
-  .footer__subscription > .text {
-    font-size: rem(11);
-  }
-}
-
 .footer__subscription-text {
   margin-bottom: rem(23.5);
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1440px) {
-  .footer__subscription-text {
-    font-size: rem(13);
-  }
-}
-
 .footer__copyright-bar {
-  padding: rem(23) rem(140);
+  padding: rem(23) rem(30);
   background: #fff;
   border-top: 1px solid #F4F4F6;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
@@ -117,7 +96,7 @@
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .footer-mobile {
     display: block;
   }

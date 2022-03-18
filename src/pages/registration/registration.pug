@@ -1,0 +1,31 @@
+extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
+include ~/templates/UI-kit/logo/logo
+include ~/templates/UI-kit/cards/sign-up-card/sign-up-card
+include ~/templates/UI-kit/headers-footers/header/header
+include ~/templates/UI-kit/headers-footers/footer/footer
+include ~/templates/UI-kit/headers-footers/copyright-bar/copyright-bar
+
+block variables
+  -
+    const title = 'Toxin headers-footers'
+    const description = 'Toxin headers-footers description'
+    const keywords = 'Toxin headers-footers keywords'
+    const faviconPaths = {
+      apple: 'static/favicon/active/apple-touch-icon.png',
+      big: 'static/favicon/active/favicon-32x32.png',
+      small: 'static/favicon/active/favicon-16x16.png',
+      manifest: `static/favicon/active/site.webmanifest`,
+      pinned: 'static/favicon/active/safari-pinned-tab.svg',
+    }
+
+block content
+  .registration 
+    .registration__container
+      +header({ logoLink: './landing-page.html' })
+      main.main
+        section.main-section
+          .main-section__container 
+            .main-section__sign-up-card
+              +signUpCard({ buttonText: 'Зарегистрироваться', formAction: './landing-page.html', logInButtonLink: './sign-in.html' })
+      +footer({})
+      +footer({ mobile: true })
