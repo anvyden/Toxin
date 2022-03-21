@@ -1,0 +1,38 @@
+.rooms__heading {
+  margin-bottom: rem(22);
+}
+
+.rooms__rooms {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.rooms__room {
+  margin-bottom: rem(22);
+}
+
+.rooms__room:nth-child(1),
+.rooms__room:nth-child(2),
+.rooms__room:nth-child(3) {
+  margin-bottom: rem(21);
+}
+
+
+.rooms__room:nth-child(10),
+.rooms__room:nth-child(11),
+.rooms__room:nth-child(12) {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .rooms__room:nth-child(10) {
+    margin-bottom: rem(22);
+  }
+}
+
+.rooms__pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: rem(41);
+}

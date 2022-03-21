@@ -2,12 +2,18 @@ include ~/templates/UI-kit/text/text
 
 mixin checkboxList(options)
   -
-    const { expandable, emptyCheckboxList, wideCheckboxItems, classForJs, title, items } = options
+    const { expandable, emptyCheckboxList, opened, wideCheckboxItems, classForJs, title, items } = options
     let checkboxClass = 'checkbox-list'
     let checkboxHeadingClass = 'checkbox-list__heading'
+    let checkboxListClass = 'checkbox-list__list'
 
     if (expandable) {
       checkboxHeadingClass += ' checkbox-list__heading--with-button'
+      checkboxListClass += ' checkbox-list__list--hidden'
+    }
+
+    if (opened) {
+      checkboxListClass += 'checkbox-list__list'
     }
 
     if (classForJs) {
@@ -24,7 +30,7 @@ mixin checkboxList(options)
         +text({ text: title, type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
 
     if (!emptyCheckboxList)
-      ul.checkbox-list__list
+      ul(class=checkboxListClass)
         each item in items 
           -
             const { text, description, textBold, color, name, isChecked } = item

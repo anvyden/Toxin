@@ -1,0 +1,37 @@
+extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
+include ~/templates/UI-kit/logo/logo
+include ~/templates/UI-kit/headers-footers/header/header
+include ~/templates/UI-kit/headers-footers/footer/footer
+include ~/templates/UI-kit/headers-footers/copyright-bar/copyright-bar
+include ~/templates/pages/sidebar/sidebar
+include ~/templates/pages/rooms/rooms
+
+block variables
+  -
+    const title = 'Toxin search-room'
+    const description = 'Toxin search-room description'
+    const keywords = 'Toxin search-room keywords'
+    const faviconPaths = {
+      apple: 'static/favicon/active/apple-touch-icon.png',
+      big: 'static/favicon/active/favicon-32x32.png',
+      small: 'static/favicon/active/favicon-16x16.png',
+      manifest: `static/favicon/active/site.webmanifest`,
+      pinned: 'static/favicon/active/safari-pinned-tab.svg',
+    }
+
+block content
+  .search-room
+    .search-room__container 
+      +header({ logoLink: './landing-page.html' })
+      main.main
+        .content 
+          .content__container
+            .content__sidebar.js-sidebar
+              +sidebar({})
+              .content__sidebar-button.js-sidebar-button
+            .content__rooms-wrapper
+              +rooms
+      +footer({})
+      +footer({ mobile: true })
+
+    

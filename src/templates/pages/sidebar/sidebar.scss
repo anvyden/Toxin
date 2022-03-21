@@ -1,0 +1,35 @@
+.sidebar__item {
+  margin-bottom: rem(30);
+}
+
+.sidebar__item:first-child {
+  margin-bottom: rem(21);
+}
+
+.sidebar__item:nth-child(3) {
+  margin-bottom: rem(25);
+}
+
+.sidebar__item:nth-child(4) {
+  margin-bottom: rem(29.5);
+}
+
+.sidebar__item:nth-child(5) {
+  margin-bottom: rem(27.5);
+}
+
+.sidebar__item:nth-child(6) {
+  margin-bottom: rem(15.5);
+}
+
+.sidebar__item:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar__range-slider-description {
+  display: inline-block;
+  margin-top: rem(15);
+  font-size: rem(12);
+  line-height: rem(14);
+  color: $darkShade50;
+}

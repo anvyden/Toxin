@@ -35,8 +35,9 @@ const calcDays = (input, inputSecond) => {
 }
 
 class Datepicker {
-  constructor(datepickerElements) {
+  constructor(datepickerElements, props) {
     this.datepickerElements = datepickerElements
+    this.props = props
     this._init()
   }
 
@@ -81,11 +82,13 @@ class Datepicker {
 
   addEventListenerDropdowns() {
     const { datepickerDropdowns } = this.datepickerElements
-    datepickerDropdowns.forEach((dropdown) => {
-      dropdown.addEventListener('click', () => {
-        this.input.show()
+    if (datepickerDropdowns) {
+      datepickerDropdowns.forEach((dropdown) => {
+        dropdown.addEventListener('click', () => {
+          this.input.show()
+        })
       })
-    })
+    }
   }
 }
 

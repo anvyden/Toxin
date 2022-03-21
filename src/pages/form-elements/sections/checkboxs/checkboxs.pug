@@ -8,7 +8,7 @@ mixin checkboxs()
         .checkboxs__expandable-checkbox
           +checkboxList({ expandable: true, emptyCheckboxList: true, title: 'expandable checkbox list' })
         .checkboxs__expandable-checkbox
-          +checkboxList({ expandable: true, title: 'expandable checkbox list', classForJs: 'js-expandable-checkbox',
+          +checkboxList({ expandable: true, title: 'expandable checkbox list', opened: true, classForJs: 'js-expandable-checkbox',
         items: [
           { text: 'Завтрак', name: 'breakfast' },
           { text: 'Письменный стол', name: 'table', isChecked: true },
@@ -23,20 +23,20 @@ mixin checkboxs()
         +checkboxList({ title: 'rich checkbox buttons', wideCheckboxItems: true, 
         items: [
           {
-          text: 'Широкий коридор', 
-          description: `Ширина коридоров в номере 
-            не менее 91 см.`,
-          textBold: true,
-          color: 'dark-shade-75',
-          name: 'wide-corridor'
+            text: 'Широкий коридор', 
+            description: `Ширина коридоров в номере 
+              не менее 91 см.`,
+            textBold: true,
+            color: 'dark-shade-75',
+            name: 'wide-corridor'
           },
           {
-          text: 'Помощник для инвалидов',
-          description: `На 1 этаже вас встретит специалист
-            и проводит до номера.`,
-          textBold: true,
-          color: 'dark-shade-75',
-          name: 'assistant-for-disabled'
+            text: 'Помощник для инвалидов',
+            description: `На 1 этаже вас встретит специалист
+              и проводит до номера.`,
+            textBold: true,
+            color: 'dark-shade-75',
+            name: 'assistant-for-disabled'
           },
         ]})
       .checkboxs__bullet-lists
