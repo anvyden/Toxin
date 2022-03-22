@@ -32,7 +32,7 @@ mixin slider(options)
     if (pagination)
       .swiper-pagination.slider__pagination
     if (navigation)
-      .slider__button-wrapper.slider__button-prev-wrapper
-        .swiper-button-prev.slider__button.slider__button-prev.material-icons='expand_more'
-      .slider__button-wrapper.slider__button-next-wrapper
-        .swiper-button-next.slider__button.slider__button-next.material-icons='expand_more'
+      div(class='swiper-button-prev-wrapper slider__button-wrapper slider__button-prev-wrapper')
+        div(class='swiper-button-prev slider__button slider__button-prev material-icons')='expand_more'
+      div(class='swiper-button-next-wrapper slider__button-wrapper slider__button-next-wrapper')
+        div(class='swiper-button-next slider__button slider__button-next material-icons')='expand_more'

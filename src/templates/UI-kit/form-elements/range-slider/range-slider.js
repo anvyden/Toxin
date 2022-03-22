@@ -2,10 +2,11 @@ import noUiSlider from 'nouislider'
 import wNumb from 'wnumb'
 
 class RangeSlider {
-  constructor(sliderClass, priceClass, options) {
-    this.rangeSlider = document.querySelector(`.${sliderClass}`)
-    this.rangeSliderPrice = document.querySelector(`.${priceClass}`)
+  constructor(options) {
     this.options = options
+    const { sliderSelectors: { slider, price } } = this.options
+    this.rangeSlider = document.querySelector(slider)
+    this.rangeSliderPrice = document.querySelector(price)
     this.cssClasses = noUiSlider.cssClasses
     this.stylization()
     this._init()

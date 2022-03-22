@@ -1,3 +1,9 @@
+@media screen and (max-width: 479px) {
+  .sidebar__container {
+    max-width: rem(266);
+  }
+}
+
 .sidebar__item {
   margin-bottom: rem(30);
 }

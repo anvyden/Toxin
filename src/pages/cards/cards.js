@@ -4,16 +4,9 @@ import cards from '@pages/cards/cards.scss'
 import * as textField from '@form-elements/text-field/text-field'
 import Dropdown from '@form-elements/dropdown/dropdown'
 import StarRating from '@form-elements/star-rating/star-rating'
-import Datepicker from '@cards/datepicker/datepicker'
-import { DatepickerSelected } from '@cards/datepicker/datepickerSelected'
+import { Datepicker } from '@cards/datepicker/datepicker'
 import BookingCard from '@cards/booking-card/booking-card'
 import Slider from '@libs/swiper/swiper'
-
-const findRoomDatepickerElements = {
-  input: document.querySelector('.js-find-room-datepicker-1'),
-  inputSecond: document.querySelector('.js-find-room-datepicker-2'),
-  datepickerDropdowns: document.querySelectorAll('.js-find-room-datepicker-dropdown .dropdown__dropdown-default'),
-}
 
 const findRoomCardOpts = {
   findRoomGuests: new Dropdown('js-find-room-guests', {
@@ -25,13 +18,15 @@ const findRoomCardOpts = {
     dropdownButtons: true,
     combineTwoFirstItems: true,
   }),
-  findRoomDatepicker: new Datepicker(findRoomDatepickerElements),
-}
-
-const bookingCardDatepickerSelectors = {
-  input: document.querySelector('.js-booking-card-datepicker-1'),
-  inputSecond: document.querySelector('.js-booking-card-datepicker-2'),
-  datepickerDropdowns: document.querySelectorAll('.js-booking-room-datepicker-dropdown .dropdown__dropdown-default'),
+  findRoomDatepicker: new Datepicker(
+    {
+      datepickerSelectors: {
+        input: document.querySelector('.js-find-room-datepicker-1'),
+        inputSecond: document.querySelector('.js-find-room-datepicker-2'),
+        datepickerDropdowns: document.querySelectorAll('.js-find-room-datepicker-dropdown .dropdown__dropdown-default'),
+      },
+    },
+  ),
 }
 
 const roomInfo = {
@@ -51,9 +46,13 @@ const bookingCardOpts = {
     dropdownButtons: true,
     combineTwoFirstItems: true,
   }),
-  bookingCardDatepicker: new DatepickerSelected(
-    bookingCardDatepickerSelectors,
+  bookingCardDatepicker: new Datepicker(
     {
+      datepickerSelectors: {
+        input: document.querySelector('.js-booking-card-datepicker-1'),
+        inputSecond: document.querySelector('.js-booking-card-datepicker-2'),
+        datepickerDropdowns: document.querySelectorAll('.js-booking-room-datepicker-dropdown .dropdown__dropdown-default'),
+      },
       dates: ['2019-08-19', '2019-08-23'],
     },
     roomInfo,

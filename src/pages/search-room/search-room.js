@@ -6,16 +6,11 @@ import Pagination from '@form-elements/pagination/pagination'
 import CheckboxList from '@form-elements/checkbox-list/checkbox-list'
 import Menu from '@headers-footers/menu/menu'
 import Header from '@headers-footers/header/header'
-import Datepicker from '@cards/datepicker/datepicker'
+import DatepickerWithOneInput from '@cards/datepicker/datepicker1'
 import Slider from '@libs/swiper/swiper'
 
-const datepickerElements = {
-  input: document.querySelector('.js-input-date-selecter'),
-}
-
-const roomsRatings = [5, 4, 3, 5, 4, 3, 5, 4, 3, 5, 3, 3]
-
 function initRoomsRatings() {
+  const roomsRatings = [5, 4, 3, 5, 4, 3, 5, 4, 3, 5, 3, 3]
   const ratings = []
   roomsRatings.forEach((rating, i) => {
     ratings.push(new StarRating(`js-room-rating-${i}`, rating))
@@ -44,25 +39,28 @@ class SearchRoom {
 const init = {
   menu: new Menu(),
   header: new Header(),
-  dropdownDate: new Datepicker(datepickerElements),
+  dropdownDate: new DatepickerWithOneInput(
+    {
+      datepickerSelectors: {
+        input: document.querySelector('.js-input-date-selecter'),
+      },
+    },
+  ),
   dropdownGuests: new Dropdown('js-dropdown-guests', {
     dropdownButtons: true,
     combineTwoFirstItems: true,
-    maxLength: {
-      item0: '10',
-    },
   }),
-  rangeSlider: new RangeSlider('js-range-slider', 'js-range-slider-price', {
+  rangeSlider: new RangeSlider({
+    sliderSelectors: {
+      slider: '.js-range-slider',
+      price: '.js-range-slider-price',
+    },
     min: 0,
     max: 15000,
     minStartPrice: 5000,
     maxStartPrice: 10000,
   }),
-  dropdownComfort: new Dropdown('js-dropdown-comfort', {
-    maxLength: {
-      item0: 10,
-    },
-  }),
+  dropdownComfort: new Dropdown('js-dropdown-comfort'),
   checkboxListComfort: new CheckboxList('js-checkbox-list-comfort'),
   rooms: {
     roomSlider: new Slider('.swiper'),

@@ -3,7 +3,7 @@ include ~/templates/UI-kit/form-elements/button/button
 
 mixin dropdown(options)
   -
-    const { text, subtitle, value, name, placeholder, expanded, expandedVisible, expandedBlock, withStraightBorders, withButtons, items, smallSize, classForJs, inputClassForJs } = options
+    const { text, subtitle, value, name, placeholder, expanded, expandedVisible, expandedBlock, withStraightBorders, withButtons, hasLower, items, smallSize, classForJs, inputClassForJs } = options
     
     let dropdownClass = 'dropdown'
     let dropdownInputClass = 'dropdown__input dropdown__input--focused dropdown__input--hovered'
@@ -37,6 +37,10 @@ mixin dropdown(options)
 
     if (expandedVisible) {
       dropdownInputClass += ' dropdown__input--expanded'
+    }
+
+    if (hasLower) {
+      dropdownInputClass += ' dropdown__input--text-lower'
     }
   
   div(class=dropdownClass)

@@ -5,7 +5,7 @@ class Dropdown {
   constructor(selector, options) {
     this.dropdown = document.querySelector(`.${selector}`)
     this.selector = selector
-    this.options = options
+    this.options = options !== undefined ? options : {}
     this.itemsValue = []
     this.inputValueArray = []
     this.click = false
@@ -119,7 +119,7 @@ class Dropdown {
   }
 
   _getElements() {
-    const { dropdownButtons } = this.options
+    const { dropdownButtons = false } = this.options
     this.itemsButtons = document.querySelectorAll(`.${this.selector} .dropdown__item-button`)
     this.items = document.querySelectorAll(`.${this.selector} .dropdown__item`)
     this.dropdownDefault = document.querySelector(`.${this.selector} .dropdown__dropdown-default`)
@@ -212,14 +212,14 @@ class Dropdown {
   }
 
   _getMaxLenghtItem() {
-    const { maxLength } = this.options
+    const { maxLength = false } = this.options
     this.maxLengthItem = maxLength[`item${this.itemNumber}`]
       ? maxLength[`item${this.itemNumber}`]
       : 5
   }
 
   _dropdownInputValue(name, value, index) {
-    const { combineTwoFirstItems } = this.options
+    const { combineTwoFirstItems = false } = this.options
     if (combineTwoFirstItems) {
       this._inputValueWithCombine(name, value, index)
     } else {

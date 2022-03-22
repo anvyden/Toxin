@@ -38,7 +38,11 @@ const dropdown3 = new Dropdown('js-dropdown-guests-2', {
 const starRating1 = new StarRating('js-star-rating-1', 4)
 const starRating2 = new StarRating('js-star-rating-2', 5)
 
-const rangeSlider = new RangeSlider('js-range-slider', 'js-range-slider-price', {
+const rangeSlider = new RangeSlider({
+  sliderSelectors: {
+    slider: '.js-range-slider',
+    price: '.js-range-slider-price',
+  },
   min: 0,
   max: 15000,
   minStartPrice: 5000,

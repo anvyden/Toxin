@@ -1,3 +1,9 @@
+@media screen and (max-width: 479px) {
+  .rooms {
+    max-width: rem(380);
+  }
+}
+
 .rooms__heading {
   margin-bottom: rem(22);
 }
@@ -6,6 +12,24 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 1023px) {
+  .rooms__rooms {
+    max-width: rem(860);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .rooms__rooms {
+    max-width: rem(580);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .rooms__rooms {
+    justify-content: center;
+  }
 }
 
 .rooms__room {
@@ -27,6 +51,12 @@
 
 @media screen and (max-width: 767px) {
   .rooms__room:nth-child(10) {
+    margin-bottom: rem(22);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .rooms__room:nth-child(11) {
     margin-bottom: rem(22);
   }
 }

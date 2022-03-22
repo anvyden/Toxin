@@ -38,6 +38,10 @@
   border-color: $darkShade50;
 }
 
+.dropdown__input--text-lower {
+  text-transform: lowercase;
+}
+
 .dropdown__button {
   position: absolute;
   top: 0;

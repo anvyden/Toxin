@@ -9,7 +9,7 @@ mixin sidebar(options)
   aside.sidebar 
     .sidebar__container
       .sidebar__item
-        +dropdown({ text: 'Даты пребывания в отеле', value: '19 авг - 23 авг', name: 'dates', placeholder: 'Выберите даты', inputClassForJs: 'js-input-date-selecter', classForJs: 'js-dropdown-date-selecter' })
+        +dropdown({ text: 'Даты пребывания в отеле', value: '19 авг - 23 авг', name: 'dates', placeholder: 'Выберите даты', hasLower: true, inputClassForJs: 'js-input-date-selecter', classForJs: 'js-dropdown-date-selecter' })
       .sidebar__item
         +dropdown({ text: 'Гости', value: '3 гостя, 1 младенец', name: 'guests', placeholder: 'Сколько гостей', expanded: true, withButtons: true, classForJs: 'js-dropdown-guests',
         items: [

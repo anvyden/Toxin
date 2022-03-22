@@ -21,8 +21,8 @@ class Slider {
         bulletActiveClass: 'slider__pagination-bullet--active',
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next-wrapper',
+        prevEl: '.swiper-button-prev-wrapper',
         hideOnClick: true,
       },
     })
