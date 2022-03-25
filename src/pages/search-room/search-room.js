@@ -6,7 +6,7 @@ import Pagination from '@form-elements/pagination/pagination'
 import CheckboxList from '@form-elements/checkbox-list/checkbox-list'
 import Menu from '@headers-footers/menu/menu'
 import Header from '@headers-footers/header/header'
-import DatepickerWithOneInput from '@cards/datepicker/datepicker1'
+import DatepickerWithOneInput from '@cards/datepicker/datepicker-with-one-input'
 import Slider from '@libs/swiper/swiper'
 
 function initRoomsRatings() {

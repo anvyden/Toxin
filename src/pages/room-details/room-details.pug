@@ -1,0 +1,92 @@
+extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
+include ~/templates/UI-kit/logo/logo
+include ~/templates/UI-kit/text/text
+include ~/templates/UI-kit/form-elements/features/features
+include ~/templates/UI-kit/form-elements/bullet-list/bullet-list
+include ~/templates/UI-kit/form-elements/comments/comments
+include ~/templates/UI-kit/cards/booking-card/booking-card
+include ~/templates/UI-kit/headers-footers/header/header
+include ~/templates/UI-kit/headers-footers/footer/footer
+include ~/templates/UI-kit/headers-footers/copyright-bar/copyright-bar
+
+block variables
+  -
+    const title = 'Toxin search-room'
+    const description = 'Toxin search-room description'
+    const keywords = 'Toxin search-room keywords'
+    const faviconPaths = {
+      apple: 'static/favicon/active/apple-touch-icon.png',
+      big: 'static/favicon/active/favicon-32x32.png',
+      small: 'static/favicon/active/favicon-16x16.png',
+      manifest: `static/favicon/active/site.webmanifest`,
+      pinned: 'static/favicon/active/safari-pinned-tab.svg',
+    }
+
+block content
+  .room-details 
+    .room-details__container 
+      +header({ logoLink: './landing-page.html' })
+      main.main 
+        .content 
+          .content__container 
+            .room-details__room-imgs
+              .room-details__room-img-primary
+                img(class='content__room-img content__room-img-1' src='/src/pages/room-details/room-img-1.jpg' alt='Фото комнаты')
+              .room-details__room-img-secondary
+                img(class='content__room-img content__room-img-2' src='/src/pages/room-details/room-img-2.jpg' alt='Фото комнаты')
+                img(class='content__room-img content__room-img-3' src='/src/pages/room-details/room-img-3.jpg' alt='Фото комнаты')
+            .room-details__room-content 
+              .room-details__room-content-wrapper 
+                .room-details__room-info
+                  .room-details__room-info-wrapper
+                    .room-details__room-features
+                      +features({ 
+                        items: [
+                          { icon: 'insert_emoticon', title: 'Комфорт', description: 'Шумопоглощающие стены' },
+                          { icon: 'location_city', title: 'Удобство', description: 'Окно в каждой из спален' },
+                          { icon: 'whatshot', title: 'Уют', description: 'Номер оснащён камином' },
+                      ]})
+                  .room-details__room-info-wrapper
+                    .room-details__room-comments 
+                      .room-details__room-comments-heading
+                        +text({ text: 'Отзывы посетителей номера', type: 'h2', color: 'dark-shade-100', bold: true })
+                        +text({ text: '2 отзыва', type: 'p', color: 'dark-shade-50' })
+                      .room-details__room-comments-list
+                        +comments({
+                          items: [
+                            {
+                              name: 'Мурад Сарафанов',
+                              avatar: '/src/pages/room-details/murad.jpg',
+                              time: '5 дней назад',
+                              likeButtonCount: '12',
+                              likeButtonIsActived: true,
+                              likeButtonName: 'likeButton1',
+                              text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
+                            },
+                            {
+                              name: 'Патрисия Стёклышкова',
+                              avatar: '/src/pages/room-details/patrisiya.jpg',
+                              time: 'Неделю назад',
+                              likeButtonCount: '2',
+                              likeButtonName: 'likeButton2',
+                              text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'
+                            },
+                        ]})
+                  .room-details__room-info-wrapper
+                    .room-details__room-rules
+                      +text({ text: 'Правила', type: 'h2', color: 'dark-shade-100', bold: true })
+                      .room-details__room-rules-list
+                        +bulletList({
+                            items: [
+                              { text: 'Нельзя с питомцами' },
+                              { text: 'Без вечеринок и мероприятий' },
+                              { text: `Время прибытия - после 13:00,
+                                а выезд до 12:00` },
+                            ]})
+                    .room-details__room-cancel
+                      +text({ text: 'Отмена', type: 'h2', color: 'dark-shade-100', bold: true })
+                      span.room-details__room-cancel-text='Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.'
+                .room-details__room-booking
+                  +bookingCard({ luxe: true, dropdownClassForJs: 'js-booking-card-dropdown', firstInputClassForJs: 'js-booking-card-input-1', secondInputClassForJs: 'js-booking-card-input-2', guestsClassForJs: 'js-booking-card-guests', firstInputName: 'bookingCardFirstInput', secondInputName: 'bookingCardSecondInput', guestsName: 'bookingCardGuests' })
+      +footer({})
+      +footer({ mobile: true })

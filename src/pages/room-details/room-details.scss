@@ -1,0 +1,115 @@
+@import '~normalize.css';
+@import '~/scss/montserrat';
+@import '~/scss/material-icons';
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import '~/scss/variables';
+@import '~/scss/mixins';
+@import '~/scss/settings';
+@import '~/templates/UI-kit/logo/logo';
+@import '~/templates/UI-kit/text/text';
+@import '@form-elements/text-field/text-field';
+@import '@form-elements/button/button';
+@import '@form-elements/dropdown/dropdown';
+@import '@form-elements/features/features';
+@import '@form-elements/bullet-list/bullet-list';
+@import '@form-elements/like-button/like-button';
+@import '@form-elements/comments/comments';
+@import '@cards/datepicker/datepicker';
+@import '@cards/booking-card/booking-card';
+@import '@headers-footers/header/header';
+@import '@headers-footers/menu/menu';
+@import '@headers-footers/footer/footer';
+@import '@headers-footers/copyright-bar/copyright-bar';
+
+.content__container {
+  border-bottom: 1px solid $darkShade25;
+}
+
+.room-details__room-imgs {
+  display: flex;
+  max-width: rem(1440);
+  max-height: rem(485);
+  margin: 0 auto;
+}
+
+.room-details__room-img-primary {
+  width: 100%;
+  max-width: rem(981);
+}
+
+.room-details__room-img-secondary {
+  // display: flex;
+  // flex-wrap: wrap;
+  width: 100%;
+  max-width: rem(459);
+}
+
+.content__room-img {
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+.content__room-img-1 {
+  height: 100%;
+}
+
+.content__room-img-2 {
+  width: 100%;
+  // height: 100%;
+  max-height: rem(242.5);
+}
+
+.content__room-img-2 {
+  width: 100%;
+  // height: 100%;
+  max-height: rem(242.5);
+}
+
+.room-details__room-content {
+  padding: rem(70) rem(30);
+}
+
+.room-details__room-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: rem(1160);
+  margin: 0 auto;
+}
+
+.room-details__room-info {
+  max-width: rem(712);
+}
+
+.room-details__room-info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(30);
+}
+
+.room-details__room-features {
+  max-width: rem(291);
+}
+
+.room-details__room-comments-heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(20);
+}
+
+.room-details__room-rules-list {
+  margin-top: rem(20);
+}
+
+.room-details__room-cancel {
+  max-width: rem(341);
+}
+
+.room-details__room-cancel-text {
+  display: inline-block;
+  margin-top: rem(20);
+}
+
+.room-details__room-booking {
+  width: 100%;
+  max-width: rem(380);
+}
