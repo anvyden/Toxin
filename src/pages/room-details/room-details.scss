@@ -27,21 +27,34 @@
 
 .room-details__room-imgs {
   display: flex;
-  max-width: rem(1440);
   max-height: rem(485);
-  margin: 0 auto;
+}
+
+@media screen and (max-width: 568px) {
+  .room-details__room-imgs {
+    flex-direction: column;
+    max-height: none;
+  }
 }
 
 .room-details__room-img-primary {
-  width: 100%;
-  max-width: rem(981);
+  width: 68.125%;
+}
+
+@media screen and (max-width: 568px) {
+  .room-details__room-img-primary {
+    width: 100%;
+  }
 }
 
 .room-details__room-img-secondary {
-  // display: flex;
-  // flex-wrap: wrap;
-  width: 100%;
-  max-width: rem(459);
+  width: 31.785%;
+}
+
+@media screen and (max-width: 568px) {
+  .room-details__room-img-secondary {
+    width: 100%;
+  }
 }
 
 .content__room-img {
@@ -50,23 +63,42 @@
 }
 
 .content__room-img-1 {
+  width: 100%;
   height: 100%;
 }
 
 .content__room-img-2 {
   width: 100%;
-  // height: 100%;
-  max-height: rem(242.5);
+  height: 50%;
 }
 
-.content__room-img-2 {
+@media screen and (max-width: 568px) {
+  .content__room-img-2 {
+    width: 50%;
+    height: 100%;
+  }
+}
+
+.content__room-img-3 {
   width: 100%;
-  // height: 100%;
-  max-height: rem(242.5);
+  height: 50%;
+}
+
+@media screen and (max-width: 568px) {
+  .content__room-img-3 {
+    width: 50%;
+    height: 100%;
+  }
 }
 
 .room-details__room-content {
-  padding: rem(70) rem(30);
+  padding: rem(70) rem(30) rem(72) rem(30);
+}
+
+@media screen and (max-width: 568px) {
+  .room-details__room-content {
+    padding: rem(40) rem(10) rem(40) rem(10);
+  }
 }
 
 .room-details__room-content-wrapper {
@@ -76,37 +108,123 @@
   margin: 0 auto;
 }
 
+@media screen and (max-width: 1023px) {
+  .room-details__room-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .room-details__room-info {
   max-width: rem(712);
 }
 
+@media screen and (max-width: 1023px) {
+  .room-details__room-info {
+    margin-bottom: rem(30);
+  }
+}
+
 .room-details__room-info-wrapper {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: rem(30);
+  margin-bottom: rem(25);
+}
+
+.room-details__room-info-wrapper:nth-child(2) {
+  display: flex;
+  margin-bottom: rem(33);
+}
+
+.room-details__room-info-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .room-details__room-info-wrapper {
+    justify-content: space-between;
+    margin-bottom: rem(16);
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .room-details__room-info-wrapper {
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .room-details__room-features {
   max-width: rem(291);
 }
 
-.room-details__room-comments-heading {
-  display: flex;
-  justify-content: space-between;
+.room-details__room-features-title {
   margin-bottom: rem(20);
 }
 
-.room-details__room-rules-list {
-  margin-top: rem(20);
+@media screen and (max-width: 568px) {
+  .room-details__room-comments {
+    max-width: rem(380);
+  }
+}
+
+.room-details__room-comments-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: rem(19);
+}
+
+@media screen and (max-width: 568px) {
+  .room-details__room-comments-heading {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: rem(5);
+  }
+}
+
+.room-details__room-rules {
+  margin-right: rem(110);
+}
+
+@media screen and (max-width: 1023px) {
+  .room-details__room-rules {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .room-details__room-rules {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: rem(20);
+  }
+}
+
+.room-details__room-rules-title {
+  margin-bottom: rem(18);
+  margin-left: rem(20);
+}
+
+@media screen and (max-width: 568px) {
+  .room-details__room-rules-title {
+    margin-left: 0;
+  }
 }
 
 .room-details__room-cancel {
   max-width: rem(341);
 }
 
-.room-details__room-cancel-text {
-  display: inline-block;
-  margin-top: rem(20);
+@media screen and (max-width: 568px) {
+  .room-details__room-cancel {
+    text-align: center;
+    max-width: rem(291);
+  }
+}
+
+.room-details__room-cancel-title {
+  margin-bottom: rem(18);
 }
 
 .room-details__room-booking {

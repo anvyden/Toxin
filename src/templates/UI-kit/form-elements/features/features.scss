@@ -1,8 +1,11 @@
 .features__item {
   display: flex;
-  border-bottom: 1px solid rgba(31, 32, 65, 0.1);
   margin-bottom: rem(20);
+}
+
+.features__item--with-border {
   padding-bottom: rem(14);
+  border-bottom: 1px solid rgba(31, 32, 65, 0.1);
 }
 
 .features__item:last-child {
@@ -27,7 +30,6 @@
 }
 
 .features__item-title {
-  display: inline-block;
   font-weight: bold;
 }
 

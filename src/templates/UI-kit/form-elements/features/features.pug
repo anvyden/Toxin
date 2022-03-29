@@ -7,12 +7,17 @@ mixin features(options)
     ul.features__list 
       each item in items 
         -
-          const { icon, title, description } = item 
+          const { icon, title, description, withBorder } = item
+          let itemClass = 'features__item'
+
+          if (withBorder) {
+            itemClass += ' features__item--with-border'
+          }
         
-        li.features__item
+        li(class=itemClass)
           .features__item-icon-wrapper 
             span(class=iconClass)=icon 
           .features__item-text-wrapper
-            span.features__item-title=title
-            span.features__item-description=description
+            p.features__item-title=title
+            p.features__item-description=description
   

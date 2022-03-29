@@ -40,12 +40,15 @@ block content
                 .room-details__room-info
                   .room-details__room-info-wrapper
                     .room-details__room-features
-                      +features({ 
-                        items: [
-                          { icon: 'insert_emoticon', title: 'Комфорт', description: 'Шумопоглощающие стены' },
-                          { icon: 'location_city', title: 'Удобство', description: 'Окно в каждой из спален' },
-                          { icon: 'whatshot', title: 'Уют', description: 'Номер оснащён камином' },
-                      ]})
+                      .room-details__room-features-title
+                        +text({ text: 'Сведения о номере', type: 'h2', color: 'dark-shade-100', bold: true })
+                      .room-details__room-features-list
+                        +features({ 
+                          items: [
+                            { icon: 'insert_emoticon', title: 'Комфорт', description: 'Шумопоглощающие стены', withBorder: true },
+                            { icon: 'location_city', title: 'Удобство', description: 'Окно в каждой из спален', withBorder: true },
+                            { icon: 'whatshot', title: 'Уют', description: 'Номер оснащён камином' },
+                        ]})
                   .room-details__room-info-wrapper
                     .room-details__room-comments 
                       .room-details__room-comments-heading
@@ -74,17 +77,19 @@ block content
                         ]})
                   .room-details__room-info-wrapper
                     .room-details__room-rules
-                      +text({ text: 'Правила', type: 'h2', color: 'dark-shade-100', bold: true })
+                      .room-details__room-rules-title
+                        +text({ text: 'Правила', type: 'h2', color: 'dark-shade-100', bold: true })
                       .room-details__room-rules-list
                         +bulletList({
                             items: [
                               { text: 'Нельзя с питомцами' },
                               { text: 'Без вечеринок и мероприятий' },
-                              { text: `Время прибытия - после 13:00,
+                              { text: `Время прибытия — после 13:00,
                                 а выезд до 12:00` },
                             ]})
                     .room-details__room-cancel
-                      +text({ text: 'Отмена', type: 'h2', color: 'dark-shade-100', bold: true })
+                      .room-details__room-cancel-title
+                        +text({ text: 'Отмена', type: 'h2', color: 'dark-shade-100', bold: true })
                       span.room-details__room-cancel-text='Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.'
                 .room-details__room-booking
                   +bookingCard({ luxe: true, dropdownClassForJs: 'js-booking-card-dropdown', firstInputClassForJs: 'js-booking-card-input-1', secondInputClassForJs: 'js-booking-card-input-2', guestsClassForJs: 'js-booking-card-guests', firstInputName: 'bookingCardFirstInput', secondInputName: 'bookingCardSecondInput', guestsName: 'bookingCardGuests' })
