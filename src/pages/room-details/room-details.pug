@@ -8,6 +8,7 @@ include ~/templates/UI-kit/cards/booking-card/booking-card
 include ~/templates/UI-kit/headers-footers/header/header
 include ~/templates/UI-kit/headers-footers/footer/footer
 include ~/templates/UI-kit/headers-footers/copyright-bar/copyright-bar
+include ~/templates/pages/chart/chart
 
 block variables
   -
@@ -49,6 +50,13 @@ block content
                             { icon: 'location_city', title: 'Удобство', description: 'Окно в каждой из спален', withBorder: true },
                             { icon: 'whatshot', title: 'Уют', description: 'Номер оснащён камином' },
                         ]})
+                    .room-details__impressions
+                      .room-details__impressions-title 
+                        +text({ text: 'Впечатления от номера', type: 'h2', color: 'dark-shade-100', bold: true })
+                      .room-details__impressions-chart-wrapper 
+                        .room-details__impressions-diagram
+                          +votesChart
+                        .room-details__impressions-legend
                   .room-details__room-info-wrapper
                     .room-details__room-comments 
                       .room-details__room-comments-heading
@@ -64,6 +72,7 @@ block content
                               likeButtonCount: '12',
                               likeButtonIsActived: true,
                               likeButtonName: 'likeButton1',
+                              likeButtonClassForJs: 'js-like-button',
                               text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
                             },
                             {
@@ -72,6 +81,7 @@ block content
                               time: 'Неделю назад',
                               likeButtonCount: '2',
                               likeButtonName: 'likeButton2',
+                              likeButtonClassForJs: 'js-like-button',
                               text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'
                             },
                         ]})
