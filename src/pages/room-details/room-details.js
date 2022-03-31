@@ -5,12 +5,21 @@ import { Datepicker } from '@cards/datepicker/datepicker'
 import BookingCard from '@cards/booking-card/booking-card'
 import Menu from '@headers-footers/menu/menu'
 import Header from '@headers-footers/header/header'
+import Chart from '~/templates/pages/chart/chart'
 
 const roomInfo = {
   roomNumber: '888',
   roomPrice: '9990',
   discount: '2179',
   additionalServicesSum: '300',
+}
+
+const chartParams = {
+  perfectly: 510,
+  well: 240,
+  satisfactory: 240,
+  disappointed: 0,
+  total: 990,
 }
 
 const init = (function () {
@@ -33,5 +42,6 @@ const init = (function () {
     }),
     bookingCard: new BookingCard(roomInfo),
     likeButtons: new LikeButton('js-like-button'),
+    chart: new Chart(chartParams),
   }
 }())

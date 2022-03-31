@@ -2,3 +2,32 @@
   width: 120px;
   height: 120px;
 }
+
+.votes-chart__chart-item {
+  fill: none;
+  outline: none;
+}
+
+.primary-gradient--start {
+  stop-color: #BC9CFF;
+}
+
+.primary-gradient--end {
+  stop-color:#8BA4F9;
+}
+
+.secondary-gradient--start {
+  stop-color: #66D2EA;
+}
+
+.secondary-gradient--end {
+  stop-color: #6FCF97;
+}
+
+.yellow-gradient--start {
+  stop-color: #FFE39C;
+}
+
+.yellow-gradient--end {
+  stop-color: #FFBA9C;
+}
