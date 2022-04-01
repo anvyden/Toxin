@@ -1,4 +1,7 @@
-mixin votesChart()
+mixin votesChart(options)
+  -
+    const { legendItems } = options 
+  
   .votes-chart
     .votes-chart__chart-wrapper
       svg(class='votes-chart__chart' viewBox='0 0 120 120')
@@ -19,5 +22,20 @@ mixin votesChart()
         circle(class='votes-chart__chart-item js-chart-item-votes-well' cx='50%' cy='50%' r='58' stroke-width='4' stroke='url(#secondary-gradient)' stroke-dasharray='88, 364' stroke-dashoffset='-2')
         circle(class='votes-chart__chart-item js-chart-item-votes-satisfactory' cx='50%' cy='50%' r='58' stroke-width='4' stroke='url(#primary-gradient)' stroke-dasharray='178, 364' stroke-dashoffset='-94')
         circle(class='votes-chart__chart-item js-chart-item-votes-disappointed' cx='50%' cy='50%' r='58' stroke-width='4' stroke='url(#black-gradient)' stroke-dasharray='0, 364' stroke-dashoffset='0')
-      p.votes-chart__chart-votes='260 голосов'
+      .votes-chart__chart-votes-wrapper
+        h1.votes-chart__chart-votes-count='260'
+        h3.votes-chart__chart-votes-text='голосов'
     .votes-chart__legend
+      ul.votes-chart__legend-list 
+        each legendItem in legendItems 
+          -
+            const { text, itemModifier } = legendItem
+
+            let legendItemClass = 'votes-chart__legend-item'
+
+            if (itemModifier) {
+              legendItemClass += ` votes-chart__legend-item--${itemModifier}`
+            }
+            
+          li(class=legendItemClass)=text
+          

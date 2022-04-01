@@ -1,6 +1,26 @@
+.votes-chart {
+  display: flex;
+}
+
+.votes-chart__chart-wrapper {
+  position: relative;
+}
+
+@keyframes chartRotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
 .votes-chart__chart {
+  display: block;
   width: 120px;
   height: 120px;
+  animation: chartRotation 60s linear infinite;
 }
 
 .votes-chart__chart-item {
@@ -30,4 +50,63 @@
 
 .yellow-gradient--end {
   stop-color: #FFBA9C;
+}
+
+.votes-chart__chart-votes-wrapper {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: $purple;
+}
+
+.votes-chart__chart-votes-count {
+  font-size: rem(24);
+  line-height: rem(29.26);
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.votes-chart__chart-votes-text {
+  font-size: rem(12);
+  line-height: rem(14.63);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.votes-chart__legend {
+  margin-top: rem(26.5);
+  margin-left: rem(45);
+}
+
+.votes-chart__legend-item {
+  position: relative;
+}
+
+.votes-chart__legend-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -15px;
+  transform: translate(0, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.votes-chart__legend-item--perfectly::before {
+  background: $yellowGradient;
+}
+
+.votes-chart__legend-item--well::before {
+  background: $secondaryGradient;
+}
+
+.votes-chart__legend-item--satisfactory::before {
+  background: $primaryGradient;
+}
+
+.votes-chart__legend-item--disappointed::before {
+  background: $blackGradient;
 }

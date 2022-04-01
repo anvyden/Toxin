@@ -201,6 +201,7 @@ module.exports = {
       '@cards': path.resolve(__dirname, 'src/templates/UI-kit/cards'),
       '@headers-footers': path.resolve(__dirname, 'src/templates/UI-kit/headers-footers'),
       '@libs': path.resolve(__dirname, 'src/libs'),
+      '@templates/pages': path.resolve(__dirname, 'src/templates/pages'),
     }
   },
   optimization: optimization(),

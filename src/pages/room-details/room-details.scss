@@ -162,6 +162,14 @@
   margin-bottom: rem(20);
 }
 
+.room-details__impressions {
+  margin-left: rem(106);
+}
+
+.room-details__impressions-chart-wrapper {
+  margin-top: rem(21.5);
+}
+
 @media screen and (max-width: 568px) {
   .room-details__room-comments {
     max-width: rem(380);

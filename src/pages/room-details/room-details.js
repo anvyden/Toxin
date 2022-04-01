@@ -5,7 +5,7 @@ import { Datepicker } from '@cards/datepicker/datepicker'
 import BookingCard from '@cards/booking-card/booking-card'
 import Menu from '@headers-footers/menu/menu'
 import Header from '@headers-footers/header/header'
-import Chart from '~/templates/pages/chart/chart'
+import Chart from '@templates/pages/chart/chart'
 
 const roomInfo = {
   roomNumber: '888',
