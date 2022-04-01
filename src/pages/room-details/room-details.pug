@@ -54,15 +54,13 @@ block content
                       .room-details__impressions-title 
                         +text({ text: 'Впечатления от номера', type: 'h2', color: 'dark-shade-100', bold: true })
                       .room-details__impressions-chart-wrapper 
-                        .room-details__impressions-diagram
-                          +votesChart({
-                            legendItems: [
-                              { text: 'Великолепно', itemModifier: 'perfectly' },
-                              { text: 'Хорошо', itemModifier: 'well' },
-                              { text: 'Удовлетворительно', itemModifier: 'satisfactory' },
-                              { text: 'Разочарован', itemModifier: 'disappointed' },
-                          ]})
-                        .room-details__impressions-legend
+                        +votesChart({
+                          legendItems: [
+                            { text: 'Великолепно', itemModifier: 'perfectly', classForJs: 'js-chart-legend-perfectly' },
+                            { text: 'Хорошо', itemModifier: 'well', classForJs: 'js-chart-legend-well' },
+                            { text: 'Удовлетворительно', itemModifier: 'satisfactory', classForJs: 'js-chart-legend-satisfactory' },
+                            { text: 'Разочарован', itemModifier: 'disappointed', classForJs: 'js-chart-legend-disappointed' },
+                        ]})
                   .room-details__room-info-wrapper
                     .room-details__room-comments 
                       .room-details__room-comments-heading

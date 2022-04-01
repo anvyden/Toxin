@@ -1,7 +1,8 @@
+import declination from '@form-elements/dropdown/utils/declination'
+
 class Chart {
   constructor(params) {
     this.params = params
-    this.chartParams = {}
     this._render(params)
   }
 
@@ -43,13 +44,84 @@ class Chart {
     return this.chartParams
   }
 
+  handleLineClick() {
+    this.lines = Object.values(this._getLines())
+    this.clickHandlerLine = this.clickHandlerLine.bind(this)
+    this.lines.forEach((line) => {
+      line.addEventListener('click', this.clickHandlerLine)
+    })
+  }
+
+  clickHandlerLine(event) {
+    const { target } = event
+    const { votesCount, votesText, votesWrapper } = this._getVotes()
+    const {
+      perfectly,
+      well,
+      satisfactory,
+      disappointed,
+      total,
+    } = this.params
+    console.log(target)
+    target.classList.toggle('votes-chart__chart-item--active')
+
+    if (this.currentTarget === undefined) {
+      this.currentTarget = target
+    } else if (this.currentTarget !== target) {
+      this.currentTarget.classList.remove('votes-chart__chart-item--active')
+      votesWrapper.classList = 'votes-chart__chart-votes-wrapper js-chart-votes-wrapper'
+      this.currentTarget = target
+    }
+
+    switch (true) {
+      case target.classList.contains('js-chart-item-votes-perfectly'):
+        this.pasteVotes(perfectly, votesText, votesCount)
+        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--perfectly')
+        break
+      case target.classList.contains('js-chart-item-votes-well'):
+        this.pasteVotes(well, votesText, votesCount)
+        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--well')
+        break
+      case target.classList.contains('js-chart-item-votes-satisfactory'):
+        this.pasteVotes(satisfactory, votesText, votesCount)
+        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--satisfactory')
+        break
+      case target.classList.contains('js-chart-item-votes-disappointed'):
+        this.pasteVotes(disappointed, votesText, votesCount)
+        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--disappointed')
+        break
+      default:
+        this.pasteVotes(total, votesText, votesCount)
+    }
+
+    if (!this.lines.find((line) => line.classList.contains('votes-chart__chart-item--active'))) {
+      this.pasteVotes(total, votesText, votesCount)
+    }
+  }
+
+  pasteVotes(votes, votesText, votesCount) {
+    this.votesTextElements = {
+      count: votesCount,
+      text: votesText,
+    }
+
+    const names = ['голос', 'голоса', 'голосов']
+    const votesTextDeclination = declination(votes, names)
+
+    this.votesTextElements.count.innerHTML = votes
+    this.votesTextElements.text.innerHTML = votesTextDeclination
+  }
+
   _render(params) {
     const {
       chartVotesPerfectly,
       chartVotesWell,
       chartVotesSatisfactory,
       chartVotesDisappointed,
-    } = this._getElements()
+    } = this._getLines()
+
+    const { votesCount } = this._getVotes()
+    const { total } = params
 
     const {
       disappointedStrokeDasharray,
@@ -71,22 +143,36 @@ class Chart {
     chartVotesSatisfactory.setAttribute('stroke-dashoffset', satisfactoryStrokeDashoffset)
     chartVotesWell.setAttribute('stroke-dashoffset', wellStrokeDashoffset)
     chartVotesPerfectly.setAttribute('stroke-dashoffset', perfectlyStrokeDashoffset)
+
+    votesCount.innerHTML = total
+
+    this.handleLineClick()
   }
 
-  _getElements() {
+  _getLines() {
     const chartVotesPerfectly = document.querySelector('.js-chart-item-votes-perfectly')
     const chartVotesWell = document.querySelector('.js-chart-item-votes-well')
     const chartVotesSatisfactory = document.querySelector('.js-chart-item-votes-satisfactory')
     const chartVotesDisappointed = document.querySelector('.js-chart-item-votes-disappointed')
 
-    this.chartItems = {
+    this.chartLines = {
       chartVotesPerfectly,
       chartVotesWell,
       chartVotesSatisfactory,
       chartVotesDisappointed,
     }
 
-    return this.chartItems
+    return this.chartLines
+  }
+
+  _getVotes() {
+    this.chartVotes = {
+      votesCount: document.querySelector('.js-chart-votes-count'),
+      votesText: document.querySelector('.js-chart-votes-text'),
+      votesWrapper: document.querySelector('.js-chart-votes-wrapper'),
+    }
+
+    return this.chartVotes
   }
 }
 

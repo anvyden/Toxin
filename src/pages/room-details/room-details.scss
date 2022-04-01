@@ -143,7 +143,7 @@
 @media screen and (max-width: 1023px) {
   .room-details__room-info-wrapper {
     justify-content: space-between;
-    margin-bottom: rem(16);
+    margin-bottom: rem(25);
   }
 }
 
@@ -164,6 +164,18 @@
 
 .room-details__impressions {
   margin-left: rem(106);
+}
+
+@media screen and (max-width: 768px) {
+  .room-details__impressions {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .room-details__impressions {
+    margin-top: rem(25);
+  }
 }
 
 .room-details__impressions-chart-wrapper {

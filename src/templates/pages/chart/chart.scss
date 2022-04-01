@@ -20,12 +20,19 @@
   display: block;
   width: 120px;
   height: 120px;
+  clip-path: circle(50%);
   animation: chartRotation 60s linear infinite;
 }
 
 .votes-chart__chart-item {
   fill: none;
   outline: none;
+  cursor: pointer;
+  transition: 0.5s stroke-width ease;
+}
+
+.votes-chart__chart-item--active {
+  stroke-width: 24px;
 }
 
 .primary-gradient--start {
@@ -58,7 +65,22 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.votes-chart__chart-votes-wrapper--perfectly {
+  color: $yellow;
+}
+
+.votes-chart__chart-votes-wrapper--well {
+  color: $green;
+}
+
+.votes-chart__chart-votes-wrapper--satisfactory {
   color: $purple;
+}
+
+.votes-chart__chart-votes-wrapper--disappointed {
+  color: $black;
 }
 
 .votes-chart__chart-votes-count {
