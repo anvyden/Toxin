@@ -16,8 +16,8 @@ const roomInfo = {
 
 const chartParams = {
   perfectly: 510,
-  well: 231,
-  satisfactory: 234,
+  well: 240,
+  satisfactory: 240,
   disappointed: 0,
   total: 990,
 }

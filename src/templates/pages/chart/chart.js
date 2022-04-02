@@ -56,39 +56,118 @@ class Chart {
     const { target } = event
     const { votesCount, votesText, votesWrapper } = this._getVotes()
     const {
+      legendItemPerfectly,
+      legendItemWell,
+      legendItemSatisfactory,
+      legendItemDisappointed,
+    } = this._getLegendItems()
+
+    const {
       perfectly,
       well,
       satisfactory,
       disappointed,
       total,
     } = this.params
-    console.log(target)
+
     target.classList.toggle('votes-chart__chart-item--active')
 
-    if (this.currentTarget === undefined) {
-      this.currentTarget = target
-    } else if (this.currentTarget !== target) {
-      this.currentTarget.classList.remove('votes-chart__chart-item--active')
+    if (this.currentLine === undefined) {
+      this.currentLine = target
+    } else if (this.currentLine !== target) {
+      this.currentLine.classList.remove('votes-chart__chart-item--active')
       votesWrapper.classList = 'votes-chart__chart-votes-wrapper js-chart-votes-wrapper'
-      this.currentTarget = target
+      this.currentLine = target
     }
 
     switch (true) {
       case target.classList.contains('js-chart-item-votes-perfectly'):
         this.pasteVotes(perfectly, votesText, votesCount)
         votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--perfectly')
+        this.currentLegend = legendItemPerfectly
         break
       case target.classList.contains('js-chart-item-votes-well'):
         this.pasteVotes(well, votesText, votesCount)
         votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--well')
+        this.currentLegend = legendItemWell
         break
       case target.classList.contains('js-chart-item-votes-satisfactory'):
         this.pasteVotes(satisfactory, votesText, votesCount)
         votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--satisfactory')
+        this.currentLegend = legendItemSatisfactory
         break
       case target.classList.contains('js-chart-item-votes-disappointed'):
         this.pasteVotes(disappointed, votesText, votesCount)
         votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--disappointed')
+        this.currentLegend = legendItemDisappointed
+        break
+      default:
+        this.pasteVotes(total, votesText, votesCount)
+    }
+
+    if (!this.lines.find((line) => line.classList.contains('votes-chart__chart-item--active'))) {
+      this.pasteVotes(total, votesText, votesCount)
+    }
+  }
+
+  handleLegendItemClick() {
+    this.legendItems = Object.values(this._getLegendItems())
+    this.clickHandlerLegendItem = this.clickHandlerLegendItem.bind(this)
+    this.legendItems.forEach((item) => {
+      item.addEventListener('click', this.clickHandlerLegendItem)
+    })
+  }
+
+  clickHandlerLegendItem(event) {
+    const { target } = event
+    const {
+      chartVotesPerfectly,
+      chartVotesWell,
+      chartVotesSatisfactory,
+      chartVotesDisappointed,
+    } = this._getLines()
+
+    const { votesCount, votesText, votesWrapper } = this._getVotes()
+    const {
+      perfectly,
+      well,
+      satisfactory,
+      disappointed,
+      total,
+    } = this.params
+
+    if (this.currentLegend === undefined) {
+      this.currentLegend = target
+    } else if (this.currentLegend !== target) {
+      this.currentLine.classList.remove('votes-chart__chart-item--active')
+      votesWrapper.classList = 'votes-chart__chart-votes-wrapper js-chart-votes-wrapper'
+      this.currentLegend = target
+    }
+
+    switch (true) {
+      case target.classList.contains('js-chart-legend-perfectly'):
+        this.pasteVotes(perfectly, votesText, votesCount)
+        chartVotesPerfectly.classList.toggle('votes-chart__chart-item--active')
+        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--perfectly')
+        this.currentLine = chartVotesPerfectly
+        break
+      case target.classList.contains('js-chart-legend-well'):
+        this.pasteVotes(well, votesText, votesCount)
+        chartVotesWell.classList.toggle('votes-chart__chart-item--active')
+        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--well')
+        this.currentLine = chartVotesWell
+        break
+      case target.classList.contains('js-chart-legend-satisfactory'):
+        this.pasteVotes(satisfactory, votesText, votesCount)
+        chartVotesSatisfactory.classList.toggle('votes-chart__chart-item--active')
+        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--satisfactory')
+        this.currentLine = chartVotesSatisfactory
+        break
+      case target.classList.contains('js-chart-legend-disappointed'):
+        this.pasteVotes(disappointed, votesText, votesCount)
+        chartVotesDisappointed.classList.toggle('votes-chart__chart-item--active')
+        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--disappointed')
+        this.currentLine = chartVotesDisappointed
         break
       default:
         this.pasteVotes(total, votesText, votesCount)
@@ -147,6 +226,7 @@ class Chart {
     votesCount.innerHTML = total
 
     this.handleLineClick()
+    this.handleLegendItemClick()
   }
 
   _getLines() {
@@ -173,6 +253,17 @@ class Chart {
     }
 
     return this.chartVotes
+  }
+
+  _getLegendItems() {
+    this.chartLegendItems = {
+      legendItemPerfectly: document.querySelector('.js-chart-legend-perfectly'),
+      legendItemWell: document.querySelector('.js-chart-legend-well'),
+      legendItemSatisfactory: document.querySelector('.js-chart-legend-satisfactory'),
+      legendItemDisappointed: document.querySelector('.js-chart-legend-disappointed'),
+    }
+
+    return this.chartLegendItems
   }
 }
 
