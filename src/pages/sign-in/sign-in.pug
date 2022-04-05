@@ -1,4 +1,4 @@
-extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
+extends ~/templates/pages/base/base
 include ~/templates/UI-kit/logo/logo
 include ~/templates/UI-kit/cards/sign-in-card/sign-in-card
 include ~/templates/UI-kit/headers-footers/header/header
@@ -17,15 +17,12 @@ block variables
       manifest: `static/favicon/active/site.webmanifest`,
       pinned: 'static/favicon/active/safari-pinned-tab.svg',
     }
+    const pageClass = 'sign-in'
+    const pageContainerClass = 'sign-in__container'
 
 block content
-  .sign-in
-    .sign-in__container
-      +header({ logoLink: './landing-page.html' })
-      main.main
-        section.main-section
-          .main-section__container 
-            .main-section__sign-in-card
-              +signInCard({ formAction: './landing-page.html', signUpButtonLink: './registration.html' })
-      +footer({})
-      +footer({ mobile: true })
+  main.main
+    section.main-section
+      .main-section__container 
+        .main-section__sign-in-card
+          +signInCard({ formAction: './landing-page.html', signUpButtonLink: './registration.html' })

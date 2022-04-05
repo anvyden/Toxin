@@ -1,6 +1,6 @@
 import declination from '@form-elements/dropdown/utils/declination'
 
-class Chart {
+class VotesPieChart {
   constructor(params) {
     this.params = params
     this._render(params)
@@ -267,4 +267,4 @@ class Chart {
   }
 }
 
-export default Chart
+export default VotesPieChart

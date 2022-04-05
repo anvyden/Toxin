@@ -46,8 +46,8 @@ mixin header(options)
             })
         if (!logIn)
           .header__authorization
-            +button({ text: 'Войти', isLink: true, variant: 'border', size: 'medium', link: 'change-me' })
-            +button({ text: 'Зарегистрироваться', isLink: true, size: 'medium', link: 'change-me' })
+            +button({ text: 'Войти', isLink: true, variant: 'border', size: 'medium', link: './sign-in.html' })
+            +button({ text: 'Зарегистрироваться', isLink: true, size: 'medium', link: './registration.html' })
         else
           .header__authorization-complete
             span.header__user='Юлий Цезарь'
@@ -94,8 +94,8 @@ mixin header(options)
             })
         if (!logIn)
           .header__burger-authorization
-            +button({ text: 'Войти', isLink: true, variant: 'border', size: 'medium', link: 'change-me' })
-            +button({ text: 'Зарегистрироваться', isLink: true, size: 'medium', link: 'change-me' })
+            +button({ text: 'Войти', isLink: true, variant: 'border', size: 'medium', link: './sign-in.html' })
+            +button({ text: 'Зарегистрироваться', isLink: true, size: 'medium', link: './registration.html' })
         else
           .header__burger-authorization-complete
             span.header__user='Юлий Цезарь'

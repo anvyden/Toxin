@@ -1,4 +1,4 @@
-extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
+extends ~/templates/pages/base/base
 include ~/templates/UI-kit/logo/logo
 include ~/templates/UI-kit/headers-footers/header/header
 include ~/templates/UI-kit/headers-footers/footer/footer
@@ -18,20 +18,17 @@ block variables
       manifest: `static/favicon/active/site.webmanifest`,
       pinned: 'static/favicon/active/safari-pinned-tab.svg',
     }
+    const pageClass = 'search-room'
+    const pageContainerClass = 'search-room__container'
 
 block content
-  .search-room
-    .search-room__container 
-      +header({ logoLink: './landing-page.html' })
-      main.main
-        .content 
-          .content__container
-            .content__sidebar.js-sidebar
-              +sidebar({})
-              .content__sidebar-button.js-sidebar-button
-            .content__rooms-wrapper
-              +rooms
-      +footer({})
-      +footer({ mobile: true })
+  main.main
+    .content 
+      .content__container
+        .content__sidebar.js-sidebar
+          +sidebar({})
+          .content__sidebar-button.js-sidebar-button
+        .content__rooms-wrapper
+          +rooms
 
     

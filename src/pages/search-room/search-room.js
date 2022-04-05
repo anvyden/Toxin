@@ -9,13 +9,15 @@ import Header from '@headers-footers/header/header'
 import DatepickerWithOneInput from '@cards/datepicker/datepicker-with-one-input'
 import Slider from '@libs/swiper/swiper'
 
-function initRoomsRatings() {
-  const roomsRatings = [5, 4, 3, 5, 4, 3, 5, 4, 3, 5, 3, 3]
-  const ratings = []
-  roomsRatings.forEach((rating, i) => {
-    ratings.push(new StarRating(`js-room-rating-${i}`, rating))
-  })
-  return ratings
+const searchRoomParams = {
+  initRoomsRatings: () => {
+    const roomsRatings = [5, 4, 3, 5, 4, 3, 5, 4, 3, 5, 3, 3]
+    const ratings = []
+    roomsRatings.forEach((rating, i) => {
+      ratings.push(new StarRating(`js-room-rating-${i}`, rating))
+    })
+    return ratings
+  },
 }
 
 class SearchRoom {
@@ -36,42 +38,44 @@ class SearchRoom {
   }
 }
 
-const init = {
-  menu: new Menu(),
-  header: new Header(),
-  dropdownDate: new DatepickerWithOneInput(
-    {
-      datepickerSelectors: {
-        input: document.querySelector('.js-input-date-selecter'),
+const init = (function () {
+  return {
+    menu: new Menu(),
+    header: new Header(),
+    dropdownDate: new DatepickerWithOneInput(
+      {
+        datepickerSelectors: {
+          input: document.querySelector('.js-input-date-selecter'),
+        },
       },
-    },
-  ),
-  dropdownGuests: new Dropdown('js-dropdown-guests', {
-    dropdownButtons: true,
-    combineTwoFirstItems: true,
-  }),
-  rangeSlider: new RangeSlider({
-    sliderSelectors: {
-      slider: '.js-range-slider',
-      price: '.js-range-slider-price',
-    },
-    min: 0,
-    max: 15000,
-    minStartPrice: 5000,
-    maxStartPrice: 10000,
-  }),
-  dropdownComfort: new Dropdown('js-dropdown-comfort'),
-  checkboxListComfort: new CheckboxList('js-checkbox-list-comfort'),
-  rooms: {
-    roomSlider: new Slider('.swiper'),
-    roomRating: initRoomsRatings(),
-    roomPagination: new Pagination('js-rooms-pagination', {
-      countOfItems: 180,
-      itemsPerPage: 12,
+    ),
+    dropdownGuests: new Dropdown('js-dropdown-guests', {
+      dropdownButtons: true,
+      combineTwoFirstItems: true,
     }),
-  },
-  SearchRoom: new SearchRoom({
-    button: document.querySelector('.js-sidebar-button'),
-    sidebar: document.querySelector('.js-sidebar'),
-  }),
-}
+    rangeSlider: new RangeSlider({
+      sliderSelectors: {
+        slider: '.js-range-slider',
+        price: '.js-range-slider-price',
+      },
+      min: 0,
+      max: 15000,
+      minStartPrice: 5000,
+      maxStartPrice: 10000,
+    }),
+    dropdownComfort: new Dropdown('js-dropdown-comfort'),
+    checkboxListComfort: new CheckboxList('js-checkbox-list-comfort'),
+    rooms: {
+      roomSlider: new Slider('.swiper'),
+      roomRating: searchRoomParams.initRoomsRatings(),
+      roomPagination: new Pagination('js-rooms-pagination', {
+        countOfItems: 180,
+        itemsPerPage: 12,
+      }),
+    },
+    searchRoom: new SearchRoom({
+      button: document.querySelector('.js-sidebar-button'),
+      sidebar: document.querySelector('.js-sidebar'),
+    }),
+  }
+}())

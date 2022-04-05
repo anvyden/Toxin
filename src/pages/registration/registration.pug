@@ -1,4 +1,4 @@
-extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
+extends ~/templates/pages/base/base
 include ~/templates/UI-kit/logo/logo
 include ~/templates/UI-kit/cards/sign-up-card/sign-up-card
 include ~/templates/UI-kit/headers-footers/header/header
@@ -17,15 +17,12 @@ block variables
       manifest: `static/favicon/active/site.webmanifest`,
       pinned: 'static/favicon/active/safari-pinned-tab.svg',
     }
+    const pageClass = 'registration'
+    const pageContainerClass = 'registration__container'
 
 block content
-  .registration 
-    .registration__container
-      +header({ logoLink: './landing-page.html' })
-      main.main
-        section.main-section
-          .main-section__container 
-            .main-section__sign-up-card
-              +signUpCard({ buttonText: 'Зарегистрироваться', formAction: './landing-page.html', logInButtonLink: './sign-in.html' })
-      +footer({})
-      +footer({ mobile: true })
+  main.main
+    section.main-section
+      .main-section__container 
+        .main-section__sign-up-card
+          +signUpCard({ buttonText: 'Зарегистрироваться', formAction: './landing-page.html', logInButtonLink: './sign-in.html' })

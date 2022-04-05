@@ -16,9 +16,15 @@
 @import '@headers-footers/copyright-bar/copyright-bar';
 
 .main {
-  background: url('./sign-in-background.jpg') no-repeat;
+  background: url('./img/sign-in-background.jpg') no-repeat;
   background-size: cover;
   background-position: 50% -70px;
+}
+
+@media screen and (max-width: 1439px) {
+  .main {
+    background-position: center;
+  }
 }
 
 .main-section {

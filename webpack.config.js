@@ -211,7 +211,7 @@ module.exports = {
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'room-details.html',
+    index: 'headers-footers.html',
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),

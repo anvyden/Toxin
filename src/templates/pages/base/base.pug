@@ -17,5 +17,9 @@ html(lang="ru")
     link(rel="manifest", href=faviconPaths.manifest)
     link(rel="mask-icon", href=faviconPaths.pinned, color="#5bbad5")
     title #{title}
-  body 
-    block content
+  body
+    div(class=pageClass)
+      div(class=pageContainerClass)
+        +header({ logoLink: './landing-page.html' })
+        block content
+        +footer({ logoLink: './landing-page.html' })
