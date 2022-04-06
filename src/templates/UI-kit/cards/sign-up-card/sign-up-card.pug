@@ -25,10 +25,23 @@ mixin signUpCard(options)
                 { text: 'Женщина', name: 'sex', value: 'woman' }
               ]})
         .sign-up-card__date-birth 
-          +textField({ type: 'text', hasTitle: true, title: 'дата рождения', placeholder: 'ДД.ММ.ГГГГ', name: 'birthday', classForJs: 'js-masked-text-field' })
+          +textField({
+            type: 'text',
+            hasTitle: true,
+            title: 'дата рождения',
+            placeholder: 'ДД.ММ.ГГГГ',
+            name: 'birthday',
+            classForJs: 'js-masked-text-field'
+          })
         .sign-up-card__data-login 
           .sign-up-card__email 
-            +textField({ type: 'email', hasTitle: true, title: 'данные для входа в сервис', placeholder: 'Email', name: 'email' })
+            +textField({
+              type: 'email',
+              hasTitle: true,
+              title: 'данные для входа в сервис',
+              placeholder: 'Email',
+              name: 'email'
+            })
           .sign-up-card__password 
             +textField({ type: 'password', placeholder: 'Пароль', name: 'password' })
           .sign-up-card__special-offers 

@@ -105,5 +105,14 @@ block content
                     +text({ text: 'Отмена', type: 'h2', color: 'dark-shade-100', bold: true })
                   span.room-details__room-cancel-text='Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.'
             .room-details__room-booking
-              +bookingCard({ luxe: true, dropdownClassForJs: 'js-booking-card-dropdown', firstInputClassForJs: 'js-booking-card-input-1', secondInputClassForJs: 'js-booking-card-input-2', guestsClassForJs: 'js-booking-card-guests', firstInputName: 'bookingCardFirstInput', secondInputName: 'bookingCardSecondInput', guestsName: 'bookingCardGuests' })
+              +bookingCard({
+                luxe: true,
+                dropdownClassForJs: 'js-booking-card-dropdown',
+                firstInputClassForJs: 'js-booking-card-input-1',
+                secondInputClassForJs: 'js-booking-card-input-2',
+                guestsClassForJs: 'js-booking-card-guests',
+                firstInputName: 'bookingCardFirstInput',
+                secondInputName: 'bookingCardSecondInput',
+                guestsName: 'bookingCardGuests'
+              })
   

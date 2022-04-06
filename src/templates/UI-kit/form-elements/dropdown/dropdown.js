@@ -3,7 +3,7 @@ import findItemNames from './utils/findItemNames'
 
 class Dropdown {
   constructor(selector, options) {
-    this.dropdown = document.querySelector(`.${selector}`)
+    this.dropdown = document.querySelector(`${selector}`)
     this.selector = selector
     this.options = options !== undefined ? options : {}
     this.itemsValue = []
@@ -120,16 +120,16 @@ class Dropdown {
 
   _getElements() {
     const { dropdownButtons = false } = this.options
-    this.itemsButtons = document.querySelectorAll(`.${this.selector} .dropdown__item-button`)
-    this.items = document.querySelectorAll(`.${this.selector} .dropdown__item`)
-    this.dropdownDefault = document.querySelector(`.${this.selector} .dropdown__dropdown-default`)
-    this.dropdownExpanded = document.querySelector(`.${this.selector} .dropdown__dropdown-expanded`)
-    this.itemsNames = document.querySelectorAll(`.${this.selector} .dropdown__item-name`)
-    this.itemsCounters = document.querySelectorAll(`.${this.selector} .dropdown__item-counter`)
-    this.dropdownInput = document.querySelector(`.${this.selector} .dropdown__input`)
-    this.dropdownButtonArrow = document.querySelector(`.${this.selector} .dropdown__button`)
+    this.itemsButtons = document.querySelectorAll(`${this.selector} .dropdown__item-button`)
+    this.items = document.querySelectorAll(`${this.selector} .dropdown__item`)
+    this.dropdownDefault = document.querySelector(`${this.selector} .dropdown__dropdown-default`)
+    this.dropdownExpanded = document.querySelector(`${this.selector} .dropdown__dropdown-expanded`)
+    this.itemsNames = document.querySelectorAll(`${this.selector} .dropdown__item-name`)
+    this.itemsCounters = document.querySelectorAll(`${this.selector} .dropdown__item-counter`)
+    this.dropdownInput = document.querySelector(`${this.selector} .dropdown__input`)
+    this.dropdownButtonArrow = document.querySelector(`${this.selector} .dropdown__button`)
     if (dropdownButtons) {
-      this.dropdownButtons = document.querySelectorAll(`.${this.selector} .js-dropdown-button`)
+      this.dropdownButtons = document.querySelectorAll(`${this.selector} .js-dropdown-button`)
     }
   }
 

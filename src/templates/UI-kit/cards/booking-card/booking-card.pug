@@ -21,15 +21,39 @@ mixin bookingCard(options)
               #[span.booking-card__room-price-value 9 990₽]
               #[span.booking-card__room-price-day в сутки]
         .booking-card__date-picker 
-          +dropdown({ text: 'прибытие', placeholder: 'ДД.ММ.ГГГГ', name: firstInputName, value: '19.08.2019', smallSize: true, classForJs: dropdownClassForJs, inputClassForJs: firstInputClassForJs })
-          +dropdown({ text: 'выезд', placeholder: 'ДД.ММ.ГГГГ', name: secondInputName, value: '23.08.2019', smallSize: true, classForJs: dropdownClassForJs, inputClassForJs: secondInputClassForJs })
+          +dropdown({
+            text: 'прибытие',
+            placeholder: 'ДД.ММ.ГГГГ',
+            name: firstInputName,
+            value: '19.08.2019',
+            smallSize: true,
+            classForJs: dropdownClassForJs,
+            inputClassForJs: firstInputClassForJs
+          })
+          +dropdown({
+            text: 'выезд',
+            placeholder: 'ДД.ММ.ГГГГ',
+            name: secondInputName,
+            value: '23.08.2019',
+            smallSize: true,
+            classForJs: dropdownClassForJs,
+            inputClassForJs: secondInputClassForJs
+          })
         .booking-card__dropdown-guests 
-          +dropdown({ text: 'гости', expanded: true, withButtons: true, placeholder: 'Сколько гостей', name: guestsName, value: '3 гостя', classForJs: guestsClassForJs,
-          items: [
-            { itemName: 'взрослые', itemCounter: '2' },
-            { itemName: 'дети', itemCounter: '1' },
-            { itemName: 'младенцы', itemCounter: '0' },
-          ]})
+          +dropdown({
+            text: 'гости',
+            expanded: true,
+            withButtons: true,
+            placeholder: 'Сколько гостей',
+            name: guestsName,
+            value: '3 гостя',
+            classForJs: guestsClassForJs,
+            items: [
+              { itemName: 'взрослые', itemCounter: '2' },
+              { itemName: 'дети', itemCounter: '1' },
+              { itemName: 'младенцы', itemCounter: '0' },
+            ]
+          })
         .booking-card__calculate-price 
           .booking-card__calculate-price-item
             p.booking-card__days-text='9 990₽ х 4 суток'

@@ -1,6 +1,6 @@
 class Pagination {
   constructor(selector, options) {
-    this.pagination = document.querySelector(`.${selector}`)
+    this.pagination = document.querySelector(`${selector}`)
     this.options = options
     this.selector = selector
     this.dataValue = 1
@@ -45,7 +45,7 @@ class Pagination {
   }
 
   getPage() {
-    this.page = document.querySelector(`.${this.selector} [data-value="${this.dataValue}"]`)
+    this.page = document.querySelector(`${this.selector} [data-value="${this.dataValue}"]`)
   }
 
   addActivePage() {

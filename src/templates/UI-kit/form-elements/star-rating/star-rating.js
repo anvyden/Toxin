@@ -1,6 +1,6 @@
 class StarRating {
   constructor(selector, score) {
-    this.starRating = document.querySelector(`.${selector}`)
+    this.starRating = document.querySelector(`${selector}`)
     this.score = score
     this._render()
   }

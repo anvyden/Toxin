@@ -1,6 +1,6 @@
 class CheckboxList {
   constructor(selector) {
-    this.checkbox = document.querySelector(`.${selector}`)
+    this.checkbox = document.querySelector(`${selector}`)
     this.selector = selector
     this._render()
   }
@@ -26,9 +26,9 @@ class CheckboxList {
   }
 
   _getElements() {
-    this.checkboxHeading = document.querySelector(`.${this.selector} .checkbox-list__expandable-heading`)
-    this.checkboxButtons = document.querySelector(`.${this.selector} .checkbox-list__list`)
-    this.checkboxButtonArrow = document.querySelector(`.${this.selector} .checkbox-list__expandable-heading-button`)
+    this.checkboxHeading = document.querySelector(`${this.selector} .checkbox-list__expandable-heading`)
+    this.checkboxButtons = document.querySelector(`${this.selector} .checkbox-list__list`)
+    this.checkboxButtonArrow = document.querySelector(`${this.selector} .checkbox-list__expandable-heading-button`)
   }
 
   _switchArrow() {

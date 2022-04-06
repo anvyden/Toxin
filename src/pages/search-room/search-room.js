@@ -14,7 +14,7 @@ const searchRoomParams = {
     const roomsRatings = [5, 4, 3, 5, 4, 3, 5, 4, 3, 5, 3, 3]
     const ratings = []
     roomsRatings.forEach((rating, i) => {
-      ratings.push(new StarRating(`js-room-rating-${i}`, rating))
+      ratings.push(new StarRating(`.js-room-rating-${i}`, rating))
     })
     return ratings
   },
@@ -49,7 +49,7 @@ const init = (function () {
         },
       },
     ),
-    dropdownGuests: new Dropdown('js-dropdown-guests', {
+    dropdownGuests: new Dropdown('.js-dropdown-guests', {
       dropdownButtons: true,
       combineTwoFirstItems: true,
     }),
@@ -63,12 +63,12 @@ const init = (function () {
       minStartPrice: 5000,
       maxStartPrice: 10000,
     }),
-    dropdownComfort: new Dropdown('js-dropdown-comfort'),
-    checkboxListComfort: new CheckboxList('js-checkbox-list-comfort'),
+    dropdownComfort: new Dropdown('.js-dropdown-comfort'),
+    checkboxListComfort: new CheckboxList('.js-checkbox-list-comfort'),
     rooms: {
       roomSlider: new Slider('.swiper'),
       roomRating: searchRoomParams.initRoomsRatings(),
-      roomPagination: new Pagination('js-rooms-pagination', {
+      roomPagination: new Pagination('.js-rooms-pagination', {
         countOfItems: 180,
         itemsPerPage: 12,
       }),

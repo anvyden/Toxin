@@ -8,7 +8,8 @@ mixin controls()
   .controls
     .controls__container
       .controls__checkbox-buttons
-        +checkboxList({ title: 'checkbox buttons',
+        +checkboxList({
+          title: 'checkbox buttons',
           items: [
             { text: 'Можно курить', name: 'smoke'},
             { text: 'Можно с питомцами', name: 'pets', isChecked: true},

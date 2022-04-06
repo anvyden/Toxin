@@ -5,27 +5,59 @@ mixin dropdowns()
     .dropdowns__container 
       .dropdowns__services
         .dropdowns__dropdown-default
-          +dropdown({ text: 'dropdown', subtitle: 'default', withStraightBorders: true, value: '2 спальни, 2 кровати...' })
+          +dropdown({
+            text: 'dropdown',
+            subtitle: 'default',
+            withStraightBorders: true,
+            value: '2 спальни, 2 кровати...'
+          })
         .dropdowns__dropdown-expanded 
-          +dropdown({ text: 'dropdown', subtitle: 'expanded', classForJs: 'js-dropdown-1', expanded: true, expandedVisible: true, expandedBlock: true, value: '2 спальни, 2 кровати...', placeholder: '2 спальни, 2 кровати...',
-          items: [
-            { itemName: 'спальни', itemCounter: '2' },
-            { itemName: 'кровати', itemCounter: '2' },
-            { itemName: 'ванные комнаты', itemCounter: '0' },
-          ]})
+          +dropdown({
+            text: 'dropdown',
+            subtitle: 'expanded',
+            classForJs: 'js-dropdown-1',
+            expanded: true,
+            expandedVisible: true,
+            expandedBlock: true,
+            value: '2 спальни, 2 кровати...',
+            placeholder: '2 спальни, 2 кровати...',
+            items: [
+              { itemName: 'спальни', itemCounter: '2' },
+              { itemName: 'кровати', itemCounter: '2' },
+              { itemName: 'ванные комнаты', itemCounter: '0' },
+            ]
+          })
       .dropdowns__guests
         .dropdowns__dropdown-guests
-          +dropdown({ text: 'dropdown', classForJs: 'js-dropdown-guests-1', expanded: true, expandedVisible: true, expandedBlock: true, withButtons: true, value: 'Сколько гостей', placeholder: 'Сколько гостей',
-          items: [
-            { itemName: 'взрослые', itemCounter: '0' },
-            { itemName: 'дети', itemCounter: '0' },
-            { itemName: 'младенцы', itemCounter: '0' },
-          ]})
+          +dropdown({
+            text: 'dropdown',
+            classForJs: 'js-dropdown-guests-1',
+            expanded: true,
+            expandedVisible: true,
+            expandedBlock: true,
+            withButtons: true,
+            value: 'Сколько гостей',
+            placeholder: 'Сколько гостей',
+            items: [
+              { itemName: 'взрослые', itemCounter: '0' },
+              { itemName: 'дети', itemCounter: '0' },
+              { itemName: 'младенцы', itemCounter: '0' },
+            ]
+          })
         .dropdowns__dropdown-guests-selected
-          +dropdown({ text: 'dropdown', classForJs: 'js-dropdown-guests-2', expanded: true, expandedVisible: true, expandedBlock: true, withButtons: true, value: '3 гостя', placeholder: 'Сколько гостей',
-          items: [
-            { itemName: 'взрослые', itemCounter: '2' },
-            { itemName: 'дети', itemCounter: '1' },
-            { itemName: 'младенцы', itemCounter: '0' },
-          ]})
+          +dropdown({
+            text: 'dropdown',
+            classForJs: 'js-dropdown-guests-2',
+            expanded: true,
+            expandedVisible: true,
+            expandedBlock: true,
+            withButtons: true,
+            value: '3 гостя',
+            placeholder: 'Сколько гостей',
+            items: [
+              { itemName: 'взрослые', itemCounter: '2' },
+              { itemName: 'дети', itemCounter: '1' },
+              { itemName: 'младенцы', itemCounter: '0' },
+            ]
+          })
         

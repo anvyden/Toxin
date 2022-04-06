@@ -9,7 +9,7 @@ const init = (function () {
     header: new Header(),
     menu: new Menu(),
     findRoomCardOpts: {
-      guests: new Dropdown('js-landing-page-guests', {
+      guests: new Dropdown('.js-landing-page-guests', {
         maxLength: {
           item0: 5,
           item1: 10,

@@ -9,60 +9,92 @@ mixin sidebar(options)
   aside.sidebar 
     .sidebar__container
       .sidebar__item
-        +dropdown({ text: 'Даты пребывания в отеле', value: '19 авг - 23 авг', name: 'dates', placeholder: 'Выберите даты', hasLower: true, inputClassForJs: 'js-input-date-selecter', classForJs: 'js-dropdown-date-selecter' })
+        +dropdown({
+          text: 'Даты пребывания в отеле',
+          value: '19 авг - 23 авг',
+          name: 'dates',
+          placeholder: 'Выберите даты',
+          hasLower: true,
+          inputClassForJs: 'js-input-date-selecter',
+          classForJs: 'js-dropdown-date-selecter'
+        })
       .sidebar__item
-        +dropdown({ text: 'Гости', value: '3 гостя, 1 младенец', name: 'guests', placeholder: 'Сколько гостей', expanded: true, withButtons: true, classForJs: 'js-dropdown-guests',
-        items: [
-          { itemName: 'Взрослые', itemCounter: '2' },
-          { itemName: 'Дети', itemCounter: '1' },
-          { itemName: 'Младенцы', itemCounter: '1' },
-        ]})
+        +dropdown({
+          text: 'Гости',
+          value: '3 гостя, 1 младенец',
+          name: 'guests',
+          placeholder: 'Сколько гостей',
+          expanded: true,
+          withButtons: true,
+          classForJs: 'js-dropdown-guests',
+          items: [
+            { itemName: 'Взрослые', itemCounter: '2' },
+            { itemName: 'Дети', itemCounter: '1' },
+            { itemName: 'Младенцы', itemCounter: '1' },
+          ]
+        })
       .sidebar__item
         +rangeSlider({ text: 'Диапазон цены', sliderClassForJs: 'js-range-slider', priceClassForJs: 'js-range-slider-price' })
         span.sidebar__range-slider-description='Стоимость за сутки пребывания в номере'
       .sidebar__item
-        +checkboxList({ title: 'Правила дома',
-        items: [
-          { text: 'Можно курить', name: 'smoke' },
-          { text: 'Можно с питомцами', name: 'pets', isChecked: true },
-          { text: 'Можно пригласить гостей (до 10 человек)', name: 'inviteGuests', isChecked: true },
-        ]})
+        +checkboxList({ 
+          title: 'Правила дома',
+          items: [
+            { text: 'Можно курить', name: 'smoke' },
+            { text: 'Можно с питомцами', name: 'pets', isChecked: true },
+            { text: 'Можно пригласить гостей (до 10 человек)', name: 'inviteGuests', isChecked: true },
+          ]
+        })
       .sidebar__item
-        +checkboxList({ title: 'Доступность', wideCheckboxItems: true,
-        items: [
-          {
-            text: 'Широкий коридор',
-            description: `Ширина коридоров в номере
-              не менее 91 см.`,
-            textBold: true,
-            color: 'dark-shade-75',
-            name: 'wideСorridor',
-          },
-          {
-            text: 'Помощник для инвалидов',
-            description: `На 1 этаже вас встретит специалист
-              и проводит до номера.`,
-            color: 'dark-shade-75',
-            textBold: true,
-            name: 'assistantForDisabled',
-          },
-        ]})
+        +checkboxList({
+          title: 'Доступность',
+          wideCheckboxItems: true,
+          items: [
+            {
+              text: 'Широкий коридор',
+              description: `Ширина коридоров в номере
+                не менее 91 см.`,
+              textBold: true,
+              color: 'dark-shade-75',
+              name: 'wideСorridor',
+            },
+            {
+              text: 'Помощник для инвалидов',
+              description: `На 1 этаже вас встретит специалист
+                и проводит до номера.`,
+              color: 'dark-shade-75',
+              textBold: true,
+              name: 'assistantForDisabled',
+            },
+          ]
+        })
       .sidebar__item
-        +dropdown({ text: 'Удобства номера', value: '2 спальни, 2 кровати...', name: 'comfort', placeholder: 'Выберите удобства номера', expanded: true, classForJs: 'js-dropdown-comfort',
-        items: [
-          { itemName: 'Спальни', itemCounter: '2' },
-          { itemName: 'Кровати', itemCounter: '2' },
-          { itemName: 'Ванные комнаты', itemCounter: '0' },
-        ]})
+        +dropdown({
+          text: 'Удобства номера',
+          value: '2 спальни, 2 кровати...',
+          name: 'comfort',
+          placeholder: 'Выберите удобства номера',
+          expanded: true,
+          classForJs: 'js-dropdown-comfort',
+          items: [
+            { itemName: 'Спальни', itemCounter: '2' },
+            { itemName: 'Кровати', itemCounter: '2' },
+            { itemName: 'Ванные комнаты', itemCounter: '0' },
+          ]
+        })
       .sidebar__item
-        +checkboxList({ title: 'Дополнительные удобства', expandable: true, classForJs: 'js-checkbox-list-comfort',
-        items: [
-          { text: 'Завтрак', name: 'breakfast' },
-          { text: 'Письменный стол', name: 'table', isChecked: true },
-          { text: 'Стул для кормления', name: 'feedingChair', isChecked: true },
-          { text: 'Кроватка', name: 'crib', isChecked: true },
-          { text: 'Телевизор', name: 'TV1' },
-          { text: 'Шампунь', name: 'shampoo1' },
-          { text: 'Телевизор', name: 'TV2' },
-          { text: 'Шампунь', name: 'shampoo2' },
-        ]})
+        +checkboxList({
+          title: 'Дополнительные удобства',
+          expandable: true,
+          classForJs: 'js-checkbox-list-comfort',
+          items: [
+            { text: 'Завтрак', name: 'breakfast' },
+            { text: 'Письменный стол', name: 'table', isChecked: true },
+            { text: 'Стул для кормления', name: 'feedingChair', isChecked: true },
+            { text: 'Кроватка', name: 'crib', isChecked: true },
+            { text: 'Телевизор', name: 'TV1' },
+            { text: 'Шампунь', name: 'shampoo1' },
+            { text: 'Телевизор', name: 'TV2' },
+            { text: 'Шампунь', name: 'shampoo2' },
+          ]
+        })

@@ -37,7 +37,7 @@ const init = (function () {
       },
       roomDetailsParams.roomInfo,
     ),
-    dropdownGuests: new Dropdown('js-booking-card-guests', {
+    dropdownGuests: new Dropdown('.js-booking-card-guests', {
       dropdownButtons: true,
       combineTwoFirstItems: true,
     }),

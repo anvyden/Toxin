@@ -27,12 +27,29 @@ block content
     .cards__container
       .cards__wrapper
         .cards__find-room-card 
-          +findRoomCard({ dropdownClassForJs: 'js-find-room-datepicker-dropdown', firstInputClassForJs: 'js-find-room-datepicker-1', secondInputClassForJs: 'js-find-room-datepicker-2', guestsClassForJs: 'js-find-room-guests', firstInputName: 'findRoomStartDate', secondInputName: 'findRoomFinishDate', guestsName: 'findRoomGuests' })
+          +findRoomCard({
+            dropdownClassForJs: 'js-find-room-datepicker-dropdown',
+            firstInputClassForJs: 'js-find-room-datepicker-1',
+            secondInputClassForJs: 'js-find-room-datepicker-2',
+            guestsClassForJs: 'js-find-room-guests',
+            firstInputName: 'findRoomStartDate',
+            secondInputName: 'findRoomFinishDate',
+            guestsName: 'findRoomGuests'
+          })
         .cards__sing-up-card
           +signUpCard({ logInButtonLink: 'change-me', buttonText: 'Перейти к оплате' })
       .cards__wrapper
         .cards__booking-card 
-          +bookingCard({ luxe: true, dropdownClassForJs: 'js-booking-room-datepicker-dropdown', firstInputClassForJs: 'js-booking-card-datepicker-1', secondInputClassForJs: 'js-booking-card-datepicker-2', guestsClassForJs: 'js-booking-card-guests', firstInputName: 'bookingRoomStartDate', secondInputName: 'bookingRoomFinishDate', guestsName: 'bookingRoomGuests' })
+          +bookingCard({
+            luxe: true,
+            dropdownClassForJs: 'js-booking-room-datepicker-dropdown',
+            firstInputClassForJs: 'js-booking-card-datepicker-1',
+            secondInputClassForJs: 'js-booking-card-datepicker-2',
+            guestsClassForJs: 'js-booking-card-guests',
+            firstInputName: 'bookingRoomStartDate',
+            secondInputName: 'bookingRoomFinishDate',
+            guestsName: 'bookingRoomGuests'
+          })
         .cards__sing-in-card 
           +signInCard({ signUpButtonLink: 'change-me' })
       .cards__wrapper 
@@ -40,20 +57,29 @@ block content
           +datepicker({ classForJs: 'js-datepicker' })
         .cards__room-cards
           .cards__room-card
-            +roomCard({ roomNumber: '888', roomPrice: '9 990₽', roomReviews: '145', luxe: true, ratingClassForJs: 'js-room-rating-1',
-            roomImgs: [
-              '/src/templates/UI-kit/cards/room-card/img/room-888.jpg',
-              '/src/templates/UI-kit/cards/room-card/img/room-888.jpg',
-              '/src/templates/UI-kit/cards/room-card/img/room-888.jpg',
-              '/src/templates/UI-kit/cards/room-card/img/room-888.jpg',
+            +roomCard({
+              roomNumber: '888',
+              roomPrice: '9 990₽',
+              roomReviews: '145',
+              luxe: true,
+              ratingClassForJs: 'js-room-rating-1',
+              roomImgs: [
+                '/src/templates/UI-kit/cards/room-card/img/room-888.jpg',
+                '/src/templates/UI-kit/cards/room-card/img/room-888.jpg',
+                '/src/templates/UI-kit/cards/room-card/img/room-888.jpg',
+                '/src/templates/UI-kit/cards/room-card/img/room-888.jpg',
               ]
             })
           .cards__room-card
-            +roomCard({ roomNumber: '840', roomPrice: '9 900₽', roomReviews: '65', ratingClassForJs: 'js-room-rating-2',
-            roomImgs: [
-              '/src/templates/UI-kit/cards/room-card/img/room-840.jpg',
-              '/src/templates/UI-kit/cards/room-card/img/room-840.jpg',
-              '/src/templates/UI-kit/cards/room-card/img/room-840.jpg',
-              '/src/templates/UI-kit/cards/room-card/img/room-840.jpg',
+            +roomCard({
+              roomNumber: '840',
+              roomPrice: '9 900₽',
+              roomReviews: '65',
+              ratingClassForJs: 'js-room-rating-2',
+              roomImgs: [
+                '/src/templates/UI-kit/cards/room-card/img/room-840.jpg',
+                '/src/templates/UI-kit/cards/room-card/img/room-840.jpg',
+                '/src/templates/UI-kit/cards/room-card/img/room-840.jpg',
+                '/src/templates/UI-kit/cards/room-card/img/room-840.jpg',
               ]
             })

@@ -41,7 +41,7 @@ const cardsParams = {
 const init = (function () {
   return {
     findRoomCardOpts: {
-      findRoomGuests: new Dropdown('js-find-room-guests', {
+      findRoomGuests: new Dropdown('.js-find-room-guests', {
         maxLength: {
           item0: 5,
           item1: 10,
@@ -61,7 +61,7 @@ const init = (function () {
       ),
     },
     bookingCardOpts: {
-      bookingCardGuests: new Dropdown('js-booking-card-guests', {
+      bookingCardGuests: new Dropdown('.js-booking-card-guests', {
         maxLength: {
           item0: 5,
           item1: 10,
@@ -85,8 +85,8 @@ const init = (function () {
     },
     datepickerStatic: new AirDatepicker('.js-datepicker', cardsParams.datepickerStaticOpts),
     roomCards: {
-      roomRating1: new StarRating('js-room-rating-1', 5),
-      roomRating2: new StarRating('js-room-rating-2', 4),
+      roomRating1: new StarRating('.js-room-rating-1', 5),
+      roomRating2: new StarRating('.js-room-rating-2', 4),
       cardSlider: new Slider('.swiper'),
     },
   }

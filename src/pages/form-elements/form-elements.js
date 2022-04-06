@@ -9,23 +9,14 @@ import CheckboxList from '@form-elements/checkbox-list/checkbox-list'
 
 const init = (function () {
   return {
-    dropdown1: new Dropdown('js-dropdown-1', {
+    dropdown1: new Dropdown('.js-dropdown-1', {
       maxLength: {
         item0: 10,
         item1: 15,
         item2: 6,
       },
     }),
-    dropdown2: new Dropdown('js-dropdown-guests-1', {
-      maxLength: {
-        item0: 10,
-        item1: 15,
-        item2: 6,
-      },
-      dropdownButtons: true,
-      combineTwoFirstItems: true,
-    }),
-    dropdown3: new Dropdown('js-dropdown-guests-2', {
+    dropdown2: new Dropdown('.js-dropdown-guests-1', {
       maxLength: {
         item0: 10,
         item1: 15,
@@ -34,8 +25,17 @@ const init = (function () {
       dropdownButtons: true,
       combineTwoFirstItems: true,
     }),
-    starRating1: new StarRating('js-star-rating-1', 4),
-    starRating2: new StarRating('js-star-rating-1', 5),
+    dropdown3: new Dropdown('.js-dropdown-guests-2', {
+      maxLength: {
+        item0: 10,
+        item1: 15,
+        item2: 6,
+      },
+      dropdownButtons: true,
+      combineTwoFirstItems: true,
+    }),
+    starRating1: new StarRating('.js-star-rating-1', 4),
+    starRating2: new StarRating('.js-star-rating-2', 5),
     rangeSlider: new RangeSlider({
       sliderSelectors: {
         slider: '.js-range-slider',
@@ -46,10 +46,10 @@ const init = (function () {
       minStartPrice: 5000,
       maxStartPrice: 10000,
     }),
-    pagination: new Pagination('js-pagination', {
+    pagination: new Pagination('.js-pagination', {
       countOfItems: 180,
       itemsPerPage: 12,
     }),
-    expandableCheckboxList: new CheckboxList('js-expandable-checkbox'),
+    expandableCheckboxList: new CheckboxList('.js-expandable-checkbox'),
   }
 }())

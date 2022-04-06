@@ -23,8 +23,9 @@
 
 .like-button__button::before {
   position: absolute;
-  top: 30%;
-  left: 10.5%;
+  top: 50%;
+  left: 11%;
+  transform: translate(0, -50%);
 
   content: 'favorite_border';
   font-family: 'Material Icons', Arial, sans-serif;
