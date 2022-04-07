@@ -55,7 +55,7 @@ const init = (function () {
           datepickerSelectors: {
             input: document.querySelector('.js-find-room-datepicker-1'),
             inputSecond: document.querySelector('.js-find-room-datepicker-2'),
-            datepickerDropdowns: document.querySelectorAll('.js-find-room-datepicker-dropdown .dropdown__dropdown-default'),
+            datepickerDropdowns: document.querySelectorAll('.js-find-room-datepicker-dropdown .js-dropdown__dropdown-default'),
           },
         },
       ),
@@ -75,7 +75,7 @@ const init = (function () {
           datepickerSelectors: {
             input: document.querySelector('.js-booking-card-datepicker-1'),
             inputSecond: document.querySelector('.js-booking-card-datepicker-2'),
-            datepickerDropdowns: document.querySelectorAll('.js-booking-room-datepicker-dropdown .dropdown__dropdown-default'),
+            datepickerDropdowns: document.querySelectorAll('.js-booking-room-datepicker-dropdown .js-dropdown__dropdown-default'),
           },
           dates: ['2019-08-19', '2019-08-23'],
         },

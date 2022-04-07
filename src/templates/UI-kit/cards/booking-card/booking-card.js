@@ -59,14 +59,14 @@ class BookingCard {
   }
 
   _getElemetns() {
-    this.roomNumber = document.querySelector('.booking-card__room-number-value')
-    this.roomPrice = document.querySelector('.booking-card__room-price-value')
-    this.PriceInDays = document.querySelector('.booking-card__days-text')
-    this.sumPriceInDays = document.querySelector('.booking-card__days-sum')
-    this.servicesPrice = document.querySelector('.booking-card__services-text')
-    this.servicesSumPrice = document.querySelector('.booking-card__services-sum')
-    this.additionalServicesSum = document.querySelector('.booking-card__additional-services-sum')
-    this.totalSum = document.querySelector('.booking-card__total-sum')
+    this.roomNumber = document.querySelector('.js-booking-card__room-number-value')
+    this.roomPrice = document.querySelector('.js-booking-card__room-price-value')
+    this.PriceInDays = document.querySelector('.js-booking-card__days-text')
+    this.sumPriceInDays = document.querySelector('.js-booking-card__days-sum')
+    this.servicesPrice = document.querySelector('.js-booking-card__services-text')
+    this.servicesSumPrice = document.querySelector('.js-booking-card__services-sum')
+    this.additionalServicesSum = document.querySelector('.js-booking-card__additional-services-sum')
+    this.totalSum = document.querySelector('.js-booking-card__total-sum')
   }
 }
 

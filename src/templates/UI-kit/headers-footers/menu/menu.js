@@ -2,7 +2,7 @@ class Menu {
   constructor() {
     this.subMenuLists = document.querySelectorAll('.js-sub-menu')
     this.subMenus = []
-    this.menuItems = document.querySelectorAll('.js-menu-item')
+    this.menuItems = document.querySelectorAll('.js-menu__item')
     this._getSubMenus(this.subMenuLists)
     this.handleSubMenuClick(this.subMenus)
     this.handleMenuItemKeyup(this.menuItems)
@@ -47,7 +47,7 @@ class Menu {
       const { target } = event
       const [...itemElements] = target.children
 
-      if (itemElements.find((elem) => elem.classList.contains('menu__item-link-wrapper'))) {
+      if (itemElements.find((elem) => elem.classList.contains('js-menu__item-link-wrapper'))) {
         this._findSubMenuElements(itemElements)
         this.subMenuList.classList.toggle('sub-menu--visible')
         this.subMenuArrow.classList.toggle('menu__item-arrow--expanded')
@@ -62,7 +62,7 @@ class Menu {
           this.currentTargetArrow = this.subMenuArrow
         }
 
-        this.subMenuItems = document.querySelectorAll('.js-sub-menu-item')
+        this.subMenuItems = document.querySelectorAll('.js-sub-menu__item')
         this.keyupHandlerSubMenuItem = this.keyupHandlerSubMenuItem.bind(this)
 
         if (this.subMenuList.classList.contains('sub-menu--visible')) {
@@ -76,7 +76,7 @@ class Menu {
         }
       } else {
         itemElements.forEach((elem) => {
-          if (elem.classList.contains('menu__item-link')) {
+          if (elem.classList.contains('js-menu__item-link')) {
             this.itemLink = elem
           }
         })
@@ -95,7 +95,7 @@ class Menu {
       const [...itemElements] = target.children
 
       itemElements.forEach((elem) => {
-        if (elem.classList.contains('sub-menu__item-link')) {
+        if (elem.classList.contains('js-sub-menu__item-link')) {
           this.itemLink = elem
         }
       })
@@ -109,12 +109,12 @@ class Menu {
 
   _findSubMenuElements(subMenuElements) {
     subMenuElements.forEach((elem) => {
-      if (elem.classList.contains('sub-menu')) {
+      if (elem.classList.contains('js-sub-menu')) {
         this.subMenuList = elem
-      } else if (elem.classList.contains('menu__item-link-wrapper')) {
+      } else if (elem.classList.contains('js-menu__item-link-wrapper')) {
         const items = [...elem.children]
         items.forEach((item) => {
-          if (item.classList.contains('menu__item-arrow')) {
+          if (item.classList.contains('js-menu__item-arrow')) {
             this.subMenuArrow = item
           }
         })

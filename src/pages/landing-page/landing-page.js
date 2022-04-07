@@ -23,7 +23,7 @@ const init = (function () {
           datepickerSelectors: {
             input: document.querySelector('.js-landing-page-datepicker-1'),
             inputSecond: document.querySelector('.js-landing-page-datepicker-2'),
-            datepickerDropdowns: document.querySelectorAll('.js-landing-page-datepicker-dropdown .dropdown__dropdown-default'),
+            datepickerDropdowns: document.querySelectorAll('.js-landing-page-datepicker-dropdown .js-dropdown__dropdown-default'),
           },
         },
       ),

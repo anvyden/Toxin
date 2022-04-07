@@ -66,11 +66,11 @@ class Pagination {
   }
 
   get isArrowPrev() {
-    return this.arrowButton.classList.contains('pagination__arrow-prev')
+    return this.arrowButton.classList.contains('js-pagination__arrow-prev')
   }
 
   get isArrowNext() {
-    return this.arrowButton.classList.contains('pagination__arrow-next')
+    return this.arrowButton.classList.contains('js-pagination__arrow-next')
   }
 
   destroy() {
@@ -193,7 +193,7 @@ class Pagination {
   _getArrowPrev() {
     this._getArrow()
     this.arrowLink = document.createElement('a')
-    this.arrowLink.classList.add('pagination__item-link', 'material-icons', 'pagination__arrow-prev')
+    this.arrowLink.classList.add('pagination__item-link', 'material-icons', 'pagination__arrow-prev', 'js-pagination__arrow-prev')
     this.arrowLink.innerHTML = 'arrow_back'
     this.handleArrowButtonClick(this.arrowLink)
     this.arrow.appendChild(this.arrowLink)
@@ -204,7 +204,7 @@ class Pagination {
   _getArrowNext() {
     this._getArrow()
     this.arrowLink = document.createElement('a')
-    this.arrowLink.classList.add('pagination__item-link', 'material-icons', 'pagination__arrow-next')
+    this.arrowLink.classList.add('pagination__item-link', 'material-icons', 'pagination__arrow-next', 'js-pagination__arrow-next')
     this.arrowLink.innerHTML = 'arrow_forward'
     this.handleArrowButtonClick(this.arrowLink)
     this.arrow.appendChild(this.arrowLink)

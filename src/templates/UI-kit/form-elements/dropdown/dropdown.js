@@ -120,16 +120,16 @@ class Dropdown {
 
   _getElements() {
     const { dropdownButtons = false } = this.options
-    this.itemsButtons = document.querySelectorAll(`${this.selector} .dropdown__item-button`)
-    this.items = document.querySelectorAll(`${this.selector} .dropdown__item`)
-    this.dropdownDefault = document.querySelector(`${this.selector} .dropdown__dropdown-default`)
-    this.dropdownExpanded = document.querySelector(`${this.selector} .dropdown__dropdown-expanded`)
-    this.itemsNames = document.querySelectorAll(`${this.selector} .dropdown__item-name`)
-    this.itemsCounters = document.querySelectorAll(`${this.selector} .dropdown__item-counter`)
-    this.dropdownInput = document.querySelector(`${this.selector} .dropdown__input`)
-    this.dropdownButtonArrow = document.querySelector(`${this.selector} .dropdown__button`)
+    this.itemsButtons = document.querySelectorAll(`${this.selector} .js-dropdown__item-button`)
+    this.items = document.querySelectorAll(`${this.selector} .js-dropdown__item`)
+    this.dropdownDefault = document.querySelector(`${this.selector} .js-dropdown__dropdown-default`)
+    this.dropdownExpanded = document.querySelector(`${this.selector} .js-dropdown__dropdown-expanded`)
+    this.itemsNames = document.querySelectorAll(`${this.selector} .js-dropdown__item-name`)
+    this.itemsCounters = document.querySelectorAll(`${this.selector} .js-dropdown__item-counter`)
+    this.dropdownInput = document.querySelector(`${this.selector} .js-dropdown__input`)
+    this.dropdownButtonArrow = document.querySelector(`${this.selector} .js-dropdown__arrow-button`)
     if (dropdownButtons) {
-      this.dropdownButtons = document.querySelectorAll(`${this.selector} .js-dropdown-button`)
+      this.dropdownButtons = document.querySelectorAll(`${this.selector} .js-dropdown__button`)
     }
   }
 
@@ -160,7 +160,7 @@ class Dropdown {
 
   _getItemValueOnClick(event) {
     this.target = event.target
-    this.item = this.target.closest('.dropdown__item')
+    this.item = this.target.closest('.js-dropdown__item')
     this.itemNumber = Number(this.item.dataset.dropdownItem)
     this.itemCounter = this.itemsCounters[this.itemNumber]
     this.itemNameValue = this.itemsNames[this.itemNumber].innerHTML.toLowerCase()

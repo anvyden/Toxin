@@ -16,27 +16,18 @@ class CheckboxList {
 
   toggle() {
     this.checkboxButtons.classList.toggle('checkbox-list__list--hidden')
-    this._switchArrow()
+    this.checkboxButtonArrow.classList.toggle('checkbox-list__expandable-heading-button--rotate')
   }
 
   _render() {
     this._getElements()
     this.handleCheckboxClick()
-    this._switchArrow()
   }
 
   _getElements() {
-    this.checkboxHeading = document.querySelector(`${this.selector} .checkbox-list__expandable-heading`)
-    this.checkboxButtons = document.querySelector(`${this.selector} .checkbox-list__list`)
-    this.checkboxButtonArrow = document.querySelector(`${this.selector} .checkbox-list__expandable-heading-button`)
-  }
-
-  _switchArrow() {
-    if (!this.checkboxButtons.classList.contains('checkbox-list__list--hidden')) {
-      this.checkboxButtonArrow.classList.add('checkbox-list__expandable-heading-button--rotate')
-    } else {
-      this.checkboxButtonArrow.classList.remove('checkbox-list__expandable-heading-button--rotate')
-    }
+    this.checkboxHeading = document.querySelector(`${this.selector} .js-checkbox-list__expandable-heading`)
+    this.checkboxButtons = document.querySelector(`${this.selector} .js-checkbox-list__list`)
+    this.checkboxButtonArrow = document.querySelector(`${this.selector} .js-checkbox-list__expandable-heading-button`)
   }
 }
 

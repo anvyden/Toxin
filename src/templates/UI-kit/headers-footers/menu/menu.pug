@@ -5,7 +5,7 @@ mixin menu(options)
   .menu
     -
       let menuListClass = 'menu__list'
-      let menulistItemClass = 'menu__item' + ' js-menu-item'
+      let menulistItemClass = 'menu__item' + ' js-menu__item'
       
       if (column) {
         menuListClass += ' menu__list--column'
@@ -16,8 +16,8 @@ mixin menu(options)
         each item in items  
           -
             const { linkText, link, isActive, subMenu, subItems } = item 
-            let menuLinkClass = 'menu__item-link'
-            let arrowClass = 'menu__item-arrow'
+            let menuLinkClass = 'menu__item-link js-menu__item-link'
+            let arrowClass = 'menu__item-arrow js-menu__item-arrow'
 
             if (isActive) {
               menuLinkClass += ' menu__item-link--active'
@@ -29,10 +29,10 @@ mixin menu(options)
 
           li(class=menulistItemClass, tabindex='0')
             if (!subMenu)
-              a(class=menuLinkClass, href=link, tabindex='-1')= linkText
+              a(class=menuLinkClass href=link tabindex='-1')= linkText
             else
-              .menu__item-link-wrapper
-                a(class=menuLinkClass, href=link, tabindex='-1')= linkText
+              .menu__item-link-wrapper.js-menu__item-link-wrapper
+                a(class=menuLinkClass href=link tabindex='-1')= linkText
                 span(class=arrowClass)='expand_more'
             if (subMenu)
               .sub-menu.js-sub-menu
@@ -40,7 +40,7 @@ mixin menu(options)
                   each subItem in subItems 
                     -
                       const { subLinkText, subLink } = subItem 
-                      let subMenuLinkClass = 'sub-menu__item-link'
+                      let subMenuLinkClass = 'sub-menu__item-link js-sub-menu__item-link'
                     
-                    li(class='sub-menu__item js-sub-menu-item', tabindex='0')
-                      a(class=subMenuLinkClass, href=subLink, tabindex='-1')= subLinkText
+                    li(class='sub-menu__item js-sub-menu__item' tabindex='0')
+                      a(class=subMenuLinkClass href=subLink tabindex='-1')= subLinkText

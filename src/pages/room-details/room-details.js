@@ -32,7 +32,7 @@ const init = (function () {
         datepickerSelectors: {
           input: document.querySelector('.js-booking-card-input-1'),
           inputSecond: document.querySelector('.js-booking-card-input-2'),
-          datepickerDropdowns: document.querySelectorAll('.js-booking-card-dropdown .dropdown__dropdown-default'),
+          datepickerDropdowns: document.querySelectorAll('.js-booking-card-dropdown .js-dropdown__dropdown-default'),
         },
       },
       roomDetailsParams.roomInfo,
