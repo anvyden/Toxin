@@ -33,7 +33,7 @@
 **Clone repository:**
 
 ```bash
-  git clone https://github.com/yarlykov/hotel_toxin.git
+  git clone https://github.com/anvyden/Toxin.git
 ```
 
 `npm install` - **installing dependencies**

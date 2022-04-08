@@ -50,6 +50,7 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.25.4",
     "file-loader": "^6.2.0",
+    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.5.0",
     "image-minimizer-webpack-plugin": "^3.2.3",
     "imagemin": "^8.0.1",
