@@ -11,6 +11,7 @@
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "start": "cross-env NODE_ENV=development webpack serve --mode development --open firefox",
+    "deploy": "npm run build && gh-pages -d dist",
     "stats": "webpack --json > stats.json && webpack-bundle-analyzer stats.json"
   },
   "browserslist": [
@@ -18,8 +19,16 @@
     "not dead",
     "last 3 versions"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anvyden/Toxin.git"
+  },
   "author": "Denis <anvyden@gmail.com>",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anvyden/Toxin/issues"
+  },
+  "homepage": "https://github.com/anvyden/Toxin#readme.md",
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/plugin-proposal-class-properties": "^7.16.0",
