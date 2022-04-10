@@ -15,7 +15,7 @@
 
 В проекте выполнен _Ui Kit_, который состоит из четырех отдельных страниц:
 
-- [**Colors & Types**](https://anvyden.github.io/Toxin/colors-types.html)
+- [**Colors & Types**](https://anvyden.github.io/Toxin/colors-type.html)
 - [**Headers & Footers**](https://anvyden.github.io/Toxin/headers-footers.html)
 - [**Form & Elements**](https://anvyden.github.io/Toxin/form-elements.html)
 - [**Cards**](https://anvyden.github.io/Toxin/cards.html)

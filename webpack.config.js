@@ -19,6 +19,8 @@ const PATHS = {
   assets: 'assets/'
 }
 
+console.log(__dirname)
+
 const getFiles = (dir, filetype) => {
   return dir.map(folder => {
     const folderPath = `${PAGES_DIR}/${folder}`
@@ -211,7 +213,7 @@ module.exports = {
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'landing-page.html',
+    index: 'search-room.html',
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),
@@ -222,7 +224,7 @@ module.exports = {
         use: {
           loader: 'pug-loader',
           options: {
-            pretty: isDev
+            pretty: isDev,
           }
         }
       },

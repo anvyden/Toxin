@@ -31,10 +31,10 @@ block content
       .content__container 
         .room-details__room-imgs
           .room-details__room-img-primary
-            img(class='content__room-img content__room-img-1' src='/src/pages/room-details/img/room-img-1.jpg' alt='Фото комнаты')
+            img(class='content__room-img content__room-img-1' src=require('~/pages/room-details/img/room-img-1.jpg') alt='Фото комнаты')
           .room-details__room-img-secondary
-            img(class='content__room-img content__room-img-2' src='/src/pages/room-details/img/room-img-2.jpg' alt='Фото комнаты')
-            img(class='content__room-img content__room-img-3' src='/src/pages/room-details/img/room-img-3.jpg' alt='Фото комнаты')
+            img(class='content__room-img content__room-img-2' src=require('~/pages/room-details/img/room-img-2.jpg') alt='Фото комнаты')
+            img(class='content__room-img content__room-img-3' src=require('~/pages/room-details/img/room-img-3.jpg') alt='Фото комнаты')
         section.room-details__room-content 
           .room-details__room-content-wrapper 
             .room-details__room-info
@@ -70,7 +70,7 @@ block content
                       items: [
                         {
                           name: 'Мурад Сарафанов',
-                          avatar: '/src/pages/room-details/img/murad.jpg',
+                          avatar: 'murad.jpg',
                           time: '5 дней назад',
                           likeButtonCount: '12',
                           likeButtonIsActived: true,
@@ -80,7 +80,7 @@ block content
                         },
                         {
                           name: 'Патрисия Стёклышкова',
-                          avatar: '/src/pages/room-details/img/patrisiya.jpg',
+                          avatar: 'patrisiya.jpg',
                           time: 'Неделю назад',
                           likeButtonCount: '2',
                           likeButtonName: 'likeButton2',
