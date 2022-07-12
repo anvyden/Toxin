@@ -1,10 +1,10 @@
-extends ~/templates/pages/base/base
-include ~/templates/UI-kit/logo/logo
-include ~/templates/UI-kit/headers-footers/header/header
-include ~/templates/UI-kit/headers-footers/footer/footer
-include ~/templates/UI-kit/headers-footers/copyright-bar/copyright-bar
-include ~/templates/pages/sidebar/sidebar
-include ~/templates/pages/rooms/rooms
+extends ~/components/pages/base/base
+include ~/components/logo/logo
+include ~/components/header/header
+include ~/components/footer/footer
+include ~/components/copyright-bar/copyright-bar
+include ~/components/pages/sidebar/sidebar
+include ~/components/pages/rooms/rooms
 
 block variables
   -
@@ -23,7 +23,7 @@ block variables
 
 block content
   main.main
-    .content 
+    .content
       .content__container
         .content__sidebar.js-sidebar
           +sidebar({})
@@ -31,4 +31,3 @@ block content
         .content__rooms-wrapper
           +rooms
 
-    

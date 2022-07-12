@@ -1,9 +1,9 @@
-extends ~/templates/pages/base/base
-include ~/templates/UI-kit/logo/logo
-include ~/templates/UI-kit/cards/find-room-card/find-room-card
-include ~/templates/UI-kit/headers-footers/header/header
-include ~/templates/UI-kit/headers-footers/footer/footer
-include ~/templates/UI-kit/headers-footers/copyright-bar/copyright-bar
+extends ~/components/pages/base/base
+include ~/components/logo/logo
+include ~/components/UI-kit/cards/find-room-card/find-room-card
+include ~/components/header/header
+include ~/components/footer/footer
+include ~/components/copyright-bar/copyright-bar
 
 block variables
   -
@@ -34,7 +34,7 @@ block content
             secondInputName: 'landingPageFinishDate',
             guestsName: 'landingPageGuests'
           })
-        .main-section__text-wrapper 
+        .main-section__text-wrapper
           span.main-section__text='Лучшие номера для вашей работы, отдыха и просто вдохновения'
-          
-        
+
+

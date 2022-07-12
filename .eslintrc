@@ -1,5 +1,6 @@
 {
   "parser": "babel-eslint",
+  "ignorePatterns": ["**/src/**/*.js"],
   "rules": {
     "no-unused-vars": "warn",
     "linebreak-style": 0,

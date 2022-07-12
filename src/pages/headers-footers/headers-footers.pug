@@ -1,8 +1,8 @@
-extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
-include ~/templates/UI-kit/logo/logo
-include ~/templates/UI-kit/headers-footers/header/header
-include ~/templates/UI-kit/headers-footers/footer/footer
-include ~/templates/UI-kit/headers-footers/copyright-bar/copyright-bar
+extends ~/components/UI-kit/base-UI-kit/base-UI-kit
+include ~/components/logo/logo
+include ~/components/header/header
+include ~/components/footer/footer
+include ~/components/copyright-bar/copyright-bar
 
 block variables
   -
@@ -17,13 +17,13 @@ block variables
       pinned: 'static/favicon/inactive/safari-pinned-tab.svg',
     }
 
-block content 
-  .headers-footers 
+block content
+  .headers-footers
     +logo({ active: false, posAbsolute: true })
     .headers-footers__container
       .headers-footers__header-not-logged
         +header({ logoLink: 'change-me', firstMenuItemActive: true })
-      .headers-footers__header-logged-in 
+      .headers-footers__header-logged-in
         +header({ logIn: true, logoLink: 'change-me', firstMenuItemActive: true })
       .headers-footers__footer
         +footer({})

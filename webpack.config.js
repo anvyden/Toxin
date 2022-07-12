@@ -32,7 +32,7 @@ const getFiles = (dir, filetype) => {
 
 const PAGES_DIR = `${PATHS.src}/pages`
 const PAGES_FOLDERS = fs.readdirSync(PAGES_DIR)
-const PAGES = getFiles(PAGES_FOLDERS, 'pug') 
+const PAGES = getFiles(PAGES_FOLDERS, 'pug')
 const PAGES_ENTRY_FILES = getFiles(PAGES_FOLDERS, 'js')
 const PAGES_ENTRYS = {}
 
@@ -88,7 +88,7 @@ const cssLoaders = extra => {
     {
       loader: MiniCssExtractPlugin.loader,
       options: {},
-    }, 
+    },
     'css-loader',
     {
       loader: 'postcss-loader',
@@ -114,7 +114,7 @@ const cssLoaders = extra => {
 const babelOptions = preset => {
   const opts = {
     presets: [
-      ['@babel/preset-env', 
+      ['@babel/preset-env',
         {
         useBuiltIns: 'usage',
         corejs: 3
@@ -197,13 +197,12 @@ module.exports = {
     extensions: ['.js', '.json', '.pug', '.scss'],
     alias: {
       '~': path.resolve(__dirname, 'src'),
-      '@colors-type': path.resolve(__dirname, 'src/templates/UI-kit/colors-type'),
-      '@form-elements': path.resolve(__dirname, 'src/templates/UI-kit/form-elements'),
+      '@colors-type': path.resolve(__dirname, 'src/components/UI-kit/colors-type'),
+      '@form-elements': path.resolve(__dirname, 'src/components/UI-kit/form-elements'),
       '@pages': path.resolve(__dirname, 'src/pages'),
-      '@cards': path.resolve(__dirname, 'src/templates/UI-kit/cards'),
-      '@headers-footers': path.resolve(__dirname, 'src/templates/UI-kit/headers-footers'),
+      '@cards': path.resolve(__dirname, 'src/components/UI-kit/cards'),
       '@libs': path.resolve(__dirname, 'src/libs'),
-      '@templates/pages': path.resolve(__dirname, 'src/templates/pages'),
+      '@components/pages': path.resolve(__dirname, 'src/components/pages'),
     }
   },
   optimization: optimization(),

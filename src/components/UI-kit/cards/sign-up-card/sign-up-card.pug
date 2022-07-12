@@ -1,0 +1,53 @@
+include ~/components/text/text
+include ~/components/UI-kit/form-elements/text-field/text-field
+include ~/components/UI-kit/form-elements/radio-button/radio-button
+include ~/components/UI-kit/form-elements/toggle-button/toggle-button
+include ~/components/UI-kit/form-elements/button/button
+
+mixin signUpCard(options)
+  -
+    const { logInButtonLink, formAction, formMethod, buttonText } = options
+
+  .sign-up-card
+    .sign-up-card__container
+      form(class='sign-up-card__form' action=formAction method=formMethod)
+        .sign-up-card__title
+          +text({ text: 'Регистрация аккаунта', type: 'h1', color: 'dark-shade-100', bold: true })
+        .sign-up-card__person
+          .sign-up-card__person-first-name
+            +textField({ type: 'text', placeholder: 'Имя', name: 'firstName' })
+          .sign-up-card__person-second-name
+            +textField({ type: 'text', placeholder: 'Фамилия', name: 'secondName' })
+          .sign-up-card__person-sex
+            +radioButtons({
+              items: [
+                { text: 'Мужчина', name: 'sex', value: 'man', isChecked: true },
+                { text: 'Женщина', name: 'sex', value: 'woman' }
+              ]})
+        .sign-up-card__date-birth
+          +textField({
+            type: 'text',
+            hasTitle: true,
+            title: 'дата рождения',
+            placeholder: 'ДД.ММ.ГГГГ',
+            name: 'birthday',
+            classForJs: 'js-masked-text-field'
+          })
+        .sign-up-card__data-login
+          .sign-up-card__email
+            +textField({
+              type: 'email',
+              hasTitle: true,
+              title: 'данные для входа в сервис',
+              placeholder: 'Email',
+              name: 'email'
+            })
+          .sign-up-card__password
+            +textField({ type: 'password', placeholder: 'Пароль', name: 'password' })
+          .sign-up-card__special-offers
+            +toggleButton({ text: 'Получать спецпредложения', name: 'specialOffers' })
+        .sign-up-card__button
+          +button({ text: buttonText, type: 'submit', variant: 'with-arrow' })
+        .sign-up-card__log-in
+          +text({ text: 'Уже есть аккаунт на Toxin', type: 'p', color: 'black' })
+          +button({ text: 'Войти', isLink: true, link: logInButtonLink, variant: 'border' })

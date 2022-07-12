@@ -3,9 +3,9 @@ import Dropdown from '@form-elements/dropdown/dropdown'
 import LikeButton from '@form-elements/like-button/like-button'
 import { Datepicker } from '@cards/datepicker/datepicker'
 import BookingCard from '@cards/booking-card/booking-card'
-import Menu from '@headers-footers/menu/menu'
-import Header from '@headers-footers/header/header'
-import VotesPieChart from '@templates/pages/votes-pie-chart/votes-pie-chart'
+import Menu from '~/components/menu/menu'
+import Header from '~/components/header/header'
+import VotesPieChart from '@components/pages/votes-pie-chart/votes-pie-chart'
 
 const roomDetailsParams = {
   roomInfo: {

@@ -1,6 +1,6 @@
-extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
-include ~/templates/UI-kit/logo/logo
-include ~/templates/UI-kit/text/text
+extends ~/components/UI-kit/base-UI-kit/base-UI-kit
+include ~/components/logo/logo
+include ~/components/text/text
 include ~/pages/form-elements/sections/fields/fields
 include ~/pages/form-elements/sections/controls/controls
 include ~/pages/form-elements/sections/buttons/buttons
@@ -21,7 +21,7 @@ block variables
       pinned: 'static/favicon/inactive/safari-pinned-tab.svg',
     }
 
-block content  
+block content
   .form-elements
     +logo({ active: false, posAbsolute: true })
     .form-elements__container

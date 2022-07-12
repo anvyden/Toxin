@@ -1,8 +1,8 @@
-include ~/templates/UI-kit/form-elements/checkbox-list/checkbox-list
-include ~/templates/UI-kit/form-elements/bullet-list/bullet-list
+include ~/components/UI-kit/form-elements/checkbox-list/checkbox-list
+include ~/components/UI-kit/form-elements/bullet-list/bullet-list
 
 mixin checkboxs()
-  .checkboxs 
+  .checkboxs
     .checkboxs__container
       .checkboxs__expandable-checkboxs
         .checkboxs__expandable-checkbox
@@ -25,11 +25,11 @@ mixin checkboxs()
             ]
           })
       .checkboxs__rich-checkboxs
-        +checkboxList({ title: 'rich checkbox buttons', wideCheckboxItems: true, 
+        +checkboxList({ title: 'rich checkbox buttons', wideCheckboxItems: true,
         items: [
           {
-            text: 'Широкий коридор', 
-            description: `Ширина коридоров в номере 
+            text: 'Широкий коридор',
+            description: `Ширина коридоров в номере
               не менее 91 см.`,
             textBold: true,
             color: 'dark-shade-75',

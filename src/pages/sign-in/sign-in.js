@@ -1,6 +1,6 @@
 import signIn from '@pages/sign-in/sign-in.scss'
-import Header from '@headers-footers/header/header'
-import Menu from '@headers-footers/menu/menu'
+import Header from '~/components/header/header'
+import Menu from '~/components/menu/menu'
 
 const init = (function () {
   return {

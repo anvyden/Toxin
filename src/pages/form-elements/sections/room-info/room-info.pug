@@ -1,16 +1,16 @@
-include ~/templates/UI-kit/form-elements/features/features
-include ~/templates/UI-kit/form-elements/comments/comments
+include ~/components/UI-kit/form-elements/features/features
+include ~/components/UI-kit/form-elements/comments/comments
 
 mixin room-info()
-  .room-info 
-    .room-info__container 
+  .room-info
+    .room-info__container
       .room-info__features
         +features({
           items: [
             { icon: 'insert_emoticon', title: 'Комфорт', description: 'Шумопоглощающие стены', withBorder: true },
             { icon: 'location_city', title: 'Удобство', description: 'Окно в каждой из спален', withBorder: true },
           ]})
-      .room-info__comments 
+      .room-info__comments
         +comments({
           items: [
             {
@@ -23,6 +23,5 @@ mixin room-info()
               likeButtonClassForJs: 'js-like-button' }
           ]
         })
-  
 
-      
+

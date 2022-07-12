@@ -1,6 +1,6 @@
-extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
-include ~/templates/UI-kit/colors-type/colors/colors
-include ~/templates/UI-kit/colors-type/type/type
+extends ~/components/UI-kit/base-UI-kit/base-UI-kit
+include ~/components/UI-kit/colors-type/colors/colors
+include ~/components/UI-kit/colors-type/type/type
 
 block variables
   -
@@ -15,7 +15,7 @@ block variables
       pinned: 'static/favicon/inactive/safari-pinned-tab.svg',
     }
 
-block content 
+block content
   +logo({ active: false, posAbsolute: true })
   .colors-types__container
     .colors

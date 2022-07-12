@@ -1,14 +1,14 @@
-extends ~/templates/pages/base/base
-include ~/templates/UI-kit/logo/logo
-include ~/templates/UI-kit/text/text
-include ~/templates/UI-kit/form-elements/features/features
-include ~/templates/UI-kit/form-elements/bullet-list/bullet-list
-include ~/templates/UI-kit/form-elements/comments/comments
-include ~/templates/UI-kit/cards/booking-card/booking-card
-include ~/templates/UI-kit/headers-footers/header/header
-include ~/templates/UI-kit/headers-footers/footer/footer
-include ~/templates/UI-kit/headers-footers/copyright-bar/copyright-bar
-include ~/templates/pages/votes-pie-chart/votes-pie-chart
+extends ~/components/pages/base/base
+include ~/components/logo/logo
+include ~/components/text/text
+include ~/components/UI-kit/form-elements/features/features
+include ~/components/UI-kit/form-elements/bullet-list/bullet-list
+include ~/components/UI-kit/form-elements/comments/comments
+include ~/components/UI-kit/cards/booking-card/booking-card
+include ~/components/header/header
+include ~/components/footer/footer
+include ~/components/copyright-bar/copyright-bar
+include ~/components/pages/votes-pie-chart/votes-pie-chart
 
 block variables
   -
@@ -26,33 +26,33 @@ block variables
     const pageContainerClass = 'room-details__container'
 
 block content
-  main.main 
-    .content 
-      .content__container 
+  main.main
+    .content
+      .content__container
         .room-details__room-imgs
           .room-details__room-img-primary
             img(class='content__room-img content__room-img-1' src=require('~/pages/room-details/img/room-img-1.jpg') alt='Фото комнаты')
           .room-details__room-img-secondary
             img(class='content__room-img content__room-img-2' src=require('~/pages/room-details/img/room-img-2.jpg') alt='Фото комнаты')
             img(class='content__room-img content__room-img-3' src=require('~/pages/room-details/img/room-img-3.jpg') alt='Фото комнаты')
-        section.room-details__room-content 
-          .room-details__room-content-wrapper 
+        section.room-details__room-content
+          .room-details__room-content-wrapper
             .room-details__room-info
               .room-details__room-info-wrapper
                 .room-details__room-features
                   .room-details__room-features-title
                     +text({ text: 'Сведения о номере', type: 'h2', color: 'dark-shade-100', bold: true })
                   .room-details__room-features-list
-                    +features({ 
+                    +features({
                       items: [
                         { icon: 'insert_emoticon', title: 'Комфорт', description: 'Шумопоглощающие стены', withBorder: true },
                         { icon: 'location_city', title: 'Удобство', description: 'Окно в каждой из спален', withBorder: true },
                         { icon: 'whatshot', title: 'Уют', description: 'Номер оснащён камином' },
                     ]})
                 .room-details__impressions
-                  .room-details__impressions-title 
+                  .room-details__impressions-title
                     +text({ text: 'Впечатления от номера', type: 'h2', color: 'dark-shade-100', bold: true })
-                  .room-details__impressions-chart-wrapper 
+                  .room-details__impressions-chart-wrapper
                     +votesPieChart({
                       legendItems: [
                         { text: 'Великолепно', itemModifier: 'perfectly', classForJs: 'js-chart-legend-perfectly' },
@@ -61,7 +61,7 @@ block content
                         { text: 'Разочарован', itemModifier: 'disappointed', classForJs: 'js-chart-legend-disappointed' },
                     ]})
               .room-details__room-info-wrapper
-                .room-details__room-comments 
+                .room-details__room-comments
                   .room-details__room-comments-heading
                     +text({ text: 'Отзывы посетителей номера', type: 'h2', color: 'dark-shade-100', bold: true })
                     +text({ text: '2 отзыва', type: 'p', color: 'dark-shade-50' })
@@ -115,4 +115,4 @@ block content
                 secondInputName: 'bookingCardSecondInput',
                 guestsName: 'bookingCardGuests'
               })
-  
+

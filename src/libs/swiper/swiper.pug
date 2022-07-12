@@ -12,12 +12,12 @@ mixin slider(options)
     if (classForAllSlides) {
       slideClass += ` ${classForAllSlides}`
     }
-    
+
   .swiper.slider
     .swiper-wrapper.slider-wrapper
       each item in items
         -
-          const { classForImg, classForSlide, src, alt } = item 
+          const { classForImg, classForSlide, src, alt } = item
 
           if (classForImg) {
             sliderImgClass += ` ${classForImg}`
@@ -27,8 +27,8 @@ mixin slider(options)
             slideClass += ` ${classForSlide}`
           }
 
-        div(class=slideClass) 
-          img(class=sliderImgClass src=require(`~/templates/UI-kit/cards/room-card/img/${src}`) alt=alt)
+        div(class=slideClass)
+          img(class=sliderImgClass src=require(`~/components/UI-kit/cards/room-card/img/${src}`) alt=alt)
     if (pagination)
       .swiper-pagination.slider__pagination
     if (navigation)

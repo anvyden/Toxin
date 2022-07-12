@@ -4,8 +4,8 @@
 @import '~/scss/variables';
 @import '~/scss/mixins';
 @import '~/scss/settings';
-@import '~/templates/UI-kit/logo/logo';
-@import '~/templates/UI-kit/text/text';
+@import '~/components/logo/logo';
+@import '~/components/text/text';
 
 .form-elements__container {
   max-width: 1440px;

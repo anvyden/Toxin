@@ -1,0 +1,72 @@
+include ~/components/text/text
+include ~/components/UI-kit/form-elements/button/button
+
+mixin dropdown(options)
+  -
+    const { text, subtitle, value, name, placeholder, expanded, expandedVisible, expandedBlock, withStraightBorders, withButtons, hasLower, items, smallSize, classForJs, inputClassForJs } = options
+
+    let dropdownClass = 'dropdown'
+    let dropdownInputClass = 'dropdown__input dropdown__input--focused dropdown__input--hovered js-dropdown__input'
+    let dropdownButtonClass = 'dropdown__arrow-button material-icons js-dropdown__arrow-button'
+    let dropdownItemClass = 'dropdown__item js-dropdown__item'
+    let dropdownExpandedClass = 'dropdown__dropdown-expanded js-dropdown__dropdown-expanded'
+    let dropdownItemNameClass = 'dropdown__item-name js-dropdown__item-name'
+    let dropdownItemCounterClass = 'dropdown__item-counter js-dropdown__item-counter'
+
+    if (smallSize) {
+      dropdownClass += ' dropdown--size-small'
+    }
+
+    if (classForJs) {
+      dropdownClass += ` ${classForJs}`
+    }
+
+    if (inputClassForJs) {
+      dropdownInputClass += ` ${inputClassForJs}`
+    }
+
+    if (withStraightBorders) {
+      dropdownInputClass += ' dropdown__input--with-straight-borders'
+    }
+
+    if (!expandedBlock) {
+      dropdownExpandedClass += ' dropdown__dropdown-expanded--absolute'
+    }
+
+    if (!expandedVisible) {
+      dropdownExpandedClass += ' dropdown__dropdown-expanded--hidden'
+    }
+
+    if (expandedVisible) {
+      dropdownInputClass += ' dropdown__input--expanded'
+    }
+
+    if (hasLower) {
+      dropdownInputClass += ' dropdown__input--text-lower'
+    }
+
+  div(class=dropdownClass)
+    .dropdown__title
+      +text({ text: text, type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+      if (subtitle)
+        +text({ text: subtitle, type: 'h3', color: 'dark-shade-50', hasUpper: true })
+    .dropdown__wrapper
+      .dropdown__dropdown-default.js-dropdown__dropdown-default
+        input(class=dropdownInputClass name=name value=value placeholder=placeholder readonly)
+        button(class=dropdownButtonClass type='button')='expand_more'
+      if (expanded)
+        div(class=dropdownExpandedClass)
+          ul.dropdown__list
+            each item in items
+              - const { itemName, itemCounter } = item
+
+              li(class=dropdownItemClass)
+                p(class=dropdownItemNameClass)= itemName
+                .dropdown__item-menu
+                  button(class='dropdown__item-button dropdown__item-button-decrease js-dropdown__item-button' type='button')= '-'
+                  p(class=dropdownItemCounterClass)= itemCounter
+                  button(class='dropdown__item-button dropdown__item-button-increase js-dropdown__item-button' type='button')= '+'
+          if (withButtons)
+            .dropdown__buttons-wrapper
+              +button({ text: 'очистить', variant: 'text', classForJs: 'js-dropdown__button' })
+              +button({ text: 'применить', variant: 'text', classForJs: 'js-dropdown__button' })

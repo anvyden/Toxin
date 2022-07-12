@@ -1,12 +1,12 @@
-extends ~/templates/UI-kit/base-UI-kit/base-UI-kit
-include ~/templates/UI-kit/logo/logo
-include ~/templates/UI-kit/text/text
-include ~/templates/UI-kit/cards/find-room-card/find-room-card
-include ~/templates/UI-kit/cards/sign-up-card/sign-up-card
-include ~/templates/UI-kit/cards/booking-card/booking-card
-include ~/templates/UI-kit/cards/sign-in-card/sign-in-card
-include ~/templates/UI-kit/cards/datepicker/datepicker
-include ~/templates/UI-kit/cards/room-card/room-card
+extends ~/components/UI-kit/base-UI-kit/base-UI-kit
+include ~/components/logo/logo
+include ~/components/text/text
+include ~/components/UI-kit/cards/find-room-card/find-room-card
+include ~/components/UI-kit/cards/sign-up-card/sign-up-card
+include ~/components/UI-kit/cards/booking-card/booking-card
+include ~/components/UI-kit/cards/sign-in-card/sign-in-card
+include ~/components/UI-kit/cards/datepicker/datepicker
+include ~/components/UI-kit/cards/room-card/room-card
 
 block variables
   -
@@ -21,12 +21,12 @@ block variables
       pinned: 'static/favicon/inactive/safari-pinned-tab.svg',
     }
 
-block content 
-  .cards 
+block content
+  .cards
     +logo({ active: false, posAbsolute: true })
     .cards__container
       .cards__wrapper
-        .cards__find-room-card 
+        .cards__find-room-card
           +findRoomCard({
             dropdownClassForJs: 'js-find-room-datepicker-dropdown',
             firstInputClassForJs: 'js-find-room-datepicker-1',
@@ -39,7 +39,7 @@ block content
         .cards__sing-up-card
           +signUpCard({ logInButtonLink: 'change-me', buttonText: 'Перейти к оплате' })
       .cards__wrapper
-        .cards__booking-card 
+        .cards__booking-card
           +bookingCard({
             luxe: true,
             dropdownClassForJs: 'js-booking-room-datepicker-dropdown',
@@ -50,9 +50,9 @@ block content
             secondInputName: 'bookingRoomFinishDate',
             guestsName: 'bookingRoomGuests'
           })
-        .cards__sing-in-card 
+        .cards__sing-in-card
           +signInCard({ signUpButtonLink: 'change-me' })
-      .cards__wrapper 
+      .cards__wrapper
         .cards__datepicker
           +datepicker({ classForJs: 'js-datepicker' })
         .cards__room-cards

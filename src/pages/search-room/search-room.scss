@@ -5,8 +5,8 @@
 @import '~/scss/variables';
 @import '~/scss/mixins';
 @import '~/scss/settings';
-@import '~/templates/UI-kit/logo/logo';
-@import '~/templates/UI-kit/text/text';
+@import '~/components/logo/logo';
+@import '~/components/text/text';
 @import '@form-elements/text-field/text-field';
 @import '@form-elements/button/button';
 @import '@form-elements/dropdown/dropdown';
@@ -16,13 +16,13 @@
 @import '@form-elements/checkbox-list/checkbox-list';
 @import '@cards/datepicker/datepicker';
 @import '@cards/room-card/room-card';
-@import '@headers-footers/header/header';
-@import '@headers-footers/menu/menu';
-@import '@headers-footers/footer/footer';
-@import '@headers-footers/copyright-bar/copyright-bar';
+@import '~/components/header/header';
+@import '~/components/menu/menu';
+@import '~/components/footer/footer';
+@import '~/components/copyright-bar/copyright-bar';
 @import '@libs/swiper/swiper';
-@import '~/templates/pages/sidebar/sidebar';
-@import '~/templates/pages/rooms/rooms';
+@import '~/components/pages/sidebar/sidebar';
+@import '~/components/pages/rooms/rooms';
 
 .content {
   display: flex;
@@ -91,7 +91,7 @@
     right: -20px;
     width: 20px;
     height: 100%;
-    border-radius: 0 20px 20px 0; 
+    border-radius: 0 20px 20px 0;
     background: $secondaryGradient;
     cursor: pointer;
     transition: border-radius 1s ease;
@@ -100,7 +100,7 @@
 
 @media screen and (max-width: 479px) {
   .content__sidebar--visible > .content__sidebar-button {
-    border-radius: 0; 
+    border-radius: 0;
   }
 }
 

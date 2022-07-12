@@ -5,8 +5,8 @@
 @import '~/scss/variables';
 @import '~/scss/mixins';
 @import '~/scss/settings';
-@import '~/templates/UI-kit/logo/logo';
-@import '~/templates/UI-kit/text/text';
+@import '~/components/logo/logo';
+@import '~/components/text/text';
 @import '@form-elements/text-field/text-field';
 @import '@form-elements/button/button';
 @import '@form-elements/dropdown/dropdown';
@@ -16,11 +16,11 @@
 @import '@form-elements/comments/comments';
 @import '@cards/datepicker/datepicker';
 @import '@cards/booking-card/booking-card';
-@import '@headers-footers/header/header';
-@import '@headers-footers/menu/menu';
-@import '@headers-footers/footer/footer';
-@import '@headers-footers/copyright-bar/copyright-bar';
-@import '@~/templates/pages/votes-pie-chart/votes-pie-chart';
+@import '~/components/header/header';
+@import '~/components/menu/menu';
+@import '~/components/footer/footer';
+@import '~/components/copyright-bar/copyright-bar';
+@import '@~/components/pages/votes-pie-chart/votes-pie-chart';
 
 .content__container {
   border-bottom: 1px solid $darkShade25;

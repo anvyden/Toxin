@@ -1,8 +1,8 @@
-include ~/templates/UI-kit/form-elements/checkbox-list/checkbox-list
-include ~/templates/UI-kit/form-elements/radio-button/radio-button
-include ~/templates/UI-kit/form-elements/toggle-button/toggle-button
-include ~/templates/UI-kit/form-elements/like-button/like-button
-include ~/templates/UI-kit/form-elements/star-rating/star-rating
+include ~/components/UI-kit/form-elements/checkbox-list/checkbox-list
+include ~/components/UI-kit/form-elements/radio-button/radio-button
+include ~/components/UI-kit/form-elements/toggle-button/toggle-button
+include ~/components/UI-kit/form-elements/like-button/like-button
+include ~/components/UI-kit/form-elements/star-rating/star-rating
 
 mixin controls()
   .controls
@@ -17,16 +17,16 @@ mixin controls()
           ],
         })
       .controls__radio-buttons
-        .controls__title 
+        .controls__title
           +text({ text: 'radio buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        +radioButtons({ 
+        +radioButtons({
           items: [
             { text: 'Мужчина', name: 'sex', value: 'man', isChecked: true},
             { text: 'Женщина', name: 'sex', value: 'woman'}
           ],
         })
       .controls__toggle-buttons
-        .controls__title 
+        .controls__title
           +text({ text: 'toggle', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         .controls__toggle-buttons-wrapper
           +toggleButton({ text: 'Получать спецпредложения', name: 'offers1', isChecked: true })

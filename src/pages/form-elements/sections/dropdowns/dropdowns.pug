@@ -1,8 +1,8 @@
-include ~/templates/UI-kit/form-elements/dropdown/dropdown
+include ~/components/UI-kit/form-elements/dropdown/dropdown
 
 mixin dropdowns()
-  .dropdowns 
-    .dropdowns__container 
+  .dropdowns
+    .dropdowns__container
       .dropdowns__services
         .dropdowns__dropdown-default
           +dropdown({
@@ -11,7 +11,7 @@ mixin dropdowns()
             withStraightBorders: true,
             value: '2 спальни, 2 кровати...'
           })
-        .dropdowns__dropdown-expanded 
+        .dropdowns__dropdown-expanded
           +dropdown({
             text: 'dropdown',
             subtitle: 'expanded',
@@ -60,4 +60,3 @@ mixin dropdowns()
               { itemName: 'младенцы', itemCounter: '0' },
             ]
           })
-        

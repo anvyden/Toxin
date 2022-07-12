@@ -1,9 +1,9 @@
-extends ~/templates/pages/base/base
-include ~/templates/UI-kit/logo/logo
-include ~/templates/UI-kit/cards/sign-up-card/sign-up-card
-include ~/templates/UI-kit/headers-footers/header/header
-include ~/templates/UI-kit/headers-footers/footer/footer
-include ~/templates/UI-kit/headers-footers/copyright-bar/copyright-bar
+extends ~/components/pages/base/base
+include ~/components/logo/logo
+include ~/components/UI-kit/cards/sign-up-card/sign-up-card
+include ~/components/header/header
+include ~/components/footer/footer
+include ~/components/copyright-bar/copyright-bar
 
 block variables
   -
@@ -23,6 +23,6 @@ block variables
 block content
   main.main
     section.main-section
-      .main-section__container 
+      .main-section__container
         .main-section__sign-up-card
           +signUpCard({ buttonText: 'Зарегистрироваться', formAction: './landing-page.html', logInButtonLink: './sign-in.html' })

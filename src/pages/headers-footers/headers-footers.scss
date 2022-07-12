@@ -5,14 +5,14 @@
 @import '~/scss/variables';
 @import '~/scss/mixins';
 @import '~/scss/settings';
-@import '~/templates/UI-kit/logo/logo';
-@import '~/templates/UI-kit/text/text';
+@import '~/components/logo/logo';
+@import '~/components/text/text';
 @import '@form-elements/text-field/text-field';
 @import '@form-elements/button/button';
-@import '@headers-footers/menu/menu';
-@import '@headers-footers/header/header';
-@import '@headers-footers/copyright-bar/copyright-bar';
-@import '@headers-footers/footer/footer';
+@import '~/components/menu/menu';
+@import '~/components/header/header';
+@import '~/components/copyright-bar/copyright-bar';
+@import '~/components/footer/footer';
 
 .headers-footers {
   background: #F4F4F6;

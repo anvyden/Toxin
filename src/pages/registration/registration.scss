@@ -5,17 +5,17 @@
 @import '~/scss/variables';
 @import '~/scss/mixins';
 @import '~/scss/settings';
-@import '~/templates/UI-kit/logo/logo';
-@import '~/templates/UI-kit/text/text';
+@import '~/components/logo/logo';
+@import '~/components/text/text';
 @import '@form-elements/text-field/text-field';
 @import '@form-elements/button/button';
 @import '@form-elements/radio-button/radio-button';
 @import '@form-elements/toggle-button/toggle-button';
 @import '@cards/sign-up-card/sign-up-card';
-@import '@headers-footers/header/header';
-@import '@headers-footers/menu/menu';
-@import '@headers-footers/footer/footer';
-@import '@headers-footers/copyright-bar/copyright-bar';
+@import '~/components/header/header';
+@import '~/components/menu/menu';
+@import '~/components/footer/footer';
+@import '~/components/copyright-bar/copyright-bar';
 
 .main {
   background: url('./img/registration-background.jpg') no-repeat;

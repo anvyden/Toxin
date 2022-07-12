@@ -46,7 +46,7 @@
 
 `npm run dev` - **start the project in development mode**
 
-`npm run prod` - **start the project in production mode**
+`npm run build` - **start the project in production mode**
 
 ## Сторонние библиотеки
 
