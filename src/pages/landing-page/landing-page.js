@@ -1,5 +1,5 @@
 import landingPage from '@pages/landing-page/landing-page.scss'
-import Dropdown from '@form-elements/dropdown/dropdown'
+import Dropdown from '~/components/dropdown/dropdown'
 import { Datepicker } from '~/components/datepicker/datepicker'
 import Header from '~/components/header/header'
 import Menu from '~/components/menu/menu'

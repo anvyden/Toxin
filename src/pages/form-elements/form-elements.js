@@ -1,11 +1,11 @@
 import formElements from '@pages/form-elements/form-elements.scss'
-import * as textField from '@form-elements/text-field/text-field'
-import Dropdown from '@form-elements/dropdown/dropdown'
-import LikeButton from '@form-elements/like-button/like-button'
-import StarRating from '@form-elements/star-rating/star-rating'
-import RangeSlider from '@form-elements/range-slider/range-slider'
-import Pagination from '@form-elements/pagination/pagination'
-import CheckboxList from '@form-elements/checkbox-list/checkbox-list'
+import * as textField from '~/components/text-field/text-field'
+import Dropdown from '~/components/dropdown/dropdown'
+import LikeButton from '~/components/like-button/like-button'
+import StarRating from '~/components/star-rating/star-rating'
+import RangeSlider from '~/components/range-slider/range-slider'
+import Pagination from '~/components/pagination/pagination'
+import CheckboxList from '~/components/checkbox-list/checkbox-list'
 
 const init = (function () {
   return {

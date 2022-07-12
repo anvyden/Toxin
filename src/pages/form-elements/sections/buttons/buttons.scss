@@ -1,6 +1,6 @@
-@import '@form-elements/range-slider/range-slider';
-@import '@form-elements/button/button';
-@import '@form-elements/pagination/pagination';
+@import '~/components/range-slider/range-slider';
+@import '~/components/button/button';
+@import '~/components/pagination/pagination';
 
 .buttons__container {
   max-width: rem(320);

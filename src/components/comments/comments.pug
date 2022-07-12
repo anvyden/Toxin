@@ -1,4 +1,4 @@
-include ~/components/UI-kit/form-elements/like-button/like-button
+include ~/components/like-button/like-button
 
 mixin comments(options)
   -
@@ -13,7 +13,7 @@ mixin comments(options)
     .comment.comments__comment
       .profile
         .profile__avatar-wrapper
-          img(class='profile__avatar' src=require(`~/components/UI-kit/form-elements/comments/img/${avatar}`) alt='Аватарка пользователя')
+          img(class='profile__avatar' src=require(`~/components/comments/img/${avatar}`) alt='Аватарка пользователя')
         .profile__text-wrapper
           span.profile__name=name
           span.profile__comment-time=time

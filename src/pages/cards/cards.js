@@ -1,9 +1,9 @@
 import AirDatepicker from 'air-datepicker'
 
 import cards from '@pages/cards/cards.scss'
-import * as textField from '@form-elements/text-field/text-field'
-import Dropdown from '@form-elements/dropdown/dropdown'
-import StarRating from '@form-elements/star-rating/star-rating'
+import * as textField from '~/components/text-field/text-field'
+import Dropdown from '~/components/dropdown/dropdown'
+import StarRating from '~/components/star-rating/star-rating'
 import { Datepicker } from '~/components/datepicker/datepicker'
 import BookingCard from '~/components/booking-card/booking-card'
 import Slider from '@libs/swiper/swiper'

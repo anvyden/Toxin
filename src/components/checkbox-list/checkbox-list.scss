@@ -71,13 +71,13 @@
   content: '';
   width: rem(20);
   height: rem(20);
-  
+
   border: 1px solid $darkShade25;
   border-radius: 4px;
 }
 
 .checkbox-list__item-input:checked + .checkbox-list__item-text::before {
-  background: url(@form-elements/checkbox-list/img/checkbox-checked.svg) no-repeat center;
+  background: url(~/components/checkbox-list/img/checkbox-checked.svg) no-repeat center;
   border-color: $purple;
 }
 

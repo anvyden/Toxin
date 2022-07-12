@@ -1,4 +1,4 @@
-import declination from '@form-elements/dropdown/utils/declination'
+import declination from '~/components/dropdown/dropdown'
 
 class VotesPieChart {
   constructor(params) {
