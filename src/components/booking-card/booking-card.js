@@ -2,7 +2,7 @@ import wNumb from 'wnumb'
 
 import declination from '@form-elements/dropdown/utils/declination'
 import findItemNames from '@form-elements/dropdown/utils/findItemNames'
-import { datepickerValues } from '@cards/datepicker/datepicker'
+import { datepickerValues } from '~/components/datepicker/datepicker'
 
 const moneyFormat = wNumb({
   thousand: ' ',

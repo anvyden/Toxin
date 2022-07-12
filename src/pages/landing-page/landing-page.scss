@@ -10,8 +10,8 @@
 @import '@form-elements/text-field/text-field';
 @import '@form-elements/button/button';
 @import '@form-elements/dropdown/dropdown';
-@import '@cards/find-room-card/find-room-card';
-@import '@cards/datepicker/datepicker';
+@import '~/components/find-room-card/find-room-card';
+@import '~/components/datepicker/datepicker';
 @import '~/components/header/header';
 @import '~/components/menu/menu';
 @import '~/components/footer/footer';

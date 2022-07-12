@@ -12,12 +12,12 @@
 @import '@form-elements/toggle-button/toggle-button';
 @import '@form-elements/star-rating/star-rating';
 @import '@form-elements/button/button';
-@import '@cards/find-room-card/find-room-card';
-@import '@cards/sign-up-card/sign-up-card';
-@import '@cards/booking-card/booking-card';
-@import '@cards/sign-in-card/sign-in-card';
-@import '@cards/datepicker/datepicker';
-@import '@cards/room-card/room-card';
+@import '~/components/find-room-card/find-room-card';
+@import '~/components/sign-up-card/sign-up-card';
+@import '~/components/booking-card/booking-card';
+@import '~/components/sign-in-card/sign-in-card';
+@import '~/components/datepicker/datepicker';
+@import '~/components/room-card/room-card';
 @import '@libs/swiper/swiper';
 
 .cards {

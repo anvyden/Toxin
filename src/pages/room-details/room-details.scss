@@ -14,13 +14,13 @@
 @import '@form-elements/bullet-list/bullet-list';
 @import '@form-elements/like-button/like-button';
 @import '@form-elements/comments/comments';
-@import '@cards/datepicker/datepicker';
-@import '@cards/booking-card/booking-card';
+@import '~/components/datepicker/datepicker';
+@import '~/components/booking-card/booking-card';
 @import '~/components/header/header';
 @import '~/components/menu/menu';
 @import '~/components/footer/footer';
 @import '~/components/copyright-bar/copyright-bar';
-@import '@~/components/pages/votes-pie-chart/votes-pie-chart';
+@import '@~/components/votes-pie-chart/votes-pie-chart';
 
 .content__container {
   border-bottom: 1px solid $darkShade25;

@@ -197,12 +197,10 @@ module.exports = {
     extensions: ['.js', '.json', '.pug', '.scss'],
     alias: {
       '~': path.resolve(__dirname, 'src'),
-      '@colors-type': path.resolve(__dirname, 'src/components/UI-kit/colors-type'),
       '@form-elements': path.resolve(__dirname, 'src/components/UI-kit/form-elements'),
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@cards': path.resolve(__dirname, 'src/components/UI-kit/cards'),
       '@libs': path.resolve(__dirname, 'src/libs'),
-      '@components/pages': path.resolve(__dirname, 'src/components/pages'),
     }
   },
   optimization: optimization(),

@@ -14,15 +14,15 @@
 @import '@form-elements/range-slider/range-slider';
 @import '@form-elements/pagination/pagination';
 @import '@form-elements/checkbox-list/checkbox-list';
-@import '@cards/datepicker/datepicker';
-@import '@cards/room-card/room-card';
+@import '~/components/datepicker/datepicker';
+@import '~/components/room-card/room-card';
 @import '~/components/header/header';
 @import '~/components/menu/menu';
 @import '~/components/footer/footer';
 @import '~/components/copyright-bar/copyright-bar';
 @import '@libs/swiper/swiper';
-@import '~/components/pages/sidebar/sidebar';
-@import '~/components/pages/rooms/rooms';
+@import '~/components/sidebar/sidebar';
+@import '~/components/rooms/rooms';
 
 .content {
   display: flex;

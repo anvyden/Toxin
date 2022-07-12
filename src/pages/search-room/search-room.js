@@ -6,7 +6,7 @@ import Pagination from '@form-elements/pagination/pagination'
 import CheckboxList from '@form-elements/checkbox-list/checkbox-list'
 import Menu from '~/components/menu/menu'
 import Header from '~/components/header/header'
-import DatepickerWithOneInput from '@cards/datepicker/datepicker-with-one-input'
+import DatepickerWithOneInput from '~/components/datepicker/datepicker-with-one-input'
 import Slider from '@libs/swiper/swiper'
 
 const searchRoomParams = {
