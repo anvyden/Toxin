@@ -8,7 +8,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
@@ -18,8 +17,6 @@ const PATHS = {
   dist: path.join(__dirname, './dist'),
   assets: 'assets/'
 }
-
-console.log(__dirname)
 
 const getFiles = (dir, filetype) => {
   return dir.map(folder => {
@@ -250,33 +247,9 @@ module.exports = {
         }
       },
       {
-        test: /\.xml$/,
-        use: ['xml-loader']
-      },
-      {
-        test: /\.csv$/,
-        use: ['csv-loader']
-      },
-      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: jsLoaders()
-      },
-      {
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: babelOptions('@babel/preset-typescript')
-        }
-      },
-      {
-        test: /\.jsx$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: babelOptions('@babel/preset-react')
-        }
       },
     ]
   }
