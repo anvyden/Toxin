@@ -1,23 +1,19 @@
 {
-  "parser": "babel-eslint",
-  "ignorePatterns": ["**/src/**/*.js"],
-  "rules": {
-    "no-unused-vars": "warn",
-    "linebreak-style": 0,
-    "semi": ["error", "never"],
-    "import/no-unresolved": 0,
-    "no-underscore-dangle": 0
-  },
   "env": {
-    "es6": true,
     "browser": true,
+    "es6": true,
     "jquery": true,
     "node": true
   },
+  "ignorePatterns": ["**/src/**/*.js"],
+  "extends": ["airbnb/base", "plugin:fsd/all"],
   "globals": {
-    "$": "readonly"
+    "$": "readonly",
+    "jQuery": "readonly"
   },
-  "extends": [
-    "airbnb-base"
-  ]
+  "plugins": ["fsd", "pug"],
+  "rules": {
+    "no-new": "off",
+    "import/no-unresolved": "off"
+  }
 }
