@@ -2,7 +2,6 @@ const webpack = require('webpack')
 const path = require('path')
 const fs = require('fs')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
@@ -55,7 +54,9 @@ const optimization = () => {
 
   if (isProd) {
     config.minimizer = [
-      new CssMinimizerWebpackPlugin(),
+      new CssMinimizerWebpackPlugin({
+        parallel: true,
+      }),
       new TerserWebpackPlugin(),
       new ImageMinimizerPlugin({
         minimizer: {
@@ -162,7 +163,6 @@ const plugins = () => {
       jQuery: 'jquery',
       'window.jquery': 'jquery',
     }),
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: `${PATHS.assets}css/${filename('css')}`
     }),
@@ -185,7 +185,8 @@ module.exports = {
   entry: PAGES_ENTRYS,
   output: {
     filename: `${PATHS.assets}js/[name].js`,
-    path: PATHS.dist
+    path: PATHS.dist,
+    clean: true
   },
   cache: {
     type: 'memory'
