@@ -1,19 +1,21 @@
-mixin color(options)
+mixin color( colorList=[] )
   -
-    const { color, name, hex, hasMargin } = options
-    let colorClass = 'color'
-    let colorImg = 'color__img'
+    const colors = [
+      'dark-shade-100', 'dark-shade-75', 'dark-shade-50',
+      'dark-shade-25', 'dark-shade-5', 'purple', 'green'
+    ]
 
-    if (hasMargin) {
-      colorClass += ' color--with-margin'
-    }
+  .colors
+    .colors__container
+      ul.colors__list
 
-    if (color) {
-      colorImg += ` color__${color}`
-    }
+        each item in colorList
+          -
+            const { color } = item
+            const colorModifier = colors.includes(color) && color
 
-  div(class=colorClass)
-    div(class=colorImg)
-    .color__description
-      p.color__name=name
-      p.color__hex=hex
+          li(class=`color colors__item`)
+            div(class=`color__img color--${colorModifier}`)
+            .color__description
+              p.color__name=item.name
+              p.color__hex=item.hex

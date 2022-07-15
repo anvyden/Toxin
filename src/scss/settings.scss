@@ -9,18 +9,19 @@ html {
   font-size: $mainFontSize;
   font-weight: $mainFontWeight;
   color: $darkShade75;
+  background: #fff;
 }
 
 @media screen and (max-width: 1199px) {
   html {
     font-size: 12px;
-  } 
+  }
 }
 
 @media screen and (max-width: 1023px) {
   html {
     font-size: 11px;
-  } 
+  }
 }
 
 body {

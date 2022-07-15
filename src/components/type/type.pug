@@ -1,17 +1,19 @@
-mixin type(options)
+mixin type( typeList=[] )
   -
-    const { type, typeDescriptionClass, typeDescription, typeContentHasUpper } = options
-    let typeClass = 'type' + ' types__type'
-    let typeContentClass = 'type__type'
+    const types = [ 'h1', 'h2', 'h3', 'body' ]
 
-    if (type) {
-      typeClass += ` type--with-type-${type}`
-    }
+  .types
+    .types__container
+      ul.types__list
 
-    if (typeContentHasUpper) {
-      typeContentClass += ' type__type--upper'
-    }
+        each item in typeList
+          -
+            const { type, typeHeaderHasUpper } = item
+            const typeModifier = types.includes(type) && type
+            let typeHeaderClass = `type__header`
 
-  div(class=typeClass)
-    p(class=typeContentClass)=type
-    p(class=typeDescriptionClass)=typeDescription
+            if (typeHeaderHasUpper) typeHeaderClass += ` type__header--upper`
+
+          li(class=`type types__item type--${typeModifier}`)
+            p(class=typeHeaderClass)=item.title
+            p(class=`type__text type__text--${typeModifier}`)=item.text

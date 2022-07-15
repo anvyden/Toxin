@@ -1,4 +1,5 @@
 include ~/components/logo/logo
+
 block variables
 
 doctype html
@@ -19,4 +20,5 @@ html(lang="ru")
     link(rel="mask-icon", href=faviconPaths.pinned, color="#5bbad5")
     title #{title}
   body
+    +logo({ active: false, posAbsolute: true })
     block content
