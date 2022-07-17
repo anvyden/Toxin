@@ -1,72 +1,159 @@
 include ~/components/text/text
 include ~/components/button/button
 
-mixin dropdown(options)
+mixin dropdown(options={})
   -
-    const { text, subtitle, value, name, placeholder, expanded, expandedVisible, expandedBlock, withStraightBorders, withButtons, hasLower, items, smallSize, classForJs, inputClassForJs } = options
+    const {
+      text,
+      subtitle,
+      value,
+      name,
+      placeholder,
+      expanded,
+      expandedVisible,
+      expandedBlock,
+      withStraightBorders,
+      withButtons,
+      hasLower,
+      items=[],
+      smallSize,
+      classForJs,
+      inputClassForJs
+    } = options
 
-    let dropdownClass = 'dropdown'
-    let dropdownInputClass = 'dropdown__input dropdown__input--focused dropdown__input--hovered js-dropdown__input'
-    let dropdownButtonClass = 'dropdown__arrow-button material-icons js-dropdown__arrow-button'
-    let dropdownItemClass = 'dropdown__item js-dropdown__item'
-    let dropdownExpandedClass = 'dropdown__dropdown-expanded js-dropdown__dropdown-expanded'
-    let dropdownItemNameClass = 'dropdown__item-name js-dropdown__item-name'
-    let dropdownItemCounterClass = 'dropdown__item-counter js-dropdown__item-counter'
+    const sizes = ['small', 'medium', 'large']
 
-    if (smallSize) {
-      dropdownClass += ' dropdown--size-small'
-    }
+    const mainClass = 'dropdown'
+    const inputClass = 'dropdown__input js-dropdown__input'
+    const buttonClass = 'dropdown__arrow-button material-icons js-dropdown__arrow-button'
+    const dropClass = 'dropdown__drop js-dropdown__drop'
+    const itemClass = 'dropdown__item js-dropdown__item'
+    const itemNameClass = 'dropdown__item-name js-dropdown__item-name'
+    const itemCounterClass = 'dropdown__item-counter js-dropdown__item-counter'
+    const itemIncreaseButtonClass = 'dropdown__item-button dropdown__item-button-decrease js-dropdown__item-button-decrease'
+    // const itemButtonClass = 'dropdown__counter-button'
 
-    if (classForJs) {
-      dropdownClass += ` ${classForJs}`
-    }
+    const sizeModifier = sizes.includes(size) && `dropdown--size-${size}`
+    const straightBordersModifier = withStraightBorders && 'dropdown__input--with-straight-borders'
 
-    if (inputClassForJs) {
-      dropdownInputClass += ` ${inputClassForJs}`
-    }
-
-    if (withStraightBorders) {
-      dropdownInputClass += ' dropdown__input--with-straight-borders'
-    }
-
-    if (!expandedBlock) {
-      dropdownExpandedClass += ' dropdown__dropdown-expanded--absolute'
-    }
-
-    if (!expandedVisible) {
-      dropdownExpandedClass += ' dropdown__dropdown-expanded--hidden'
-    }
-
-    if (expandedVisible) {
-      dropdownInputClass += ' dropdown__input--expanded'
-    }
-
-    if (hasLower) {
-      dropdownInputClass += ' dropdown__input--text-lower'
-    }
-
-  div(class=dropdownClass)
+  .dropdown(class=sizeModifier)
     .dropdown__title
-      +text({ text: text, type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+      +text({
+        text: text,
+        type: 'h3',
+        color: 'dark-shade-100',
+        bold: true,
+        hasUpper: true
+      })
       if (subtitle)
-        +text({ text: subtitle, type: 'h3', color: 'dark-shade-50', hasUpper: true })
+        +text({
+          text: subtitle,
+          type: 'h3',
+          color: 'dark-shade-50',
+          hasUpper: true
+        })
     .dropdown__wrapper
-      .dropdown__dropdown-default.js-dropdown__dropdown-default
-        input(class=dropdownInputClass name=name value=value placeholder=placeholder readonly)
-        button(class=dropdownButtonClass type='button')='expand_more'
-      if (expanded)
-        div(class=dropdownExpandedClass)
-          ul.dropdown__list
-            each item in items
-              - const { itemName, itemCounter } = item
+      input&attributes({
+        class: inputClass,
+        type: type,
+        'data-id': data,
+        value: value,
+        placeholder: placeholder,
+        name: name,
+        readOnly: true,
+      })
+      button&attributes({
+        class: buttonClass,
+        type: 'button'
+      })='expand_more'
+      div(class=dropClass)
+        ul.dropdown__list
+          each item in items
+            li(class=itemClass)
+              p(class=itemNameClass)=item.text
+              .dropdown__item-controls
+                button&attributes({
+                  class: [
+                    'dropdown__item-button',
+                    'dropdown__item-button--type-decrement',
+                    'js-dropdown__item-button--type-decrement'
+                  ],
+                  type: 'button'
+                })= '-'
+                p(class='dropdown__item-counter js-dropdown__item-counter')=item.count
+                button&attributes({
+                  class: [
+                    'dropdown__item-button',
+                    'dropdown__item-button--type-increment',
+                    'js-dropdown__item-button--type-increment'
+                  ],
+                  type: 'button'
+                })= '+'
 
-              li(class=dropdownItemClass)
-                p(class=dropdownItemNameClass)= itemName
-                .dropdown__item-menu
-                  button(class='dropdown__item-button dropdown__item-button-decrease js-dropdown__item-button' type='button')= '-'
-                  p(class=dropdownItemCounterClass)= itemCounter
-                  button(class='dropdown__item-button dropdown__item-button-increase js-dropdown__item-button' type='button')= '+'
-          if (withButtons)
-            .dropdown__buttons-wrapper
-              +button({ text: 'очистить', variant: 'text', classForJs: 'js-dropdown__button' })
-              +button({ text: 'применить', variant: 'text', classForJs: 'js-dropdown__button' })
+
+  // -
+  //   let dropdownClass = 'dropdown'
+  //   let dropdownInputClass = 'dropdown__input dropdown__input--focused dropdown__input--hovered js-dropdown__input'
+  //   let dropdownButtonClass = 'dropdown__arrow-button material-icons js-dropdown__arrow-button'
+  //   let dropdownItemClass = 'dropdown__item js-dropdown__item'
+  //   let dropdownExpandedClass = 'dropdown__dropdown-expanded js-dropdown__dropdown-expanded'
+  //   let dropdownItemNameClass = 'dropdown__item-name js-dropdown__item-name'
+  //   let dropdownItemCounterClass = 'dropdown__item-counter js-dropdown__item-counter'
+  //
+  //   if (smallSize) {
+  //     dropdownClass += ' dropdown--size-small'
+  //   }
+  //
+  //   if (classForJs) {
+  //     dropdownClass += ` ${classForJs}`
+  //   }
+  //
+  //   if (inputClassForJs) {
+  //     dropdownInputClass += ` ${inputClassForJs}`
+  //   }
+  //
+  //   if (withStraightBorders) {
+  //     dropdownInputClass += ' dropdown__input--with-straight-borders'
+  //   }
+  //
+  //   if (!expandedBlock) {
+  //     dropdownExpandedClass += ' dropdown__dropdown-expanded--absolute'
+  //   }
+  //
+  //   if (!expandedVisible) {
+  //     dropdownExpandedClass += ' dropdown__dropdown-expanded--hidden'
+  //   }
+  //
+  //   if (expandedVisible) {
+  //     dropdownInputClass += ' dropdown__input--expanded'
+  //   }
+  //
+  //   if (hasLower) {
+  //     dropdownInputClass += ' dropdown__input--text-lower'
+  //   }
+  //
+  // div(class=dropdownClass)
+  //   .dropdown__title
+  //     +text({ text: text, type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+  //     if (subtitle)
+  //       +text({ text: subtitle, type: 'h3', color: 'dark-shade-50', hasUpper: true })
+  //   .dropdown__wrapper
+  //     .dropdown__dropdown-default.js-dropdown__dropdown-default
+  //       input(class=dropdownInputClass name=name value=value placeholder=placeholder readonly)
+  //       button(class=dropdownButtonClass type='button')='expand_more'
+  //     if (expanded)
+  //       div(class=dropdownExpandedClass)
+  //         ul.dropdown__list
+  //           each item in items
+  //             - const { itemName, itemCounter } = item
+  //
+  //             li(class=dropdownItemClass)
+  //               p(class=dropdownItemNameClass)= itemName
+  //               .dropdown__item-menu
+  //                 button(class='dropdown__item-button dropdown__item-button-decrease js-dropdown__item-button' type='button')= '-'
+  //                 p(class=dropdownItemCounterClass)= itemCounter
+  //                 button(class='dropdown__item-button dropdown__item-button-increase js-dropdown__item-button' type='button')= '+'
+  //         if (withButtons)
+  //           .dropdown__buttons-wrapper
+  //             +button({ text: 'очистить', variant: 'text', classForJs: 'js-dropdown__button' })
+  //             +button({ text: 'применить', variant: 'text', classForJs: 'js-dropdown__button' })
