@@ -16,33 +16,32 @@
   display: flex;
 
   &--h1 {
-    font-size: rem(24);
-    font-weight: 700;
-    line-height: rem(29);
     color: $darkShade100;
+    font-weight: 700;
+    font-size: rem(24);
+    line-height: rem(29);
   }
 
   &--h2 {
-    font-size: rem(19);
-    font-weight: 700;
-    line-height: rem(23.5);
     color: $darkShade100;
+    font-weight: 700;
+    font-size: rem(19);
+    line-height: rem(23.5);
   }
 
   &--h3 {
-    font-size: rem(12);
-    font-weight: 700;
-    line-height: rem(15);
     color: $darkShade100;
+    font-weight: 700;
+    font-size: rem(12);
+    line-height: rem(15);
   }
 
   &__header {
     width: 37px;
     margin-right: rem(30);
-
-    text-align: right;
-    font-weight: normal;
     color: $darkShade25;
+    font-weight: normal;
+    text-align: right;
   }
 
   &__header--upper {
@@ -65,7 +64,3 @@
     max-width: rem(301);
   }
 }
-
-
-
-

@@ -2,36 +2,35 @@ include ~/components/text-field/text-field
 include ~/components/dropdown/dropdown
 
 mixin fields()
-  .fields
+  section.fields
     .fields__container
       .fields__text-field
         +textField({
-          type: 'text',
           hasTitle: true,
           title: 'text field',
           subtitle: 'default',
+          type: 'text',
           name: 'textField',
-          placeholder: 'Email',
-          state: 'default'
+          placeholder: 'Email'
         })
       .fields__text-field
         +textField({
-          type: 'text',
           hasTitle: true,
           title: 'text field',
           subtitle: 'hover / focus',
+          focused: true,
+          type: 'text',
           name: 'textFieldFocused',
           placeholder: 'Email',
-          state: 'permamentFocused',
           value: 'This is pretty awesome'
         })
       .fields__dropdown
         +dropdown({ text: 'dropdown', value: 'Сколько гостей' })
       .fields__masked-text-field
         +textField({
-          type: 'text',
           hasTitle: true,
           title: 'masked text field',
+          type: 'text',
           name: 'date',
           placeholder: 'ДД.ММ.ГГГГ',
           classForJs: 'js-masked-text-field'
@@ -43,10 +42,10 @@ mixin fields()
         +dropdown({ text: 'filter date dropdown', value: '19 авг - 23 авг' })
       .fields__subscription-text-field
         +textField({
-          type: 'text',
           hasTitle: true,
           title: 'subscription text field',
-          name: 'subcription',
+          type: 'text',
+          name: 'subscription',
           placeholder: 'Email',
           withButton: true
         })

@@ -1,34 +1,61 @@
 include ~/components/text/text
 
-mixin textField(options)
+mixin textField( options={} )
   -
-    const { type, placeholder, hasTitle, title, subtitle, name, value, state, withButton, classForJs } = options
+    const {
+      type,
+      placeholder,
+      hasTitle,
+      title,
+      subtitle,
+      name,
+      value,
+      data,
+      withButton,
+      withSpellcheck,
+      focused,
+      autocomplete,
+      classForJs
+    } = options
 
-    let inputClass = 'text-field__input text-field__input--focused text-field__input--hovered'
-    let buttonClass = 'text-field__button material-icons'
+    const mainClass = 'text-field__input'
+    const focusedModifier = focused && 'text-field__input--focused'
+    const inputWithButtonModifier = withButton && 'text-field__input--with-button'
+    const buttonClass = 'text-field__button material-icons'
 
-    if (state === 'default') {
-      inputClass = 'text-field__input'
-    }
-
-    if (state === 'permamentFocused') {
-      inputClass = 'text-field__input text-field__input--permament-focused'
-    }
-
-    if (withButton) {
-      inputClass += ' text-field__input--with-button'
-    }
-
-    if (classForJs) {
-      inputClass += ` ${classForJs}`
+    const attrs = {
+      class: [
+        mainClass,
+        focusedModifier,
+        inputWithButtonModifier,
+        classForJs
+      ],
+      type: type,
+      'data-id': data,
+      name: name,
+      value: value,
+      placeholder: placeholder,
+      autocomplete: autocomplete,
+      spellcheck: withSpellcheck,
     }
 
   .text-field
     if (hasTitle)
       .text-field__title
-        +text({ text: title, type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        +text({ text: subtitle, type: 'h3', color: 'dark-shade-50', hasUpper: true })
+        +text({
+          text: title,
+          type: 'h3',
+          color: 'dark-shade-100',
+          bold: true,
+          hasUpper: true
+        })
+        +text({
+          text: subtitle,
+          type: 'h3',
+          color: 'dark-shade-50',
+          hasUpper: true
+        })
     .text-field__wrapper
-      input(class=inputClass type=type name=name placeholder=placeholder value=value)
+      input&attributes(attrs)
       if (withButton)
-        button(class=buttonClass type='submit')='arrow_forward'
+        button(class=buttonClass type='submit' name='subscribe')='arrow_forward'

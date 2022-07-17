@@ -1,25 +1,33 @@
-mixin text(options)
+mixin text( options={} )
   -
-    const { text, type, color, bold, hasUpper } = options
+    const {
+      text,
+      type,
+      color,
+      bold,
+      hasUpper
+    } = options
 
-    let textClass = 'text'
     const types = ['h1', 'h2', 'h3']
-    const colors = ['dark-shade-100', 'dark-shade-75', 'dark-shade-50', 'dark-shade-25', 'dark-shade-5', 'purple', 'green', 'black']
+    const colors = [
+      'dark-shade-100', 'dark-shade-75', 'dark-shade-50',
+      'dark-shade-25', 'dark-shade-5', 'purple', 'green', 'black'
+    ]
 
-    if (types.includes(type)) {
-      textClass += ` text--with-type-${type}`
-    }
+    const mainClass = 'text'
+    const typeModifier = types.includes(type) && `text--with-type-${type}`
+    const colorModifier = colors.includes(color) && `text--${color}`
+    const boldModifier = bold && 'text--bold'
+    const upperModifier = hasUpper && 'text--upper'
 
-    if (colors.includes(color)) {
-      textClass += ` text--${color}`
-    }
-
-    if (bold) {
-      textClass += ' text--bold'
-    }
-
-    if (hasUpper) {
-      textClass += ' text--upper'
+    const attrs = {
+      class: [
+        mainClass,
+        typeModifier,
+        colorModifier,
+        boldModifier,
+        upperModifier
+      ]
     }
 
     const typeTag = {
@@ -30,4 +38,4 @@ mixin text(options)
       'p': 'p'
     }
 
-  #{typeTag[type]}(class=textClass)= text
+  #{typeTag[type]}&attributes(attrs)= text

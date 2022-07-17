@@ -9,3 +9,9 @@
 
   @return $pixels / $context * 1rem;
 }
+
+@mixin text-gradient-fill($color) {
+  color: transparent;
+  background-image: $color;
+  background-clip: text;
+}

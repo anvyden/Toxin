@@ -2,18 +2,21 @@
 @import '~/scss/variables';
 @import '~/scss/mixins';
 @import '~/scss/settings';
-
-.colors-types__container {
-  padding: 145px 158px 145px 150px;
-  display: flex;
-}
-
-.colors__container {
-  display: flex;
-  flex-direction: column;
-  margin-right: 415px;
-}
-
 @import '~/components/logo/logo';
 @import '~/components/colors/colors';
 @import '~/components/type/type';
+
+.colors-types {
+  &__container {
+    display: flex;
+    padding: 145px 158px 145px 150px;
+  }
+}
+
+.colors {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 415px;
+  }
+}

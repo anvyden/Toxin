@@ -14,8 +14,12 @@
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
+    "lintone": "eslint \"src/components/text-field/text-field.js\"",
+    "lintone:fix": "eslint \"src/components/text-field/text-field.js\" --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
-    "stylelint:fix": "stylelint \"src/**/*.scss\" --fix"
+    "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
+    "stylelintone": "stylelint \"src/components/text/text.scss\"",
+    "stylelintone:fix": "stylelint \"src/components/text/text.scss\" --fix"
   },
   "browserslist": [
     "> 0.25%",

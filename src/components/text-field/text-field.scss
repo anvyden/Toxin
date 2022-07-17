@@ -1,58 +1,54 @@
-.text-field__title {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: rem(5);
-}
+.text-field {
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: rem(5);
+  }
 
-.text-field__wrapper {
-  position: relative;
-}
+  &__wrapper {
+    position: relative;
+  }
 
-.text-field__input {
-  width: 100%;
-  padding: rem(12) rem(14);
+  &__input {
+    width: 100%;
+    padding: rem(12) rem(14);
+    color: $darkShade75;
+    word-spacing: -1px;
+    border: $mainBorder;
+    border-radius: $mainBorderRadius;
+    outline: none;
 
-  color: $darkShade75;
-  border: 1px solid $darkShade25;
-  border-radius: 4px;
-  word-spacing: -1px;
+    &::placeholder {
+      color: $darkShade25;
+    }
 
-  outline: none;
-}
+    &:hover,
+    &:focus {
+      border: $focusBorder;
 
-.text-field__input--permament-focused {
-  border: 1px solid $darkShade50;
-}
+      &::placeholder {
+        color: $darkShade75;
+      }
+    }
 
-.text-field__input--with-button {
-  padding: rem(12) rem(44) rem(12) rem(14);
-}
+    &--focused {
+      border: $focusBorder;
+    }
 
-.text-field__input::placeholder {
-  color: $darkShade25;
-}
+    &--with-button {
+      padding: rem(12) rem(44) rem(12) rem(14);
+    }
+  }
 
-.text-field__input--focused:focus, .text-field__input--hovered:hover {
-  border: 1px solid $darkShade50;
-}
+  &__button {
+    position: absolute;
+    top: rem(10);
+    right: rem(10);
+    font-size: rem(24);
+    border: none;
+    cursor: pointer;
 
-.text-field__input--focused:focus::placeholder, .text-field__input--hovered:hover::placeholder {
-  color: $darkShade75;
-}
-
-.text-field__button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: rem(10);
-  
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-
-  font-size: rem(24);
-  color: transparent;
-  background: $primaryGradient;
-  background-clip: text;
+    @include text-gradient-fill($primaryGradient);
+  }
 }

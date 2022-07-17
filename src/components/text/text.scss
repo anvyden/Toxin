@@ -1,57 +1,59 @@
-.text--with-type-h1 {
-  font-size: rem(24);
-  line-height: rem(29.26);
-  font-weight: 400;
-}
+.text {
+  &--with-type-h1 {
+    font-weight: 400;
+    font-size: rem(24);
+    line-height: rem(29.26);
+  }
 
-.text--with-type-h2 {
-  font-size: rem(19);
-  line-height: rem(23.16);
-  font-weight: 400;
-}
+  &--with-type-h2 {
+    font-weight: 400;
+    font-size: rem(19);
+    line-height: rem(23.16);
+  }
 
-.text--with-type-h3 {
-  font-size: rem(12);
-  line-height: rem(14.63);
-  font-weight: 400;
-}
+  &--with-type-h3 {
+    font-weight: 400;
+    font-size: rem(12);
+    line-height: rem(14.63);
+  }
 
-.text--bold {
-  font-weight: 700;
-}
+  &--bold {
+    font-weight: 700;
+  }
 
-.text--dark-shade-100 {
-  color: $darkShade100
-}
+  &--dark-shade-100 {
+    color: $darkShade100;
+  }
 
-.text--dark-shade-75 {
-  color: $darkShade75
-}
+  &--dark-shade-75 {
+    color: $darkShade75;
+  }
 
-.text--dark-shade-50 {
-  color: $darkShade50
-}
+  &--dark-shade-50 {
+    color: $darkShade50;
+  }
 
-.text--dark-shade-25 {
-  color: $darkShade25
-}
+  &--dark-shade-25 {
+    color: $darkShade25;
+  }
 
-.text--dark-shade-5 {
-  color: $darkShade5
-}
+  &--dark-shade-5 {
+    color: $darkShade5;
+  }
 
-.text--purple {
-  color: $purple;
-}
+  &--purple {
+    color: $purple;
+  }
 
-.text--green {
-  color: $green;
-}
+  &--green {
+    color: $green;
+  }
 
-.text--black {
-  color: #000;
-}
+  &--black {
+    color: #000;
+  }
 
-.text--upper {
-  text-transform: uppercase;
+  &--upper {
+    text-transform: uppercase;
+  }
 }

@@ -1,36 +1,37 @@
 @import '~/components/text-field/text-field';
 @import '~/components/dropdown/dropdown';
 
-.fields__container {
-  width: 100%;
-  max-width: rem(320);
-  margin-right: rem(146.5);
-}
+.fields {
+  &__container {
+    width: 100%;
+    max-width: rem(320);
+    margin-right: rem(146.5);
+  }
 
-.fields__text-field {
-  margin-bottom: rem(21);
-}
+  &__text-field {
+    margin-bottom: rem(21);
+  }
 
-.fields__dropdown {
-  margin-bottom: rem(22.5);
-}
+  &__dropdown {
+    margin-bottom: rem(22.5);
+  }
 
-.fields__masked-text-field {
-  margin-bottom: rem(40);
-}
+  &__masked-text-field {
+    margin-bottom: rem(40);
+  }
 
-.fields__date-dropdown {
-  display: flex;
-  justify-content: space-between;
+  &__date-dropdown {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: rem(42);
+  }
 
-  margin-bottom: rem(42);
-}
+  &__filter-date-dropdown {
+    max-width: rem(266);
+    margin-bottom: rem(41);
+  }
 
-.fields__filter-date-dropdown {
-  max-width: rem(266);
-  margin-bottom: rem(41);
-}
-
-.fields__subscription-text-field {
-  max-width: rem(266);
+  &__subscription-text-field {
+    max-width: rem(266);
+  }
 }

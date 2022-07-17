@@ -1,25 +1,23 @@
-*, *:before, *:after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 html {
-  font-family: $mainFont;
-  font-size: $mainFontSize;
-  font-weight: $mainFontWeight;
   color: $darkShade75;
+  font-weight: $mainFontWeight;
+  font-size: $mainFontSize;
+  font-family: $mainFont;
   background: #fff;
-}
 
-@media screen and (max-width: 1199px) {
-  html {
+  @media screen and (max-width: 1199px) {
     font-size: 12px;
   }
-}
 
-@media screen and (max-width: 1023px) {
-  html {
+  @media screen and (max-width: 1023px) {
     font-size: 11px;
   }
 }
