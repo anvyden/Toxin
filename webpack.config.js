@@ -149,15 +149,24 @@ const jsLoaders = () => {
 
 const plugins = () => {
   const base = [
-    ...PAGES.map((page, index) => new HTMLWebpackPlugin({
-      template: `${PAGES_DIR}/${PAGES_FOLDERS[index]}/${page}`,
-      filename: `./${page.replace(/\.pug/, '.html')}`,
-      chunks: [`${page.replace(/\.pug/, '')}`],
+    new HTMLWebpackPlugin({
+      template: `${PATHS.src}/pages/form-elements/form-elements.pug`,
+      filename: 'form-elements.pug'.replace(/\.pug/, '.html'),
+      chunks: ['form-elements.pug'.replace(/\.pug/, '')],
       inject: 'body',
       minify: {
         collapseWhitespace: isProd
       }
-    })),
+    }),
+    // ...PAGES.map((page, index) => new HTMLWebpackPlugin({
+    //   template: `${PAGES_DIR}/${PAGES_FOLDERS[index]}/${page}`,
+    //   filename: `./${page.replace(/\.pug/, '.html')}`,
+    //   chunks: [`${page.replace(/\.pug/, '')}`],
+    //   inject: 'body',
+    //   minify: {
+    //     collapseWhitespace: isProd
+    //   }
+    // })),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
@@ -182,6 +191,7 @@ const plugins = () => {
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
+  // entry: ['./pages/form-elements/form-elements.js'],
   entry: PAGES_ENTRYS,
   output: {
     filename: `${PATHS.assets}js/[name].js`,

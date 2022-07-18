@@ -1,32 +1,133 @@
-.dropdown--size-small {
-  max-width: rem(150);
-}
+.dropdown {
+  &--size-small {
+    max-width: rem(150);
+  }
 
-.dropdown__title {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: rem(5);
-}
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: rem(5);
+  }
 
-.dropdown__wrapper {
-  position: relative;
-}
+  &__wrapper {
+    position: relative;
+  }
 
-.dropdown__input {
-  width: 100%;
-  padding: rem(12) rem(44) rem(12) rem(14);
+  &__input {
+    width: 100%;
+    padding: rem(12) rem(44) rem(12) rem(14);
 
-  color: $darkShade75;
-  border: 1px solid $darkShade25;
-  border-radius: 4px;
+    color: $darkShade75;
+    border: $mainBorder;
+    border-radius: $mainBorderRadius;
 
-  outline: none;
-  cursor: pointer;
-  text-overflow: ellipsis;
-}
+    outline: none;
+    cursor: pointer;
+    text-overflow: ellipsis;
 
-.dropdown__input--focused:focus, .dropdown__input--hovered:hover {
-  border: 1px solid $darkShade50;
+    &:focus,
+    &:hover {
+      border: $focusBorder;
+    }
+
+    &--dropped {
+      border-radius: 4px 4px 0 0;
+      border-color: $darkShade50;
+    }
+  }
+
+  &__arrow-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: rem(10);
+
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: $darkShade50;
+    transition: transform 0.4s ease;
+
+    &:focus-visible {
+      outline: $focusOutline;
+    }
+
+    &--rotate {
+      transform: rotateX(180deg);
+    }
+  }
+
+  &__drop {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    display: none;
+    border-left: $focusBorder;
+    border-right: $focusBorder;
+    border-bottom: $focusBorder;
+    border-radius: $dropdownDropBorderRadius;
+    box-shadow: $secondaryBoxShadow;
+    background: #fff;
+  }
+
+  &--open {
+    .dropdown__input {
+      border-radius: $dropdownInputDropBorderRadius;
+      border-color: $darkShade50;
+    }
+    .dropdown__drop {
+      display: block;
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: rem(6) rem(7) rem(1) rem(14);
+
+    font-size: rem(12);
+    line-height: rem(14.63);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $darkShade100;
+
+    &:last-child {
+      padding-bottom: rem(7);
+    }
+
+    &-controls {
+      width: rem(92);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-button {
+      width: rem(30);
+      height: rem(30);
+      border-radius: 22px;
+      border: $mainBorder;
+      background: transparent;
+      cursor: pointer;
+
+      font-size: rem(18);
+      line-height: rem(22);
+      font-weight: normal;
+      color: $darkShade50;
+
+      &:focus-visible {
+        outline: $focusOutline;
+        border: 0;
+      }
+
+      &--disabled {
+        color: $darkShade5;
+        border-color: $darkShade5;
+        cursor: not-allowed;
+      }
+    }
+  }
 }
 
 .dropdown__input--with-straight-borders {
@@ -40,27 +141,6 @@
 
 .dropdown__input--text-lower {
   text-transform: lowercase;
-}
-
-.dropdown__arrow-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: rem(10);
-  
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  color: $darkShade50;
-  transition: transform 0.4s ease;
-}
-
-.dropdown__arrow-button:focus-visible {
-  outline: 3px solid $purple;
-}
-
-.dropdown__arrow-button--rotate {
-  transform: rotateX(180deg);
 }
 
 .dropdown__dropdown-expanded {
@@ -82,23 +162,6 @@
   z-index: 5;
 }
 
-.dropdown__item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: rem(6) rem(7) rem(1) rem(14);
-
-  font-size: rem(12);
-  line-height: rem(14.63);
-  text-transform: uppercase;
-  font-weight: bold;
-  color: $darkShade100;
-}
-
-.dropdown__item:last-child {
-  padding-bottom: rem(7);
-}
-
 .dropdown__item-menu {
   width: rem(92);
   display: flex;
@@ -106,32 +169,7 @@
   align-items: center;
 }
 
-.dropdown__item-button {
-  width: rem(30);
-  height: rem(30);
-  border-radius: 22px;
-  border: 1px solid $darkShade25;
-  background: transparent;  
-  cursor: pointer;
-
-  font-size: rem(18);
-  line-height: rem(22);
-  font-weight: normal;
-  color: $darkShade50;
-}
-
-.dropdown__item-button:focus-visible {
-  outline: 3px solid $purple;
-  border: 0;
-}
-
-.dropdown__item-button--disabled {
-  color: $darkShade5;
-  border-color: $darkShade5;
-  cursor: default;
-}
-
-.dropdown__buttons-wrapper {
+.dropdown__buttons {
   padding: rem(13) rem(7) rem(12) rem(14);
   display: flex;
   justify-content: space-between;

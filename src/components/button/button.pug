@@ -1,6 +1,6 @@
 mixin button(options)
   -
-    const { text, type, variant, disabled, classForJs, isLink, link, size } = options
+    const { text, type, variant, disabled, classForJs, isLink, link, size, id } = options
 
     let buttonContainerClass = 'button'
     let buttonClass = 'button__button'
@@ -37,9 +37,9 @@ mixin button(options)
     if (classForJs) {
       buttonClass += ` ${classForJs}`
     }
-    
+
   div(class=buttonContainerClass)
     if (isLink)
       a(href=link class=buttonClass)=text
-    else 
-      button(class=buttonClass type=typeButton disabled=disabled)=text 
+    else
+      button(class=buttonClass type=typeButton data-id=id disabled=disabled)=text

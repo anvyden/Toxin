@@ -30,3 +30,12 @@ $blackGradient: linear-gradient(180deg, #919191 0%, #3D4975 100%);
 $mainBorder: 1px solid $darkShade25;
 $focusBorder: 1px solid $darkShade50;
 $mainBorderRadius: 4px;
+$dropdownInputDropBorderRadius: 4px 4px 0 0;
+$dropdownDropBorderRadius: 0 0 4px 4px;
+
+// Shadows
+$mainBoxShadow: 0 0 25px rgba(0, 0, 0, 0.2);
+$secondaryBoxShadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+
+// Focused
+$focusOutline: 3px solid $purple;

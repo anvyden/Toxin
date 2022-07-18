@@ -17,6 +17,7 @@ mixin dropdown(options={})
       hasLower,
       items=[],
       smallSize,
+      size,
       classForJs,
       inputClassForJs
     } = options
@@ -29,14 +30,20 @@ mixin dropdown(options={})
     const dropClass = 'dropdown__drop js-dropdown__drop'
     const itemClass = 'dropdown__item js-dropdown__item'
     const itemNameClass = 'dropdown__item-name js-dropdown__item-name'
-    const itemCounterClass = 'dropdown__item-counter js-dropdown__item-counter'
-    const itemIncreaseButtonClass = 'dropdown__item-button dropdown__item-button-decrease js-dropdown__item-button-decrease'
+    // const itemCounterClass = 'dropdown__item-counter js-dropdown__item-counter'
+    // const itemIncreaseButtonClass = 'dropdown__item-button dropdown__item-button-decrement js-dropdown__item-button-decrement'
     // const itemButtonClass = 'dropdown__counter-button'
 
     const sizeModifier = sizes.includes(size) && `dropdown--size-${size}`
     const straightBordersModifier = withStraightBorders && 'dropdown__input--with-straight-borders'
 
-  .dropdown(class=sizeModifier)
+  div&attributes({
+    class: [
+      mainClass,
+      sizeModifier,
+      classForJs
+    ]
+  })
     .dropdown__title
       +text({
         text: text,
@@ -56,7 +63,7 @@ mixin dropdown(options={})
       input&attributes({
         class: inputClass,
         type: type,
-        'data-id': data,
+        'data-id': 'input',
         value: value,
         placeholder: placeholder,
         name: name,
@@ -64,12 +71,13 @@ mixin dropdown(options={})
       })
       button&attributes({
         class: buttonClass,
-        type: 'button'
+        type: 'button',
+        'data-id': 'arrow',
       })='expand_more'
       div(class=dropClass)
         ul.dropdown__list
           each item in items
-            li(class=itemClass)
+            li(class=itemClass data-id=item.data)
               p(class=itemNameClass)=item.text
               .dropdown__item-controls
                 button&attributes({
@@ -78,17 +86,23 @@ mixin dropdown(options={})
                     'dropdown__item-button--type-decrement',
                     'js-dropdown__item-button--type-decrement'
                   ],
-                  type: 'button'
+                  type: 'button',
+                  'data-id': 'decrement'
                 })= '-'
-                p(class='dropdown__item-counter js-dropdown__item-counter')=item.count
+                p(class='dropdown__item-counter js-dropdown__item-counter')=item.counter
                 button&attributes({
                   class: [
                     'dropdown__item-button',
                     'dropdown__item-button--type-increment',
                     'js-dropdown__item-button--type-increment'
                   ],
-                  type: 'button'
+                  type: 'button',
+                  'data-id': 'increment'
                 })= '+'
+        if (withButtons)
+          .dropdown__buttons
+            +button({ text: 'очистить', variant: 'text', classForJs: 'js-dropdown__button--clear', id: 'clear' })
+            +button({ text: 'применить', variant: 'text', classForJs: 'js-dropdown__button--apply', id: 'apply' })
 
 
   // -

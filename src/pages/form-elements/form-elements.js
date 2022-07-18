@@ -1,4 +1,4 @@
-import formElements from '@pages/form-elements/form-elements.scss'
+import formElements from './form-elements.scss'
 import * as textField from '~/components/text-field/text-field'
 import Dropdown from '~/components/dropdown/dropdown'
 import LikeButton from '~/components/like-button/like-button'
