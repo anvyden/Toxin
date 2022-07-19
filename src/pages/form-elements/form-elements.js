@@ -10,26 +10,42 @@ import CheckboxList from '~/components/checkbox-list/checkbox-list'
 const init = (function () {
   return {
     dropdown1: new Dropdown('.js-dropdown-1', {
-      maxLength: {
+      type: 'comfort',
+      maxLengthItems: {
         item0: 10,
         item1: 15,
         item2: 6,
       },
+      plurals: {
+        bedrooms: ['спальня', 'спальни', 'спален'],
+        beds: ['кровать', 'кровати', 'кроватей'],
+        bathrooms: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+      }
     }),
     dropdown2: new Dropdown('.js-dropdown-guests-1', {
-      maxLength: {
+      type: 'guests',
+      maxLengthItems: {
         item0: 10,
         item1: 15,
         item2: 6,
+      },
+      plurals: {
+        guests: ['гость', 'гостя', 'гостей'],
+        babies: ['младенец', 'младенца', 'младенцев'],
       },
       dropdownButtons: true,
       combineTwoFirstItems: true,
     }),
     dropdown3: new Dropdown('.js-dropdown-guests-2', {
-      maxLength: {
+      type: 'guests',
+      maxLengthItems: {
         item0: 10,
         item1: 15,
         item2: 6,
+      },
+      plurals: {
+        guests: ['гость', 'гостя', 'гостей'],
+        babies: ['младенец', 'младенца', 'младенцев'],
       },
       dropdownButtons: true,
       combineTwoFirstItems: true,

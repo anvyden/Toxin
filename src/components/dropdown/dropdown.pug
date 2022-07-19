@@ -63,7 +63,7 @@ mixin dropdown(options={})
       input&attributes({
         class: inputClass,
         type: type,
-        'data-id': 'input',
+        'data-type': 'input',
         value: value,
         placeholder: placeholder,
         name: name,
@@ -72,12 +72,12 @@ mixin dropdown(options={})
       button&attributes({
         class: buttonClass,
         type: 'button',
-        'data-id': 'arrow',
+        'data-type': 'arrow',
       })='expand_more'
       div(class=dropClass)
         ul.dropdown__list
           each item in items
-            li(class=itemClass data-id=item.data)
+            li(class=itemClass data-id=item.dataId)
               p(class=itemNameClass)=item.text
               .dropdown__item-controls
                 button&attributes({
@@ -87,7 +87,7 @@ mixin dropdown(options={})
                     'js-dropdown__item-button--type-decrement'
                   ],
                   type: 'button',
-                  'data-id': 'decrement'
+                  'data-type': 'decrement'
                 })= '-'
                 p(class='dropdown__item-counter js-dropdown__item-counter')=item.counter
                 button&attributes({
@@ -97,12 +97,12 @@ mixin dropdown(options={})
                     'js-dropdown__item-button--type-increment'
                   ],
                   type: 'button',
-                  'data-id': 'increment'
+                  'data-type': 'increment'
                 })= '+'
         if (withButtons)
           .dropdown__buttons
-            +button({ text: 'очистить', variant: 'text', classForJs: 'js-dropdown__button--clear', id: 'clear' })
-            +button({ text: 'применить', variant: 'text', classForJs: 'js-dropdown__button--apply', id: 'apply' })
+            +button({ text: 'очистить', variant: 'text', classForJs: 'js-dropdown__button--clear', dataType: 'clear' })
+            +button({ text: 'применить', variant: 'text', classForJs: 'js-dropdown__button--apply', dataType: 'apply' })
 
 
   // -
