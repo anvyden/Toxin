@@ -19,19 +19,18 @@ class Dropdown {
     this.dropdown = document.querySelector(this.selector);
     this.input = this.dropdown.querySelector('.js-dropdown__input');
     this.arrowButton = this.dropdown.querySelector(
-      '.js-dropdown__arrow-button'
+      '.js-dropdown__arrow-button',
     );
     this.items = this.dropdown.querySelectorAll('.js-dropdown__item');
-    this.clearButton =
-      this.dropdown.querySelector('.js-dropdown__button--clear') || '';
+    this.clearButton = this.dropdown.querySelector('.js-dropdown__button--clear') || '';
 
     this.itemsData = [...this.items].map((item) => ({
       decrement: item.querySelector(
-        '.js-dropdown__item-button--type-decrement'
+        '.js-dropdown__item-button--type-decrement',
       ),
       counter: item.querySelector('.js-dropdown__item-counter'),
       increment: item.querySelector(
-        '.js-dropdown__item-button--type-increment'
+        '.js-dropdown__item-button--type-increment',
       ),
       id: item.dataset.id,
     }));
@@ -42,7 +41,7 @@ class Dropdown {
       ? Object.keys(this.getMaxLengthItems)
       : [];
 
-    const maxLengthItems = Object.fromEntries(
+    this.options.maxLengthItems = Object.fromEntries(
       [...this.items].map((item, index) => {
         const key = `item${index}`;
         let value;
@@ -52,10 +51,8 @@ class Dropdown {
           : (value = 8);
 
         return [key, value];
-      })
+      }),
     );
-
-    this.options.maxLengthItems = maxLengthItems;
   }
 
   get getMaxLengthItems() {
@@ -64,7 +61,10 @@ class Dropdown {
   }
 
   _setDataIndexItems() {
-    this.items.forEach((item, index) => (item.dataset.index = index));
+    this.items.forEach((item, i) => {
+      this.item = item;
+      this.item.dataset.index = i;
+    });
   }
 
   _validateItems() {
@@ -72,15 +72,20 @@ class Dropdown {
 
     this.itemsData.forEach((item, index) => {
       const itemMaxLength = maxLengthItems[`item${index}`];
+      this.itemData = item;
 
       if (Number(item.counter.textContent) <= 0) {
-        item.counter.textContent = 0;
+        this.itemData.counter.textContent = 0;
         this._setItemButtonDisabled(item.decrement);
       }
 
       if (Number(item.counter.textContent) >= itemMaxLength) {
-        item.counter.textContent = itemMaxLength;
+        this.itemData.counter.textContent = itemMaxLength;
         this._setItemButtonDisabled(item.increment);
+      }
+
+      if (this.dropdown.classList.contains('dropdown--open')) {
+        this._turnArrowUp();
       }
     });
 
@@ -91,15 +96,15 @@ class Dropdown {
   _bindEventListeners() {
     this.dropdown.addEventListener(
       'pointerdown',
-      this._handleDropdownPointerDown.bind(this)
+      this._handleDropdownPointerDown.bind(this),
     );
     this.dropdown.addEventListener(
       'keydown',
-      this._handleDropdownKeyDown.bind(this)
+      this._handleDropdownKeyDown.bind(this),
     );
     document.addEventListener(
       'pointerdown',
-      this._handleDocumentPointerDown.bind(this)
+      this._handleDocumentPointerDown.bind(this),
     );
   }
 
@@ -145,10 +150,10 @@ class Dropdown {
     const { parentNode } = target;
     const counter = parentNode.querySelector('.js-dropdown__item-counter');
     const increment = parentNode.querySelector(
-      '.js-dropdown__item-button--type-increment'
+      '.js-dropdown__item-button--type-increment',
     );
     const decrement = parentNode.querySelector(
-      '.js-dropdown__item-button--type-decrement'
+      '.js-dropdown__item-button--type-decrement',
     );
 
     const maxLengthItems = this.getMaxLengthItems;
@@ -174,10 +179,10 @@ class Dropdown {
     const { parentNode } = target;
     const counter = parentNode.querySelector('.js-dropdown__item-counter');
     const increment = parentNode.querySelector(
-      '.js-dropdown__item-button--type-increment'
+      '.js-dropdown__item-button--type-increment',
     );
     const decrement = parentNode.querySelector(
-      '.js-dropdown__item-button--type-decrement'
+      '.js-dropdown__item-button--type-decrement',
     );
 
     const maxLengthItems = this.getMaxLengthItems;
@@ -200,18 +205,21 @@ class Dropdown {
   }
 
   _setItemButtonDisabled(button) {
-    button.disabled = true;
-    button.classList.add('dropdown__item-button--disabled');
+    this.itemButton = button;
+    this.itemButton.disabled = true;
+    this.itemButton.classList.add('dropdown__item-button--disabled');
   }
 
   _setItemButtonActive(button) {
-    button.disabled = false;
-    button.classList.remove('dropdown__item-button--disabled');
+    this.itemButton = button;
+    this.itemButton.disabled = false;
+    this.itemButton.classList.remove('dropdown__item-button--disabled');
   }
 
   _clear() {
     this.itemsData.forEach((item) => {
-      item.counter.textContent = 0;
+      this.itemData = item;
+      this.itemData.counter.textContent = 0;
       this._setItemButtonDisabled(item.decrement);
       this._setItemButtonActive(item.increment);
     });
