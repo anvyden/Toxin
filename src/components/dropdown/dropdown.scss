@@ -16,14 +16,12 @@
   &__input {
     width: 100%;
     padding: rem(12) rem(44) rem(12) rem(14);
-
     color: $darkShade75;
+    text-overflow: ellipsis;
     border: $mainBorder;
     border-radius: $mainBorderRadius;
-
     outline: none;
     cursor: pointer;
-    text-overflow: ellipsis;
 
     &:focus,
     &:hover {
@@ -31,8 +29,8 @@
     }
 
     &--dropped {
-      border-radius: 4px 4px 0 0;
       border-color: $darkShade50;
+      border-radius: $dropdownInputDropBorderRadius;
     }
   }
 
@@ -41,11 +39,10 @@
     top: 0;
     right: 0;
     margin: rem(10);
-
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
     color: $darkShade50;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
     transition: transform 0.4s ease;
 
     &:focus-visible {
@@ -60,65 +57,66 @@
   &__drop {
     position: absolute;
     z-index: 5;
-    width: 100%;
     display: none;
-    border-left: $focusBorder;
+    width: 100%;
+    background: #fff;
     border-right: $focusBorder;
     border-bottom: $focusBorder;
+    border-left: $focusBorder;
     border-radius: $dropdownDropBorderRadius;
     box-shadow: $secondaryBoxShadow;
-    background: #fff;
   }
 
   &--open {
-    .dropdown__input {
-      border-radius: $dropdownInputDropBorderRadius;
-      border-color: $darkShade50;
-    }
-    .dropdown__drop {
-      display: block;
+    .dropdown {
+      &__input {
+        border-color: $darkShade50;
+        border-radius: $dropdownInputDropBorderRadius;
+      }
+
+      &__drop {
+        display: block;
+      }
     }
   }
 
   &__item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: rem(6) rem(7) rem(1) rem(14);
-
+    color: $darkShade100;
+    font-weight: bold;
     font-size: rem(12);
     line-height: rem(14.63);
     text-transform: uppercase;
-    font-weight: bold;
-    color: $darkShade100;
 
     &:last-child {
       padding-bottom: rem(7);
     }
 
     &-controls {
-      width: rem(92);
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      width: rem(92);
     }
 
     &-button {
       width: rem(30);
       height: rem(30);
-      border-radius: 22px;
-      border: $mainBorder;
-      background: transparent;
-      cursor: pointer;
-
+      color: $darkShade50;
+      font-weight: normal;
       font-size: rem(18);
       line-height: rem(22);
-      font-weight: normal;
-      color: $darkShade50;
+      background: transparent;
+      border: $mainBorder;
+      border-radius: 22px;
+      cursor: pointer;
 
       &:focus-visible {
-        outline: $focusOutline;
         border: 0;
+        outline: $focusOutline;
       }
 
       &--disabled {
@@ -128,49 +126,10 @@
       }
     }
   }
-}
 
-.dropdown__input--with-straight-borders {
-  border-radius: 4px 4px 0 0;
-}
-
-.dropdown__input--expanded {
-  border-radius: 4px 4px 0 0;
-  border-color: $darkShade50;
-}
-
-.dropdown__input--text-lower {
-  text-transform: lowercase;
-}
-
-.dropdown__dropdown-expanded {
-  width: 100%;
-  border-left: 1px solid $darkShade50;
-  border-right: 1px solid $darkShade50;
-  border-bottom: 1px solid $darkShade50;
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-  background: #fff;
-}
-
-.dropdown__dropdown-expanded--hidden {
-  display: none;
-}
-
-.dropdown__dropdown-expanded--absolute {
-  position: absolute;
-  z-index: 5;
-}
-
-.dropdown__item-menu {
-  width: rem(92);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.dropdown__buttons {
-  padding: rem(13) rem(7) rem(12) rem(14);
-  display: flex;
-  justify-content: space-between;
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: rem(13) rem(7) rem(12) rem(14);
+  }
 }

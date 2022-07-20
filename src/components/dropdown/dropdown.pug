@@ -4,22 +4,18 @@ include ~/components/button/button
 mixin dropdown(options={})
   -
     const {
-      text,
+      hasTitle,
+      title,
       subtitle,
       value,
       name,
       placeholder,
-      expanded,
-      expandedVisible,
-      expandedBlock,
-      withStraightBorders,
-      withButtons,
-      hasLower,
-      items=[],
-      smallSize,
+      dataId,
+      open,
       size,
+      withButtons,
       classForJs,
-      inputClassForJs
+      items=[]
     } = options
 
     const sizes = ['small', 'medium', 'large']
@@ -30,35 +26,35 @@ mixin dropdown(options={})
     const dropClass = 'dropdown__drop js-dropdown__drop'
     const itemClass = 'dropdown__item js-dropdown__item'
     const itemNameClass = 'dropdown__item-name js-dropdown__item-name'
-    // const itemCounterClass = 'dropdown__item-counter js-dropdown__item-counter'
-    // const itemIncreaseButtonClass = 'dropdown__item-button dropdown__item-button-decrement js-dropdown__item-button-decrement'
-    // const itemButtonClass = 'dropdown__counter-button'
 
+    const openModifier = open && 'dropdown--open'
     const sizeModifier = sizes.includes(size) && `dropdown--size-${size}`
-    const straightBordersModifier = withStraightBorders && 'dropdown__input--with-straight-borders'
 
   div&attributes({
     class: [
       mainClass,
       sizeModifier,
+      openModifier,
       classForJs
-    ]
+    ],
+    'data-id': dataId
   })
-    .dropdown__title
-      +text({
-        text: text,
-        type: 'h3',
-        color: 'dark-shade-100',
-        bold: true,
-        hasUpper: true
-      })
-      if (subtitle)
+    if (hasTitle)
+      .dropdown__title
         +text({
-          text: subtitle,
+          text: title,
           type: 'h3',
-          color: 'dark-shade-50',
+          color: 'dark-shade-100',
+          bold: true,
           hasUpper: true
         })
+        if (subtitle)
+          +text({
+            text: subtitle,
+            type: 'h3',
+            color: 'dark-shade-50',
+            hasUpper: true
+          })
     .dropdown__wrapper
       input&attributes({
         class: inputClass,
@@ -103,71 +99,3 @@ mixin dropdown(options={})
           .dropdown__buttons
             +button({ text: 'очистить', variant: 'text', classForJs: 'js-dropdown__button--clear', dataType: 'clear' })
             +button({ text: 'применить', variant: 'text', classForJs: 'js-dropdown__button--apply', dataType: 'apply' })
-
-
-  // -
-  //   let dropdownClass = 'dropdown'
-  //   let dropdownInputClass = 'dropdown__input dropdown__input--focused dropdown__input--hovered js-dropdown__input'
-  //   let dropdownButtonClass = 'dropdown__arrow-button material-icons js-dropdown__arrow-button'
-  //   let dropdownItemClass = 'dropdown__item js-dropdown__item'
-  //   let dropdownExpandedClass = 'dropdown__dropdown-expanded js-dropdown__dropdown-expanded'
-  //   let dropdownItemNameClass = 'dropdown__item-name js-dropdown__item-name'
-  //   let dropdownItemCounterClass = 'dropdown__item-counter js-dropdown__item-counter'
-  //
-  //   if (smallSize) {
-  //     dropdownClass += ' dropdown--size-small'
-  //   }
-  //
-  //   if (classForJs) {
-  //     dropdownClass += ` ${classForJs}`
-  //   }
-  //
-  //   if (inputClassForJs) {
-  //     dropdownInputClass += ` ${inputClassForJs}`
-  //   }
-  //
-  //   if (withStraightBorders) {
-  //     dropdownInputClass += ' dropdown__input--with-straight-borders'
-  //   }
-  //
-  //   if (!expandedBlock) {
-  //     dropdownExpandedClass += ' dropdown__dropdown-expanded--absolute'
-  //   }
-  //
-  //   if (!expandedVisible) {
-  //     dropdownExpandedClass += ' dropdown__dropdown-expanded--hidden'
-  //   }
-  //
-  //   if (expandedVisible) {
-  //     dropdownInputClass += ' dropdown__input--expanded'
-  //   }
-  //
-  //   if (hasLower) {
-  //     dropdownInputClass += ' dropdown__input--text-lower'
-  //   }
-  //
-  // div(class=dropdownClass)
-  //   .dropdown__title
-  //     +text({ text: text, type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-  //     if (subtitle)
-  //       +text({ text: subtitle, type: 'h3', color: 'dark-shade-50', hasUpper: true })
-  //   .dropdown__wrapper
-  //     .dropdown__dropdown-default.js-dropdown__dropdown-default
-  //       input(class=dropdownInputClass name=name value=value placeholder=placeholder readonly)
-  //       button(class=dropdownButtonClass type='button')='expand_more'
-  //     if (expanded)
-  //       div(class=dropdownExpandedClass)
-  //         ul.dropdown__list
-  //           each item in items
-  //             - const { itemName, itemCounter } = item
-  //
-  //             li(class=dropdownItemClass)
-  //               p(class=dropdownItemNameClass)= itemName
-  //               .dropdown__item-menu
-  //                 button(class='dropdown__item-button dropdown__item-button-decrease js-dropdown__item-button' type='button')= '-'
-  //                 p(class=dropdownItemCounterClass)= itemCounter
-  //                 button(class='dropdown__item-button dropdown__item-button-increase js-dropdown__item-button' type='button')= '+'
-  //         if (withButtons)
-  //           .dropdown__buttons-wrapper
-  //             +button({ text: 'очистить', variant: 'text', classForJs: 'js-dropdown__button' })
-  //             +button({ text: 'применить', variant: 'text', classForJs: 'js-dropdown__button' })

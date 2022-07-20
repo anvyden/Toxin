@@ -6,57 +6,53 @@ mixin dropdowns()
       .dropdowns__services
         .dropdowns__dropdown-default
           +dropdown({
-            text: 'dropdown',
+            hasTitle: true,
+            title: 'dropdown',
             subtitle: 'default',
-            withStraightBorders: true,
             value: '2 спальни, 2 кровати...'
           })
         .dropdowns__dropdown-expanded
           +dropdown({
-            text: 'dropdown',
+            hasTitle: true,
+            title: 'dropdown',
             subtitle: 'expanded',
             classForJs: 'js-dropdown-1',
-            expanded: true,
-            expandedVisible: true,
-            expandedBlock: true,
+            open: true,
             value: '2 спальни, 2 кровати...',
-            placeholder: '2 спальни, 2 кровати...',
+            placeholder: 'Удобства номера',
             items: [
-              { text: 'спальни', counter: '2', dataId: 'bedrooms' },
-              { text: 'кровати', counter: '2', dataId: 'beds' },
-              { text: 'ванные комнаты', counter: '0', dataId: 'bathrooms' },
+              { text: 'Спальни', counter: '2', dataId: 'bedrooms' },
+              { text: 'Кровати', counter: '2', dataId: 'beds' },
+              { text: 'Ванные комнаты', counter: '0', dataId: 'bathrooms' },
             ]
           })
       .dropdowns__guests
         .dropdowns__dropdown-guests
           +dropdown({
-            text: 'dropdown',
+            hasTitle: true,
+            title: 'dropdown',
             classForJs: 'js-dropdown-guests-1',
-            expanded: true,
-            expandedVisible: true,
-            expandedBlock: true,
+            open: true,
             withButtons: true,
-            value: 'Сколько гостей',
             placeholder: 'Сколько гостей',
             items: [
-              { text: 'взрослые', counter: '0', dataId: 'adults' },
-              { text: 'дети', counter: '0', dataId: 'children' },
-              { text: 'младенцы', counter: '0', dataId: 'babies' },
+              { text: 'Взрослые', counter: '0', dataId: 'adults' },
+              { text: 'Дети', counter: '0', dataId: 'children' },
+              { text: 'Младенцы', counter: '0', dataId: 'babies' },
             ]
           })
         .dropdowns__dropdown-guests-selected
           +dropdown({
-            text: 'dropdown',
+            hasTitle: true,
+            title: 'dropdown',
             classForJs: 'js-dropdown-guests-2',
-            expanded: true,
-            expandedVisible: true,
-            expandedBlock: true,
+            open: true,
             withButtons: true,
             value: '3 гостя',
             placeholder: 'Сколько гостей',
             items: [
-              { text: 'взрослые', counter: '18', dataId: 'adults' },
-              { text: 'дети', counter: '1', dataId: 'children' },
-              { text: 'младенцы', counter: '0', dataId: 'babies' },
+              { text: 'Взрослые', counter: '2', dataId: 'adults' },
+              { text: 'Дети', counter: '1', dataId: 'children' },
+              { text: 'Младенцы', counter: '0', dataId: 'babies' },
             ]
           })
