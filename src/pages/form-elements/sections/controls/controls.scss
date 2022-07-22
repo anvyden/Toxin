@@ -5,7 +5,7 @@
 @import '~/components/star-rating/star-rating';
 
 .controls__container {
-  max-width: rem(260);
+  min-width: rem(260);
   margin-right: rem(133);
 }
 

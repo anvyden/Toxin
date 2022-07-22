@@ -36,9 +36,8 @@
 
   &__arrow-button {
     position: absolute;
-    top: 0;
-    right: 0;
-    margin: rem(10);
+    top: rem(10);
+    right: rem(10);
     color: $darkShade50;
     background-color: transparent;
     border: none;
@@ -67,7 +66,7 @@
     box-shadow: $secondaryBoxShadow;
   }
 
-  &--open {
+  &--opened {
     .dropdown {
       &__input {
         border-color: $darkShade50;

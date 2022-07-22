@@ -14,12 +14,12 @@
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "lintone": "eslint \"src/components/dropdown/dropdown.js\"",
-    "lintone:fix": "eslint \"src/components/dropdown/dropdown.js\" --fix",
+    "lintone": "eslint \"src/components/checkbox-list/checkbox-list.js\"",
+    "lintone:fix": "eslint \"src/components/checkbox-list/checkbox-list.js\" --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
-    "stylelintone": "stylelint \"src/components/dropdown/dropdown.scss\"",
-    "stylelintone:fix": "stylelint \"src/components/dropdown/dropdown.scss\" --fix"
+    "stylelintone": "stylelint \"src/components/checkbox-list/checkbox-list.scss\"",
+    "stylelintone:fix": "stylelint \"src/components/checkbox-list/checkbox-list.scss\" --fix"
   },
   "browserslist": [
     "> 0.25%",

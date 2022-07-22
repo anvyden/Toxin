@@ -3,7 +3,7 @@
 @import '~/components/pagination/pagination';
 
 .buttons__container {
-  max-width: rem(320);
+  min-width: rem(320);
 }
 
 .buttons__range-slider {

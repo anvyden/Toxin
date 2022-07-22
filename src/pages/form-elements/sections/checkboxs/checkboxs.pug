@@ -11,35 +11,34 @@ mixin checkboxs()
           +checkboxList({
             expandable: true,
             title: 'expandable checkbox list',
-            opened: true,
+            isOpened: true,
             classForJs: 'js-expandable-checkbox',
             items: [
-              { text: 'Завтрак', name: 'breakfast' },
-              { text: 'Письменный стол', name: 'table', isChecked: true },
-              { text: 'Стул для кормления', name: 'chair', isChecked: true },
-              { text: 'Кроватка', name: 'bed', isChecked: true },
-              { text: 'Телевизор', name: 'tv1' },
-              { text: 'Шампунь', name: 'shampoo1' },
-              { text: 'Телевизор', name: 'tv2' },
-              { text: 'Шампунь', name: 'shampoo2' },
+              { title: 'Завтрак', name: 'breakfast' },
+              { title: 'Письменный стол', name: 'table', isChecked: true },
+              { title: 'Стул для кормления', name: 'chair', isChecked: true },
+              { title: 'Кроватка', name: 'bed', isChecked: true },
+              { title: 'Телевизор', name: 'tv1' },
+              { title: 'Шампунь', name: 'shampoo1' },
+              { title: 'Телевизор', name: 'tv2' },
+              { title: 'Шампунь', name: 'shampoo2' },
             ]
           })
       .checkboxs__rich-checkboxs
-        +checkboxList({ title: 'rich checkbox buttons', wideCheckboxItems: true,
+        +checkboxList({ title: 'rich checkbox buttons',
         items: [
           {
-            text: 'Широкий коридор',
+            isRich: true,
+            title: 'Широкий коридор',
             description: `Ширина коридоров в номере
               не менее 91 см.`,
-            textBold: true,
-            color: 'dark-shade-75',
             name: 'wide-corridor'
           },
           {
-            text: 'Помощник для инвалидов',
+            isRich: true,
+            title: 'Помощник для инвалидов',
             description: `На 1 этаже вас встретит специалист
               и проводит до номера.`,
-            textBold: true,
             color: 'dark-shade-75',
             name: 'assistant-for-disabled'
           },

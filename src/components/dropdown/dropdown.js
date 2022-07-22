@@ -84,7 +84,7 @@ class Dropdown {
         this._setItemButtonDisabled(item.increment);
       }
 
-      if (this.dropdown.classList.contains('dropdown--open')) {
+      if (this.dropdown.classList.contains('dropdown--opened')) {
         this._turnArrowUp();
       }
     });
@@ -273,7 +273,7 @@ class Dropdown {
   }
 
   get isOpen() {
-    return this.dropdown.classList.contains('dropdown--open');
+    return this.dropdown.classList.contains('dropdown--opened');
   }
 
   _toggle() {
@@ -285,12 +285,12 @@ class Dropdown {
   }
 
   _open() {
-    this.dropdown.classList.add('dropdown--open');
+    this.dropdown.classList.add('dropdown--opened');
     this._turnArrowUp();
   }
 
   _close() {
-    this.dropdown.classList.remove('dropdown--open');
+    this.dropdown.classList.remove('dropdown--opened');
     this._turnArrowDown();
   }
 

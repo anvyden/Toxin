@@ -7,21 +7,23 @@
 }
 
 .checkboxs__expandable-checkboxs {
-  width: 266px;
+  min-width: 266px;
   margin-right: rem(180);
 }
 
 .checkboxs__expandable-checkbox:first-child {
-  margin-bottom: rem(20.5);
+  margin-bottom: rem(40);
 }
 
 .checkboxs__rich-checkboxs {
-  margin-right: rem(126.5);
-  margin-top: rem(15);
+  max-width: 266px;
+  margin-right: rem(127);
+  margin-top: rem(4);
 }
 
 .checkboxs__bullet-lists {
-  margin-top: rem(15);
+  max-width: 292px;
+  margin-top: rem(4);
 }
 
 .checkboxs__bullet-lists-title {

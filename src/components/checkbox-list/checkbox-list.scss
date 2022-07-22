@@ -1,107 +1,124 @@
-.checkbox-list__heading {
-  margin-bottom: rem(16);
-}
+.checkbox-list {
+  width: 100%;
 
-.checkbox-list__expandable-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: rem(2);
-  cursor: pointer;
-}
+  &__heading {
+    margin-bottom: rem(16);
+  }
 
-.checkbox-list__expandable-heading-button {
-  padding: rem(10);
-  background: transparent;
-  border: none;
-  color: $darkShade50;
-  cursor: pointer;
-  transition: transform 0.4s ease;
-}
+  &__dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: rem(12);
+    cursor: pointer;
 
-.checkbox-list__expandable-heading-button:focus-visible {
-  outline: 3px solid $purple;
-}
+    &:focus-visible {
+      outline: $focusOutline;
+    }
+  }
 
-.checkbox-list__expandable-heading-button--rotate {
-  transform: rotateX(180deg);
-}
+  &__button {
+    margin-right: rem(10);
+    color: $darkShade50;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.4s ease;
 
-.checkbox-list__list--hidden {
-  display: none;
-}
+    &:focus-visible {
+      outline: $focusOutline;
+    }
 
-.checkbox-list__item {
-  max-width: rem(222);
-  margin-bottom: rem(10);
-  line-height: rem(20);
-  color: $darkShade50
-}
+    &--rotate {
+      transform: rotateX(180deg);
+    }
+  }
 
-.checkbox-list__item:last-child {
-  margin-bottom: 0;
-}
+  &__list {
+    &--hidden {
+      display: none;
+    }
+  }
 
-.checkbox-list__item--wide {
-  max-width: rem(266);
-}
+  &__item {
+    margin-bottom: rem(10);
+    color: $darkShade50;
+    line-height: rem(20);
 
-.checkbox-list__item-label {
-  display: inline-block;
-  position: relative;
-  margin-left: rem(30);
-  cursor: pointer;
-}
+    &:last-child {
+      margin-bottom: 0;
+    }
 
-.checkbox-list__item-label:hover {
-  color: $darkShade75;
-}
+    &--rich {
+      .checkbox-list {
+        &__item-text {
+          color: $darkShade75;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 
-.checkbox-list__item-input {
-  position: absolute;
-  appearance: none;
-  outline: none;
-}
+  &__item-text::before {
+    position: absolute;
+    top: 0;
+    left: rem(-30);
+    width: rem(20);
+    height: rem(20);
+    border: $mainBorder;
+    border-radius: $mainBorderRadius;
+    content: '';
+  }
 
-.checkbox-list__item-text::before {
-  position: absolute;
-  top: 0;
-  left: rem(-30);
+  &__item-label {
+    position: relative;
+    display: inline-block;
+    margin-left: rem(30);
+    cursor: pointer;
 
-  content: '';
-  width: rem(20);
-  height: rem(20);
+    &:hover {
+      color: $darkShade75;
 
-  border: 1px solid $darkShade25;
-  border-radius: 4px;
-}
+      > .checkbox-list {
+        &__item-text::before {
+          border-color: $purple;
+        }
+      }
+    }
+  }
 
-.checkbox-list__item-input:checked + .checkbox-list__item-text::before {
-  background: url(~/components/checkbox-list/img/checkbox-checked.svg) no-repeat center;
-  border-color: $purple;
-}
+  &__item-input {
+    position: absolute;
+    outline: none;
+    appearance: none;
 
-.checkbox-list__item-input:focus-visible + .checkbox-list__item-text::before {
-  outline: 3px solid $purple;
-  border: 0;
-}
+    &:checked + .checkbox-list {
+      &__item-text {
+        &::before {
+          background: url('~/components/checkbox-list/img/checkbox-checked.svg')
+            no-repeat center;
+          border-color: $purple;
+        }
+      }
+    }
 
-.checkbox-list__item-input:focus-visible + .checkbox-list__item-text {
-  color: $darkShade75;
-}
+    &:focus-visible + .checkbox-list {
+      &__item-text {
+        color: $darkShade75;
 
-.checkbox-list__item-label:hover > .checkbox-list__item-text::before {
-  border-color: $purple;
-}
+        &::before {
+          border: 0;
+          outline: $focusOutline;
+        }
+      }
+    }
+  }
 
-.checkbox-list__item-description {
-  display: inline-block;
-  margin-top: rem(3);
-  font-size: rem(12);
-  line-height: rem(14.63);
-  white-space: pre-line;
-}
-
-.checkbox-list__rich-item {
-  margin-bottom: rem(8);
+  &__item-description {
+    display: inline-block;
+    margin-top: rem(3);
+    font-size: rem(12);
+    line-height: rem(14.63);
+    white-space: pre-line;
+  }
 }

@@ -11,7 +11,7 @@ mixin dropdown(options={})
       name,
       placeholder,
       dataId,
-      open,
+      isOpened,
       size,
       withButtons,
       classForJs,
@@ -27,7 +27,7 @@ mixin dropdown(options={})
     const itemClass = 'dropdown__item js-dropdown__item'
     const itemNameClass = 'dropdown__item-name js-dropdown__item-name'
 
-    const openModifier = open && 'dropdown--open'
+    const openModifier = isOpened && 'dropdown--opened'
     const sizeModifier = sizes.includes(size) && `dropdown--size-${size}`
 
   div&attributes({
