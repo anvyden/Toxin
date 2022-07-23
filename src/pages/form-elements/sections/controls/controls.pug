@@ -20,9 +20,10 @@ mixin controls()
         .controls__title
           +text({ text: 'radio buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         +radioButtons({
+          group: 'gender',
           items: [
-            { text: 'Мужчина', name: 'sex', value: 'man', isChecked: true},
-            { text: 'Женщина', name: 'sex', value: 'woman'}
+            { text: 'Мужчина', value: 'man', isChecked: true},
+            { text: 'Женщина', value: 'woman'}
           ],
         })
       .controls__toggle-buttons
@@ -35,8 +36,8 @@ mixin controls()
         .controls__title
           +text({ text: 'like button', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         .controls__like-buttons-wrapper
-          +likeButton({ count: 2, classForJs: 'js-like-button' })
-          +likeButton({ count: 12, isActived: true, classForJs: 'js-like-button' })
+          +likeButton({ count: 2 })
+          +likeButton({ count: 12, isActive: true })
       .controls__rate-buttons
         .controls__title
           +text({ text: 'rate button', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })

@@ -1,18 +1,21 @@
-mixin radioButtons(options)
+mixin radioButtons(options={})
   -
-    const { items } = options
+    const { items=[], group } = options
 
   .radio-buttons
     ul.radio-buttons__list
-      each item in items 
+      each item in items
         -
-          const { text, name, value, isChecked } = item
-          let radioButtonClass = 'radio-buttons__item'
-          let radioButtonInputClass = 'radio-buttons__item-input'
-          let radioButtonLabelClass = 'radio-buttons__item-label'
-      
-        li(class=radioButtonClass)
-          label(class=radioButtonLabelClass)
-            input(class=radioButtonInputClass type='radio' name=name value=value checked=isChecked)
+          const { text, value, isChecked } = item
+
+        li.radio-buttons__item
+          label.radio-buttons__item-label
+            input&attributes({
+              class: 'radio-buttons__item-input',
+              type: 'radio',
+              name: group,
+              value: value,
+              checked: isChecked,
+            })
             span.radio-buttons__item-text=text
-      
+

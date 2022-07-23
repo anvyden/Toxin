@@ -1,15 +1,14 @@
-mixin likeButton(options)
-  -
-    const { count, name, isActived, classForJs } = options
-    let likeButtonClass = 'like-button__button'
+mixin likeButton({ count=0, isActive } = {})
+  - const activeModifier = isActive && 'like-button__button--active'
 
-    if (isActived) {
-      likeButtonClass += ' like-button__button--active'
-    }
-
-    if (classForJs) {
-      likeButtonClass += ` ${classForJs}`
-    }
-
-  .like-button 
-    button(class=likeButtonClass type='button' name=name value=count)= count
+  .like-button
+    button&attributes({
+      class: [
+        'like-button__button',
+        'js-like-button__button',
+        activeModifier,
+      ],
+      type: 'button',
+      name: 'likes',
+      value: count,
+    })= count

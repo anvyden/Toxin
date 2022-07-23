@@ -1,52 +1,70 @@
 class LikeButton {
-  constructor(selector) {
-    this.likeButtons = document.querySelectorAll(selector)
-    this.like()
+  constructor(button) {
+    this.likeButton = button;
+    this._init();
   }
 
-  like() {
-    this.likeButtons.forEach((item) => {
-      this.handleLikeButtonClick(item)
-    })
+  _init() {
+    this._bindEventListeners();
   }
 
-  handleLikeButtonClick(item) {
-    this.clickHandler = this.clickHandler.bind(this)
-    item.addEventListener('click', this.clickHandler)
+  _bindEventListeners() {
+    this.likeButton.addEventListener(
+      'pointerdown',
+      this._pointerDownHandlerLikeButton.bind(this),
+    );
+    this.likeButton.addEventListener(
+      'keydown',
+      this._keyDownHandlerLikeButton.bind(this),
+    );
   }
 
-  get isActived() {
-    return this.target.classList.contains('like-button__button--active')
+  get isActive() {
+    return this.likeButton.classList.contains('like-button__button--active');
   }
 
-  clickHandler(event) {
-    this.target = event.currentTarget
-    this.counter = Number(this.target.value)
+  _pointerDownHandlerLikeButton() {
+    this.counter = Number(this.likeButton.value);
 
-    if (this.isActived) {
-      this.toggle()
-      this.counterDown()
+    if (this.isActive) {
+      this._toggle();
+      this._counterDown();
     } else {
-      this.toggle()
-      this.counterUp()
+      this._toggle();
+      this._counterUp();
     }
   }
 
-  toggle() {
-    this.target.classList.toggle('like-button__button--active')
+  _keyDownHandlerLikeButton(event) {
+    const { code } = event;
+
+    if (code === 'Space') {
+      event.preventDefault();
+      this.counter = Number(this.likeButton.value);
+
+      if (this.isActive) {
+        this._toggle();
+        this._counterDown();
+      } else {
+        this._toggle();
+        this._counterUp();
+      }
+    }
   }
 
-  counterUp() {
-    this.target.value = this.counter + 1
-    this.target.innerHTML = this.counter + 1
+  _toggle() {
+    this.likeButton.classList.toggle('like-button__button--active');
   }
 
-  counterDown() {
-    this.target.value = this.counter - 1
-    this.target.innerHTML = this.counter - 1
+  _counterUp() {
+    this.likeButton.value = this.counter + 1;
+    this.likeButton.textContent = this.counter + 1;
+  }
+
+  _counterDown() {
+    this.likeButton.value = this.counter - 1;
+    this.likeButton.textContent = this.counter - 1;
   }
 }
 
-const like = new LikeButton('.js-like-button')
-
-export default LikeButton
+export default LikeButton;

@@ -1,75 +1,81 @@
 .toggle-button {
+  color: $darkShade50;
   line-height: rem(20);
-  color: $darkShade50
-}
 
-.toggle-button__label {
-  display: inline-block;
-  position: relative;
-  margin-left: rem(50);
-  cursor: pointer;
-}
+  &__text {
+    &::before {
+      position: absolute;
+      top: 0;
+      left: rem(-50);
+      width: rem(40);
+      height: rem(20);
+      border: 1px solid $darkShade25;
+      border-radius: 10px;
+      content: '';
+    }
 
-.toggle-button__input {
-  position: absolute;
-  appearance: none;
-  outline: none;
-}
+    &::after {
+      position: absolute;
+      top: rem(4);
+      left: rem(-46);
+      width: rem(12);
+      height: rem(12);
+      background: $darkShade25;
+      border-radius: 50%;
+      transition-duration: 0.5s;
+      transition-property: left;
+      content: '';
+    }
+  }
 
-.toggle-button__components::before {
-  position: absolute;
-  top: 0;
-  left: rem(-50);
+  &__label {
+    position: relative;
+    display: inline-block;
+    margin-left: rem(50);
+    cursor: pointer;
 
-  content: '';
-  width: rem(40);
-  height: rem(20);
+    &:hover {
+      color: $darkShade75;
 
-  border: 1px solid $darkShade25;
-  border-radius: 10px;
-}
+      > .toggle-button {
+        &__text {
+          &::before {
+            border-color: $purple;
+          }
+        }
+      }
+    }
+  }
 
-.toggle-button__text::after {
-  position: absolute;
-  top: rem(4);
-  left: rem(-46);
+  &__input {
+    position: absolute;
+    outline: none;
+    appearance: none;
 
-  content: '';
-  width: rem(12);
-  height: rem(12);
-  border-radius: 50%;
+    &:checked + .toggle-button {
+      &__text {
+        color: $darkShade75;
 
-  background: $darkShade25;
-  transition-property: left;
-  transition-duration: 0.5s;
-}
+        &::before {
+          border-color: $purple;
+        }
 
-.toggle-button__input:checked + .toggle-button__text::before {
-  border-color: $purple;
-}
+        &::after {
+          left: rem(-26);
+          background: $primaryGradient;
+        }
+      }
+    }
 
-.toggle-button__input:checked + .toggle-button__text::after {
-  left: rem(-26);
-  background: $primaryGradient;
-}
+    &:focus-visible + .toggle-button {
+      &__text {
+        color: $darkShade75;
 
-.toggle-button__input:focus-visible + .toggle-button__text::before {
-  outline: 2px solid $purple;
-  border: 0;
-}
-
-.toggle-button__input:focus-visible + .toggle-button__text {
-  color: $darkShade75;
-}
-
-.toggle-button__input:checked + .toggle-button__text {
-  color: $darkShade75;
-}
-
-.toggle-button__label:hover > .toggle-button__text::before {
-  border-color: $purple;
-}
-
-.toggle-button__label:hover {
-  color: $darkShade75;
+        &::before {
+          border: 0;
+          outline: 2px solid $purple;
+        }
+      }
+    }
+  }
 }

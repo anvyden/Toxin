@@ -1,78 +1,88 @@
-.radio-buttons__list {
-  display: flex;
-  max-width: rem(220);
-}
+.radio-buttons {
+  &__list {
+    display: flex;
+    max-width: rem(220);
+  }
 
-.radio-buttons__item {
-  line-height: rem(20);
-  color: $darkShade50
-}
+  &__item {
+    color: $darkShade50;
+    line-height: rem(20);
 
-.radio-buttons__item:first-child {
-  margin-right: rem(20);
-}
+    &:first-child {
+      margin-right: rem(20);
+    }
+  }
 
-.radio-buttons__item-label {
-  display: inline-block;
-  position: relative;
-  margin-left: rem(30);
-  cursor: pointer;
-}
+  &__item-text {
+    &::before {
+      position: absolute;
+      top: 0;
+      left: rem(-30);
+      width: rem(20);
+      height: rem(20);
+      border: $mainBorder;
+      border-radius: 10px;
+      content: '';
+    }
 
-.radio-buttons__item-label:hover {
-  color: $darkShade75;
-}
+    &::after {
+      position: absolute;
+      top: rem(4);
+      left: rem(-26);
+      display: none;
+      width: rem(12);
+      height: rem(12);
+      background: $primaryGradient;
+      border-radius: 50%;
+      content: '';
+    }
+  }
 
-.radio-buttons__item-input {
-  position: absolute;
-  appearance: none;
-  outline: none;
-}
+  &__item-label {
+    position: relative;
+    display: inline-block;
+    margin-left: rem(30);
+    cursor: pointer;
 
-.radio-buttons__item-text::before {
-  position: absolute;
-  top: 0;
-  left: rem(-30);
+    &:hover {
+      color: $darkShade75;
 
-  content: '';
-  width: rem(20);
-  height: rem(20);
-  
-  border: 1px solid $darkShade25;
-  border-radius: 10px;
-}
+      > .radio-buttons {
+        &__item-text {
+          &::before {
+            border-color: $purple;
+          }
+        }
+      }
+    }
+  }
 
-.radio-buttons__item-text::after {
-  display: none;
-  position: absolute;
-  top: rem(4);
-  left: rem(-26);
+  &__item-input {
+    position: absolute;
+    outline: none;
+    appearance: none;
 
-  content: '';
-  width: rem(12);
-  height: rem(12);
+    &:checked + .radio-buttons {
+      &__item-text {
+        color: $darkShade75;
 
-  border-radius: 50%;
-  background: $primaryGradient;
-}
+        &::after {
+          display: block;
+        }
 
-.radio-buttons__item-input:checked + .radio-buttons__item-text::after {
-  display: block;
-}
+        &::before {
+          border-color: $purple;
+        }
+      }
+    }
 
-.radio-buttons__item-input:checked + .radio-buttons__item-text::before {
-  border-color: $purple;
-}
-
-.radio-buttons__item-input:focus-visible + .radio-buttons__item-text::before {
-  outline: 3px solid $purple;
-  border: 0;
-}
-
-.radio-buttons__item-input:checked + .radio-buttons__item-text {
-  color: $darkShade75;
-}
-
-.radio-buttons__item-label:hover > .radio-buttons__item-text::before {
-  border-color: $purple;
+    &:focus-visible + .radio-buttons {
+      &__item-text {
+        &::before {
+          border: 0;
+          outline: $focusOutline;
+        }
+      }
+    }
+  }
 }
