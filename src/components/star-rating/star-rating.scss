@@ -1,12 +1,6 @@
 .star-rating {
-  display: flex;
-  line-height: rem(24);
-  background: $primaryGradient;
-  background-clip: text;
-  color: transparent;
-  user-select: none;
-}
-
-.star-rating__star {
   font-size: rem(24);
+  line-height: rem(24);
+  user-select: none;
+  @include text-gradient-fill($primaryGradient);
 }
