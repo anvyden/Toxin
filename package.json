@@ -14,12 +14,12 @@
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "lintone": "eslint \"src/components/star-rating/star-rating.js\"",
-    "lintone:fix": "eslint \"src/components/star-rating/star-rating.js\" --fix",
+    "lintone": "eslint \"src/components/range-slider/range-slider.js\"",
+    "lintone:fix": "eslint \"src/components/range-slider/range-slider.js\" --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
-    "stylelintone": "stylelint \"src/components/star-rating/star-rating.scss\"",
-    "stylelintone:fix": "stylelint \"src/components/star-rating/star-rating.scss\" --fix"
+    "stylelintone": "stylelint \"src/components/range-slider/range-slider.scss\"",
+    "stylelintone:fix": "stylelint \"src/components/range-slider/range-slider.scss\" --fix"
   },
   "browserslist": [
     "> 0.25%",

@@ -1,24 +1,23 @@
 include ~/components/text/text
 
-mixin rangeSlider(options)
-  -
-    const { text, sliderClassForJs, priceClassForJs } = options
-
-    let rangeSliderClass = 'range-slider'
-    let sliderClass = 'range-slider__slider'
-    let rangeSliderSubtitleClass = 'range-slider__text'
-
-    if (sliderClassForJs) {
-      sliderClass += ` ${sliderClassForJs}`
-    }
-
-    if (priceClassForJs) {
-      rangeSliderSubtitleClass += ` ${priceClassForJs}`
-    }
-
-  div(class=rangeSliderClass)
+mixin rangeSlider({ title='', description='', classForJs='' } = {} )
+  div(class=['range-slider', classForJs])
     .range-slider__heading
-      +text({ text: text, type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-      span(class=rangeSliderSubtitleClass)
+      +text({
+        text: title,
+        type: 'h3',
+        color: 'dark-shade-100',
+        bold: true,
+        hasUpper: true
+      })
+      input&attributes({
+        class: "range-slider__value js-range-slider__value",
+        type: "text",
+        readonly: "readonly",
+        name: 'rangeSliderValue',
+        tabindex: -1,
+      })
     .range-slider__wrapper
-      div(class=sliderClass)
+      .range-slider__slider.js-range-slider__slider
+    if description
+      span.range-slider__description=description

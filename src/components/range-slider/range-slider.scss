@@ -1,60 +1,80 @@
 @import 'nouislider';
 
-.range-slider__heading {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: rem(23);
-}
+.range-slider {
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: rem(23);
+  }
 
-.range-slider__text {
-  font-size: rem(12);
-  line-height: rem(14.63);
-  text-transform: uppercase;
-  color: $darkShade50;
-}
+  &__value {
+    max-width: 50%;
+    color: $darkShade50;
+    font-size: rem(12);
+    line-height: rem(14.63);
+    text-align: right;
+    text-transform: uppercase;
+    border: 0;
+    outline: 0;
+  }
 
-.range-slider__slider {
-  cursor: pointer;
-}
+  &__slider {
+    cursor: pointer;
+  }
 
-.range-slider__target {
-  height: rem(6);
-  background: #FFFFFF;
-  border: 1px solid $darkShade25;
-  border-radius: 3px;
-  box-shadow: none;
-}
+  &__target {
+    height: rem(6);
+    background: #fff;
+    border: $mainBorder;
+    border-radius: 3px;
+    box-shadow: none;
+  }
 
-.range-slider__connects {
-  position: static;
-}
+  &__connects {
+    overflow: visible;
+  }
 
-.range-slider__connect {
-  top: rem(-1);
-  height: rem(5.5);
-  background: $secondaryGradient;
-}
+  &__connect {
+    top: rem(-1);
+    height: rem(5.5);
+    background: $secondaryGradient;
+  }
 
-.range-slider__origin > .range-slider__handle {
-  right: rem(-2);
-  top: rem(-6);
-  width: rem(16);
-  height: rem(16);
-  background: $secondaryGradient;
-  border: 2px solid #FFFFFF;
-  border-radius: 10px;
-  box-shadow: none;
-  cursor: pointer;
-}
+  &__handle {
+    &:focus-visible {
+      outline: $secondaryFocusOutline;
+    }
 
-.range-slider__handle:focus-visible {
-  outline: 3px solid $green;
-}
+    &::before {
+      display: none;
+    }
 
-.range-slider__handle::before {
-  display: none;
-}
+    &::after {
+      display: none;
+    }
+  }
 
-.range-slider__handle::after {
-  display: none;
+  &__origin {
+    > .range-slider {
+      &__handle {
+        top: rem(-6);
+        right: rem(-2);
+        width: rem(16);
+        height: rem(16);
+        background: $secondaryGradient;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        box-shadow: none;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__description {
+    display: inline-block;
+    margin-top: rem(15);
+    color: $darkShade50;
+    font-size: rem(12);
+    line-height: rem(14);
+  }
 }

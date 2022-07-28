@@ -2,7 +2,6 @@ import formElements from './form-elements.scss'
 import * as textField from '~/components/text-field/text-field'
 import Dropdown from '~/components/dropdown/dropdown'
 import LikeButton from '~/components/like-button/like-button'
-import StarRating from '~/components/star-rating/star-rating'
 import RangeSlider from '~/components/range-slider/range-slider'
 import Pagination from '~/components/pagination/pagination'
 import CheckboxList from '~/components/checkbox-list/checkbox-list'
@@ -50,17 +49,12 @@ const init = (function () {
       dropdownButtons: true,
       combineTwoFirstItems: true,
     }),
-    starRating1: new StarRating('.js-star-rating-1', 4),
-    starRating2: new StarRating('.js-star-rating-2', 5),
-    rangeSlider: new RangeSlider({
-      sliderSelectors: {
-        slider: '.js-range-slider',
-        price: '.js-range-slider-price',
-      },
+    rangeSlider: new RangeSlider('.js-range-slider', {
       min: 0,
       max: 15000,
-      minStartPrice: 5000,
-      maxStartPrice: 10000,
+      step: 50,
+      minStartValue: 5000,
+      maxStartValue: 10000,
     }),
     pagination: new Pagination('.js-pagination', {
       countOfItems: 180,
