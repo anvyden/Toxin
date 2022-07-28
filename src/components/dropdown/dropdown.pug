@@ -97,5 +97,5 @@ mixin dropdown(options={})
                 })= '+'
         if (withButtons)
           .dropdown__buttons
-            +button({ text: 'очистить', variant: 'text', classForJs: 'js-dropdown__button--clear', dataType: 'clear' })
-            +button({ text: 'применить', variant: 'text', classForJs: 'js-dropdown__button--apply', dataType: 'apply' })
+            +button({ text: 'очистить', variant: 'inline', color: 'purple', classForJs: 'js-dropdown__button--clear', dataType: 'clear' })
+            +button({ text: 'применить', variant: 'inline', color: 'purple', classForJs: 'js-dropdown__button--apply', dataType: 'apply' })

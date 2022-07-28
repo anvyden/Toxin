@@ -233,8 +233,8 @@ class Dropdown {
       const total = this._countTotal();
 
       total === 0
-        ? this.clearButton.classList.add('button__button--hidden')
-        : this.clearButton.classList.remove('button__button--hidden');
+        ? this.clearButton.classList.add('button--hidden')
+        : this.clearButton.classList.remove('button--hidden');
     }
   }
 
