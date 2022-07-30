@@ -18,7 +18,7 @@ mixin button(options)
          class: [mainClass, buttonInlineModifier, buttonWithArrowModifier, classForJs],
          type: type,
          disabled: disabled,
-         'data-type': dataType,
+         'data-type': dataType
        },
        a: {
          class: [mainClass, buttonInlineModifier, buttonWithArrowModifier],
@@ -27,5 +27,5 @@ mixin button(options)
      }
 
    #{buttonTag}&attributes(attrs[buttonTag])
-     p(class=['button__inner', sizeModifier, colorModifier, buttonBackgroundModifier])=text
+     p(class=['button__inner', sizeModifier, colorModifier, buttonBackgroundModifier] 'data-type'=dataType)=text
 
