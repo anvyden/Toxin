@@ -25,5 +25,5 @@ mixin buttons()
       .buttons__pagination
         .buttons__heading
           +text({ text: 'pagination', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        .buttons__pagination
-          +pagination({ classForJs: 'js-pagination', smallSize: true })
+        .buttons__pagination-wrapper
+          +pagination({ classForJs: 'js-pagination' })

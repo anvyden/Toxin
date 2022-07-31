@@ -1,14 +1,4 @@
-mixin pagination(options)
-  -
-    const { classForJs, smallSize } = options
-    let paginationClass = 'pagination'
+mixin pagination(options = {})
+  - const { classForJs } = options
 
-    if (classForJs) {
-      paginationClass += ` ${classForJs}`
-    }
-
-    if (smallSize) {
-      paginationClass += ' pagination--size-small'
-    }
-
-  div(class=paginationClass)
+  div(class=['pagination', classForJs])

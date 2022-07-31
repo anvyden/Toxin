@@ -1,71 +1,69 @@
 .pagination {
   text-align: center;
-}
 
-.pagination--size-small {
-  max-width: rem(240);
-}
-
-.pagination__list {
-  display: flex;
-  margin-bottom: rem(8);
-}
-
-.pagination__item {
-  font-size: rem(12);
-  line-height: rem(14.63);
-  border-radius: 22px;
-  color: $darkShade50;
-  cursor: pointer;
-}
-
-.pagination__item--active {
-  font-weight: bold;
-  background: $primaryGradient;
-
-  .pagination__item-link {
-    color: #fff;
+  &__list {
+    display: flex;
+    margin-bottom: rem(8);
   }
-}
 
-.pagination__item:hover {
-  background: rgba(188, 156, 255, 0.25);
-}
+  &__item {
+    font-size: rem(12);
+    line-height: rem(14.63);
+    border-radius: 22px;
+    color: $darkShade50;
+    cursor: pointer;
 
-.pagination__item--active:hover {
-  background: $primaryGradient;
-}
+    &:hover {
+      background: $primaryGradientTransparent;
+    }
 
-.pagination__item--disabled:hover {
-  background: transparent;
-  cursor: default;
-}
+    &--active {
+      font-weight: bold;
+      background: $primaryGradient;
 
-.pagination__item--with-arrow {
-  font-size: rem(24);
-  background: $secondaryGradient;
+      :hover {
+        background: $primaryGradient;
+      }
 
-  .pagination__item-link {
-    color: #fff;
+      .pagination__item-link {
+        color: #fff;
+      }
+    }
+
+    &--disabled {
+      &:hover {
+        background: transparent;
+        cursor: default;
+      }
+    }
+
+    &--with-arrow {
+      font-size: rem(24);
+      background: $secondaryGradient;
+
+      &:hover {
+        background: $secondaryGradientTransparent;
+      }
+
+      .pagination__item-link {
+        color: #fff;
+      }
+    }
+
+    &-link {
+      display: inline-block;
+      width: rem(40);
+      height: rem(40);
+      border-radius: 22px;
+
+      color: $darkShade50;
+      line-height: rem(40);
+      text-align: center;
+      user-select: none;
+
+      &:focus-visible {
+        outline: $thinFocusOutline;
+      }
+    }
   }
-}
-
-.pagination__item--with-arrow:hover {
-  background: rgba(111, 207, 151, 0.5);
-}
-
-.pagination__item-link {
-  display: inline-block;
-  width: rem(40);
-  height: rem(40);
-  border-radius: 22px;
-
-  color: $darkShade50;
-  line-height: rem(40);
-  text-align: center;
-  user-select: none;
-}
-
-.pagination__item-link:focus-visible {
-  outline: 2px solid $purple;
 }
