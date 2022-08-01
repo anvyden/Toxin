@@ -1,25 +1,27 @@
 include ~/components/like-button/like-button
 
-mixin comments(options)
-  -
-    const { items } = options
-
+mixin comments( commentsList=[] )
   .comments
+    each comment in commentsList
+      -
+        const {
+          imgName,
+          name,
+          dateOfComment,
+          text,
+          likeCount,
+          likeIsActive
+        } = comment
 
-  each item in items
-    -
-      const { name, avatar, time, text, likeButtonCount, likeButtonClassForJs, likeButtonIsActived, likeButtonName } = item
-
-    .comment.comments__comment
-      .profile
-        .profile__avatar-wrapper
-          img(class='profile__avatar' src=require(`~/components/comments/img/${avatar}`) alt='Аватарка пользователя')
-        .profile__text-wrapper
-          span.profile__name=name
-          span.profile__comment-time=time
-      .comment__description
-        .comment__like-wrapper
-          +likeButton({ count: likeButtonCount, classForJs: likeButtonClassForJs, isActived: likeButtonIsActived, name: likeButtonName })
-        .comment__text-wrap
-          span.comment__text=text
-
+      .comment.comments__comment
+        .comment__header
+          .comment__avatar-wrapper
+            img(class='comment__avatar' src=require(`@pages/room-details/img/avatars/${imgName}`) alt='avatar')
+          .comment__info
+            p.comment__name=name
+            p.pcomment__date-of-comment=dateOfComment
+        .comment__body
+          .comment__like-wrapper
+            +likeButton({ count: likeCount, isActive: likeIsActive })
+          .comment__text-wrapper
+            span.comment__text=text

@@ -1,90 +1,69 @@
 .comment {
-  display: flex;
-  flex-direction: column;
-}
+  width: 100%;
 
-.comments__comment {
-  margin-bottom: rem(22.5);
-}
+  &__comment {
+    margin-bottom: rem(22.5);
 
-.comments__comment:last-child {
-  margin-bottom: 0;
-}
+    @media screen and (max-width: 568px) {
+      margin-bottom: rem(10);
+    }
 
-@media screen and (max-width: 568px) {
-  .comments__comment {
-    margin-bottom: rem(10);
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
-}
 
-.profile {
-  display: flex;
-}
+  &__header {
+    display: flex;
 
-@media screen and (max-width: 568px) {
-  .profile {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    @media screen and (max-width: 568px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
   }
-}
 
-.profile__avatar-wrapper {
-  margin-right: rem(10);
-}
+  &__avatar-wrapper {
+    margin-right: rem(10);
 
-@media screen and (max-width: 568px) {
-  .profile__avatar-wrapper {
-    margin-right: 0;
+    @media screen and (max-width: 568px) {
+      margin-right: 0;
+    }
   }
-}
 
-.profile__avatar {
-  width: rem(48);
-  height: rem(48);
-  border: 2px solid #FFFFFF;
-  filter: drop-shadow(0px 10px 20px rgba(31, 32, 65, 0.1));
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.profile__text-wrapper {
-  max-width: rem(220);
-  color: $darkShade75;
-}
-
-.profile__name {
-  display: inline-block;
-  font-weight: bold;
-}
-
-.profile__comment-time {
-  display: inline-block;
-}
-
-.comment__description {
-  display: flex;
-  margin-top: rem(3);
-  margin-left: rem(4);
-}
-
-@media screen and (max-width: 568px) {
-  .comment__description {
-    flex-direction: column;
-    margin-top: 0;
-    margin-left: 0;
+  &__avatar {
+    width: rem(48);
+    height: rem(48);
+    object-fit: cover;
+    border: $avatarBorder;
+    border-radius: 50%;
+    filter: drop-shadow($avatarBoxShadow);
   }
-}
 
-.comment__like-wrapper {
-  margin-top: rem(2);
-  margin-right: rem(15);
-}
+  &__name {
+    font-weight: bold;
+  }
 
-@media screen and (max-width: 568px) {
-  .comment__like-wrapper {
-    margin-top: rem(6);
-    margin-right: 0;
-    order: 1;
+  &__body {
+    display: flex;
+    margin-top: rem(3);
+    margin-left: rem(4);
+
+    @media screen and (max-width: 568px) {
+      flex-direction: column;
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+
+  &__like-wrapper {
+    margin-top: rem(2);
+    margin-right: rem(15);
+
+    @media screen and (max-width: 568px) {
+      order: 1;
+      margin-top: rem(6);
+      margin-right: 0;
+    }
   }
 }

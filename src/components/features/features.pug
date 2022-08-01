@@ -1,23 +1,20 @@
-mixin features(options)
-  -
-    const { items } = options
-    let iconClass = 'features__item-icon material-icons'
-  
-  .features 
-    ul.features__list 
-      each item in items 
+mixin features( listItems=[] )
+  .features
+    ul.features__list
+      each item in listItems
         -
-          const { icon, title, description, withBorder } = item
-          let itemClass = 'features__item'
+          const { icon, title, subtitle, hasBottomLine } = item
+          const icons = ['insert_emoticon', 'location_city', 'whatshot']
+          const iconContent = icons.includes(icon) && icon
+          const lineModifier = hasBottomLine && 'features__item--with-border'
 
-          if (withBorder) {
-            itemClass += ' features__item--with-border'
-          }
-        
-        li(class=itemClass)
-          .features__item-icon-wrapper 
-            span(class=iconClass)=icon 
-          .features__item-text-wrapper
+        li(class=['features__item', lineModifier])
+          .features__item-icon-wrapper
+            span(class=[
+              'features__item-icon',
+              'material-icons',
+              'features__item-icon--purple-gradient'
+            ])=iconContent
+          .features__item-description
             p.features__item-title=title
-            p.features__item-description=description
-  
+            p.features__item-subtitle=subtitle
