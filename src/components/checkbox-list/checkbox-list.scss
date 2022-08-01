@@ -110,6 +110,12 @@
           border: 0;
           outline: $focusOutline;
         }
+
+        + .checkbox-list {
+          &__item-description {
+            color: $darkShade75;
+          }
+        }
       }
     }
   }
