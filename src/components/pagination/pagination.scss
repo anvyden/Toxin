@@ -10,7 +10,7 @@
     color: $darkShade50;
     font-size: rem(12);
     line-height: rem(14.63);
-    border-radius: 22px;
+    border-radius: 50%;
     cursor: pointer;
 
     &-link {
@@ -20,7 +20,7 @@
       color: $darkShade50;
       line-height: rem(40);
       text-align: center;
-      border-radius: 22px;
+      border-radius: 50%;
       user-select: none;
 
       &:focus-visible {
