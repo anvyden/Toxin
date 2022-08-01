@@ -1,28 +1,27 @@
-.bullet-list__item {
-  position: relative;
-  color: $darkShade50;
-  margin-bottom: rem(10);
-  margin-left: rem(20);
-}
+.bullet-list {
+  &__item {
+    position: relative;
+    margin-bottom: rem(10);
+    margin-left: rem(21);
+    color: $darkShade50;
 
-.bullet-list__item:last-child {
-  margin-bottom: 0;
-}
+    &:last-child {
+      margin-bottom: 0;
+    }
 
-.bullet-item__text {
-  color: $darkShade75;
-  white-space: pre-line;
-}
+    &-text {
+      color: $darkShade75;
 
-.bullet-item__text::before {
-  position: absolute;
-  top: rem(7);
-  left: rem(-20);
-
-  content: '';
-  width: rem(10);
-  height: rem(10);
-  
-  background: $darkShade25;
-  border-radius: 50%;
+      &::before {
+        position: absolute;
+        top: rem(7);
+        left: rem(-21);
+        width: rem(10);
+        height: rem(10);
+        background: $darkShade25;
+        border-radius: 50%;
+        content: '';
+      }
+    }
+  }
 }

@@ -1,14 +1,6 @@
-mixin bulletList(options = {})
-  -
-    const { items } = options
-
+mixin bulletList( listItems = [] )
   .bullet-list
     ul.bullet-list__list
-      each item in items
-        -
-          const { text } = item
-          let bulletItemClass = 'bullet-list__item'
-          let bulletItemTextClass = 'bullet-item__text'
-
-        li(class=bulletItemClass)
-          span(class=bulletItemTextClass)=text
+      each item in listItems
+        li.bullet-list__item
+          span.bullet-list__item-text=item

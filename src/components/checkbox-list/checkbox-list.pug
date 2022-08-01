@@ -7,11 +7,13 @@ mixin checkboxList(options={})
       classForJs,
       title,
       isOpened,
+      isRich,
       items=[]
     } = options
 
     const hiddenModifier = expandable && !isOpened && 'checkbox-list__list--hidden'
     const rotateModifier = expandable && isOpened && 'checkbox-list__button--rotate'
+    const richModifier = isRich && 'checkbox-list__list--rich'
 
   .checkbox-list(class=classForJs)
     if (expandable)
@@ -42,11 +44,11 @@ mixin checkboxList(options={})
           hasUpper: true
         })
 
-    ul.checkbox-list__list.js-checkbox-list__list(class=hiddenModifier)
+    ul.checkbox-list__list.js-checkbox-list__list(class=[hiddenModifier, richModifier])
       each item in items
 
         -
-          const { isRich, title, description, name, isChecked } = item
+          const { title, description, name, isChecked } = item
 
           const itemRichModifier = isRich && 'checkbox-list__item--rich'
 

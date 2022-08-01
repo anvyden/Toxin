@@ -25,17 +25,15 @@ mixin checkboxs()
             ]
           })
       .checkboxs__rich-checkboxs
-        +checkboxList({ title: 'rich checkbox buttons',
+        +checkboxList({ title: 'rich checkbox buttons', isRich: true,
         items: [
           {
-            isRich: true,
             title: 'Широкий коридор',
             description: `Ширина коридоров в номере
               не менее 91 см.`,
             name: 'wide-corridor'
           },
           {
-            isRich: true,
             title: 'Помощник для инвалидов',
             description: `На 1 этаже вас встретит специалист
               и проводит до номера.`,
@@ -46,10 +44,8 @@ mixin checkboxs()
       .checkboxs__bullet-lists
         .checkboxs__bullet-lists-title
           +text({ text: 'bullet list', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        +bulletList({
-          items: [
-            { text: 'Нельзя с питомцами' },
-            { text: 'Без вечеринок и мероприятий' },
-            { text: `Время прибытия — после 13:00,
-              а выезд до 12:00` },
-          ]})
+        +bulletList([
+            'Нельзя с питомцами',
+            'Без вечеринок и мероприятий',
+            `Время прибытия — после 13:00, а\u00A0выезд до 12:00`,
+          ])
