@@ -14,12 +14,12 @@
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "lintone": "eslint \"src/components/pagination/pagination.js\"",
-    "lintone:fix": "eslint \"src/components/pagination/pagination.js\" --fix",
+    "lintone": "eslint \"src/pages/form-elements/form-elements.js\"",
+    "lintone:fix": "eslint \"src/pages/form-elements/form-elements.js\" --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
-    "stylelintone": "stylelint \"src/components/comments/comments.scss\"",
-    "stylelintone:fix": "stylelint \"src/components/comments/comments.scss\" --fix"
+    "stylelintone": "stylelint \"src/components/like-button/like-button.scss\"",
+    "stylelintone:fix": "stylelint \"src/components/like-button/like-button.scss\" --fix"
   },
   "browserslist": [
     "> 0.25%",

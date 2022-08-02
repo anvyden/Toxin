@@ -1,18 +1,18 @@
 @import '~/components/features/features';
 @import '~/components/comments/comments';
 
-.room-info__container {
-  display: flex;
-  width: 100%;
-}
+.room-info {
+  &__container {
+    display: flex;
+    width: 100%;
+  }
 
-.room-info__features {
-  flex-basis: 33%;
-  max-width: rem(280);
-  margin-right: rem(166);
-}
+  &__features {
+    min-width: rem(280);
+    margin-right: rem(166);
+  }
 
-.room-info__comments {
-  flex-basis: 66%;
-  margin-top: rem(11);
+  &__comments {
+    margin-top: rem(11);
+  }
 }

@@ -29,22 +29,21 @@ mixin checkboxs()
         items: [
           {
             title: 'Широкий коридор',
-            description: `Ширина коридоров в номере
-              не менее 91 см.`,
+            description: `Ширина коридоров в номере не\u00A0менее 91 см.`,
             name: 'wide-corridor'
           },
           {
             title: 'Помощник для инвалидов',
-            description: `На 1 этаже вас встретит специалист
-              и проводит до номера.`,
+            description: `На 1 этаже вас встретит специалист и\u00A0проводит до номера.`,
             color: 'dark-shade-75',
-            name: 'assistant-for-disabled'
+            name: 'assistant-for-disabled-persons'
           },
         ]})
-      .checkboxs__bullet-lists
-        .checkboxs__bullet-lists-title
+      .checkboxs__bullet-list
+        .checkboxs__bullet-list-title
           +text({ text: 'bullet list', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        +bulletList([
+        .checkboxs__bullet-list-wrapper
+          +bulletList([
             'Нельзя с питомцами',
             'Без вечеринок и мероприятий',
             `Время прибытия — после 13:00, а\u00A0выезд до 12:00`,

@@ -1,4 +1,3 @@
-@import '~normalize.css';
 @import '~/scss/montserrat';
 @import '~/scss/material-icons';
 @import '~/scss/variables';
@@ -6,27 +5,37 @@
 @import '~/scss/settings';
 @import '~/components/logo/logo';
 @import '~/components/text/text';
-
-.form-elements__container {
-  max-width: 1440px;
-  padding: 143px 140px 140px 140.5px;
-}
-
-.fields-controls-buttons__container {
-  max-width: 1160px;
-  display: flex;
-  margin-bottom: 100px;
-}
-
-.dropdown-checkbox-room-info__container {
-  max-width: 1160px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 @import '@pages/form-elements/sections/fields/fields';
 @import '@pages/form-elements/sections/controls/controls';
 @import '@pages/form-elements/sections/buttons/buttons';
 @import '@pages/form-elements/sections/dropdowns/dropdowns';
 @import '@pages/form-elements/sections/checkboxs/checkboxs';
 @import '@pages/form-elements/sections/room-info/room-info';
+
+.form-elements {
+  &__container {
+    max-width: 1440px;
+    padding: 143px 140px 140px 140.5px;
+  }
+
+  &__fields-controls-buttons-wrapper {
+    display: flex;
+    margin-bottom: 100px;
+  }
+
+  &__fields {
+    margin-right: rem(126);
+  }
+
+  &__controls {
+    margin-right: rem(133);
+  }
+
+  &__dropdowns {
+    margin-bottom: rem(168);
+  }
+
+  &__checkboxs {
+    margin-bottom: rem(40.5);
+  }
+}

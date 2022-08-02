@@ -1,31 +1,34 @@
 @import '~/components/checkbox-list/checkbox-list';
 @import '~/components/bullet-list/bullet-list';
 
-.checkboxs__container {
-  display: flex;
-  margin-bottom: rem(40.5);
-}
+.checkboxs {
+  &__container {
+    display: flex;
+  }
 
-.checkboxs__expandable-checkboxs {
-  min-width: 266px;
-  margin-right: rem(180);
-}
+  &__expandable-checkboxs {
+    min-width: rem(266);
+    margin-right: rem(180);
+  }
 
-.checkboxs__expandable-checkbox:first-child {
-  margin-bottom: rem(40);
-}
+  &__expandable-checkbox {
+    &:first-child {
+      margin-bottom: rem(40);
+    }
+  }
 
-.checkboxs__rich-checkboxs {
-  max-width: 266px;
-  margin-right: rem(127);
-  margin-top: rem(4);
-}
+  &__rich-checkboxs {
+    max-width: rem(266);
+    margin-top: rem(4);
+    margin-right: rem(127);
+  }
 
-.checkboxs__bullet-lists {
-  max-width: 292px;
-  margin-top: rem(4);
-}
+  &__bullet-list {
+    max-width: rem(266);
+    margin-top: rem(4);
 
-.checkboxs__bullet-lists-title {
-  margin-bottom: rem(14);
+    &-title {
+      margin-bottom: rem(14);
+    }
+  }
 }

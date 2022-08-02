@@ -24,11 +24,17 @@ block variables
 block content
   main.form-elements
     .form-elements__container
-      .fields-controls-buttons__container
-        +fields
-        +controls
-        +buttons
-      .dropdown-checkbox-room-info__container
-        +dropdowns
-        +checkboxs
-        +room-info
+      .form-elements__fields-controls-buttons-wrapper
+        .form-elements__fields
+          +fields
+        .form-elements__controls
+          +controls
+        .form-elements__buttons
+          +buttons
+      .form-elements__dropdowns-checkboxs-room-wrapper
+        .form-elements__dropdowns
+          +dropdowns
+        .form-elements__checkboxs
+          +checkboxs
+        .form-elements__room-info
+          +room-info

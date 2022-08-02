@@ -4,45 +4,51 @@
 @import '~/components/like-button/like-button';
 @import '~/components/star-rating/star-rating';
 
-.controls__container {
-  min-width: rem(260);
-  margin-right: rem(133);
-}
+.controls {
+  &__container {
+    min-width: rem(260);
+  }
 
-.controls__checkbox-buttons {
-  margin-bottom: rem(40);
-}
+  &__checkbox-buttons {
+    margin-bottom: rem(40);
+  }
 
-.controls__title {
-  margin-bottom: rem(16);
-}
+  &__title {
+    margin-bottom: rem(16);
+  }
 
-.controls__radio-buttons {
-  margin-bottom: rem(40);
-}
+  &__radio-buttons {
+    margin-bottom: rem(40);
+  }
 
-.controls__toggle-buttons {
-  margin-bottom: rem(45);
-}
+  &__toggle-buttons-wrapper {
+    > .toggle-button {
+      &:first-child {
+        margin-bottom: rem(14);
+      }
+    }
+  }
 
-.controls__toggle-buttons-wrapper > .toggle-button:first-child {
-  margin-bottom: rem(14);
-}
+  &__toggle-buttons {
+    margin-bottom: rem(45);
+  }
 
-.controls__like-buttons {
-  margin-bottom: rem(41);
-}
+  &__like-buttons-wrapper {
+    display: flex;
 
-.controls__like-buttons-wrapper {
-  display: flex;
-}
+    > .like-button {
+      &:first-child {
+        margin-right: rem(10);
+      }
+    }
+  }
 
-.controls__like-buttons-wrapper > .like-button:first-child {
-  margin-right: rem(10);
-}
+  &__like-buttons {
+    margin-bottom: rem(41);
+  }
 
-.controls__rate-buttons-wrapper {
-  display: flex;
-  justify-content: space-between;
+  &__rate-buttons-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
 }
-
