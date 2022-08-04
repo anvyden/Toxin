@@ -20,15 +20,16 @@ mixin signUpCard(options)
             +textField({ type: 'text', placeholder: 'Фамилия', name: 'secondName' })
           .sign-up-card__person-sex
             +radioButtons({
+              group: 'gender',
               items: [
-                { text: 'Мужчина', name: 'sex', value: 'man', isChecked: true },
-                { text: 'Женщина', name: 'sex', value: 'woman' }
+                { text: 'Мужчина', value: 'man', isChecked: true },
+                { text: 'Женщина', value: 'woman' }
               ]})
         .sign-up-card__date-birth
           +textField({
-            type: 'text',
             hasTitle: true,
-            title: 'дата рождения',
+            title: 'Дата рождения',
+            type: 'text',
             placeholder: 'ДД.ММ.ГГГГ',
             name: 'birthday',
             classForJs: 'js-masked-text-field'
@@ -36,9 +37,9 @@ mixin signUpCard(options)
         .sign-up-card__data-login
           .sign-up-card__email
             +textField({
-              type: 'email',
               hasTitle: true,
-              title: 'данные для входа в сервис',
+              title: 'Данные для входа в сервис',
+              type: 'email',
               placeholder: 'Email',
               name: 'email'
             })
@@ -47,7 +48,19 @@ mixin signUpCard(options)
           .sign-up-card__special-offers
             +toggleButton({ text: 'Получать спецпредложения', name: 'specialOffers' })
         .sign-up-card__button
-          +button({ text: buttonText, type: 'submit', variant: 'with-arrow' })
+          +button({
+            text: buttonText,
+            type: 'submit',
+            variant: 'with-arrow',
+            color: 'white',
+            size: 'large',
+          })
         .sign-up-card__log-in
           +text({ text: 'Уже есть аккаунт на Toxin', type: 'p', color: 'black' })
-          +button({ text: 'Войти', isLink: true, link: logInButtonLink, variant: 'border' })
+          +button({
+            text: 'Войти',
+            variant: 'fill-white',
+            color: 'purple',
+            size: 'small',
+            link: logInButtonLink,
+          })

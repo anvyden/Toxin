@@ -42,13 +42,16 @@ const init = (function () {
   return {
     findRoomCardOpts: {
       findRoomGuests: new Dropdown('.js-find-room-guests', {
-        maxLength: {
+        type: 'guests',
+        maxLengthItems: {
           item0: 5,
           item1: 10,
           item2: 10,
         },
-        dropdownButtons: true,
-        combineTwoFirstItems: true,
+        plurals: {
+          guests: ['гость', 'гостя', 'гостей'],
+          babies: ['младенец', 'младенца', 'младенцев'],
+        },
       }),
       findRoomDatepicker: new Datepicker(
         {
@@ -62,13 +65,16 @@ const init = (function () {
     },
     bookingCardOpts: {
       bookingCardGuests: new Dropdown('.js-booking-card-guests', {
-        maxLength: {
+        type: 'guests',
+        maxLengthItems: {
           item0: 5,
           item1: 10,
           item2: 10,
         },
-        dropdownButtons: true,
-        combineTwoFirstItems: true,
+        plurals: {
+          guests: ['гость', 'гостя', 'гостей'],
+          babies: ['младенец', 'младенца', 'младенцев'],
+        },
       }),
       bookingCardDatepicker: new Datepicker(
         {

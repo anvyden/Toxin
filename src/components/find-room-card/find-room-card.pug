@@ -13,37 +13,44 @@ mixin findRoomCard(options)
           +text({ text: 'Найдём номера под ваши пожелания', type: 'h1', color: 'dark-shade-100', bold: true })
         .find-room-card__date-picker
           +dropdown({
-            text: 'прибытие',
+            hasTitle: true,
+            title: 'Прибытие',
             placeholder: 'ДД.ММ.ГГГГ',
             name: firstInputName,
             value: 'ДД.ММ.ГГГГ',
-            smallSize: true,
+            size: 'small',
             classForJs: dropdownClassForJs,
-            inputClassForJs: firstInputClassForJs
           })
           +dropdown({
-            text: 'выезд',
+            hasTitle: true,
+            title: 'Выезд',
             placeholder: 'ДД.ММ.ГГГГ',
             name: secondInputName,
             value: 'ДД.ММ.ГГГГ',
-            smallSize: true,
+            size: 'small',
             classForJs: dropdownClassForJs,
-            inputClassForJs: secondInputClassForJs
           })
         .find-room-card__dropdown-guests
           +dropdown({
-            text: 'гости',
+            hasTitle: true,
+            title: 'Гости',
             placeholder: 'Сколько гостей',
-            expanded: true,
             withButtons: true,
             name: guestsName,
             value: 'Сколько гостей',
             classForJs: guestsClassForJs,
             items: [
-              { itemName: 'взрослые', itemCounter: '0' },
-              { itemName: 'дети', itemCounter: '0' },
-              { itemName: 'младенцы', itemCounter: '0' },
+              { text: 'Взрослые', counter: '0', dataId: 'adults' },
+              { text: 'Дети', counter: '0', dataId: 'children' },
+              { text: 'Младенцы', counter: '0', dataId: 'babies' },
             ]
           })
         .find-room-card__button
-          +button({ text: 'подобрать номер', type: 'submit', variant: 'with-arrow', isLink: true, link: './search-room.html' })
+          +button({
+            text: 'Подобрать номер',
+            type: 'submit',
+            variant: 'with-arrow',
+            color: 'white',
+            size: 'large',
+            link: './search-room.html'
+          })

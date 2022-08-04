@@ -1,14 +1,11 @@
 import wNumb from 'wnumb'
 
 import declination from '~/components/dropdown/utils/declination'
-import findItemNames from '~/components/dropdown/utils/findItemNames'
 import { datepickerValues } from '~/components/datepicker/datepicker'
 
 const moneyFormat = wNumb({
   thousand: ' ',
 })
-
-const daysWords = findItemNames('сутки')
 
 class BookingCard {
   constructor(params) {
@@ -25,7 +22,7 @@ class BookingCard {
 
     this.roomNumber.innerHTML = params.roomNumber
     this.roomPrice.innerHTML = `${moneyFormat.to(params.roomPrice)}₽`
-    this.PriceInDays.innerHTML = `${moneyFormat.to(params.roomPrice)}₽ х ${params.amountSelectedDays} ${declination(params.amountSelectedDays, daysWords)}`
+    this.PriceInDays.innerHTML = `${moneyFormat.to(params.roomPrice)}₽ х ${params.amountSelectedDays} ${declination(params.amountSelectedDays, ['сутки', 'суток', 'суток'])}`
     this.sumPriceInDays.innerHTML = `${moneyFormat.to(this.calcPriceInDays)}₽`
     this.servicesPrice.innerHTML = `Сбор за услуги: скидка ${moneyFormat.to(params.discount)}₽`
     this.servicesSumPrice.innerHTML = '0₽'
