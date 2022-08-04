@@ -150,9 +150,9 @@ const jsLoaders = () => {
 const plugins = () => {
   const base = [
     new HTMLWebpackPlugin({
-      template: `${PATHS.src}/pages/cards/cards.pug`,
-      filename: 'cards.pug'.replace(/\.pug/, '.html'),
-      chunks: ['cards.pug'.replace(/\.pug/, '')],
+      template: `${PATHS.src}/pages/form-elements/form-elements.pug`,
+      filename: 'form-elements.pug'.replace(/\.pug/, '.html'),
+      chunks: ['form-elements.pug'.replace(/\.pug/, '')],
       inject: 'body',
       minify: {
         collapseWhitespace: isProd
@@ -218,7 +218,7 @@ module.exports = {
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'cards.html',
+    index: 'form-elements.html',
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),

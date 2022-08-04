@@ -107,6 +107,7 @@
       width: rem(30);
       height: rem(30);
       color: $darkShade50;
+      font-family: inherit;
       font-weight: normal;
       font-size: rem(18);
       line-height: rem(22);
@@ -131,6 +132,6 @@
   &__buttons {
     display: flex;
     justify-content: space-between;
-    margin: rem(20) rem(4) rem(10) rem(11);
+    margin: rem(19) rem(4) rem(10) rem(11);
   }
 }
