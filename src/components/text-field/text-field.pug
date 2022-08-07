@@ -10,8 +10,8 @@ mixin textField( options={} )
       subtitle,
       name,
       value,
-      data,
-      withButton,
+      dataType,
+      isSubscribe,
       withSpellcheck,
       focused,
       autocomplete,
@@ -21,7 +21,8 @@ mixin textField( options={} )
     const mainClass = 'text-field__input'
     const focusedModifier = focused && 'text-field__input--focused'
     const inputWithButtonModifier = withButton && 'text-field__input--with-button'
-    const buttonClass = 'text-field__button material-icons'
+    const arrowClass = 'text-field__arrow-button material-icons js-text-field__arrow-button'
+    const subscribeButtonClass = 'text-field__button material-icons'
 
     const attrs = {
       class: [
@@ -31,7 +32,7 @@ mixin textField( options={} )
         classForJs
       ],
       type: type,
-      'data-id': data,
+      'data-type': dataType,
       name: name,
       value: value,
       placeholder: placeholder,
@@ -57,5 +58,11 @@ mixin textField( options={} )
         })
     .text-field__wrapper
       input&attributes(attrs)
-      if (withButton)
-        button(class=buttonClass type='submit' name='subscribe')='arrow_forward'
+      if (hasArrow)
+        button&attributes({
+          class: arrowClass,
+          type: 'button',
+          'data-type': 'arrow',
+        })='expand_more'
+      if (isSubscribe)
+        button(class=subscribeButtonClass type='submit' name='subscribe')='arrow_forward'

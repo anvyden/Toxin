@@ -11,11 +11,9 @@ import Slider from '@libs/swiper/swiper'
 const datepickerStaticButtons = {
   acceptButton: {
     content: 'Применить',
-    className: 'button button--variant-text button__button button__button--variant-text',
   },
   clearButton: {
     content: 'Очистить',
-    className: 'button button--variant-text button__button button__button--variant-text',
   },
 }
 

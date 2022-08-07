@@ -1,0 +1,15 @@
+.date-dropdown {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__start {
+    max-width: 150px;
+  }
+
+  &__end {
+    max-width: 150px;
+  }
+}

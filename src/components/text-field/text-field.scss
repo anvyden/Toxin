@@ -43,6 +43,25 @@
     }
   }
 
+  &__arrow-button {
+    position: absolute;
+    top: rem(10);
+    right: rem(10);
+    color: $darkShade50;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+
+    &:focus-visible {
+      outline: $focusOutline;
+    }
+
+    &--rotate {
+      transform: rotateX(180deg);
+    }
+  }
+
   &__button {
     position: absolute;
     top: rem(10);

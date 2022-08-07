@@ -17,18 +17,18 @@ const datepickerOpts = {
       clear.clear()
     },
   },
-  calcDays: (input, inputSecond) => {
-    const inputValue = input.value
-    const inputSecondValue = inputSecond.value
-    let days = 0
-    if (inputValue !== 'ДД.ММ.ГГГГ' && inputSecondValue !== 'ДД.ММ.ГГГГ') {
-      const firstDate = Date.parse(inputValue.split('.').reverse())
-      const secondDate = Date.parse(inputSecondValue.split('.').reverse())
-      const oneDay = 1000 * 60 * 60 * 24
-      days = Math.round((secondDate - firstDate) / oneDay)
-    }
-    return days
-  },
+  // calcDays: (input, inputSecond) => {
+  //   const inputValue = input.value
+  //   const inputSecondValue = inputSecond.value
+  //   let days = 0
+  //   if (inputValue !== 'ДД.ММ.ГГГГ' && inputSecondValue !== 'ДД.ММ.ГГГГ') {
+  //     const firstDate = Date.parse(inputValue.split('.').reverse())
+  //     const secondDate = Date.parse(inputSecondValue.split('.').reverse())
+  //     const oneDay = 1000 * 60 * 60 * 24
+  //     days = Math.round((secondDate - firstDate) / oneDay)
+  //   }
+  //   return days
+  // },
 }
 
 const datepickerValues = {}
@@ -91,7 +91,7 @@ class Datepicker {
         datepickerValues.amountSelectedDays = datepickerOpts.calcDays(input, inputSecond)
         new BookingCard(cardParams).render()
       }
-      datepickerValues.amountSelectedDays = datepickerOpts.calcDays(input, inputSecond)
+      // datepickerValues.amountSelectedDays = datepickerOpts.calcDays(input, inputSecond)
     }
 
     this.input = new AirDatepicker(input, options)
