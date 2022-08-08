@@ -11,7 +11,9 @@ mixin textField( options={} )
       name,
       value,
       dataType,
+      hasArrow,
       isSubscribe,
+      isReadonly,
       withSpellcheck,
       focused,
       autocomplete,
@@ -38,6 +40,7 @@ mixin textField( options={} )
       placeholder: placeholder,
       autocomplete: autocomplete,
       spellcheck: withSpellcheck,
+      readOnly: isReadonly
     }
 
   .text-field

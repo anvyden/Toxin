@@ -51,15 +51,19 @@ const init = (function () {
           babies: ['младенец', 'младенца', 'младенцев'],
         },
       }),
-      findRoomDatepicker: new Datepicker(
-        {
-          datepickerSelectors: {
-            input: document.querySelector('.js-find-room-datepicker-1'),
-            inputSecond: document.querySelector('.js-find-room-datepicker-2'),
-            datepickerDropdowns: document.querySelectorAll('.js-find-room-datepicker-dropdown .js-dropdown__dropdown-default'),
-          },
-        },
-      ),
+      findRoomDatepicker: new Datepicker('.js-date-dropdown', {
+        hasTwoInputs: true,
+        initialDates: ['2019-08-19', '2019-08-23']
+      })
+      // findRoomDatepicker: new Datepicker(
+      //   {
+      //     datepickerSelectors: {
+      //       input: document.querySelector('.js-find-room-datepicker-1'),
+      //       inputSecond: document.querySelector('.js-find-room-datepicker-2'),
+      //       datepickerDropdowns: document.querySelectorAll('.js-find-room-datepicker-dropdown .js-dropdown__dropdown-default'),
+      //     },
+      //   },
+      // ),
     },
     bookingCardOpts: {
       bookingCardGuests: new Dropdown('.js-booking-card-guests', {
@@ -74,18 +78,18 @@ const init = (function () {
           babies: ['младенец', 'младенца', 'младенцев'],
         },
       }),
-      bookingCardDatepicker: new Datepicker(
-        {
-          datepickerSelectors: {
-            input: document.querySelector('.js-booking-card-datepicker-1'),
-            inputSecond: document.querySelector('.js-booking-card-datepicker-2'),
-            datepickerDropdowns: document.querySelectorAll('.js-booking-room-datepicker-dropdown .js-dropdown__dropdown-default'),
-          },
-          dates: ['2019-08-19', '2019-08-23'],
-        },
-        cardsParams.roomInfo,
-      ),
-      bookingCard: new BookingCard(cardsParams.roomInfo),
+      // bookingCardDatepicker: new Datepicker(
+      //   {
+      //     datepickerSelectors: {
+      //       input: document.querySelector('.js-booking-card-datepicker-1'),
+      //       inputSecond: document.querySelector('.js-booking-card-datepicker-2'),
+      //       datepickerDropdowns: document.querySelectorAll('.js-booking-room-datepicker-dropdown .js-dropdown__dropdown-default'),
+      //     },
+      //     dates: ['2019-08-19', '2019-08-23'],
+      //   },
+      //   cardsParams.roomInfo,
+      // ),
+      // bookingCard: new BookingCard(cardsParams.roomInfo),
     },
     datepickerStatic: new AirDatepicker('.js-datepicker', cardsParams.datepickerStaticOpts),
     roomCards: {

@@ -1,34 +1,28 @@
 include ~/components/text/text
 include ~/components/dropdown/dropdown
+include ~/components/date-dropdown/date-dropdown
 include ~/components/button/button
 
-mixin findRoomCard(options)
+mixin findRoomCard(options={})
   -
-    const { dropdownClassForJs, firstInputClassForJs, secondInputClassForJs, guestsClassForJs, firstInputName, secondInputName, guestsName, formAction, formMethod } = options
+    const { guestsClassForJs, guestsName, formAction, formMethod } = options
 
   .find-room-card
     .find-room-card__container
       form(class='find-room-card__form' action=formAction method=formMethod)
         .find-room-card__title
           +text({ text: 'Найдём номера под ваши пожелания', type: 'h1', color: 'dark-shade-100', bold: true })
-        .find-room-card__date-picker
-          +dropdown({
-            hasTitle: true,
+        .find-room-card__datepicker 
+          +date-dropdown({
+            hasTwoInputs: true,
+            type: 'text',
+            dataType: 'date-dropdown-start',
+            dataTypeEnd: 'date-dropdown-end',
+            placeholder: 'ДД.ММ.ГГГГ',
+            hasArrow: true,
+            isReadonly: true,
             title: 'Прибытие',
-            placeholder: 'ДД.ММ.ГГГГ',
-            name: firstInputName,
-            value: 'ДД.ММ.ГГГГ',
-            size: 'small',
-            classForJs: dropdownClassForJs,
-          })
-          +dropdown({
-            hasTitle: true,
-            title: 'Выезд',
-            placeholder: 'ДД.ММ.ГГГГ',
-            name: secondInputName,
-            value: 'ДД.ММ.ГГГГ',
-            size: 'small',
-            classForJs: dropdownClassForJs,
+            titleEnd: 'Выезд',
           })
         .find-room-card__dropdown-guests
           +dropdown({
@@ -54,3 +48,96 @@ mixin findRoomCard(options)
             size: 'large',
             link: './search-room.html'
           })
+
+//- mixin findRoomCard(options)
+//-   -
+//-     const { dropdownClassForJs, firstInputClassForJs, secondInputClassForJs, guestsClassForJs, firstInputName, secondInputName, guestsName, formAction, formMethod } = options
+
+
+//-   .find-room-card
+//-     .find-room-card__container
+//-       form(class='find-room-card__form' action=formAction method=formMethod)
+//-         .find-room-card__title
+//-           +text({ text: 'Найдём номера под ваши пожелания', type: 'h1', color: 'dark-shade-100', bold: true })
+//-         .find-room-card__datepicker 
+//-           +date-dropdown({
+//-             hasTwoInputs: true,
+//-             type: 'text',
+//-             hasArrow: true,
+//-             isReadonly: true,
+//-             title: 'Прибытие',
+//-             titleEnd: 'Выезд',
+//-           })
+//-         .find-room-card__dropdown-guests
+//-           +dropdown({
+//-             hasTitle: true,
+//-             title: 'Гости',
+//-             placeholder: 'Сколько гостей',
+//-             withButtons: true,
+//-             name: guestsName,
+//-             value: 'Сколько гостей',
+//-             classForJs: guestsClassForJs,
+//-             items: [
+//-               { text: 'Взрослые', counter: '0', dataId: 'adults' },
+//-               { text: 'Дети', counter: '0', dataId: 'children' },
+//-               { text: 'Младенцы', counter: '0', dataId: 'babies' },
+//-             ]
+//-           })
+//-         .find-room-card__button
+//-           +button({
+//-             text: 'Подобрать номер',
+//-             type: 'submit',
+//-             variant: 'with-arrow',
+//-             color: 'white',
+//-             size: 'large',
+//-             link: './search-room.html'
+//-           })
+
+  //- .find-room-card
+  //-   .find-room-card__container
+  //-     form(class='find-room-card__form' action=formAction method=formMethod)
+  //-       .find-room-card__title
+  //-         +text({ text: 'Найдём номера под ваши пожелания', type: 'h1', color: 'dark-shade-100', bold: true })
+  //-       //- .find-room-card__date-picker
+  //-       //-   +dropdown({
+  //-       //-     hasTitle: true,
+  //-       //-     title: 'Прибытие',
+  //-       //-     placeholder: 'ДД.ММ.ГГГГ',
+  //-       //-     name: firstInputName,
+  //-       //-     value: 'ДД.ММ.ГГГГ',
+  //-       //-     size: 'small',
+  //-       //-     classForJs: dropdownClassForJs,
+  //-       //-   })
+  //-       //-   +dropdown({
+  //-       //-     hasTitle: true,
+  //-       //-     title: 'Выезд',
+  //-       //-     placeholder: 'ДД.ММ.ГГГГ',
+  //-       //-     name: secondInputName,
+  //-       //-     value: 'ДД.ММ.ГГГГ',
+  //-       //-     size: 'small',
+  //-       //-     classForJs: dropdownClassForJs,
+  //-       //-   })
+  //-       //- .find-room-card__dropdown-guests
+  //-       //-   +dropdown({
+  //-       //-     hasTitle: true,
+  //-       //-     title: 'Гости',
+  //-       //-     placeholder: 'Сколько гостей',
+  //-       //-     withButtons: true,
+  //-       //-     name: guestsName,
+  //-       //-     value: 'Сколько гостей',
+  //-       //-     classForJs: guestsClassForJs,
+  //-       //-     items: [
+  //-       //-       { text: 'Взрослые', counter: '0', dataId: 'adults' },
+  //-       //-       { text: 'Дети', counter: '0', dataId: 'children' },
+  //-       //-       { text: 'Младенцы', counter: '0', dataId: 'babies' },
+  //-       //-     ]
+  //-       //-   })
+  //-       .find-room-card__button
+  //-         +button({
+  //-           text: 'Подобрать номер',
+  //-           type: 'submit',
+  //-           variant: 'with-arrow',
+  //-           color: 'white',
+  //-           size: 'large',
+  //-           link: './search-room.html'
+  //-         })

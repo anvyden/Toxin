@@ -28,13 +28,8 @@ block content
       .cards__wrapper
         .cards__find-room-card
           +findRoomCard({
-            dropdownClassForJs: 'js-find-room-datepicker-dropdown',
-            firstInputClassForJs: 'js-find-room-datepicker-1',
-            secondInputClassForJs: 'js-find-room-datepicker-2',
             guestsClassForJs: 'js-find-room-guests',
-            firstInputName: 'findRoomStartDate',
-            secondInputName: 'findRoomFinishDate',
-            guestsName: 'findRoomGuests'
+            guestsName: 'findRoomGuests',
           })
         .cards__sing-up-card
           +signUpCard({ logInButtonLink: 'change-me', buttonText: 'Перейти к оплате' })

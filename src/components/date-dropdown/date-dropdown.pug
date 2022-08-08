@@ -1,4 +1,4 @@
-include ../text-field/text-field
+include ~/components/text-field/text-field
 
 mixin date-dropdown(options={})
   -
@@ -17,43 +17,43 @@ mixin date-dropdown(options={})
       titleEnd,
     } = options
 
-    if hasTwoInputs
-      .date-dropdown.js-date-dropdown
-        .date-dropdown__wrapper 
-          .date-dropdown__start 
-            +text-field({
-              hasTitle: true,
-              title,
-              type,
-              dataType,
-              placeholder,
-              name,
-              hasArrow,
-              autocomplete,
-              isReadonly,
-            })
-          .date-dropdown__end 
-            +text-field({
-              hasTitle: true,
-              title: titleEnd,
-              type,
-              dataType: dataTypeEnd,
-              placeholder,
-              name: nameEnd,
-              hasArrow,
-              autocomplete,
-              isReadonly,
-            })
-    else
-      .date-dropdown.js-date-dropdown
-        +text-field({
-          hasTitle: true,
-          title,
-          type,
-          dataType,
-          placeholder,
-          name,
-          hasArrow,
-          autocomplete,
-          isReadonly,
-        })
+  if hasTwoInputs
+    .date-dropdown.js-date-dropdown
+      .date-dropdown__wrapper 
+        .date-dropdown__start 
+          +textField({
+            hasTitle: true,
+            title,
+            type,
+            dataType,
+            placeholder,
+            name,
+            hasArrow,
+            autocomplete,
+            isReadonly,
+          })
+        .date-dropdown__end 
+          +textField({
+            hasTitle: true,
+            title: titleEnd,
+            type,
+            dataType: dataTypeEnd,
+            placeholder,
+            name: nameEnd,
+            hasArrow,
+            autocomplete,
+            isReadonly,
+          })
+  else
+    .date-dropdown.js-date-dropdown
+      +textField({
+        hasTitle: true,
+        title,
+        type,
+        dataType,
+        placeholder,
+        name,
+        hasArrow,
+        autocomplete,
+        isReadonly,
+      })
