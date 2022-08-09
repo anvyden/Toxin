@@ -5,34 +5,41 @@ include ~/components/button/button
 
 mixin findRoomCard(options={})
   -
-    const { guestsClassForJs, guestsName, formAction, formMethod } = options
+    const {
+      title,
+      dateDropdownClassForJs,
+      guestsDropdownClassForJs,
+      formAction='./change-me.html',
+      formMethod
+    } = options
 
   .find-room-card
     .find-room-card__container
       form(class='find-room-card__form' action=formAction method=formMethod)
         .find-room-card__title
-          +text({ text: 'Найдём номера под ваши пожелания', type: 'h1', color: 'dark-shade-100', bold: true })
+          +text({ text: title, type: 'h1', color: 'dark-shade-100', bold: true })
         .find-room-card__datepicker 
           +date-dropdown({
-            hasTwoInputs: true,
             type: 'text',
             dataType: 'date-dropdown-start',
             dataTypeEnd: 'date-dropdown-end',
             placeholder: 'ДД.ММ.ГГГГ',
+            name: 'date',
+            hasTwoInputs: true,
             hasArrow: true,
             isReadonly: true,
             title: 'Прибытие',
             titleEnd: 'Выезд',
+            classForJs: dateDropdownClassForJs
           })
         .find-room-card__dropdown-guests
           +dropdown({
             hasTitle: true,
+            withButtons: true,
             title: 'Гости',
             placeholder: 'Сколько гостей',
-            withButtons: true,
-            name: guestsName,
-            value: 'Сколько гостей',
-            classForJs: guestsClassForJs,
+            name: 'guests',
+            classForJs: guestsDropdownClassForJs,
             items: [
               { text: 'Взрослые', counter: '0', dataId: 'adults' },
               { text: 'Дети', counter: '0', dataId: 'children' },

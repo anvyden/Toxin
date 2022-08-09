@@ -21,6 +21,7 @@ $purple: #BC9CFF;
 $green: #6FCF97;
 $yellow: #FFE39C;
 $black: #3D4975;
+$cardBackground: #fff;
 $primaryGradient: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 $secondaryGradient: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
 $primaryGradientTransparent: linear-gradient(180deg, rgba(#BC9CFF, 0.5) 0%, rgba(#8BA4F9, 0.5) 100%);
@@ -33,8 +34,10 @@ $blackGradient: linear-gradient(180deg, #919191 0%, #3D4975 100%);
 $mainBorder: 1px solid $darkShade25;
 $focusBorder: 1px solid $darkShade50;
 $featuresBorder: 1px solid $darkShade10;
+$cardBorder: 1px solid rgba(0, 0, 0, 0.12);
 $avatarBorder: 2px solid #fff;
 $mainBorderRadius: 4px;
+$cardBorderRadius: 4px;
 $dropdownInputDropBorderRadius: 4px 4px 0 0;
 $dropdownDropBorderRadius: 0 0 4px 4px;
 

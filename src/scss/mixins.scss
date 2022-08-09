@@ -15,3 +15,11 @@
   background-image: $color;
   background-clip: text;
 }
+
+@mixin card() {
+  width: rem(380);
+  background: $cardBackground;
+  border: $cardBorder;
+  border-radius: $cardBorderRadius;
+  box-shadow: $mainBoxShadow;
+}

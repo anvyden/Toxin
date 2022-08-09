@@ -6,7 +6,6 @@ import Pagination from '~/components/pagination/pagination'
 import CheckboxList from '~/components/checkbox-list/checkbox-list'
 import Menu from '~/components/menu/menu'
 import Header from '~/components/header/header'
-import DatepickerWithOneInput from '~/components/datepicker/datepicker-with-one-input'
 import Slider from '@libs/swiper/swiper'
 
 const searchRoomParams = {
@@ -42,13 +41,13 @@ const init = (function () {
   return {
     menu: new Menu(),
     header: new Header(),
-    dropdownDate: new DatepickerWithOneInput(
-      {
-        datepickerSelectors: {
-          input: document.querySelector('.js-input-date-selecter'),
-        },
-      },
-    ),
+    // dropdownDate: new DatepickerWithOneInput(
+    //   {
+    //     datepickerSelectors: {
+    //       input: document.querySelector('.js-input-date-selecter'),
+    //     },
+    //   },
+    // ),
     dropdownGuests: new Dropdown('.js-dropdown-guests', {
       dropdownButtons: true,
       combineTwoFirstItems: true,
