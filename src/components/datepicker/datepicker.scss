@@ -33,7 +33,7 @@
           height: rem(32);
         }
       }
-  
+
       &-cell {
         &.-day- {
           height: rem(32);
@@ -49,14 +49,14 @@
   &-nav {
     border: none;
     padding: rem(15) rem(20) 0 rem(19);
-  
+
     &--title {
       font-size: rem(19);
       line-height: rem(23.16);
       font-weight: bold;
       color: $darkShade100;
       transition: color 0.3s ease;
-  
+
       &:active,
       &:hover {
         background: transparent;
@@ -66,15 +66,15 @@
 
     &--action {
       transition: opacity 0.3s ease;
-    
+
       &:first-child {
         justify-content: flex-start;
       }
-    
+
       &:last-child {
         justify-content: flex-end;
       }
-    
+
       &:active,
       &:hover {
         opacity: 0.5;
@@ -92,7 +92,7 @@
       text-transform: none;
       color: $purple;
     }
-  
+
     &--day-names {
       margin: 0;
     }
@@ -147,7 +147,7 @@
 
           &.-focus- {
             color: #fff;
-          }  
+          }
         }
       }
 
@@ -203,7 +203,7 @@
 
           &.-focus- {
             color: #fff;
-          }  
+          }
         }
       }
 
@@ -229,31 +229,31 @@
     &.-day- {
       height: rem(40);
       border-radius: 22px;
-    
+
       &.-focus- {
         background: $primaryGradient;
         color: #fff;
         font-weight: bold;
       }
-    
+
       &.-current- {
         color: #fff;
         font-weight: bold;
         background: $secondaryGradient;
-    
+
         &.-in-range- {
           font-weight: normal;
           color: $darkShade50;
         }
-    
+
         &.-focus- {
           background: $primaryGradient;
         }
       }
-    
+
       &.-in-range- {
         background: none;
-    
+
         &::after {
           position: absolute;
           top: 0;
@@ -264,21 +264,21 @@
           background: $primaryGradientTransparent25;
           content: '';
         }
-    
+
         &.-focus- {
           color: #fff;
           background: $primaryGradient;
           border-radius: 22px;
         }
       }
-    
+
       &.-range-from- {
         background: $primaryGradient;
         border: none;
         border-radius: 22px;
         color: #fff;
         font-weight: bold;
-    
+
         &::after {
           position: absolute;
           top: 0;
@@ -291,14 +291,14 @@
           content: '';
         }
       }
-    
+
       &.-range-to- {
         background: $primaryGradient;
         border: none;
         border-radius: 22px;
         color: #fff;
         font-weight: bold;
-    
+
         &::before {
           position: absolute;
           top: 0;
@@ -311,64 +311,64 @@
           content: '';
         }
       }
-    
+
       &.-range-from-.-range-to- {
         border-radius: 22px;
       }
-    
+
       &.-selected- {
         color: #fff;
         font-weight: bold;
         background: $primaryGradient;
         border: none;
-    
+
         &.-current- {
           color: #fff;
           background: $primaryGradient;
         }
-    
+
         &.-focus- {
           background: $primaryGradientTransparent25;
         }
-    
-        &.-range-from-{
+
+        &.-range-from- {
           &.-range-to- {
             &::after {
               border-radius: 22px;
             }
-    
+
             &::before {
               border-radius: 22px;
             }
           }
         }
       }
-    
+
       &.-other-month- {
         color: $darkShade25;
-    
+
         &.-range-from-,
         &.-range-to- {
           color: #fff;
           background: $primaryGradientTransparent;
         }
-    
+
         &.-focus- {
           color: #fff;
           background: $primaryGradientTransparent;
         }
-    
+
         &.-in-range- {
           background: none;
           color: $darkShade25;
-    
+
           &.-focus- {
             background: $primaryGradientTransparent;
             color: #fff;
           }
         }
-    
-        &.-selected-  {
+
+        &.-selected- {
           &.-focus- {
             background: $primaryGradientTransparent;
           }
@@ -399,14 +399,14 @@
     font-weight: bold;
     color: $purple;
     text-transform: uppercase;
-  
+
     &:focus,
     &:hover {
       text-decoration: $focusUnderline;
       color: $purple;
       background: none;
     }
-  
+
     &:active {
       opacity: 0.5;
       background: none;

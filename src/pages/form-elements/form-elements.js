@@ -10,10 +10,10 @@ import { Datepicker } from '~/components/datepicker/datepicker';
 const init = {
   dateDropdown: new Datepicker('.js-date-dropdown', {
     hasTwoInputs: true,
-    initialDates: ['2019-08-19','2019-08-23']
+    initialDates: ['2019-08-19', '2019-08-23'],
   }),
   filterDateDropdown: new Datepicker('.js-filter-date-dropdown', {
-    initialDates: ['2019-08-19','2019-08-23'],
+    initialDates: ['2019-08-19', '2019-08-23'],
     size: 'small',
   }),
   dropdown1: new Dropdown('.js-dropdown-1', {
@@ -66,6 +66,6 @@ const init = {
   }),
   expandableCheckboxList: new CheckboxList('.js-expandable-checkbox'),
   likeButtons: [...document.querySelectorAll('.js-like-button__button')].map(
-    (button) => new LikeButton(button),
+    (button) => new LikeButton(button)
   ),
 };

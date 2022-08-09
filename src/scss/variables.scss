@@ -17,18 +17,30 @@ $darkShade50: rgba(31, 32, 65, 0.5);
 $darkShade25: rgba(31, 32, 65, 0.25);
 $darkShade10: rgba(31, 32, 65, 0.1);
 $darkShade5: rgba(31, 32, 65, 0.05);
-$purple: #BC9CFF;
-$green: #6FCF97;
-$yellow: #FFE39C;
-$black: #3D4975;
+$purple: #bc9cff;
+$green: #6fcf97;
+$yellow: #ffe39c;
+$black: #3d4975;
 $cardBackground: #fff;
-$primaryGradient: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-$secondaryGradient: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
-$primaryGradientTransparent: linear-gradient(180deg, rgba(#BC9CFF, 0.5) 0%, rgba(#8BA4F9, 0.5) 100%);
-$primaryGradientTransparent25: linear-gradient(180deg, rgba(#BC9CFF, 0.25) 0%, rgba(#8BA4F9, 0.25) 100%);
-$secondaryGradientTransparent: linear-gradient(180deg, rgba(#6FCF97, 0.5) 0%, rgba(#66D2EA, 0.5) 100%);
-$yellowGradient: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%);
-$blackGradient: linear-gradient(180deg, #919191 0%, #3D4975 100%);
+$primaryGradient: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+$secondaryGradient: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+$primaryGradientTransparent: linear-gradient(
+  180deg,
+  rgba(#bc9cff, 0.5) 0%,
+  rgba(#8ba4f9, 0.5) 100%
+);
+$primaryGradientTransparent25: linear-gradient(
+  180deg,
+  rgba(#bc9cff, 0.25) 0%,
+  rgba(#8ba4f9, 0.25) 100%
+);
+$secondaryGradientTransparent: linear-gradient(
+  180deg,
+  rgba(#6fcf97, 0.5) 0%,
+  rgba(#66d2ea, 0.5) 100%
+);
+$yellowGradient: linear-gradient(180deg, #ffe39c 0%, #ffba9c 100%);
+$blackGradient: linear-gradient(180deg, #919191 0%, #3d4975 100%);
 
 // Borders
 $mainBorder: 1px solid $darkShade25;

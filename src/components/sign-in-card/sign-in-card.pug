@@ -4,19 +4,34 @@ include ~/components/button/button
 
 mixin signInCard(options)
   -
-    const { signUpButtonLink, formAction, formMethod } = options
+    const {
+      title,
+      signUpLink,
+      formAction,
+      formMethod
+    } = options
 
   .sign-in-card
     .sign-in-card__container
+      .sign-in-card__title
+        +text({ text: title, type: 'h1', color: 'dark-shade-100', bold: true })
       form(class='sign-up-card__form' action=formAction method=formMethod)
-        .sign-in-card__title
-          +text({ text: 'Войти', type: 'h1', color: 'dark-shade-100', bold: true })
-        .sign-in-card__data-login
+        .sign-in-card__login-details
           .sign-in-card__email
-            +textField({ type: 'email', placeholder: 'Email', name: 'email' })
+            +textField({
+              type: 'email',
+              placeholder: 'Email',
+              name: 'email',
+              autocomplete: 'on'
+            })
           .sign-in-card__password
-            +textField({ type: 'password', placeholder: 'Пароль', name: 'password' })
-        .sign-in-card__sign-in-button
+            +textField({
+              type: 'password',
+              placeholder: 'Пароль',
+              name: 'password',
+              autocomplete: 'on'
+            })
+        .sign-in-card__button
           +button({
             text: 'Войти',
             type: 'submit',
@@ -28,7 +43,7 @@ mixin signInCard(options)
           +text({ text: 'Нет аккаунта на Toxin?', type: 'p', color: 'black' })
           +button({
             text: 'Создать',
-            link: signUpButtonLink,
+            link: signUpLink,
             variant: 'fill-white',
             color: 'purple',
             size: 'small'

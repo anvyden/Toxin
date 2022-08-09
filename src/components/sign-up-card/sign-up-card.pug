@@ -7,6 +7,8 @@ include ~/components/button/button
 mixin signUpCard(options={})
   -
     const {
+      title,
+      logInlink,
       formAction,
       formMethod
     } = options
@@ -14,7 +16,7 @@ mixin signUpCard(options={})
   .sign-up-card
     .sign-up-card__container
       .sign-up-card__title
-        +text({ text: 'Регистрация аккаунта', type: 'h1', color: 'dark-shade-100', bold: true })
+        +text({ text: title, type: 'h1', color: 'dark-shade-100', bold: true })
       form(class='sign-up-card__form' action=formAction method=formMethod)
         .sign-up-card__person
           .sign-up-card__person-first-name
@@ -73,5 +75,5 @@ mixin signUpCard(options={})
             variant: 'fill-white',
             color: 'purple',
             size: 'small',
-            link: './sign-in.html',
+            link: logInlink,
           })

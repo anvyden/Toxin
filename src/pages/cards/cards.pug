@@ -34,7 +34,11 @@ block content
             formAction: './change-me.html'           
           })
         .cards__sing-up-card
-          +signUpCard({ formAction: './change-me.html' })
+          +signUpCard({
+            title: 'Регистрация аккаунта',
+            logInlink: './change-me.html',
+            formAction: './change-me.html'
+          })
       .cards__wrapper
         .cards__booking-card
           +bookingCard({
@@ -48,7 +52,11 @@ block content
             guestsName: 'bookingRoomGuests'
           })
         .cards__sing-in-card
-          +signInCard({ signUpButtonLink: 'change-me' })
+          +signInCard({
+            title: 'Войти',
+            signUpLink: './change-me.html',
+            formAction: './change-me.html'
+          })
       .cards__wrapper
         .cards__datepicker
           +datepicker({ classForJs: 'js-datepicker' })
