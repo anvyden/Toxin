@@ -91,7 +91,7 @@ const init = (function () {
       // ),
       // bookingCard: new BookingCard(cardsParams.roomInfo),
     },
-    datepickerStatic: new AirDatepicker('.js-datepicker', cardsParams.datepickerStaticOpts),
+    // datepickerStatic: new AirDatepicker('.js-datepicker', cardsParams.datepickerStaticOpts),
     roomCards: {
       roomRating1: new StarRating('.js-room-rating-1', 5),
       roomRating2: new StarRating('.js-room-rating-2', 4),

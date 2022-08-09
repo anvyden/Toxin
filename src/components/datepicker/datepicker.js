@@ -2,25 +2,7 @@ import AirDatepicker from 'air-datepicker'
 
 import BookingCard from '~/components/booking-card/booking-card'
 
-const datepickerOpts = {
-  acceptButton: {
-    content: 'Применить',
-    attrs: {
-      type: 'button',
-    },
-    onClick: (datepicker) => {
-      datepicker.$datepicker.classList.remove('-active-')
-    },
-  },
-  clearButton: {
-    content: 'Очистить',
-    attrs: {
-      type: 'button',
-    },
-    onClick: (datepicker) => {
-      datepicker.clear()
-    },
-  },
+// const 
   // calcDays: (input, inputSecond) => {
   //   const inputValue = input.value
   //   const inputSecondValue = inputSecond.value
@@ -33,7 +15,7 @@ const datepickerOpts = {
   //   }
   //   return days
   // },
-}
+// }
 
 const datepickerValues = {}
 
@@ -54,8 +36,13 @@ class Datepicker {
     
     this.datepicker = new AirDatepicker(this.root, this.params)
     this.container = this.datepicker.$datepicker;
+    this.buttons = this.container.querySelector('.air-datepicker--buttons')
+    this.clearButton = this.buttons.querySelector('[data-type="clear"]')
     
-    this.root.addEventListener('click', this._handleDateDropdownClick.bind(this))
+    this.container.classList.remove('-inline-')
+
+    this.root.addEventListener('pointerdown', this._handleDateDropdownClick.bind(this))
+    this.root.addEventListener('keydown', this._handleDateDropdownKeyDown.bind(this))
 
     if (initialDates) this._setInitialDates(initialDates);
   }
@@ -65,61 +52,105 @@ class Datepicker {
 
     const params = {
       dateFormat: 'dd MMM',
-      multipleDates: true,
       range: true,
       multipleDatesSeparator: ' - ',
-      buttons: [datepickerOpts.clearButton, datepickerOpts.acceptButton],
+      buttons: this._createButtons(),
       navTitles: {
         days: 'MMMM yyyy',
       },
+      onSelect: this._onSelect.bind(this),
+      onChangeView: this._onChangeView.bind(this),
       prevHtml: '<span class="material-icons air-datepicker-arrow">arrow_back</span>',
       nextHtml: '<span class="material-icons air-datepicker-arrow">arrow_forward</span>',
     }
 
     const paramsWithTwoInputs = {
-      position({$datepicker}) {
-        $datepicker.style.top = '5px'
-      },
+      position: 'bottom left',
       dateFormat: 'dd.MM.yyyy',
-      multipleDates: true,
       range: true,
-      multipleDatesSeparator: '-',
-      buttons: [datepickerOpts.clearButton, datepickerOpts.acceptButton],
+      buttons: this._createButtons(),
       navTitles: {
         days: 'MMMM yyyy',
       },
       onSelect: this._onSelect.bind(this),
+      onChangeView: this._onChangeView.bind(this),
       prevHtml: '<span class="material-icons air-datepicker-arrow">arrow_back</span>',
       nextHtml: '<span class="material-icons air-datepicker-arrow">arrow_forward</span>',
     }
 
     this.params = hasTwoInputs ? paramsWithTwoInputs : params
-
-    // if (dates !== '') {
-    //   options.selectedDates = [dates]
-    // }
   }
 
   _findDOMElements() {
     const { hasTwoInputs } = this.options
+    this.filterDateDropdown = this.root.querySelector('[data-type="filter-date-dropdown"]')
+
     if (hasTwoInputs) {
-      this.start = this.root.querySelector('[data-type="date-dropdown-start"]')
-      this.end = this.root.querySelector('[data-type="date-dropdown-end"]')
+      this.startInput = this.root.querySelector('[data-type="date-dropdown-start"]')
+      this.endInput = this.root.querySelector('[data-type="date-dropdown-end"]')
     }
+  }
+
+  _createButtons() {
+    const acceptButton = {
+      content: 'Применить',
+      attrs: {
+        type: 'button',
+        tabindex: '-1',
+        'data-type': 'apply'
+      },
+      onClick: (datepicker) => {
+        datepicker.$datepicker.classList.remove('-active-')
+      },
+    }
+
+    const clearButton = {
+      content: 'Очистить',
+      className: 'air-datepicker-button--hidden',
+      attrs: {
+        type: 'button',
+        tabindex: '-1',
+        'data-type': 'clear'
+      },
+      onClick: (datepicker) => {
+        datepicker.clear()
+      },
+    }
+
+    return [clearButton, acceptButton]
   }
 
   _onSelect({formattedDate}) {
     const { hasTwoInputs } = this.options
 
+    if (formattedDate.length) {
+      this._showClearButton()
+    } else {
+      this._hideClearButton()
+    }
+
     if (hasTwoInputs) {
       const [startDate = '', endDate = ''] = formattedDate
-      this.start.value = startDate
-      this.end.value = endDate
+      this.startInput.value = startDate
+      this.endInput.value = endDate
+    }
+
+    if (this.filterDateDropdown) {
+      this.filterDateDropdown.value = formattedDate
+    }
+  }
+
+  _onChangeView(view) {
+    if (view === 'months' || view === 'years') {
+      this.buttons.style.display = 'none' 
+    } else {
+      this.buttons.style.display = 'block'
     }
   }
 
   _setInitialDates(dates = []) {
     this.datepicker.selectDate(dates)
+    this._showClearButton()
   }
 
   _handleDateDropdownClick({ target }) {
@@ -131,25 +162,60 @@ class Datepicker {
     if (type === 'arrow') this._toggle()
   }
 
+  _handleDateDropdownKeyDown(event) {
+    const { code, target } = event
+    const { type } = target.dataset
+
+    if (code === 'Space') {
+      event.preventDefault()
+
+      if (type === 'date-dropdown-start') this._toggle()
+      if (type === 'date-dropdown-end') this._toggle()
+      if (type === 'arrow') this._toggle()
+    }
+
+    if (code === 'Enter') {
+      event.preventDefault()
+    }
+  }
+
+  _handleDocumentPoinerDown(event) {
+    console.log(event)
+    if (!this._isPoinerDownOnDatepicker(event)) this._close()
+  }
+
+  _isPoinerDownOnDatepicker({ target }) {
+    return target.closest(this.selector)
+  }
+
   get isOpen() {
     return this.container.classList.contains('-active-')
   }
 
   _close() {
     this.container.classList.remove('-active-')
+    document.removeEventListener('pointerdown', this._handleDocumentPoinerDown.bind(this));
   }
 
   _open() {
     this.container.classList.add('-active-')
+    document.addEventListener('pointerdown', this._handleDocumentPoinerDown.bind(this));
   }
 
   _toggle() {
-    console.log(this.isOpen)
     if (this.isOpen) {
       this._close()
     } else {
       this._open()
     }
+  }
+
+  _showClearButton() {
+    this.clearButton.classList.remove('air-datepicker-button--hidden')
+  }
+
+  _hideClearButton() {
+    this.clearButton.classList.add('air-datepicker-button--hidden')
   }
 }
 

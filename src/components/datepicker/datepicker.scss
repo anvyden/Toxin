@@ -1,18 +1,27 @@
 @import '../../../node_modules/air-datepicker/air-datepicker.css';
 
 .air-datepicker {
+  visibility: hidden;
   min-width: rem(320);
   font-family: 'Montserrat', Arial, sans-serif;
   color: $darkShade50;
   font-size: rem(12);
   line-height: rem(14.63);
+  border: 1px solid $darkShade25;
+  border-radius: $mainBorderRadius;
+  box-shadow: $secondaryBoxShadow;
+  box-sizing: border-box;
 
-  &.-inline- {
-    position: absolute;
-    border: 1px solid $darkShade25;
-    border-radius: $mainBorderRadius;
-    box-shadow: $secondaryBoxShadow;
-    box-sizing: border-box;
+  &:hover {
+    border: $focusBorder;
+  }
+
+  &.-active- {
+    visibility: visible;
+
+    &:not(.-custom-position-) {
+      transform: translate(0, 5px);
+    }
   }
 
   &--pointer {
@@ -21,7 +30,7 @@
 
   &-nav {
     border: none;
-    padding: rem(15) rem(20) rem(25) rem(19);
+    padding: rem(15) rem(20) 0 rem(19);
   
     &--title {
       font-size: rem(19);
@@ -82,7 +91,7 @@
   }
 
   &--content {
-    padding: 0 rem(19) 0 rem(20);
+    padding: rem(21) rem(19) rem(25) rem(20);
   }
 
   &-cell {
@@ -99,10 +108,47 @@
         color: #fff;
       }
 
+      &.-selected- {
+        background: $primaryGradient;
+        font-weight: bold;
+        color: #fff;
+      }
+
       &.-other-decade- {
         &.-focus- {
           color: #fff;
         }
+
+        &.-selected- {
+          background: $primaryGradient;
+        }
+
+        &.-in-range- {
+          color: $darkShade25;
+          background: $primaryGradientTransparent25;
+
+          &.-focus- {
+            color: #fff;
+          }  
+        }
+      }
+
+      &.-in-range- {
+        background: $primaryGradientTransparent25;
+
+        &.-current- {
+          background: $secondaryGradientTransparent;
+        }
+
+        &.-focus- {
+          background: $primaryGradient;
+        }
+      }
+
+      &.-range-from-,
+      &.-range-to- {
+        background: $primaryGradient;
+        border: none;
       }
     }
 
@@ -117,6 +163,48 @@
         background: $primaryGradient;
         color: #fff;
         font-weight: bold;
+      }
+      &.-selected- {
+        background: $primaryGradient;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      &.-other-decade- {
+        &.-focus- {
+          color: #fff;
+        }
+
+        &.-selected- {
+          background: $primaryGradient;
+        }
+
+        &.-in-range- {
+          color: $darkShade25;
+          background: $primaryGradientTransparent25;
+
+          &.-focus- {
+            color: #fff;
+          }  
+        }
+      }
+
+      &.-in-range- {
+        background: $primaryGradientTransparent25;
+
+        &.-current- {
+          background: $secondaryGradientTransparent;
+        }
+
+        &.-focus- {
+          background: $primaryGradient;
+        }
+      }
+
+      &.-range-from-,
+      &.-range-to- {
+        background: $primaryGradient;
+        border: none;
       }
     }
 
@@ -272,7 +360,7 @@
   }
 
   &--buttons {
-    padding: rem(21) rem(19) rem(19) rem(19);
+    padding: 0 rem(19) rem(19) rem(19);
     border: none;
   }
 
@@ -304,6 +392,10 @@
     &:active {
       opacity: 0.5;
       background: none;
+    }
+
+    &--hidden {
+      visibility: hidden;
     }
   }
 }
