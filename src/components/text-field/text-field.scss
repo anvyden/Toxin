@@ -16,7 +16,6 @@
     color: $darkShade75;
     font-size: rem(14);
     font-family: inherit;
-    word-spacing: -1px;
     border: $mainBorder;
     border-radius: $mainBorderRadius;
     outline: none;
@@ -40,6 +39,10 @@
 
     &--with-button {
       padding: rem(12) rem(44) rem(12) rem(14);
+    }
+
+    &--lowercase {
+      text-transform: lowercase;
     }
   }
 

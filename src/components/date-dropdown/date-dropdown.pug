@@ -12,13 +12,15 @@ mixin date-dropdown(options={})
       hasArrow,
       autocomplete,
       isReadonly,
+      isLowerCase,
       hasTwoInputs=false,
       title,
       titleEnd,
+      classForJs
     } = options
 
   if hasTwoInputs
-    .date-dropdown.js-date-dropdown
+    .date-dropdown(class=classForJs)
       .date-dropdown__wrapper 
         .date-dropdown__start 
           +textField({
@@ -45,7 +47,7 @@ mixin date-dropdown(options={})
             isReadonly,
           })
   else
-    .date-dropdown.js-date-dropdown
+    .date-dropdown(class=classForJs)
       +textField({
         hasTitle: true,
         title,
@@ -56,4 +58,5 @@ mixin date-dropdown(options={})
         hasArrow,
         autocomplete,
         isReadonly,
+        isLowerCase
       })

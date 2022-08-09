@@ -14,6 +14,7 @@ mixin textField( options={} )
       hasArrow,
       isSubscribe,
       isReadonly,
+      isLowerCase,
       withSpellcheck,
       focused,
       autocomplete,
@@ -25,12 +26,14 @@ mixin textField( options={} )
     const inputWithButtonModifier = withButton && 'text-field__input--with-button'
     const arrowClass = 'text-field__arrow-button material-icons js-text-field__arrow-button'
     const subscribeButtonClass = 'text-field__button material-icons'
+    const lowerCaseModifier = isLowerCase && 'text-field__input--lowercase'
 
     const attrs = {
       class: [
         mainClass,
         focusedModifier,
         inputWithButtonModifier,
+        lowerCaseModifier,
         classForJs
       ],
       type: type,

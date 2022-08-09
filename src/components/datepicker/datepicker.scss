@@ -24,6 +24,24 @@
     }
   }
 
+  &--size-small {
+    min-width: rem(266);
+
+    .air-datepicker {
+      &-body {
+        &--day-name {
+          height: rem(32);
+        }
+      }
+  
+      &-cell {
+        &.-day- {
+          height: rem(32);
+        }
+      }
+    }
+  }
+
   &--pointer {
     display: none;
   }
