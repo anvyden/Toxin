@@ -4,27 +4,31 @@ include ~/components/radio-button/radio-button
 include ~/components/toggle-button/toggle-button
 include ~/components/button/button
 
-mixin signUpCard(options)
+mixin signUpCard(options={})
   -
-    const { logInButtonLink, formAction, formMethod, buttonText } = options
+    const {
+      formAction,
+      formMethod
+    } = options
 
   .sign-up-card
     .sign-up-card__container
+      .sign-up-card__title
+        +text({ text: 'Регистрация аккаунта', type: 'h1', color: 'dark-shade-100', bold: true })
       form(class='sign-up-card__form' action=formAction method=formMethod)
-        .sign-up-card__title
-          +text({ text: 'Регистрация аккаунта', type: 'h1', color: 'dark-shade-100', bold: true })
         .sign-up-card__person
           .sign-up-card__person-first-name
-            +textField({ type: 'text', placeholder: 'Имя', name: 'firstName' })
-          .sign-up-card__person-second-name
-            +textField({ type: 'text', placeholder: 'Фамилия', name: 'secondName' })
+            +textField({ type: 'text', placeholder: 'Имя', name: 'first-name', autocomplete: 'on' })
+          .sign-up-card__person-last-name
+            +textField({ type: 'text', placeholder: 'Фамилия', name: 'last-name', autocomplete: 'on' })
           .sign-up-card__person-sex
             +radioButtons({
               group: 'gender',
               items: [
                 { text: 'Мужчина', value: 'man', isChecked: true },
                 { text: 'Женщина', value: 'woman' }
-              ]})
+              ]
+            })
         .sign-up-card__date-birth
           +textField({
             hasTitle: true,
@@ -32,24 +36,31 @@ mixin signUpCard(options)
             type: 'text',
             placeholder: 'ДД.ММ.ГГГГ',
             name: 'birthday',
+            autocomplete: 'on',
             classForJs: 'js-masked-text-field'
           })
-        .sign-up-card__data-login
+        .sign-up-card__login-details
           .sign-up-card__email
             +textField({
               hasTitle: true,
               title: 'Данные для входа в сервис',
               type: 'email',
               placeholder: 'Email',
-              name: 'email'
+              name: 'email',
+              autocomplete: 'on'
             })
           .sign-up-card__password
-            +textField({ type: 'password', placeholder: 'Пароль', name: 'password' })
+            +textField({
+              type: 'password',
+              placeholder: 'Пароль',
+              name: 'password',
+              autocomplete: 'on'
+            })
           .sign-up-card__special-offers
-            +toggleButton({ text: 'Получать спецпредложения', name: 'specialOffers' })
+            +toggleButton({ text: 'Получать спецпредложения', name: 'special-offers' })
         .sign-up-card__button
           +button({
-            text: buttonText,
+            text: 'зарегистрироваться',
             type: 'submit',
             variant: 'with-arrow',
             color: 'white',
@@ -62,5 +73,5 @@ mixin signUpCard(options)
             variant: 'fill-white',
             color: 'purple',
             size: 'small',
-            link: logInButtonLink,
+            link: './sign-in.html',
           })

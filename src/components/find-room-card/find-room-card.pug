@@ -15,9 +15,9 @@ mixin findRoomCard(options={})
 
   .find-room-card
     .find-room-card__container
+      .find-room-card__title
+        +text({ text: title, type: 'h1', color: 'dark-shade-100', bold: true })
       form(class='find-room-card__form' action=formAction method=formMethod)
-        .find-room-card__title
-          +text({ text: title, type: 'h1', color: 'dark-shade-100', bold: true })
         .find-room-card__datepicker 
           +date-dropdown({
             type: 'text',
@@ -49,7 +49,6 @@ mixin findRoomCard(options={})
         .find-room-card__button
           +button({
             text: 'Подобрать номер',
-            type: 'submit',
             variant: 'with-arrow',
             color: 'white',
             size: 'large',

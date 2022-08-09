@@ -1,53 +1,49 @@
 .sign-up-card {
-  max-width: rem(380);
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
-}
+  @include card;
 
-.sign-up-card__container {
-  padding: rem(39) rem(29) rem(29) rem(29);
-}
+  &__container {
+    padding: rem(39) rem(29) rem(29) rem(29);
+  }
 
-.sign-up-card__title {
-  margin-bottom: rem(21);
-}
+  &__title {
+    margin-bottom: rem(21);
+  }
 
-.sign-up-card__person {
-  margin-bottom: rem(24);
-}
+  &__person {
+    margin-bottom: rem(24);
 
-.sign-up-card__person-first-name {
-  margin-bottom: rem(10);
-}
+    &-first-name {
+      margin-bottom: rem(10);
+    }
 
-.sign-up-card__person-second-name {
-  margin-bottom: rem(10);
-}
+    &-last-name {
+      margin-bottom: rem(10);
+    }
+  }
 
-.sign-up-card__date-birth {
-  margin-bottom: rem(20.5);
-}
+  &__date-birth {
+    margin-bottom: rem(20);
+  }
 
-.sign-up-card__data-login {
-  margin-bottom: rem(24);
-}
+  &__login-details {
+    margin-bottom: rem(24);
+  }
 
-.sign-up-card__email {
-  margin-bottom: rem(10);
-}
+  &__email {
+    margin-bottom: rem(10);
+  }
 
-.sign-up-card__password {
-  margin-bottom: rem(10);
-}
+  &__password {
+    margin-bottom: rem(10);
+  }
 
-.sign-up-card__button {
-  margin-bottom: rem(30.5);
-}
+  &__button {
+    margin-bottom: rem(30.5);
+  }
 
-.sign-up-card__log-in {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  &__log-in {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
