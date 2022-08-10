@@ -1,73 +1,77 @@
 include ~/components/text/text
 include ~/components/dropdown/dropdown
+include ~/components/date-dropdown/date-dropdown
 include ~/components/button/button
 
 mixin bookingCard(options)
   -
-    const { luxe, dropdownClassForJs, firstInputClassForJs, secondInputClassForJs, guestsClassForJs, firstInputName, secondInputName, guestsName, formAction, formMethod } = options
+    const {
+      luxe,
+      dateDropdownClassForJs,
+      guestsDropdownClassForJs,
+      formAction,
+      formMethod
+    } = options
 
   .booking-card
     .booking-card__container
       form(class='booking-card__form' action=formAction method=formMethod)
         .booking-card__room-info
-          .booking-card__room-number-info
-            h1(class='booking-card__room-number').
-              #[span.booking-card__room-number-symbol № ]
-              #[span.booking-card__room-number-value.js-booking-card__room-number-value 888]
+          .booking-card__room-number-details
+            h1(class='booking-card__room-number')
+              span.booking-card__room-number-symbol='№' 
+              span.booking-card__room-number-value.js-booking-card__room-number-value='888'
             if (luxe)
               +text({ text: 'Люкс', type: 'h3', color: 'purple', bold: true, hasUpper: true })
           .booking-card__room-price-info
-            p(class='booking-card__room-price').
-              #[span.booking-card__room-price-value.js-booking-card__room-price-value 9 990₽]
-              #[span.booking-card__room-price-day в сутки]
-        .booking-card__date-picker
-          +dropdown({
-            hasTitle: true,
+            span.booking-card__room-price-value.js-booking-card__room-price-value='9 990₽'
+            span.booking-card__room-price-day='в сутки'
+        .booking-card__datepicker
+          +date-dropdown({
+            type: 'text',
+            dataType: 'date-dropdown-start',
+            dataTypeEnd: 'date-dropdown-end',
+            placeholder: 'ДД.ММ.ГГГГ',
+            name: 'date',
+            hasTwoInputs: true,
+            hasArrow: true,
+            isReadonly: true,
             title: 'Прибытие',
-            placeholder: 'ДД.ММ.ГГГГ',
-            value: '19.08.2019',
-            name: firstInputName,
-            size: 'small',
-            classForJs: dropdownClassForJs,
-          })
-          +dropdown({
-            hasTitle: true,
-            title: 'Выезд',
-            placeholder: 'ДД.ММ.ГГГГ',
-            value: '23.08.2019',
-            name: secondInputName,
-            size: 'small',
-            classForJs: dropdownClassForJs,
+            titleEnd: 'Выезд',
+            classForJs: dateDropdownClassForJs
           })
         .booking-card__dropdown-guests
           +dropdown({
             hasTitle: true,
-            title: 'Гости',
             withButtons: true,
+            title: 'Гости',
             placeholder: 'Сколько гостей',
-            value: '3 гостя',
-            name: guestsName,
-            classForJs: guestsClassForJs,
+            name: 'guests',
+            classForJs: guestsDropdownClassForJs,
             items: [
-              { text: 'взрослые', counter: '2', dataId: 'adults' },
-              { text: 'дети', counter: '1', dataId: 'children' },
-              { text: 'младенцы', counter: '0', dataId: 'babies' },
+              { text: 'Взрослые', counter: '2', dataId: 'adults' },
+              { text: 'Дети', counter: '1', dataId: 'children' },
+              { text: 'Младенцы', counter: '0', dataId: 'babies' },
             ]
           })
-        .booking-card__calculate-price
-          .booking-card__calculate-price-item
-            p.booking-card__days-text.js-booking-card__days-text='9 990₽ х 4 суток'
+        .booking-card__calculation
+          .booking-card__calculation-item
+            p.booking-card__days-value.js-booking-card__days-value='9 990₽ х 4 суток'
             p.booking-card__days-sum.js-booking-card__days-sum='39 960₽'
-          .booking-card__calculate-price-item
-            p.booking-card__services-text.booking-card__text--with-icon.js-booking-card__services-text='Сбор за услуги: скидка 2 179₽'
+          .booking-card__calculation-item
+            p.booking-card__services-value.js-booking-card__services-value='Сбор за услуги: скидка 2 179₽'
+            .booking-card__calculation-icon-wrapper
+              .booking-card__calculation-icon='i'
             p.booking-card__services-sum.js-booking-card__services-sum='0₽'
-          .booking-card__calculate-price-item
-            p.booking-card__additional-services-text.booking-card__text--with-icon='Сбор за дополнительные услуги'
+          .booking-card__calculation-item
+            p.booking-card__additional-services-value='Сбор за дополнительные услуги'
+            .booking-card__calculation-icon-wrapper
+              .booking-card__calculation-icon='i'
             p.booking-card__additional-services-sum.js-booking-card__additional-services-sum='300₽'
         .booking-card__total-price
-          h2.booking-card__total-text='Итого'
-          .booking-card__total-separator
-          h2.booking-card__total-sum.js-booking-card__total-sum='38 081₽'
+          h2.booking-card__total-price-text='Итого'
+          .booking-card__total-price-separator
+          h2.booking-card__total-price-sum.js-booking-card__total-price-sum='38 081₽'
         .booking-card__booking-button
           +button({
             text: 'Забронировать',

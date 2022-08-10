@@ -43,13 +43,9 @@ block content
         .cards__booking-card
           +bookingCard({
             luxe: true,
-            dropdownClassForJs: 'js-booking-room-datepicker-dropdown',
-            firstInputClassForJs: 'js-booking-card-datepicker-1',
-            secondInputClassForJs: 'js-booking-card-datepicker-2',
-            guestsClassForJs: 'js-booking-card-guests',
-            firstInputName: 'bookingRoomStartDate',
-            secondInputName: 'bookingRoomFinishDate',
-            guestsName: 'bookingRoomGuests'
+            dateDropdownClassForJs: 'js-booking-card-date-dropdown',
+            guestsDropdownClassForJs: 'js-booking-card-guests',
+            formAction: './change-me.html'
           })
         .cards__sing-in-card
           +signInCard({
