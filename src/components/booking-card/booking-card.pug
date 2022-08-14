@@ -10,10 +10,11 @@ mixin bookingCard(options)
       dateDropdownClassForJs,
       guestsDropdownClassForJs,
       formAction,
-      formMethod
+      formMethod,
+      classForJs
     } = options
 
-  .booking-card
+  .booking-card(class=classForJs)
     .booking-card__container
       form(class='booking-card__form' action=formAction method=formMethod)
         .booking-card__room-info

@@ -24,6 +24,10 @@
     }
   }
 
+  &.-inline- {
+    visibility: visible;
+  }
+
   &--size-small {
     min-width: rem(266);
 

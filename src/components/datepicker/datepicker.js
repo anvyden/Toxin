@@ -20,9 +20,10 @@ import BookingCard from '~/components/booking-card/booking-card';
 const datepickerValues = {};
 
 class Datepicker {
-  constructor(selector, options) {
+  constructor(selector, options, bookingCardParams) {
     this.selector = selector;
     this.options = options;
+    this.bookingCardParams = bookingCardParams;
     this._init();
   }
 
@@ -142,6 +143,7 @@ class Datepicker {
 
   _onSelect({ formattedDate }) {
     const { hasTwoInputs } = this.options;
+    const [startDate = '', endDate = ''] = formattedDate;
 
     if (formattedDate.length) {
       this._showClearButton();
@@ -150,13 +152,20 @@ class Datepicker {
     }
 
     if (hasTwoInputs) {
-      const [startDate = '', endDate = ''] = formattedDate;
       this.startInput.value = startDate;
       this.endInput.value = endDate;
     }
 
     if (this.filterDateDropdown) {
       this.filterDateDropdown.value = formattedDate.join(' - ');
+    }
+
+    if (this.bookingCardParams !== undefined) {
+      const oneDay = 1000 * 60 * 60 * 24;
+      const parsedStartDate = Date.parse(endDate.split('.').reverse());
+      const parsedEndDate = Date.parse(startDate.split('.').reverse());
+      this.days = Math.round((parsedStartDate - parsedEndDate) / oneDay) || 0;
+      new BookingCard(this.bookingCardParams).render(this.days);
     }
   }
 

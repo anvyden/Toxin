@@ -1,12 +1,11 @@
-import AirDatepicker from 'air-datepicker'
+import AirDatepicker from 'air-datepicker';
 
-import cards from '@pages/cards/cards.scss'
-import * as textField from '~/components/text-field/text-field'
-import Dropdown from '~/components/dropdown/dropdown'
-import StarRating from '~/components/star-rating/star-rating'
-import { Datepicker } from '~/components/datepicker/datepicker'
-import BookingCard from '~/components/booking-card/booking-card'
-import Slider from '@libs/swiper/swiper'
+import cards from '@pages/cards/cards.scss';
+import * as textField from '~/components/text-field/text-field';
+import Dropdown from '~/components/dropdown/dropdown';
+import StarRating from '~/components/star-rating/star-rating';
+import { Datepicker } from '~/components/datepicker/datepicker';
+import Slider from '@libs/swiper/swiper';
 
 const datepickerStaticButtons = {
   acceptButton: {
@@ -15,26 +14,31 @@ const datepickerStaticButtons = {
   clearButton: {
     content: 'Очистить',
   },
-}
+};
 
 const cardsParams = {
   roomInfo: {
     roomNumber: '888',
-    roomPrice: '9990',
-    discount: '2179',
-    additionalServicesSum: '300',
+    roomPrice: '9990₽',
+    discount: '2179₽',
+    additionalServicesSum: '300₽',
   },
   datepickerStaticOpts: {
     inline: true,
     range: true,
-    buttons: [datepickerStaticButtons.clearButton, datepickerStaticButtons.acceptButton],
+    buttons: [
+      datepickerStaticButtons.clearButton,
+      datepickerStaticButtons.acceptButton,
+    ],
     navTitles: {
       days: 'MMMM yyyy',
     },
-    prevHtml: '<span class="material-icons air-datepicker-arrow">arrow_back</span>',
-    nextHtml: '<span class="material-icons air-datepicker-arrow">arrow_forward</span>',
+    prevHtml:
+      '<span class="material-icons air-datepicker-arrow">arrow_back</span>',
+    nextHtml:
+      '<span class="material-icons air-datepicker-arrow">arrow_forward</span>',
   },
-}
+};
 
 const init = (function () {
   return {
@@ -53,17 +57,8 @@ const init = (function () {
       }),
       findRoomDatepicker: new Datepicker('.js-date-dropdown', {
         hasTwoInputs: true,
-        initialDates: ['2019-08-19', '2019-08-23']
-      })
-      // findRoomDatepicker: new Datepicker(
-      //   {
-      //     datepickerSelectors: {
-      //       input: document.querySelector('.js-find-room-datepicker-1'),
-      //       inputSecond: document.querySelector('.js-find-room-datepicker-2'),
-      //       datepickerDropdowns: document.querySelectorAll('.js-find-room-datepicker-dropdown .js-dropdown__dropdown-default'),
-      //     },
-      //   },
-      // ),
+        initialDates: ['2019-08-19', '2019-08-23'],
+      }),
     },
     bookingCardOpts: {
       bookingCardGuests: new Dropdown('.js-booking-card-guests', {
@@ -78,24 +73,30 @@ const init = (function () {
           babies: ['младенец', 'младенца', 'младенцев'],
         },
       }),
-      // bookingCardDatepicker: new Datepicker(
-      //   {
-      //     datepickerSelectors: {
-      //       input: document.querySelector('.js-booking-card-datepicker-1'),
-      //       inputSecond: document.querySelector('.js-booking-card-datepicker-2'),
-      //       datepickerDropdowns: document.querySelectorAll('.js-booking-room-datepicker-dropdown .js-dropdown__dropdown-default'),
-      //     },
-      //     dates: ['2019-08-19', '2019-08-23'],
-      //   },
-      //   cardsParams.roomInfo,
-      // ),
-      // bookingCard: new BookingCard(cardsParams.roomInfo),
+      bookingCardDatepicker: new Datepicker(
+        '.js-booking-card-date-dropdown',
+        {
+          hasTwoInputs: true,
+          initialDates: ['2019-08-19', '2019-08-23'],
+        },
+        {
+          selector: '.js-booking-card',
+          roomNumber: '888',
+          roomPrice: '9990₽',
+          discount: '2179₽',
+          additionalServicesSum: '300₽',
+        }
+      ),
     },
-    // datepickerStatic: new AirDatepicker('.js-datepicker', cardsParams.datepickerStaticOpts),
+    datepickerStatic: new AirDatepicker('.js-datepicker', {
+      hasTwoInputs: true,
+      inline: true,
+      initialDates: ['2019-08-19', '2019-08-23'],
+    }),
     roomCards: {
       roomRating1: new StarRating('.js-room-rating-1', 5),
       roomRating2: new StarRating('.js-room-rating-2', 4),
       cardSlider: new Slider('.swiper'),
     },
-  }
-}())
+  };
+})();

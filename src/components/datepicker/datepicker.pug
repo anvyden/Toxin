@@ -2,10 +2,4 @@ mixin datepicker(options)
   -
     const { classForJs } = options 
 
-    let datepickerClass = 'datepicker'
-
-    if (classForJs) {
-      datepickerClass += ` ${classForJs}`
-    }
-
-  div(class=datepickerClass)
+  .datepicker(class=classForJs)

@@ -1,70 +1,99 @@
-import wNumb from 'wnumb'
+import wNumb from 'wnumb';
 
-import declination from '~/components/dropdown/utils/declination'
-import { datepickerValues } from '~/components/datepicker/datepicker'
+import declination from '~/components/dropdown/utils/declination';
 
 const moneyFormat = wNumb({
   thousand: ' ',
-})
+});
 
 class BookingCard {
   constructor(params) {
-    this.params = params
-    this._getElemetns()
-    this.render()
+    this.selector = params.selector;
+    this.params = params;
+    this._init();
   }
 
-  render() {
-    const params = this._getIntParams()
-
-    this.calcPriceInDays = params.roomPrice * params.amountSelectedDays
-    this.calcTotalSum = this.calcPriceInDays - params.discount + params.additionalServicesSum
-
-    this.roomNumber.innerHTML = params.roomNumber
-    this.roomPrice.innerHTML = `${moneyFormat.to(params.roomPrice)}₽`
-    this.PriceInDays.innerHTML = `${moneyFormat.to(params.roomPrice)}₽ х ${params.amountSelectedDays} ${declination(params.amountSelectedDays, ['сутки', 'суток', 'суток'])}`
-    this.sumPriceInDays.innerHTML = `${moneyFormat.to(this.calcPriceInDays)}₽`
-    this.servicesPrice.innerHTML = `Сбор за услуги: скидка ${moneyFormat.to(params.discount)}₽`
-    this.servicesSumPrice.innerHTML = '0₽'
-    this.additionalServicesSum.innerHTML = `${params.additionalServicesSum}₽`
-
-    if (this.calcTotalSum < 0) {
-      this.totalSum.innerHTML = '0₽'
-    } else {
-      this.totalSum.innerHTML = `${moneyFormat.to(this.calcTotalSum)}₽`
-    }
-  }
-
-  _getIntParams() {
+  render(days) {
     const {
       roomNumber,
       roomPrice,
       discount,
       additionalServicesSum,
-    } = this.params
+      priceForSelectedDays,
+      totalSum,
+    } = this._getCorrectParams(days);
 
-    let { amountSelectedDays } = datepickerValues
-    amountSelectedDays = Number.isNaN(amountSelectedDays) ? 0 : amountSelectedDays
+    this.roomNumber.textContent = roomNumber;
+    this.roomPrice.textContent = `${moneyFormat.to(roomPrice)}₽`;
+    this.priceInDays.textContent = `${moneyFormat.to(
+      roomPrice
+    )}₽ х ${days} ${declination(days, ['сутки', 'суток', 'суток'])}`;
+    this.sumPriceInDays.textContent = `${moneyFormat.to(
+      priceForSelectedDays
+    )}₽`;
+    this.servicesPrice.textContent = `Сбор за услуги: скидка ${moneyFormat.to(
+      discount
+    )}₽`;
+    this.servicesSumPrice.textContent = '0₽';
+    this.additionalServicesSum.textContent = `${additionalServicesSum}₽`;
 
-    return {
-      roomNumber: Number(roomNumber),
-      roomPrice: Number(roomPrice),
-      discount: Number(discount),
-      additionalServicesSum: Number(additionalServicesSum),
-      amountSelectedDays: Number(amountSelectedDays),
+    if (totalSum < 0) {
+      this.totalSum.textContent = '0₽';
+    } else {
+      this.totalSum.textContent = `${moneyFormat.to(totalSum)}₽`;
     }
   }
 
+  _init() {
+    this.root = document.querySelector(this.selector);
+    this._getElemetns();
+    this.render();
+  }
+
+  _getCorrectParams(days) {
+    const { roomNumber, roomPrice, discount, additionalServicesSum } =
+      this.params;
+
+    const correntRoomNumber = parseInt(roomNumber);
+    const correctRoomPrice = parseInt(roomPrice);
+    const correctDiscount = parseInt(discount);
+    const correctAdditionalServicesSum = parseInt(additionalServicesSum);
+    const priceForSelectedDays = correctRoomPrice * days;
+    const totalSum =
+      priceForSelectedDays - correctDiscount + correctAdditionalServicesSum;
+
+    return {
+      roomNumber: correntRoomNumber,
+      roomPrice: correctRoomPrice,
+      discount: correctDiscount,
+      additionalServicesSum: correctAdditionalServicesSum,
+      priceForSelectedDays,
+      totalSum,
+    };
+  }
+
   _getElemetns() {
-    this.roomNumber = document.querySelector('.js-booking-card__room-number-value')
-    this.roomPrice = document.querySelector('.js-booking-card__room-price-value')
-    this.PriceInDays = document.querySelector('.js-booking-card__days-text')
-    this.sumPriceInDays = document.querySelector('.js-booking-card__days-sum')
-    this.servicesPrice = document.querySelector('.js-booking-card__services-text')
-    this.servicesSumPrice = document.querySelector('.js-booking-card__services-sum')
-    this.additionalServicesSum = document.querySelector('.js-booking-card__additional-services-sum')
-    this.totalSum = document.querySelector('.js-booking-card__total-sum')
+    this.roomNumber = this.root.querySelector(
+      '.js-booking-card__room-number-value'
+    );
+    this.roomPrice = this.root.querySelector(
+      '.js-booking-card__room-price-value'
+    );
+    this.priceInDays = this.root.querySelector('.js-booking-card__days-value');
+    this.sumPriceInDays = this.root.querySelector('.js-booking-card__days-sum');
+    this.servicesPrice = this.root.querySelector(
+      '.js-booking-card__services-value'
+    );
+    this.servicesSumPrice = this.root.querySelector(
+      '.js-booking-card__services-sum'
+    );
+    this.additionalServicesSum = this.root.querySelector(
+      '.js-booking-card__additional-services-sum'
+    );
+    this.totalSum = this.root.querySelector(
+      '.js-booking-card__total-price-sum'
+    );
   }
 }
 
-export default BookingCard
+export default BookingCard;
