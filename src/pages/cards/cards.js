@@ -88,8 +88,7 @@ const init = (function () {
         }
       ),
     },
-    datepickerStatic: new AirDatepicker('.js-datepicker', {
-      hasTwoInputs: true,
+    datepickerStatic: new Datepicker('.js-datepicker', {
       inline: true,
       initialDates: ['2019-08-19', '2019-08-23'],
     }),
