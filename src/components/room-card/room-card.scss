@@ -1,8 +1,8 @@
 .room-card {
   max-width: rem(270);
-  background: #ffffff;
-  box-shadow: $secondaryBoxShadow;
+  background: #fff;
   border-radius: $cardBorderRadius;
+  box-shadow: $secondaryBoxShadow;
 
   &__info {
     padding: rem(19) rem(17) rem(18) rem(20);
@@ -10,8 +10,8 @@
 
   &__main-info {
     display: flex;
-    justify-content: space-between;
     align-items: flex-end;
+    justify-content: space-between;
     padding-bottom: rem(11);
     border-bottom: $featuresBorder;
   }
@@ -26,46 +26,46 @@
     }
 
     &-text {
+      color: $darkShade100;
+      font-weight: bold;
       font-size: rem(19);
       line-height: rem(23.75);
-      font-weight: bold;
-      color: $darkShade100;
     }
 
     &-symbol {
+      margin-right: rem(4);
       font-size: rem(14);
       line-height: rem(17.07);
-      margin-right: rem(4);
     }
   }
 
   &__price {
-    line-height: rem(18);
     color: $darkShade50;
+    line-height: rem(18);
 
     &-value {
-      font-size: rem(14);
       font-weight: bold;
+      font-size: rem(14);
     }
 
     &-text {
-      font-size: rem(12);
       margin-left: rem(4);
+      font-size: rem(12);
     }
   }
 
   &__additional-info {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     margin-top: rem(8);
   }
 
   &__reviews {
-    font-size: rem(14);
-    line-height: rem(18);
     margin-right: rem(3);
     color: $darkShade50;
+    font-size: rem(14);
+    line-height: rem(18);
 
     &-value {
       font-weight: bold;

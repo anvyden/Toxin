@@ -19,18 +19,19 @@ class Dropdown {
     this.dropdown = document.querySelector(this.selector);
     this.input = this.dropdown.querySelector('.js-dropdown__input');
     this.arrowButton = this.dropdown.querySelector(
-      '.js-dropdown__arrow-button',
+      '.js-dropdown__arrow-button'
     );
     this.items = this.dropdown.querySelectorAll('.js-dropdown__item');
-    this.clearButton = this.dropdown.querySelector('.js-dropdown__button--clear') || '';
+    this.clearButton =
+      this.dropdown.querySelector('.js-dropdown__button--clear') || '';
 
     this.itemsData = [...this.items].map((item) => ({
       decrement: item.querySelector(
-        '.js-dropdown__item-button--type-decrement',
+        '.js-dropdown__item-button--type-decrement'
       ),
       counter: item.querySelector('.js-dropdown__item-counter'),
       increment: item.querySelector(
-        '.js-dropdown__item-button--type-increment',
+        '.js-dropdown__item-button--type-increment'
       ),
       id: item.dataset.id,
     }));
@@ -51,7 +52,7 @@ class Dropdown {
           : (value = 8);
 
         return [key, value];
-      }),
+      })
     );
   }
 
@@ -96,15 +97,15 @@ class Dropdown {
   _bindEventListeners() {
     this.dropdown.addEventListener(
       'pointerdown',
-      this._handleDropdownPointerDown.bind(this),
+      this._handleDropdownPointerDown.bind(this)
     );
     this.dropdown.addEventListener(
       'keydown',
-      this._handleDropdownKeyDown.bind(this),
+      this._handleDropdownKeyDown.bind(this)
     );
     document.addEventListener(
       'pointerdown',
-      this._handleDocumentPointerDown.bind(this),
+      this._handleDocumentPointerDown.bind(this)
     );
   }
 
@@ -150,10 +151,10 @@ class Dropdown {
     const { parentNode } = target;
     const counter = parentNode.querySelector('.js-dropdown__item-counter');
     const increment = parentNode.querySelector(
-      '.js-dropdown__item-button--type-increment',
+      '.js-dropdown__item-button--type-increment'
     );
     const decrement = parentNode.querySelector(
-      '.js-dropdown__item-button--type-decrement',
+      '.js-dropdown__item-button--type-decrement'
     );
 
     const maxLengthItems = this.getMaxLengthItems;
@@ -179,10 +180,10 @@ class Dropdown {
     const { parentNode } = target;
     const counter = parentNode.querySelector('.js-dropdown__item-counter');
     const increment = parentNode.querySelector(
-      '.js-dropdown__item-button--type-increment',
+      '.js-dropdown__item-button--type-increment'
     );
     const decrement = parentNode.querySelector(
-      '.js-dropdown__item-button--type-decrement',
+      '.js-dropdown__item-button--type-decrement'
     );
 
     const maxLengthItems = this.getMaxLengthItems;

@@ -7,7 +7,7 @@ mixin slider({ images = [], options = {} } = {})
       each image in images
         .swiper-slide.slider__slide
           img.slider__img(
-            src=require(`~/components/room-card/img/${image}`)
+            src=require(`~/pages/search-room/img/${image}`)
             alt='room-photo'
           )
     if (pagination)

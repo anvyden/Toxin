@@ -96,7 +96,7 @@ class Datepicker {
   }
 
   _createButtons() {
-    const acceptButton = {
+    this.acceptButton = {
       content: 'Применить',
       attrs: {
         type: 'button',
@@ -108,7 +108,7 @@ class Datepicker {
       },
     };
 
-    const clearButton = {
+    this.clearButton = {
       content: 'Очистить',
       className: 'air-datepicker-button--hidden',
       attrs: {
@@ -121,7 +121,7 @@ class Datepicker {
       },
     };
 
-    return [clearButton, acceptButton];
+    return [this.clearButton, this.acceptButton];
   }
 
   _onSelect({ formattedDate }) {

@@ -1,16 +1,16 @@
 @import '../../../node_modules/air-datepicker/air-datepicker.css';
 
 .air-datepicker {
-  visibility: hidden;
+  box-sizing: border-box;
   min-width: rem(320);
-  font-family: 'Montserrat', Arial, sans-serif;
   color: $darkShade50;
   font-size: rem(12);
+  font-family: Montserrat, Arial, sans-serif;
   line-height: rem(14.63);
   border: 1px solid $darkShade25;
   border-radius: $mainBorderRadius;
   box-shadow: $secondaryBoxShadow;
-  box-sizing: border-box;
+  visibility: hidden;
 
   &:hover {
     border: $focusBorder;
@@ -28,43 +28,25 @@
     visibility: visible;
   }
 
-  &--size-small {
-    min-width: rem(266);
-
-    .air-datepicker {
-      &-body {
-        &--day-name {
-          height: rem(32);
-        }
-      }
-
-      &-cell {
-        &.-day- {
-          height: rem(32);
-        }
-      }
-    }
-  }
-
   &--pointer {
     display: none;
   }
 
   &-nav {
-    border: none;
     padding: rem(15) rem(20) 0 rem(19);
+    border: none;
 
     &--title {
+      color: $darkShade100;
+      font-weight: bold;
       font-size: rem(19);
       line-height: rem(23.16);
-      font-weight: bold;
-      color: $darkShade100;
       transition: color 0.3s ease;
 
       &:active,
       &:hover {
-        background: transparent;
         color: $purple;
+        background: transparent;
       }
     }
 
@@ -81,8 +63,8 @@
 
       &:active,
       &:hover {
-        opacity: 0.5;
         background: transparent;
+        opacity: 0.5;
       }
     }
   }
@@ -90,11 +72,11 @@
   &-body {
     &--day-name {
       height: rem(40);
+      color: $purple;
+      font-weight: bold;
       font-size: rem(12);
       line-height: rem(14.63);
-      font-weight: bold;
       text-transform: none;
-      color: $purple;
     }
 
     &--day-names {
@@ -119,21 +101,21 @@
   &-cell {
     &.-year- {
       &.-current- {
-        background: $secondaryGradient;
         color: #fff;
         font-weight: bold;
+        background: $secondaryGradient;
       }
 
       &.-focus- {
-        background: $primaryGradient;
-        font-weight: bold;
         color: #fff;
+        font-weight: bold;
+        background: $primaryGradient;
       }
 
       &.-selected- {
-        background: $primaryGradient;
-        font-weight: bold;
         color: #fff;
+        font-weight: bold;
+        background: $primaryGradient;
       }
 
       &.-other-decade- {
@@ -176,20 +158,21 @@
 
     &.-month- {
       &.-current- {
-        background: $secondaryGradient;
         color: #fff;
         font-weight: bold;
+        background: $secondaryGradient;
       }
 
       &.-focus- {
-        background: $primaryGradient;
         color: #fff;
         font-weight: bold;
+        background: $primaryGradient;
       }
+
       &.-selected- {
-        background: $primaryGradient;
-        font-weight: bold;
         color: #fff;
+        font-weight: bold;
+        background: $primaryGradient;
       }
 
       &.-other-decade- {
@@ -235,9 +218,9 @@
       border-radius: 22px;
 
       &.-focus- {
-        background: $primaryGradient;
         color: #fff;
         font-weight: bold;
+        background: $primaryGradient;
       }
 
       &.-current- {
@@ -246,8 +229,8 @@
         background: $secondaryGradient;
 
         &.-in-range- {
-          font-weight: normal;
           color: $darkShade50;
+          font-weight: normal;
         }
 
         &.-focus- {
@@ -277,11 +260,11 @@
       }
 
       &.-range-from- {
+        color: #fff;
+        font-weight: bold;
         background: $primaryGradient;
         border: none;
         border-radius: 22px;
-        color: #fff;
-        font-weight: bold;
 
         &::after {
           position: absolute;
@@ -297,11 +280,11 @@
       }
 
       &.-range-to- {
+        color: #fff;
+        font-weight: bold;
         background: $primaryGradient;
         border: none;
         border-radius: 22px;
-        color: #fff;
-        font-weight: bold;
 
         &::before {
           position: absolute;
@@ -363,12 +346,12 @@
         }
 
         &.-in-range- {
-          background: none;
           color: $darkShade25;
+          background: none;
 
           &.-focus- {
-            background: $primaryGradientTransparent;
             color: #fff;
+            background: $primaryGradientTransparent;
           }
         }
 
@@ -392,32 +375,50 @@
   }
 
   &-button {
-    height: auto;
     width: auto;
-    border-radius: 0;
-    cursor: pointer;
-    outline: none;
-    font-size: rem(12);
-    line-height: rem(15);
-    font-family: inherit;
-    font-weight: bold;
+    height: auto;
     color: $purple;
+    font-weight: bold;
+    font-size: rem(12);
+    font-family: inherit;
+    line-height: rem(15);
     text-transform: uppercase;
+    border-radius: 0;
+    outline: none;
+    cursor: pointer;
 
     &:focus,
     &:hover {
-      text-decoration: $focusUnderline;
       color: $purple;
+      text-decoration: $focusUnderline;
       background: none;
     }
 
     &:active {
-      opacity: 0.5;
       background: none;
+      opacity: 0.5;
     }
 
     &--hidden {
       visibility: hidden;
+    }
+  }
+
+  &--size-small {
+    min-width: rem(266);
+
+    .air-datepicker {
+      &-body {
+        &--day-name {
+          height: rem(32);
+        }
+      }
+
+      &-cell {
+        &.-day- {
+          height: rem(32);
+        }
+      }
     }
   }
 }

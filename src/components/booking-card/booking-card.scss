@@ -7,17 +7,17 @@
 
   &__room-info {
     display: flex;
-    justify-content: space-between;
     align-items: flex-end;
+    justify-content: space-between;
     margin-bottom: rem(21);
   }
 
   &__room-number {
     margin-right: rem(8);
+    color: $darkShade100;
+    font-weight: bold;
     font-size: rem(24);
     line-height: rem(29.26);
-    font-weight: bold;
-    color: $darkShade100;
 
     &-details {
       display: flex;
@@ -29,23 +29,23 @@
     }
 
     &-symbol {
+      margin-right: rem(4);
       font-size: rem(14);
       line-height: rem(17.07);
-      margin-right: rem(4);
     }
   }
 
   &__room-price {
     &-info {
+      color: $darkShade50;
       font-size: rem(12);
       line-height: rem(18);
-      color: $darkShade50;
     }
 
     &-value {
-      font-size: rem(14);
-      font-weight: bold;
       margin-right: rem(4);
+      font-weight: bold;
+      font-size: rem(14);
     }
   }
 
@@ -77,48 +77,48 @@
 
     &-icon {
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: rem(20);
       height: rem(20);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      color: $darkShade25;
+      font-weight: bold;
       font-size: rem(12);
       line-height: rem(14);
-      color: $darkShade25;
       border: $mainBorder;
       border-radius: 50%;
-      font-weight: bold;
       cursor: pointer;
-
-      &:hover {
-        border: $focusBorder;
-        color: $darkShade50;
-
-        &::after {
-          top: 25px;
-          opacity: 1;
-          visibility: visible;
-        }
-      }
 
       &::after {
         position: absolute;
-        content: 'Здесь будет подсказка';
-        width: rem(200);
-        visibility: hidden;
-        opacity: 0;
         top: 0;
         left: 0;
-        transform: translate(-50%, 0);
+        z-index: 1;
+        width: rem(200);
         padding: rem(6);
-        border-radius: $mainBorderRadius;
+        color: $darkShade50;
         text-align: center;
         background: $uiKitPagesBackground;
+        border-radius: $mainBorderRadius;
         box-shadow: $secondaryBoxShadow;
-        color: $darkShade50;
-        z-index: 1;
+        transform: translate(-50%, 0);
+        visibility: hidden;
+        opacity: 0;
         transition: all ease 0.3s;
+        content: 'Здесь будет подсказка';
         pointer-events: none;
+      }
+
+      &:hover {
+        color: $darkShade50;
+        border: $focusBorder;
+
+        &::after {
+          top: 25px;
+          visibility: visible;
+          opacity: 1;
+        }
       }
 
       &-wrapper {
@@ -138,10 +138,10 @@
     margin-left: rem(1);
 
     &-text {
+      color: $darkShade100;
+      font-weight: bold;
       font-size: rem(19);
       line-height: rem(23.16);
-      font-weight: bold;
-      color: $darkShade100;
     }
 
     &-separator {
@@ -151,17 +151,17 @@
       &::after {
         position: absolute;
         bottom: 5px;
-        content: '';
         width: 100%;
         border-bottom: 1px dotted $darkShade25;
+        content: '';
       }
     }
 
     &-sum {
+      color: $darkShade100;
+      font-weight: bold;
       font-size: rem(19);
       line-height: rem(23.16);
-      font-weight: bold;
-      color: $darkShade100;
     }
   }
 }

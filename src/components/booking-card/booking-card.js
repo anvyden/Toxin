@@ -54,10 +54,10 @@ class BookingCard {
     const { roomNumber, roomPrice, discount, additionalServicesSum } =
       this.params;
 
-    const correntRoomNumber = parseInt(roomNumber);
-    const correctRoomPrice = parseInt(roomPrice);
-    const correctDiscount = parseInt(discount);
-    const correctAdditionalServicesSum = parseInt(additionalServicesSum);
+    const correntRoomNumber = parseInt(roomNumber, 10);
+    const correctRoomPrice = parseInt(roomPrice, 10);
+    const correctDiscount = parseInt(discount, 10);
+    const correctAdditionalServicesSum = parseInt(additionalServicesSum, 10);
     const priceForSelectedDays = correctRoomPrice * days;
     const totalSum =
       priceForSelectedDays - correctDiscount + correctAdditionalServicesSum;

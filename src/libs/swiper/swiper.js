@@ -9,11 +9,6 @@ class Slider {
   _init() {
     this.slider = new Swiper(this.selector, {
       modules: [Navigation, Pagination],
-      autoHeight: true,
-      keyboard: {
-        enabled: true,
-        onlyInViewport: false,
-      },
       pagination: {
         el: '.swiper-pagination',
         bulletElement: 'div',
@@ -24,7 +19,11 @@ class Slider {
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-        hideOnClick: true,
+      },
+      keyboard: {
+        enabled: true,
+        onlyInViewport: true,
+        pageUpDown: true,
       },
     });
   }
