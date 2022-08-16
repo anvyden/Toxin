@@ -1,77 +1,78 @@
 .room-card {
   max-width: rem(270);
-  background: #FFFFFF;
-  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-  border-radius: 4px;
-}
+  background: #ffffff;
+  box-shadow: $secondaryBoxShadow;
+  border-radius: $cardBorderRadius;
 
-.room-card .room-card__slider .swiper-autoheight {
-  // border-radius: 4px 4px 0 0;
-}
+  &__info {
+    padding: rem(19) rem(17) rem(18) rem(20);
+  }
 
-.room-card__img {
-  border-radius: 4px 4px 0 0;
-}
+  &__main-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: rem(11);
+    border-bottom: $featuresBorder;
+  }
 
-.room-card__room-info {
-  padding: rem(19) rem(17) rem(18) rem(20);
-}
+  &__number {
+    display: flex;
+    align-items: flex-end;
 
-.room-card__room-main-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding-bottom: rem(11);
-  border-bottom: 1px solid rgba(31, 32, 65, 0.1);
-}
+    &-info > .text {
+      margin-bottom: rem(1.5);
+      margin-left: rem(1);
+    }
 
-.room-card__room-number-info {
-  display: flex;
-  align-items: flex-end;
-}
+    &-text {
+      font-size: rem(19);
+      line-height: rem(23.75);
+      font-weight: bold;
+      color: $darkShade100;
+    }
 
-.room-card__room-number-info > .text {
-  margin-bottom: rem(1.5);
-  margin-left: rem(1);
-}
+    &-symbol {
+      font-size: rem(14);
+      line-height: rem(17.07);
+      margin-right: rem(4);
+    }
+  }
 
-.room-card__room-number {
-  font-size: rem(19);
-  line-height: rem(23.75);
-  font-weight: bold;
-  color: $darkShade100;
-}
+  &__price {
+    line-height: rem(18);
+    color: $darkShade50;
 
-.room-card__room-number-symbol {
-  font-size: rem(14);
-  line-height: rem(17.07);
-}
+    &-value {
+      font-size: rem(14);
+      font-weight: bold;
+    }
 
-.room-card__room-price {
-  font-size: rem(12);
-  line-height: rem(18);
-  color: $darkShade50;
-}
+    &-text {
+      font-size: rem(12);
+      margin-left: rem(4);
+    }
+  }
 
-.room-card__room-price-value {
-  font-size: rem(14);
-  font-weight: bold;
-}
+  &__additional-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: rem(8);
+  }
 
-.room-card__room-additional-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: rem(8);
-}
+  &__reviews {
+    font-size: rem(14);
+    line-height: rem(18);
+    margin-right: rem(3);
+    color: $darkShade50;
 
-.room-card__room-reviews {
-  font-size: rem(14);
-  line-height: rem(18);
-  margin-right: rem(4);
-  color: $darkShade50;
-}
+    &-value {
+      font-weight: bold;
+    }
 
-.room-card__room-reviews-value {
-  font-weight: bold;
+    &-text {
+      margin-left: rem(4);
+    }
+  }
 }

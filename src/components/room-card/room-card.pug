@@ -2,30 +2,35 @@ include ~/components/text/text
 include ~/components/star-rating/star-rating
 include ~/libs/swiper/swiper
 
-mixin roomCard(options)
+mixin roomCard(options = {})
   -
-    const { roomNumber, roomPrice, roomReviews, roomImages = [], luxe, sliderClassForJs, ratingClassForJs } = options
+    const {
+      number,
+      price,
+      reviews = {},
+      rating = 0,
+      imgs = [],
+      luxe = false
+    } = options
 
   .room-card
     .room-card__container
       .room-card__slider
-        +slider({ images: roomImages })
-      .room-card__room-info
-        .room-card__room-main-info
-          .room-card__room-number-info
-            h2(class='room-card__room-number').
-              #[span.room-card__room-number-symbol № ]
-              #[span.room-card__room-number-value=roomNumber]
+        +slider({ images: imgs })
+      .room-card__info
+        .room-card__main-info
+          .room-card__number
+            h2.room-card__number-text
+              span.room-card__number-symbol='№'
+              span.room-card__number-value=number
             if (luxe)
               +text({ text: 'люкс', type: 'h3', color: 'purple', bold: true, hasUpper: true })
-          .room-card__room-price-info
-            p(class='room-card__room-price').
-              #[span.room-card__room-price-value=roomPrice]
-              #[span.room-card__room-price-day в сутки]
-        .room-card__room-additional-info
-          .room-card__room-rating-info
-            +starRating({ classForJs: ratingClassForJs })
-          .room-card__room-reviews-info
-            p(class='room-card__room-reviews').
-              #[span.room-card__room-reviews-value=roomReviews]
-              #[span.room-card__room-reviews-text Отзывов]
+          .room-card__price
+            span.room-card__price-value=price
+            span.room-card__price-text='в сутки'
+        .room-card__additional-info
+          .room-card__rating
+            +starRating(rating)
+          .room-card__reviews
+            span.room-card__reviews-value=reviews.count
+            span.room-card__reviews-text=reviews.text

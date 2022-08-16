@@ -60,8 +60,6 @@ const init = (function () {
       initialDates: ['2019-08-19', '2019-08-23'],
     }),
     roomCards: {
-      roomRating1: new StarRating('.js-room-rating-1', 5),
-      roomRating2: new StarRating('.js-room-rating-2', 4),
       cardSlider: new Slider('.swiper'),
     },
   };
