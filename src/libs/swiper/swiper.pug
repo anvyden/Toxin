@@ -1,38 +1,18 @@
-mixin slider(options)
+mixin slider({ images = [], options = {} } = {})
   -
-    const { pagination, navigation, classForAllImg, classForAllSlides, items } = options
-
-    let sliderImgClass = 'slider__img'
-    let slideClass = 'swiper-slide slider__slide'
-
-    if (classForAllImg) {
-      sliderImgClass += ` ${classForAllImg}`
-    }
-
-    if (classForAllSlides) {
-      slideClass += ` ${classForAllSlides}`
-    }
+    const { pagination = true, navigation = true } = options
 
   .swiper.slider
     .swiper-wrapper.slider-wrapper
-      each item in items
-        -
-          const { classForImg, classForSlide, src, alt } = item
-
-          if (classForImg) {
-            sliderImgClass += ` ${classForImg}`
-          }
-
-          if (classForSlide) {
-            slideClass += ` ${classForSlide}`
-          }
-
-        div(class=slideClass)
-          img(class=sliderImgClass src=require(`~/components/room-card/img/${src}`) alt=alt)
+      each image in images
+        .swiper-slide.slider__slide
+          img(
+            class='slider__img'
+            src=require(`~/components/room-card/img/${image}`)
+            alt='room-photo'
+          )
     if (pagination)
       .swiper-pagination.slider__pagination
     if (navigation)
-      div(class='swiper-button-prev-wrapper slider__button-wrapper slider__button-prev-wrapper')
-        div(class='swiper-button-prev slider__button slider__button-prev material-icons')='expand_more'
-      div(class='swiper-button-next-wrapper slider__button-wrapper slider__button-next-wrapper')
-        div(class='swiper-button-next slider__button slider__button-next material-icons')='expand_more'
+      div(class='swiper-button-prev slider__button material-icons')='expand_more'
+      div(class='swiper-button-next slider__button material-icons')='expand_more'

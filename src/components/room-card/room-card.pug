@@ -4,22 +4,12 @@ include ~/libs/swiper/swiper
 
 mixin roomCard(options)
   -
-    const { roomNumber, roomPrice, roomReviews, roomImgs = [], luxe, sliderClassForJs, ratingClassForJs } = options
+    const { roomNumber, roomPrice, roomReviews, roomImages = [], luxe, sliderClassForJs, ratingClassForJs } = options
 
   .room-card
     .room-card__container
       .room-card__slider
-        +slider({
-          pagination: true,
-          navigation: true,
-          classForAllImg: 'room-card__img',
-          items: [
-            { src: roomImgs[0], alt: 'Фото комнаты 1' },
-            { src: roomImgs[1], alt: 'Фото комнаты 2' },
-            { src: roomImgs[2], alt: 'Фото комнаты 3' },
-            { src: roomImgs[3], alt: 'Фото комнаты 4' },
-          ]
-        })
+        +slider({ images: roomImages })
       .room-card__room-info
         .room-card__room-main-info
           .room-card__room-number-info

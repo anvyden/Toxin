@@ -1,9 +1,9 @@
-import Swiper, { Navigation, Pagination } from 'swiper'
+import Swiper, { Navigation, Pagination } from 'swiper';
 
 class Slider {
   constructor(selector) {
-    this.selector = selector
-    this._init()
+    this.selector = selector;
+    this._init();
   }
 
   _init() {
@@ -19,14 +19,15 @@ class Slider {
         bulletElement: 'div',
         bulletClass: 'slider__pagination-bullet',
         bulletActiveClass: 'slider__pagination-bullet--active',
+        clickable: true,
       },
       navigation: {
-        nextEl: '.swiper-button-next-wrapper',
-        prevEl: '.swiper-button-prev-wrapper',
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
         hideOnClick: true,
       },
-    })
+    });
   }
 }
 
-export default Slider
+export default Slider;

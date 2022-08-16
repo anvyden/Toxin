@@ -1,7 +1,7 @@
 import roomDetails from '@pages/room-details/room-details.scss'
 import Dropdown from '~/components/dropdown/dropdown'
 import LikeButton from '~/components/like-button/like-button'
-import { Datepicker } from '~/components/datepicker/datepicker'
+import Datepicker from '~/components/datepicker/datepicker'
 import BookingCard from '~/components/booking-card/booking-card'
 import Menu from '~/components/menu/menu'
 import Header from '~/components/header/header'

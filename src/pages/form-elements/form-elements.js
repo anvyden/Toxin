@@ -5,7 +5,7 @@ import LikeButton from '~/components/like-button/like-button';
 import RangeSlider from '~/components/range-slider/range-slider';
 import Pagination from '~/components/pagination/pagination';
 import CheckboxList from '~/components/checkbox-list/checkbox-list';
-import { Datepicker } from '~/components/datepicker/datepicker';
+import Datepicker from '~/components/datepicker/datepicker';
 
 const init = {
   dateDropdown: new Datepicker('.js-date-dropdown', {

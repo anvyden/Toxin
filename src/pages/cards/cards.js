@@ -4,41 +4,8 @@ import cards from '@pages/cards/cards.scss';
 import * as textField from '~/components/text-field/text-field';
 import Dropdown from '~/components/dropdown/dropdown';
 import StarRating from '~/components/star-rating/star-rating';
-import { Datepicker } from '~/components/datepicker/datepicker';
+import Datepicker from '~/components/datepicker/datepicker';
 import Slider from '@libs/swiper/swiper';
-
-const datepickerStaticButtons = {
-  acceptButton: {
-    content: 'Применить',
-  },
-  clearButton: {
-    content: 'Очистить',
-  },
-};
-
-const cardsParams = {
-  roomInfo: {
-    roomNumber: '888',
-    roomPrice: '9990₽',
-    discount: '2179₽',
-    additionalServicesSum: '300₽',
-  },
-  datepickerStaticOpts: {
-    inline: true,
-    range: true,
-    buttons: [
-      datepickerStaticButtons.clearButton,
-      datepickerStaticButtons.acceptButton,
-    ],
-    navTitles: {
-      days: 'MMMM yyyy',
-    },
-    prevHtml:
-      '<span class="material-icons air-datepicker-arrow">arrow_back</span>',
-    nextHtml:
-      '<span class="material-icons air-datepicker-arrow">arrow_forward</span>',
-  },
-};
 
 const init = (function () {
   return {
