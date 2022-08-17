@@ -1,46 +1,30 @@
-mixin menu(options)
+include ~/components/sub-menu/sub-menu
+
+mixin menu({ items = [], options = {} })
   -
-    const { column, items } = options 
+    const { column } = options 
 
-  .menu
-    -
-      let menuListClass = 'menu__list'
-      let menulistItemClass = 'menu__item' + ' js-menu__item'
-      
-      if (column) {
-        menuListClass += ' menu__list--column'
-        menulistItemClass += ' menu__item--column'
-      }
+    const listColumnModifier = column && 'menu__list--column'
+    const itemColumnModifier = column && 'menu__item--column'
+
+  .menu 
     nav.menu__menu
-      ul(class=menuListClass) 
-        each item in items  
+      ul.menu__list(class=listColumnModifier)
+        each item in items 
           -
-            const { linkText, link, isActive, subMenu, subItems } = item 
-            let menuLinkClass = 'menu__item-link js-menu__item-link'
-            let arrowClass = 'menu__item-arrow js-menu__item-arrow'
+            const { text, link, isActive, subMenu, subMenuItems = [] } = item
+            const itemModifier = subMenu && 'js-menu__item'
+            const activeLinkClass = isActive && 'menu__item-link--active'
 
-            if (isActive) {
-              menuLinkClass += ' menu__item-link--active'
-            }
-
-            if (subMenu) {
-              arrowClass +=' material-icons'
-            }
-
-          li(class=menulistItemClass, tabindex='0')
-            if (!subMenu)
-              a(class=menuLinkClass href=link tabindex='-1')= linkText
-            else
-              .menu__item-link-wrapper.js-menu__item-link-wrapper
-                a(class=menuLinkClass href=link tabindex='-1')= linkText
-                span(class=arrowClass)='expand_more'
-            if (subMenu)
-              .sub-menu.js-sub-menu
-                ul.sub-menu__list 
-                  each subItem in subItems 
-                    -
-                      const { subLinkText, subLink } = subItem 
-                      let subMenuLinkClass = 'sub-menu__item-link js-sub-menu__item-link'
-                    
-                    li(class='sub-menu__item js-sub-menu__item' tabindex='0')
-                      a(class=subMenuLinkClass href=subLink tabindex='-1')= subLinkText
+          li.menu__item(class=itemModifier)
+            a&attributes({
+              class: ['menu__item-link', activeLinkClass],
+              href: link,
+              tabindex: 0,
+            })=text 
+            if subMenu 
+              span&attributes({
+                class: ['menu__item-arrow', 'material-icons', 'js-menu__item-arrow']
+              })='expand_more'
+              .menu__sub-menu.js-menu__sub-menu
+                +sub-menu({ subItems: subMenuItems })

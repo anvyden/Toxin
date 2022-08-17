@@ -1,41 +1,45 @@
-const webpack = require('webpack')
-const path = require('path')
-const fs = require('fs')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
-const TerserWebpackPlugin = require('terser-webpack-plugin')
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
+const webpack = require('webpack');
+const path = require('path');
+const fs = require('fs');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
-const isDev = process.env.NODE_ENV === 'development'
-const isProd = !isDev
+const isDev = process.env.NODE_ENV === 'development';
+const isProd = !isDev;
 
 const PATHS = {
   src: path.join(__dirname, './src'),
   dist: path.join(__dirname, './dist'),
-  assets: 'assets/'
-}
+  assets: 'assets/',
+};
 
 const getFiles = (dir, filetype) => {
-  return dir.map(folder => {
-    const folderPath = `${PAGES_DIR}/${folder}`
-    const folderFiles = fs.readdirSync(folderPath)
-    const file = folderFiles.find(filename => filename.endsWith(`.${filetype}`))
-    return file
-  })
-}
+  return dir.map((folder) => {
+    const folderPath = `${PAGES_DIR}/${folder}`;
+    const folderFiles = fs.readdirSync(folderPath);
+    const file = folderFiles.find((filename) =>
+      filename.endsWith(`.${filetype}`)
+    );
+    return file;
+  });
+};
 
-const PAGES_DIR = `${PATHS.src}/pages`
-const PAGES_FOLDERS = fs.readdirSync(PAGES_DIR)
-const PAGES = getFiles(PAGES_FOLDERS, 'pug')
-const PAGES_ENTRY_FILES = getFiles(PAGES_FOLDERS, 'js')
-const PAGES_ENTRYS = {}
+const PAGES_DIR = `${PATHS.src}/pages`;
+const PAGES_FOLDERS = fs.readdirSync(PAGES_DIR);
+const PAGES = getFiles(PAGES_FOLDERS, 'pug');
+const PAGES_ENTRY_FILES = getFiles(PAGES_FOLDERS, 'js');
+const PAGES_ENTRYS = {};
 
 PAGES_ENTRY_FILES.forEach((pageEntryFile, index) => {
-  const filename = pageEntryFile.split('.')[0]
-  PAGES_ENTRYS[filename] = `${PAGES_DIR}/${PAGES_FOLDERS[index]}/${pageEntryFile}`
-})
+  const filename = pageEntryFile.split('.')[0];
+  PAGES_ENTRYS[
+    filename
+  ] = `${PAGES_DIR}/${PAGES_FOLDERS[index]}/${pageEntryFile}`;
+});
 
 const optimization = () => {
   const config = {
@@ -46,11 +50,11 @@ const optimization = () => {
           name: 'vendors',
           test: /node_modules/,
           chunks: 'all',
-          enforce: true
-        }
-      }
-    }
-  }
+          enforce: true,
+        },
+      },
+    },
+  };
 
   if (isProd) {
     config.minimizer = [
@@ -72,16 +76,17 @@ const optimization = () => {
           },
         },
       }),
-    ]
+    ];
   }
 
-  return config
-}
+  return config;
+};
 
-const filename = ext => isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`
-const assetFileName = isDev ? `[name][ext]` : `[hash][ext][query]`
+const filename = (ext) =>
+  isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`;
+const assetFileName = isDev ? `[name][ext]` : `[hash][ext][query]`;
 
-const cssLoaders = extra => {
+const cssLoaders = (extra) => {
   const loaders = [
     {
       loader: MiniCssExtractPlugin.loader,
@@ -92,71 +97,66 @@ const cssLoaders = extra => {
       loader: 'postcss-loader',
       options: {
         postcssOptions: {
-          plugins: [
-            [
-              'postcss-preset-env',
-            ]
-          ]
-        }
-      }
-    }
-  ]
+          plugins: [['postcss-preset-env']],
+        },
+      },
+    },
+  ];
 
   if (extra) {
-    loaders.push(extra)
+    loaders.push(extra);
   }
 
-  return loaders
-}
+  return loaders;
+};
 
-const babelOptions = preset => {
+const babelOptions = (preset) => {
   const opts = {
     presets: [
-      ['@babel/preset-env',
+      [
+        '@babel/preset-env',
         {
-        useBuiltIns: 'usage',
-        corejs: 3
-        }
+          useBuiltIns: 'usage',
+          corejs: 3,
+        },
       ],
     ],
-    plugins: [
-      '@babel/plugin-proposal-class-properties'
-    ],
+    plugins: ['@babel/plugin-proposal-class-properties'],
     cacheDirectory: true,
-  }
+  };
 
   if (preset) {
-    opts.presets.push(preset)
+    opts.presets.push(preset);
   }
 
-  return opts
-}
+  return opts;
+};
 
 const jsLoaders = () => {
   const loaders = [
     {
       loader: 'babel-loader',
-      options: babelOptions()
-    }
-  ]
+      options: babelOptions(),
+    },
+  ];
 
   if (isDev) {
-    loaders.push('eslint-loader')
+    loaders.push('eslint-loader');
   }
 
-  return loaders
-}
+  return loaders;
+};
 
 const plugins = () => {
   const base = [
     new HTMLWebpackPlugin({
-      template: `${PATHS.src}/pages/cards/cards.pug`,
-      filename: 'cards.pug'.replace(/\.pug/, '.html'),
-      chunks: ['cards.pug'.replace(/\.pug/, '')],
+      template: `${PATHS.src}/pages/headers-footers/headers-footers.pug`,
+      filename: 'headers-footers.pug'.replace(/\.pug/, '.html'),
+      chunks: ['headers-footers.pug'.replace(/\.pug/, '')],
       inject: 'body',
       minify: {
-        collapseWhitespace: isProd
-      }
+        collapseWhitespace: isProd,
+      },
     }),
     // ...PAGES.map((page, index) => new HTMLWebpackPlugin({
     //   template: `${PAGES_DIR}/${PAGES_FOLDERS[index]}/${page}`,
@@ -173,20 +173,20 @@ const plugins = () => {
       'window.jquery': 'jquery',
     }),
     new MiniCssExtractPlugin({
-      filename: `${PATHS.assets}css/${filename('css')}`
+      filename: `${PATHS.assets}css/${filename('css')}`,
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
           from: `${PATHS.src}/static`,
-          to: `${PATHS.dist}/static`
+          to: `${PATHS.dist}/static`,
         },
-      ]
-    })
-  ]
+      ],
+    }),
+  ];
 
-  return base
-}
+  return base;
+};
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -196,20 +196,23 @@ module.exports = {
   output: {
     filename: `${PATHS.assets}js/[name].js`,
     path: PATHS.dist,
-    clean: true
+    clean: true,
   },
   cache: {
-    type: 'memory'
+    type: 'memory',
   },
   resolve: {
     extensions: ['.js', '.json', '.pug', '.scss'],
     alias: {
       '~': path.resolve(__dirname, 'src'),
-      '@form-elements': path.resolve(__dirname, 'src/components/UI-kit/form-elements'),
+      '@form-elements': path.resolve(
+        __dirname,
+        'src/components/UI-kit/form-elements'
+      ),
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@cards': path.resolve(__dirname, 'src/components/UI-kit/cards'),
       '@libs': path.resolve(__dirname, 'src/libs'),
-    }
+    },
   },
   optimization: optimization(),
   target: 'web',
@@ -218,7 +221,7 @@ module.exports = {
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'cards.html',
+    index: 'headers-footers.html',
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),
@@ -230,38 +233,38 @@ module.exports = {
           loader: 'pug-loader',
           options: {
             pretty: isDev,
-          }
-        }
+          },
+        },
       },
       {
         test: /\.css$/,
-        use: cssLoaders()
+        use: cssLoaders(),
       },
       {
         test: /\.(sass|scss)$/,
-        use: cssLoaders('sass-loader')
+        use: cssLoaders('sass-loader'),
       },
       {
         test: /\.(?:ico|png|jpg|jpeg|svg|gif)$/,
         type: 'asset/resource',
         exclude: [/fonts/],
         generator: {
-          filename: `${PATHS.assets}img/${assetFileName}`
-        }
+          filename: `${PATHS.assets}img/${assetFileName}`,
+        },
       },
       {
         test: /\.(ttf|woff|woff2|eot|otf|svg)$/,
         type: 'asset/resource',
         include: [/fonts/],
         generator: {
-          filename: `${PATHS.assets}fonts/${assetFileName}`
-        }
+          filename: `${PATHS.assets}fonts/${assetFileName}`,
+        },
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: jsLoaders()
+        use: jsLoaders(),
       },
-    ]
-  }
-}
+    ],
+  },
+};

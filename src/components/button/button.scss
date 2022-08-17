@@ -1,89 +1,20 @@
 .button {
   display: block;
-  text-align: center;
   width: 100%;
   max-height: 44px;
-  max-width: rem(99);
-  border-radius: 22px;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  text-decoration: none;
-  font-size: rem(12);
-  line-height: rem(15);
-  font-family: inherit;
-  font-weight: bold;
-  text-transform: uppercase;
-  background: $primaryGradient;
   padding: 2px;
-
-  &:hover {
-    background: $primaryGradientTransparent;
-  }
-
-  &:focus-visible {
-    background: $primaryGradientTransparent;
-    outline: 2px solid $purple;
-  }
-
-  &:disabled {
-    background: $primaryGradientTransparent;
-    cursor: not-allowed;
-  }
-
-  &--hidden {
-    visibility: hidden;
-  }
-
-  &--variant {
-    &-with-arrow {
-      width: 100%;
-      max-width: 320px;
-
-      .button {
-        &__inner {
-          position: relative;
-
-          &::after {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            content: 'arrow_forward';
-            font-family: 'Material Icons', Arial, sans-serif;
-            font-size: rem(24);
-            line-height: rem(24);
-            text-transform: none;
-            font-weight: normal;
-          }
-        }
-      }
-    }
-
-    &-inline {
-      background: none;
-      width: auto;
-      border-radius: 0;
-
-      &:hover,
-      &:focus-visible {
-        background: none;
-        outline: none;
-        text-decoration: 2px underline $purple;
-      }
-
-      &:disabled {
-        background: none;
-
-        &:hover {
-          text-decoration: none;
-        }
-
-        .button__inner {
-          color: $darkShade50;
-        }
-      }
-    }
-  }
+  font-weight: bold;
+  font-size: rem(12);
+  font-family: inherit;
+  line-height: rem(15);
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: $primaryGradient;
+  border: none;
+  border-radius: 22px;
+  outline: none;
+  cursor: pointer;
 
   &__inner {
     width: 100%;
@@ -117,6 +48,89 @@
 
     &--text-gray {
       color: $darkShade50;
+    }
+  }
+
+  &:hover {
+    background: $primaryGradientTransparent;
+  }
+
+  &:focus-visible {
+    background: $primaryGradientTransparent;
+    outline: 2px solid $purple;
+  }
+
+  &:disabled {
+    background: $primaryGradientTransparent;
+    cursor: not-allowed;
+  }
+
+  &--hidden {
+    visibility: hidden;
+  }
+
+  &--variant {
+    &-with-arrow {
+      width: 100%;
+
+      .button {
+        &__inner {
+          position: relative;
+
+          &::after {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-weight: normal;
+            font-size: rem(24);
+            font-family: 'Material Icons', Arial, sans-serif;
+            line-height: rem(24);
+            text-transform: none;
+            content: 'arrow_forward';
+          }
+        }
+      }
+    }
+
+    &-inline {
+      width: auto;
+      background: none;
+      border-radius: 0;
+
+      &:hover,
+      &:focus-visible {
+        text-decoration: 2px underline $purple;
+        background: none;
+        outline: none;
+      }
+
+      &:disabled {
+        background: none;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        .button {
+          &__inner {
+            color: $darkShade50;
+          }
+        }
+      }
+    }
+  }
+
+  &--size {
+    &-small {
+      max-width: rem(99);
+    }
+
+    &-medium {
+      max-width: rem(196);
+    }
+
+    &-large {
+      max-width: rem(320);
     }
   }
 }

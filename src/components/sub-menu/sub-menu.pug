@@ -1,0 +1,10 @@
+mixin sub-menu({ subItems = [] } = {})
+  .sub-menu 
+    ul.sub-menu__list 
+      each subItem in subItems
+        li.sub-menu__item
+          a&attributes({
+            class: 'sub-menu__item-link',
+            href: subItem.link,
+            tabindex: 0,
+          })=subItem.text

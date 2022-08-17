@@ -18,8 +18,8 @@
     "lintone:fix": "eslint \"src/pages/cards/cards.js\" --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
-    "stylelintone": "stylelint \"src/pages/cards/cards.scss\"",
-    "stylelintone:fix": "stylelint \"src/pages/cards/cards.scss\" --fix"
+    "stylelintone": "stylelint \"src/components/button/button.scss\"",
+    "stylelintone:fix": "stylelint \"src/components/button/button.scss\" --fix"
   },
   "browserslist": [
     "> 0.25%",

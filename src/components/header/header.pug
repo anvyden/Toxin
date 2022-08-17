@@ -14,40 +14,40 @@ mixin header(options)
           +menu({
               items: [
                 {
-                  linkText: 'О нас',
+                  text: 'О нас',
                   link: 'change-me',
                   isActive: firstMenuItemActive,
                 },
                 {
-                  linkText: 'Услуги',
+                  text: 'Услуги',
                   subMenu: true,
-                  subItems: [
-                    { subLinkText: 'Услуги', subLink: 'change-me' },
-                    { subLinkText: 'Услуги', subLink: 'change-me' }
+                  subMenuItems: [
+                    { text: 'Услуги', link: 'change-me' },
+                    { text: 'Услуги', link: 'change-me' }
                   ]
                 },
                 {
-                  linkText: 'Вакансии',
+                  text: 'Вакансии',
                   link: 'change-me',
                 },
                 {
-                  linkText: 'Новости',
+                  text: 'Новости',
                   link: 'change-me',
                 },
                 {
-                  linkText: 'Соглашения',
+                  text: 'Соглашения',
                   subMenu: true,
-                  subItems: [
-                    { subLinkText: 'Соглашения', subLink: 'change-me' },
-                    { subLinkText: 'Соглашения', subLink: 'change-me' }
+                  subMenuItems: [
+                    { text: 'Соглашения', link: 'change-me' },
+                    { text: 'Соглашения', link: 'change-me' }
                   ]
                 }
               ]
             })
         if (!logIn)
           .header__authorization
-            +button({ text: 'Войти', isLink: true, variant: 'border', size: 'medium', link: './sign-in.html' })
-            +button({ text: 'Зарегистрироваться', isLink: true, size: 'medium', link: './registration.html' })
+            +button({ text: 'Войти', variant: 'fill-white', color: 'purple', size: 'medium', link: './sign-in.html' })
+            +button({ text: 'Зарегистрироваться', color: 'white', size: 'medium', link: './registration.html' })
         else
           .header__authorization-complete
             span.header__user='Юлий Цезарь'
