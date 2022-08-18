@@ -25,10 +25,6 @@
       margin-right: 0;
     }
 
-    &:focus-visible {
-      outline: $thinFocusOutline;
-    }
-
     &--column {
       margin-right: 0;
       margin-bottom: rem(21);
@@ -42,7 +38,12 @@
       color: $darkShade50;
 
       &:focus-visible {
+        color: $darkShade75;
         outline: none;
+      }
+
+      &:hover {
+        color: $darkShade75;
       }
 
       &--active {
@@ -59,7 +60,7 @@
       color: $darkShade50;
       transition: transform 0.4s ease;
 
-      &--expanded {
+      &--rotate {
         transform: rotateX(180deg);
       }
     }
@@ -73,6 +74,10 @@
         border-bottom: 0;
       }
     }
+  }
+
+  &__sub-menu {
+    display: none;
   }
 }
 

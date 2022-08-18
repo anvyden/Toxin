@@ -2,9 +2,9 @@ include ~/components/logo/logo
 include ~/components/menu/menu
 include ~/components/button/button
 
-mixin header(options)
+mixin header(options = {})
   -
-    const { logIn, logoLink, firstMenuItemActive } = options
+    const { logIn, logoLink, firstItemMenuActive } = options
 
   header.header
     .header__container
@@ -16,7 +16,7 @@ mixin header(options)
                 {
                   text: 'О нас',
                   link: 'change-me',
-                  isActive: firstMenuItemActive,
+                  isActive: firstItemMenuActive,
                 },
                 {
                   text: 'Услуги',
@@ -62,32 +62,32 @@ mixin header(options)
           +menu({
               items: [
                 {
-                  linkText: 'О нас',
+                  text: 'О нас',
                   link: 'change-me',
                   isActive: true,
                 },
                 {
-                  linkText: 'Услуги',
+                  text: 'Услуги',
                   subMenu: true,
-                  subItems: [
-                    { subLinkText: 'Услуги', subLink: 'change-me' },
-                    { subLinkText: 'Услуги', subLink: 'change-me' }
+                  subMenuItems: [
+                    { text: 'Услуги', link: 'change-me' },
+                    { text: 'Услуги', link: 'change-me' }
                   ]
                 },
                 {
-                  linkText: 'Вакансии',
+                  text: 'Вакансии',
                   link: 'change-me',
                 },
                 {
-                  linkText: 'Новости',
+                  text: 'Новости',
                   link: 'change-me',
                 },
                 {
-                  linkText: 'Соглашения',
+                  text: 'Соглашения',
                   subMenu: true,
-                  subItems: [
-                    { subLinkText: 'Соглашения', subLink: 'change-me' },
-                    { subLinkText: 'Соглашения', subLink: 'change-me' }
+                  subMenuItems: [
+                    { text: 'Соглашения', link: 'change-me' },
+                    { text: 'Соглашения', link: 'change-me' }
                   ]
                 }
               ]

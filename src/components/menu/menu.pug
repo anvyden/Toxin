@@ -21,6 +21,7 @@ mixin menu({ items = [], options = {} })
               class: ['menu__item-link', activeLinkClass],
               href: link,
               tabindex: 0,
+              'data-type': 'menu-item'
             })=text 
             if subMenu 
               span&attributes({

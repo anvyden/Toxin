@@ -1,140 +1,83 @@
 class Menu {
-  constructor() {
-    this.subMenuLists = document.querySelectorAll('.js-sub-menu')
-    this.subMenus = []
-    this.menuItems = document.querySelectorAll('.js-menu__item')
-    this._getSubMenus(this.subMenuLists)
-    this.handleSubMenuClick(this.subMenus)
-    this.handleMenuItemKeyup(this.menuItems)
+  constructor(root) {
+    this.root = root;
+    this._init();
   }
 
-  handleSubMenuClick(subMenus) {
-    this.clickHandlerSubMenu = this.clickHandlerSubMenu.bind(this)
-    subMenus.forEach((subMenu) => {
-      subMenu.addEventListener('click', this.clickHandlerSubMenu)
-    })
+  _init() {
+    this.arrow = this.root.querySelector('.js-menu__item-arrow');
+    this.subMenu = this.root.querySelector('.js-menu__sub-menu');
+    this._bindItemListeners();
   }
 
-  clickHandlerSubMenu(event) {
-    const { currentTarget } = event
-    this.subMenuElements = [...currentTarget.children]
+  _bindItemListeners() {
+    this.root.addEventListener(
+      'pointerdown',
+      this._handleItemPointerDown.bind(this)
+    );
+    this.root.addEventListener('keydown', this._handleItemKeyDown.bind(this));
+  }
 
-    this._findSubMenuElements(this.subMenuElements)
+  _addDocumentListener() {
+    document.addEventListener(
+      'pointerdown',
+      this._handleDocumentPoinerDown.bind(this)
+    );
+  }
 
-    this.subMenuList.classList.toggle('sub-menu--visible')
-    this.subMenuArrow.classList.toggle('menu__item-arrow--expanded')
+  _removeDocumentListener() {
+    document.removeEventListener('pointerdown', this._handleDocumentPoinerDown);
+  }
 
-    this._getTargetElemsByFirstClick(currentTarget)
+  _handleItemPointerDown() {
+    this._toggleSubMenu();
+    this._rotateArrow();
 
-    if (this.currentTarget !== currentTarget) {
-      this.currentTargetList.classList.remove('sub-menu--visible')
-      this.currentTargetArrow.classList.remove('menu__item-arrow--expanded')
-      this.currentTarget = currentTarget
-      this.currentTargetList = this.subMenuList
-      this.currentTargetArrow = this.subMenuArrow
+    this.subMenu.classList.contains('sub-menu--visible')
+      ? this._addDocumentListener()
+      : this._removeDocumentListener();
+  }
+
+  _handleItemKeyDown(event) {
+    const { code } = event;
+
+    if (code === 'Space') {
+      event.preventDefault();
+      this._toggleSubMenu();
+      this._rotateArrow();
+    }
+
+    if (code === 'Escape') {
+      event.preventDefault();
+      this._closeSubMenu();
+    }
+
+    this.subMenu.classList.contains('sub-menu--visible')
+      ? this._addDocumentListener()
+      : this._removeDocumentListener();
+  }
+
+  _handleDocumentPoinerDown(event) {
+    const { target } = event;
+
+    if (target.dataset.type !== 'menu-item') {
+      this._closeSubMenu();
+      this._removeDocumentListener();
     }
   }
 
-  handleMenuItemKeyup(menuItems) {
-    this.keyupHandlerMenuItem = this.keyupHandlerMenuItem.bind(this)
-    menuItems.forEach((menuItem) => {
-      menuItem.addEventListener('keyup', this.keyupHandlerMenuItem)
-    })
+  _rotateArrow() {
+    this.arrow.classList.toggle('menu__item-arrow--rotate');
   }
 
-  keyupHandlerMenuItem(event) {
-    if (event.key === 'Enter') {
-      const { target } = event
-      const [...itemElements] = target.children
-
-      if (itemElements.find((elem) => elem.classList.contains('js-menu__item-link-wrapper'))) {
-        this._findSubMenuElements(itemElements)
-        this.subMenuList.classList.toggle('sub-menu--visible')
-        this.subMenuArrow.classList.toggle('menu__item-arrow--expanded')
-
-        this._getTargetElemsByFirstClick(target)
-
-        if (this.currentTarget !== target) {
-          this.currentTargetList.classList.remove('sub-menu--visible')
-          this.currentTargetArrow.classList.remove('menu__item-arrow--expanded')
-          this.currentTarget = target
-          this.currentTargetList = this.subMenuList
-          this.currentTargetArrow = this.subMenuArrow
-        }
-
-        this.subMenuItems = document.querySelectorAll('.js-sub-menu__item')
-        this.keyupHandlerSubMenuItem = this.keyupHandlerSubMenuItem.bind(this)
-
-        if (this.subMenuList.classList.contains('sub-menu--visible')) {
-          this.subMenuItems.forEach((item) => {
-            item.addEventListener('keyup', this.keyupHandlerSubMenuItem)
-          })
-        } else {
-          this.subMenuItems.forEach((item) => {
-            item.removeEventListener('keyup', this.keyupHandlerSubMenuItem)
-          })
-        }
-      } else {
-        itemElements.forEach((elem) => {
-          if (elem.classList.contains('js-menu__item-link')) {
-            this.itemLink = elem
-          }
-        })
-
-        this.itemLinkHref = this.itemLink.href
-        if (this.itemLinkHref) {
-          window.location = this.itemLinkHref
-        }
-      }
-    }
+  _toggleSubMenu() {
+    this.subMenu.classList.toggle('sub-menu--visible');
   }
 
-  keyupHandlerSubMenuItem(event) {
-    if (event.key === 'Enter') {
-      const { target } = event
-      const [...itemElements] = target.children
-
-      itemElements.forEach((elem) => {
-        if (elem.classList.contains('js-sub-menu__item-link')) {
-          this.itemLink = elem
-        }
-      })
-
-      this.itemLinkHref = this.itemLink.href
-      if (this.itemLinkHref) {
-        window.location = this.itemLinkHref
-      }
-    }
-  }
-
-  _findSubMenuElements(subMenuElements) {
-    subMenuElements.forEach((elem) => {
-      if (elem.classList.contains('js-sub-menu')) {
-        this.subMenuList = elem
-      } else if (elem.classList.contains('js-menu__item-link-wrapper')) {
-        const items = [...elem.children]
-        items.forEach((item) => {
-          if (item.classList.contains('js-menu__item-arrow')) {
-            this.subMenuArrow = item
-          }
-        })
-      }
-    })
-  }
-
-  _getTargetElemsByFirstClick(target) {
-    if (this.currentTarget === undefined) {
-      this.currentTarget = target
-      this.currentTargetList = this.subMenuList
-      this.currentTargetArrow = this.subMenuArrow
-    }
-  }
-
-  _getSubMenus(menus) {
-    menus.forEach((item) => {
-      this.subMenus.push(item.parentElement)
-    })
+  _closeSubMenu() {
+    this.subMenu.classList.remove('sub-menu--visible');
+    this.arrow.classList.remove('menu__item-arrow--rotate');
   }
 }
 
-export default Menu
+export default Menu;

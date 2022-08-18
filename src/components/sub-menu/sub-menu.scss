@@ -1,5 +1,4 @@
 .sub-menu {
-  display: none;
   width: rem(150);
   position: absolute;
   top: rem(30);
@@ -42,10 +41,6 @@
     position: relative;
     margin-bottom: rem(10);
 
-    &:focus-visible {
-      outline: $thinFocusOutline;
-    }
-
     &:last-child {
       margin-bottom: 0;
     }
@@ -64,7 +59,12 @@
       color: $darkShade50;
 
       &:focus-visible {
+        color: $darkShade75;
         outline: none;
+      }
+
+      &:hover {
+        color: $darkShade75;
       }
     }
   }
