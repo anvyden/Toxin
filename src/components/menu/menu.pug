@@ -13,7 +13,7 @@ mixin menu({ items = [], options = {} })
         each item in items 
           -
             const { text, link, isActive, subMenu, subMenuItems = [] } = item
-            const itemModifier = subMenu && 'js-menu__item'
+            const itemModifier = subMenu && 'menu__item--with-arrow js-menu__item'
             const activeLinkClass = isActive && 'menu__item-link--active'
 
           li.menu__item(class=itemModifier)
@@ -21,11 +21,12 @@ mixin menu({ items = [], options = {} })
               class: ['menu__item-link', activeLinkClass],
               href: link,
               tabindex: 0,
-              'data-type': 'menu-item'
+              'data-type': 'link'
             })=text 
             if subMenu 
               span&attributes({
-                class: ['menu__item-arrow', 'material-icons', 'js-menu__item-arrow']
+                class: ['menu__item-arrow', 'material-icons', 'js-menu__item-arrow'],
+                'data-type': 'arrow'
               })='expand_more'
               .menu__sub-menu.js-menu__sub-menu
                 +sub-menu({ subItems: subMenuItems })

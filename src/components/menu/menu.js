@@ -29,9 +29,15 @@ class Menu {
     document.removeEventListener('pointerdown', this._handleDocumentPoinerDown);
   }
 
-  _handleItemPointerDown() {
-    this._toggleSubMenu();
-    this._rotateArrow();
+  _handleItemPointerDown(event) {
+    const { target } = event;
+    const isItem =
+      target.dataset.type === 'link' || target.dataset.type === 'arrow';
+
+    if (isItem) {
+      this._toggleSubMenu();
+      this._rotateArrow();
+    }
 
     this.subMenu.classList.contains('sub-menu--visible')
       ? this._addDocumentListener()
@@ -59,8 +65,10 @@ class Menu {
 
   _handleDocumentPoinerDown(event) {
     const { target } = event;
+    const isItem =
+      target.dataset.type === 'link' || target.dataset.type === 'arrow';
 
-    if (target.dataset.type !== 'menu-item') {
+    if (!isItem) {
       this._closeSubMenu();
       this._removeDocumentListener();
     }

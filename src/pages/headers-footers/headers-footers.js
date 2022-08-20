@@ -4,7 +4,9 @@ import Menu from '~/components/menu/menu';
 
 const init = (function () {
   return {
-    header: new Header(),
+    header: document
+      .querySelectorAll('.js-header__burger-menu-container')
+      .forEach((header) => new Header(header)),
     menu: document
       .querySelectorAll('.js-menu__item')
       .forEach((item) => new Menu(item)),

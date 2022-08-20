@@ -51,13 +51,13 @@ mixin header(options = {})
         else
           .header__authorization-complete
             span.header__user='Юлий Цезарь'
-    .header__burger-container
-      div(class='header__burger-button js-header-burger-button', tabindex='0')
-        .header__burger-line.js-header-burger-line
-        .header__burger-line.js-header-burger-line
-        .header__burger-line.js-header-burger-line
-        .header__burger-line.js-header-burger-line
-      .header__burger-menu-wrapper.js-header-burger-menu-wrapper
+    .header__burger-menu-container.js-header__burger-menu-container
+      .header__burger-button.js-header__burger-button(tabindex='0')
+        .header__burger-button-line
+        .header__burger-button-line
+        .header__burger-button-line
+        .header__burger-button-line
+      .header__burger-menu-wrapper.js-header__burger-menu-wrapper
         .header__burger-menu
           +menu({
               items: [
@@ -94,8 +94,8 @@ mixin header(options = {})
             })
         if (!logIn)
           .header__burger-authorization
-            +button({ text: 'Войти', isLink: true, variant: 'border', size: 'medium', link: './sign-in.html' })
-            +button({ text: 'Зарегистрироваться', isLink: true, size: 'medium', link: './registration.html' })
+            +button({ text: 'Войти', variant: 'fill-white', color: 'purple', size: 'medium', link: './sign-in.html' })
+            +button({ text: 'Зарегистрироваться', color: 'white', size: 'medium', link: './registration.html' })
         else
           .header__burger-authorization-complete
             span.header__user='Юлий Цезарь'

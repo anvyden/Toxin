@@ -22,15 +22,15 @@
 
     &--size {
       &-small {
-        padding: 12.5px 0;
+        padding: rem(12.5) 0;
       }
 
       &-medium {
-        padding: 7px 18px 8px;
+        padding: rem(7) rem(18) rem(8);
       }
 
       &-large {
-        padding: 12.5px 0;
+        padding: rem(12.5) 0;
       }
     }
 
@@ -57,7 +57,7 @@
 
   &:focus-visible {
     background: $primaryGradientTransparent;
-    outline: 2px solid $purple;
+    outline: $thinFocusOutline;
   }
 
   &:disabled {

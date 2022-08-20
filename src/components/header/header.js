@@ -1,51 +1,47 @@
 class Header {
-  constructor() {
-    this.burgerMenu = document.querySelector('.js-header-burger-menu-wrapper')
-    this.burgerButton = document.querySelector('.js-header-burger-button')
-    this.burgerLines = [...document.querySelectorAll('.js-header-burger-line')]
-    this.handleBurgerButtonClick(this.burgerButton)
-    this.handleBurgerButtonKeyup(this.burgerButton)
+  constructor(root) {
+    this.root = root;
+    this._init();
   }
 
-  handleBurgerButtonClick(button) {
-    this.clickHandlerBurgerButton = this.clickHandlerBurgerButton.bind(this)
-    button.addEventListener('click', this.clickHandlerBurgerButton)
+  _init() {
+    this._findElements();
+    this._bindEventsListeners();
   }
 
-  clickHandlerBurgerButton() {
-    this.burgerLines.forEach((item, i) => {
-      const line = item
-      if (i === 1) {
-        line.classList.toggle('header__burger-line-cross-1')
-      } else if (i === 2) {
-        line.classList.toggle('header__burger-line-cross-2')
-      } else {
-        line.classList.toggle('header__burger-line--hidden')
-      }
-    })
-    this.burgerMenu.classList.toggle('header__burger-menu-wrapper--visible')
+  _findElements() {
+    this.menu = this.root.querySelector('.js-header__burger-menu-wrapper');
+    this.button = this.root.querySelector('.js-header__burger-button');
   }
 
-  handleBurgerButtonKeyup(button) {
-    this.keyupHandlerBurgerButton = this.keyupHandlerBurgerButton.bind(this)
-    button.addEventListener('keyup', this.keyupHandlerBurgerButton)
+  _bindEventsListeners() {
+    this.button.addEventListener(
+      'pointerdown',
+      this._handleButtonPointerDown.bind(this)
+    );
+    this.button.addEventListener(
+      'keydown',
+      this._handleButtonKeyDown.bind(this)
+    );
   }
 
-  keyupHandlerBurgerButton(event) {
-    if (event.key === 'Enter') {
-      this.burgerLines.forEach((item, i) => {
-        const line = item
-        if (i === 1) {
-          line.classList.toggle('header__burger-line-cross-1')
-        } else if (i === 2) {
-          line.classList.toggle('header__burger-line-cross-2')
-        } else {
-          line.classList.toggle('header__burger-line--hidden')
-        }
-      })
-      this.burgerMenu.classList.toggle('header__burger-menu-wrapper--visible')
+  _handleButtonPointerDown() {
+    this._toggle();
+  }
+
+  _handleButtonKeyDown(event) {
+    const { code } = event;
+
+    if (code === 'Space') {
+      event.preventDefault();
+      this._toggle();
     }
+  }
+
+  _toggle() {
+    this.button.classList.toggle('header__burger-button--active');
+    this.menu.classList.toggle('header__burger-menu-wrapper--visible');
   }
 }
 
-export default Header
+export default Header;

@@ -5,8 +5,6 @@
     @media screen and (max-width: 1023px) {
       display: block;
       text-align: center;
-      border-top: 1px solid #e5e5e5;
-      border-bottom: 1px solid #e5e5e5;
     }
 
     &--column {
@@ -68,21 +66,15 @@
     @media screen and (max-width: 1023px) {
       margin-right: 0;
       padding: rem(10) 0;
-      border-bottom: 1px solid #f4f4f6;
+      border-bottom: 1px solid $uiKitPagesBackground;
 
-      &:last-child {
-        border-bottom: 0;
+      &--with-arrow {
+        padding-left: rem(20);
       }
     }
   }
 
   &__sub-menu {
     display: none;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .menu__item-link-wrapper {
-    margin-left: rem(24);
   }
 }
