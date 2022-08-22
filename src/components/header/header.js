@@ -17,11 +17,11 @@ class Header {
   _bindEventsListeners() {
     this.button.addEventListener(
       'pointerdown',
-      this._handleButtonPointerDown.bind(this)
+      this._handleButtonPointerDown.bind(this),
     );
     this.button.addEventListener(
       'keydown',
-      this._handleButtonKeyDown.bind(this)
+      this._handleButtonKeyDown.bind(this),
     );
   }
 

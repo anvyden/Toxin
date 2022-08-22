@@ -1,8 +1,8 @@
 .copyright-bar {
   &__container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     max-width: rem(1160);
     margin: 0 auto;
 
@@ -19,8 +19,8 @@
 
   &__socials {
     &-list {
-      padding: 0 rem(1) 0 0;
       display: flex;
+      padding: 0 rem(1) 0 0;
     }
 
     &-item {

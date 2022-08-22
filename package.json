@@ -14,12 +14,12 @@
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "lintone": "eslint \"src/pages/cards/cards.js\"",
-    "lintone:fix": "eslint \"src/pages/cards/cards.js\" --fix",
+    "lintone": "eslint \"src/pages/headers-footers/headers-footers.js\"",
+    "lintone:fix": "eslint \"src/pages/headers-footers/headers-footers.js\" --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
-    "stylelintone": "stylelint \"src/components/button/button.scss\"",
-    "stylelintone:fix": "stylelint \"src/components/button/button.scss\" --fix"
+    "stylelintone": "stylelint \"src/pages/headers-footers/headers-footers.scss\"",
+    "stylelintone:fix": "stylelint \"src/pages/headers-footers/headers-footers.scss\" --fix"
   },
   "browserslist": [
     "> 0.25%",

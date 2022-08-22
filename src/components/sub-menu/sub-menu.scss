@@ -1,26 +1,26 @@
 .sub-menu {
-  width: rem(150);
   position: absolute;
   top: rem(30);
   left: 50%;
-  transform: translate(-59%, 0);
   z-index: 1;
+  width: rem(150);
   padding: rem(10) 0;
   text-align: center;
   background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: $mainBoxShadow;
+  transform: translate(-59%, 0);
 
   &::before {
-    content: '';
-    width: 1px;
-    height: 1px;
     position: absolute;
     top: -10px;
     left: 50%;
-    transform: translate(-50%, 0);
+    width: 1px;
+    height: 1px;
     border: 5px solid transparent;
     border-bottom-color: #fff;
+    transform: translate(-50%, 0);
+    content: '';
   }
 
   &--visible {
@@ -28,13 +28,13 @@
   }
 
   @media screen and (max-width: 1023px) {
-    width: 100%;
-    max-width: none;
     top: 100%;
     left: 50%;
+    z-index: 5;
+    width: 100%;
+    max-width: none;
     padding: 0;
     transform: translateX(-50%);
-    z-index: 5;
   }
 
   &__item {

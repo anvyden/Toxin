@@ -3,12 +3,12 @@
   box-shadow: $secondaryBoxShadow;
 
   &__container {
-    padding: rem(15) 0;
-    max-width: rem(1160);
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: rem(1160);
+    margin: 0 auto;
+    padding: rem(15) 0;
 
     @media screen and (max-width: 1023px) {
       padding: rem(15) rem(30);
@@ -56,14 +56,14 @@
       }
 
       &::before {
-        content: '';
         position: absolute;
         top: 0;
         left: rem(-21);
-        transform: translateY(-10%);
         width: 1px;
         height: rem(30);
         background: $darkShade10;
+        transform: translateY(-10%);
+        content: '';
 
         @media screen and (max-width: 1023px) {
           display: none;
@@ -73,15 +73,15 @@
   }
 
   &__user {
-    line-height: rem(17.07);
     color: $darkShade50;
+    line-height: rem(17.07);
   }
 
   &__burger {
     &-menu {
       &-container {
-        display: none;
         position: relative;
+        display: none;
 
         @media screen and (max-width: 1023px) {
           display: block;
@@ -89,13 +89,13 @@
       }
 
       &-wrapper {
-        width: 100%;
-        padding-top: 1px;
-        opacity: 0;
-        visibility: hidden;
         position: absolute;
         z-index: 1;
+        width: 100%;
+        padding-top: 1px;
         background: $headerFooterBackground;
+        visibility: hidden;
+        opacity: 0;
         transition: 0.5s all;
 
         &--visible {
@@ -106,11 +106,11 @@
     }
 
     &-button {
-      height: 32px;
       position: relative;
-      cursor: pointer;
+      height: 32px;
       border-top: 1px solid $uiKitPagesBackground;
       border-bottom: 1px solid $uiKitPagesBackground;
+      cursor: pointer;
 
       &:focus-visible {
         border-top: $focusBurgerButton;
@@ -119,13 +119,13 @@
       }
 
       &-line {
-        width: 30px;
-        height: 2px;
         position: absolute;
         right: 50%;
-        transform: translate(50%, 0);
-        border-radius: 25px;
+        width: 30px;
+        height: 2px;
         background-color: $purple;
+        border-radius: 25px;
+        transform: translate(50%, 0);
         transition: all 0.5s ease;
 
         &:first-child {
@@ -151,14 +151,14 @@
 
             &:nth-child(2) {
               height: 3px;
-              transform: translate(50%, 0) rotate(45deg);
               border-radius: 30%;
+              transform: translate(50%, 0) rotate(45deg);
             }
 
             &:nth-child(3) {
               height: 3px;
-              transform: translate(50%, 0) rotate(-45deg);
               border-radius: 30%;
+              transform: translate(50%, 0) rotate(-45deg);
             }
 
             &:last-child {
@@ -195,9 +195,9 @@
         @media screen and (max-width: 767px) {
           display: block;
           padding: rem(30) 0;
-          text-align: center;
           font-size: rem(19);
           line-height: rem(23.16);
+          text-align: center;
         }
       }
     }
