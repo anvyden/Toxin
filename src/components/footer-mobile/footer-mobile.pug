@@ -1,0 +1,18 @@
+include ~/components/copyright-bar/copyright-bar
+
+mixin footer-mobile({ logoLink } = {})
+  footer.footer-mobile
+    .footer-mobile__container
+      .footer-mobile__logo
+        +logo({ active: true, link: logoLink })
+      .footer-mobile__copyright-bar
+        +copyrightBar({
+          options: {
+            mobile: true,
+          },
+          socialItems: [
+            { fontAwesomeIconClass: 'fa-twitter', link: 'change-me' },
+            { fontAwesomeIconClass: 'fa-facebook-square', link: 'change-me' },
+            { fontAwesomeIconClass: 'fa-instagram', link: 'change-me' },
+          ]
+        })

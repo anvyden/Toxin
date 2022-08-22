@@ -1,0 +1,21 @@
+.footer-mobile {
+  display: none;
+  background: $headerFooterBackground;
+  box-shadow: $secondaryBoxShadow;
+
+  @media screen and (max-width: 1023px) {
+    display: block;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding: rem(120) 0;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: rem(17);
+  }
+}

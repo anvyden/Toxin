@@ -14,24 +14,25 @@
 @import '~/components/header/header';
 @import '~/components/copyright-bar/copyright-bar';
 @import '~/components/footer/footer';
+@import '~/components/footer-mobile/footer-mobile';
 
 .headers-footers {
-  background: #F4F4F6;
-}
+  background: $uiKitPagesBackground;
 
-.headers-footers__container {
-  padding-top: rem(140);
-}
+  &__container {
+    padding: rem(140) 0;
+  }
 
-.headers-footers__header-not-logged {
-  margin-bottom: rem(40);
-}
+  &__header {
+    margin-bottom: rem(40);
 
-.headers-footers__header-logged-in {
-  margin-bottom: rem(40);
-}
+    &-logged-in {
+      margin-bottom: rem(40);
+    }
+  }
 
-.headers-footers__footer-mobile {
-  margin: rem(40) auto 0 auto;
-  max-width: rem(768);
+  &__footer-mobile {
+    margin: rem(40) auto;
+    max-width: rem(768);
+  }
 }

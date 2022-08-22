@@ -16,7 +16,7 @@ mixin menu({ items = [], options = {} })
             const itemModifier = subMenu && 'menu__item--with-arrow js-menu__item'
             const activeLinkClass = isActive && 'menu__item-link--active'
 
-          li.menu__item(class=itemModifier)
+          li.menu__item(class=[itemModifier, itemColumnModifier])
             a&attributes({
               class: ['menu__item-link', activeLinkClass],
               href: link,

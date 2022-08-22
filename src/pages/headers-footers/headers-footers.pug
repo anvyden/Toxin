@@ -2,7 +2,7 @@ extends ~/layouts/UI-kit-layout/UI-kit-layout
 include ~/components/logo/logo
 include ~/components/header/header
 include ~/components/footer/footer
-include ~/components/copyright-bar/copyright-bar
+include ~/components/footer-mobile/footer-mobile
 
 block variables
   -
@@ -21,11 +21,11 @@ block content
   .headers-footers
     +logo({ active: false, posAbsolute: true })
     .headers-footers__container
-      .headers-footers__header-not-logged
+      .headers-footers__header
         +header({ logoLink: 'change-me', firstItemMenuActive: true })
       .headers-footers__header-logged-in
         +header({ logIn: true, logoLink: 'change-me', firstMenuItemActive: true })
       .headers-footers__footer
-        +footer({})
+        +footer({ logoLink: 'change-me' })
       .headers-footers__footer-mobile
-        +footer({ mobile: true, mobileVisibile: true })
+        +footer-mobile({ logoLink: 'change-me' })
