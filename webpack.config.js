@@ -150,9 +150,9 @@ const jsLoaders = () => {
 const plugins = () => {
   const base = [
     new HTMLWebpackPlugin({
-      template: `${PATHS.src}/pages/sign-in/sign-in.pug`,
-      filename: 'sign-in.pug'.replace(/\.pug/, '.html'),
-      chunks: ['sign-in.pug'.replace(/\.pug/, '')],
+      template: `${PATHS.src}/pages/registration/registration.pug`,
+      filename: 'registration.pug'.replace(/\.pug/, '.html'),
+      chunks: ['registration.pug'.replace(/\.pug/, '')],
       inject: 'body',
       minify: {
         collapseWhitespace: isProd,
@@ -205,12 +205,7 @@ module.exports = {
     extensions: ['.js', '.json', '.pug', '.scss'],
     alias: {
       '~': path.resolve(__dirname, 'src'),
-      '@form-elements': path.resolve(
-        __dirname,
-        'src/components/UI-kit/form-elements'
-      ),
       '@pages': path.resolve(__dirname, 'src/pages'),
-      '@cards': path.resolve(__dirname, 'src/components/UI-kit/cards'),
       '@libs': path.resolve(__dirname, 'src/libs'),
     },
   },
@@ -221,7 +216,7 @@ module.exports = {
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'sign-in.html',
+    index: 'registration.html',
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),

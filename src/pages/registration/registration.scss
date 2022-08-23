@@ -1,4 +1,3 @@
-@import '~normalize.css';
 @import '~/scss/montserrat';
 @import '~/scss/material-icons';
 @import '@fortawesome/fontawesome-free/css/all.css';
@@ -14,36 +13,31 @@
 @import '~/components/sign-up-card/sign-up-card';
 @import '~/components/header/header';
 @import '~/components/menu/menu';
+@import '~/components/sub-menu/sub-menu';
 @import '~/components/footer/footer';
+@import '~/components/footer-mobile/footer-mobile';
 @import '~/components/copyright-bar/copyright-bar';
 
-.main {
+.sign-up {
   background: url('./img/registration-background.jpg') no-repeat;
   background-size: cover;
   background-position: 50% -70px;
-}
+  padding: rem(19) rem(10) rem(19) rem(10);
 
-@media screen and (max-width: 1439px) {
-  .main {
+  @media screen and (max-width: 1439px) {
     background-position: center;
   }
-}
 
-.main-section {
-  padding: rem(19) rem(10) rem(19) rem(10);
-}
-
-@media screen and (max-width: 767px) {
-  .main-section {
+  @media screen and (max-width: 767px) {
     padding: rem(19) 0 rem(18) 0;
   }
-}
 
-.main-section__container {
-  display: flex;
-  justify-content: center;
-}
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
 
-.main-section__sign-up-card {
-  width: rem(380);
+  &__sign-up-card {
+    max-width: rem(380);
+  }
 }
