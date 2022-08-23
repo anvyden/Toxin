@@ -1,4 +1,8 @@
 include ~/components/logo/logo
+include ~/components/header/header
+include ~/components/footer/footer
+include ~/components/footer-mobile/footer-mobile
+
 block variables
 
 doctype html
@@ -18,8 +22,11 @@ html(lang="ru")
     link(rel="mask-icon", href=faviconPaths.pinned, color="#5bbad5")
     title #{title}
   body
-    div(class=pageClass)
-      div(class=pageContainerClass)
+    .page-wrapper
+      block header
         +header({ logoLink: './landing-page.html' })
+      .page-content
         block content
+      block footer
         +footer({ logoLink: './landing-page.html' })
+        +footer-mobile({ logoLink: './landing-page.html' })

@@ -17,24 +17,18 @@ block variables
       manifest: `static/favicon/active/site.webmanifest`,
       pinned: 'static/favicon/active/safari-pinned-tab.svg',
     }
-    const pageClass = 'landing-page'
-    const pageContainerClass = 'landing-page__container'
 
 block content
-  main.main
-    section.main-section
-      .main-section__container
-        .main-section__find-room-card
-          +findRoomCard({
-            dropdownClassForJs: 'js-landing-page-datepicker-dropdown',
-            firstInputClassForJs: 'js-landing-page-datepicker-1',
-            secondInputClassForJs: 'js-landing-page-datepicker-2',
-            guestsClassForJs: 'js-landing-page-guests',
-            firstInputName: 'landingPageStartDate',
-            secondInputName: 'landingPageFinishDate',
-            guestsName: 'landingPageGuests'
-          })
-        .main-section__text-wrapper
-          span.main-section__text='Лучшие номера для вашей работы, отдыха и просто вдохновения'
+  main.landing
+    .landing__container
+      .landing__find-room-card
+        +find-room-card({
+          title: 'Найдём номера под ваши\u00A0пожелания',
+          dateDropdownClassForJs: 'js-find-room-date-dropdown',
+          guestsDropdownClassForJs: 'js-find-room-guests',
+          formAction: './search-room.html'
+        })
+      .landing__presentation
+        span.landing__presentation-text='Лучшие номера для вашей работы, отдыха и просто вдохновения'
 
 

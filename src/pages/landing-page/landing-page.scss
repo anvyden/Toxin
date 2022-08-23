@@ -1,75 +1,65 @@
-@import '~normalize.css';
 @import '~/scss/montserrat';
 @import '~/scss/material-icons';
 @import '@fortawesome/fontawesome-free/css/all.css';
 @import '~/scss/variables';
 @import '~/scss/mixins';
 @import '~/scss/settings';
+@import '~/layouts/main-layout/main-layout';
 @import '~/components/logo/logo';
 @import '~/components/text/text';
 @import '~/components/text-field/text-field';
 @import '~/components/button/button';
 @import '~/components/dropdown/dropdown';
+@import '~/components/date-dropdown/date-dropdown';
 @import '~/components/find-room-card/find-room-card';
 @import '~/components/datepicker/datepicker';
 @import '~/components/header/header';
 @import '~/components/menu/menu';
+@import '~/components/sub-menu/sub-menu';
 @import '~/components/footer/footer';
+@import '~/components/footer-mobile/footer-mobile';
 @import '~/components/copyright-bar/copyright-bar';
 
-.main {
+.landing {
   background: url('./img/landing-page-background.jpg') no-repeat;
   background-size: cover;
   background-position: 50% -70px;
-}
+  padding: rem(70) rem(30) rem(21) rem(30);
 
-@media screen and (max-width: 1439px) {
-  .main {
+  @media screen and (max-width: 1439px) {
     background-position: center;
   }
-}
 
-.main-section {
-  padding: rem(70) rem(30) rem(21) rem(30);
-}
-
-@media screen and (max-width: 767px) {
-  .main-section {
+  @media screen and (max-width: 767px) {
     padding: rem(70) 0 rem(21) 0;
   }
-}
 
-.main-section__container {
-  max-width: rem(1160);
-  margin: 0 auto;
-}
+  &__container {
+    max-width: rem(1160);
+    margin: 0 auto;
 
-@media screen and (max-width: 767px) {
-  .main-section__container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    @media screen and (max-width: 767px) {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
   }
-}
 
-.main-section__text-wrapper {
-  margin-top: rem(317);
-  text-align: right;
-}
+  &__presentation {
+    margin-top: rem(317);
+    text-align: right;
 
-@media screen and (max-width: 767px) {
-  .main-section__text-wrapper {
-    margin-top: rem(160);
+    @media screen and (max-width: 767px) {
+      margin-top: rem(160);
+    }
   }
-}
 
-.main-section__text {
-  display: inline-block;
-  max-width: rem(297);
-}
+  &__presentation-text {
+    display: inline-block;
+    max-width: rem(297);
 
-@media screen and (max-width: 767px) {
-  .main-section__text {
-    text-align: center;
+    @media screen and (max-width: 767px) {
+      text-align: center;
+    }
   }
 }
