@@ -1,9 +1,6 @@
 extends ~/layouts/main-layout/main-layout
 include ~/components/logo/logo
 include ~/components/sign-in-card/sign-in-card
-include ~/components/header/header
-include ~/components/footer/footer
-include ~/components/copyright-bar/copyright-bar
 
 block variables
   -
@@ -17,12 +14,13 @@ block variables
       manifest: `static/favicon/active/site.webmanifest`,
       pinned: 'static/favicon/active/safari-pinned-tab.svg',
     }
-    const pageClass = 'sign-in'
-    const pageContainerClass = 'sign-in__container'
 
 block content
-  main.main
-    section.main-section
-      .main-section__container
-        .main-section__sign-in-card
-          +signInCard({ formAction: './landing-page.html', signUpButtonLink: './registration.html' })
+  main.sign-in
+    .sign-in__container
+      .sign-in__sign-in-card
+        +sign-in-card({
+          title: 'Войти',
+          signUpLink: './registration.html',
+          formAction: './landing-page.html'
+        })
