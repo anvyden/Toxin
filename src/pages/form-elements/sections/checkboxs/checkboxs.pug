@@ -6,11 +6,11 @@ mixin checkboxs()
     .checkboxs__container
       .checkboxs__expandable-checkboxs
         .checkboxs__expandable-checkbox
-          +checkboxList({ expandable: true, emptyCheckboxList: true, title: 'expandable checkbox list' })
+          +checkboxList({ expandable: true, title: 'expandable checkbox list' })
         .checkboxs__expandable-checkbox
           +checkboxList({
-            expandable: true,
             title: 'expandable checkbox list',
+            expandable: true,
             isOpened: true,
             classForJs: 'js-expandable-checkbox',
             items: [
@@ -35,7 +35,6 @@ mixin checkboxs()
           {
             title: 'Помощник для инвалидов',
             description: `На 1 этаже вас встретит специалист и\u00A0проводит до номера.`,
-            color: 'dark-shade-75',
             name: 'assistant-for-disabled-persons'
           },
         ]})

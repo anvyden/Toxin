@@ -10,6 +10,7 @@
 @import '~/components/text-field/text-field';
 @import '~/components/button/button';
 @import '~/components/dropdown/dropdown';
+@import '~/components/date-dropdown/date-dropdown';
 @import '~/components/star-rating/star-rating';
 @import '~/components/range-slider/range-slider';
 @import '~/components/pagination/pagination';
@@ -18,7 +19,9 @@
 @import '~/components/room-card/room-card';
 @import '~/components/header/header';
 @import '~/components/menu/menu';
+@import '~/components/sub-menu/sub-menu';
 @import '~/components/footer/footer';
+@import '~/components/footer-mobile/footer-mobile';
 @import '~/components/copyright-bar/copyright-bar';
 @import '@libs/swiper/swiper';
 @import '~/components/sidebar/sidebar';
@@ -83,26 +86,26 @@
   }
 }
 
-@media screen and (max-width: 1023px) {
-  .content__sidebar-button {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -20px;
-    width: 20px;
-    height: 100%;
-    border-radius: 0 20px 20px 0;
-    background: $secondaryGradient;
-    cursor: pointer;
-    transition: border-radius 1s ease;
-  }
-}
+// @media screen and (max-width: 1023px) {
+//   .content__sidebar-button {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     right: -20px;
+//     width: 20px;
+//     height: 100%;
+//     border-radius: 0 20px 20px 0;
+//     background: $secondaryGradient;
+//     cursor: pointer;
+//     transition: border-radius 1s ease;
+//   }
+// }
 
-@media screen and (max-width: 479px) {
-  .content__sidebar--visible > .content__sidebar-button {
-    border-radius: 0;
-  }
-}
+// @media screen and (max-width: 479px) {
+//   .content__sidebar--visible > .content__sidebar-button {
+//     border-radius: 0;
+//   }
+// }
 
 @media screen and (max-width: 1023px) {
   .rooms__heading {

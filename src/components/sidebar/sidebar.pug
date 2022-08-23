@@ -1,100 +1,96 @@
 include ~/components/dropdown/dropdown
+include ~/components/date-dropdown/date-dropdown
 include ~/components/range-slider/range-slider
 include ~/components/checkbox-list/checkbox-list
 
-mixin sidebar(options)
-  -
-    const { attrNames, classesForJs } = options
-
+mixin sidebar({} = {})
   aside.sidebar
-    .sidebar__container
-      .sidebar__item
-        +dropdown({
-          text: 'Даты пребывания в отеле',
-          value: '19 авг - 23 авг',
-          name: 'dates',
-          placeholder: 'Выберите даты',
-          hasLower: true,
-          inputClassForJs: 'js-input-date-selecter',
-          classForJs: 'js-dropdown-date-selecter'
+    .sidebar__filter
+      .sidebar__date-dropdown
+        +date-dropdown({
+          type: 'text',
+          dataType: 'filter-date-dropdown',
+          name: 'date',
+          placeholder: 'ДД.ММ - ДД.ММ',
+          hasArrow: true,
+          readonly: true,
+          isLowerCase: true,
+          title: 'Даты пребывания в отеле',
+          classForJs: 'js-sidebar-date-dropdown'
         })
-      .sidebar__item
+      .sidebar__dropdown-guests
         +dropdown({
-          text: 'Гости',
-          value: '3 гостя, 1 младенец',
+          hasTitle: true,
+          title: 'Гости',
+          classForJs: 'js-sidebar-dropdown-guests',
+          withButtons: true,
           name: 'guests',
           placeholder: 'Сколько гостей',
-          expanded: true,
-          withButtons: true,
-          classForJs: 'js-dropdown-guests',
           items: [
-            { itemName: 'Взрослые', itemCounter: '2' },
-            { itemName: 'Дети', itemCounter: '1' },
-            { itemName: 'Младенцы', itemCounter: '1' },
+            { text: 'Взрослые', counter: '2', dataId: 'adults' },
+            { text: 'Дети', counter: '0', dataId: 'children' },
+            { text: 'Младенцы', counter: '1', dataId: 'babies' },
           ]
         })
-      .sidebar__item
-        +rangeSlider({ text: 'Диапазон цены', sliderClassForJs: 'js-range-slider', priceClassForJs: 'js-range-slider-price' })
-        span.sidebar__range-slider-description='Стоимость за сутки пребывания в номере'
-      .sidebar__item
+      .sidebar__range-slider
+        +rangeSlider({
+          title: 'Диапазон цены',
+          description: 'Стоимость за сутки пребывания в номере',
+          classForJs: 'js-sidebar-range-slider',
+        })
+      .sidebar__checkboxs
         +checkboxList({
           title: 'Правила дома',
           items: [
-            { text: 'Можно курить', name: 'smoke' },
-            { text: 'Можно с питомцами', name: 'pets', isChecked: true },
-            { text: 'Можно пригласить гостей (до 10 человек)', name: 'inviteGuests', isChecked: true },
+            { title: 'Можно курить', name: 'smoke' },
+            { title: 'Можно с питомцами', name: 'pets', isChecked: true },
+            { title: 'Можно пригласить гостей (до\u00A010\u00A0человек)', name: 'guests', isChecked: true },
           ]
         })
-      .sidebar__item
+      .sidebar__rich-checkboxs
         +checkboxList({
           title: 'Доступность',
-          wideCheckboxItems: true,
+          isRich: true,
           items: [
             {
-              text: 'Широкий коридор',
-              description: `Ширина коридоров в номере
-                не менее 91 см.`,
-              textBold: true,
-              color: 'dark-shade-75',
-              name: 'wideСorridor',
+              title: 'Широкий коридор',
+              description: `Ширина коридоров в номере не\u00A0менее 91 см.`,
+              name: 'wide-corridor',
             },
             {
-              text: 'Помощник для инвалидов',
-              description: `На 1 этаже вас встретит специалист
-                и проводит до номера.`,
-              color: 'dark-shade-75',
-              textBold: true,
-              name: 'assistantForDisabled',
+              title: 'Помощник для инвалидов',
+              description: `На 1 этаже вас встретит специалист и\u00A0проводит до номера.`,
+              name: 'assistant-for-disabled-persons',
             },
           ]
         })
-      .sidebar__item
+      .sidebar__dropdown-comfort
         +dropdown({
-          text: 'Удобства номера',
-          value: '2 спальни, 2 кровати...',
+          hasTitle: true,
+          title: 'Удобства номера',
+          placeholder: 'Удобства номера',
           name: 'comfort',
-          placeholder: 'Выберите удобства номера',
-          expanded: true,
-          classForJs: 'js-dropdown-comfort',
+          classForJs: 'js-sidebar-dropdown-comfort',
           items: [
-            { itemName: 'Спальни', itemCounter: '2' },
-            { itemName: 'Кровати', itemCounter: '2' },
-            { itemName: 'Ванные комнаты', itemCounter: '0' },
+            { text: 'Спальни', counter: '2', dataId: 'bedrooms' },
+            { text: 'Кровати', counter: '2', dataId: 'beds' },
+            { text: 'Ванные комнаты', counter: '0', dataId: 'bathrooms' },
           ]
         })
-      .sidebar__item
+      .sidebar__expandable-checkboxs
         +checkboxList({
           title: 'Дополнительные удобства',
           expandable: true,
-          classForJs: 'js-checkbox-list-comfort',
+          classForJs: 'js-sidebar-checkbox-list-comfort',
           items: [
-            { text: 'Завтрак', name: 'breakfast' },
-            { text: 'Письменный стол', name: 'table', isChecked: true },
-            { text: 'Стул для кормления', name: 'feedingChair', isChecked: true },
-            { text: 'Кроватка', name: 'crib', isChecked: true },
-            { text: 'Телевизор', name: 'TV1' },
-            { text: 'Шампунь', name: 'shampoo1' },
-            { text: 'Телевизор', name: 'TV2' },
-            { text: 'Шампунь', name: 'shampoo2' },
+            { title: 'Завтрак', name: 'breakfast' },
+            { title: 'Письменный стол', name: 'table', isChecked: true },
+            { title: 'Стул для кормления', name: 'chair', isChecked: true },
+            { title: 'Кроватка', name: 'bed', isChecked: true },
+            { title: 'Телевизор', name: 'tv1' },
+            { title: 'Шампунь', name: 'shampoo1' },
+            { title: 'Телевизор', name: 'tv2' },
+            { title: 'Шампунь', name: 'shampoo2' },
           ]
         })
+    .sidebar__button

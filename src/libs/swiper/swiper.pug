@@ -6,10 +6,11 @@ mixin slider({ images = [], options = {} } = {})
     .swiper-wrapper.slider-wrapper
       each image in images
         .swiper-slide.slider__slide
-          img.slider__img(
-            src=require(`~/pages/search-room/img/${image}`)
-            alt='room-photo'
-          )
+          a.slider__link(href='./room-details.html')
+            img.slider__img(
+              src=require(`~/pages/search-room/img/${image}`)
+              alt='room-photo'
+            )
     if (pagination)
       .swiper-pagination.slider__pagination
     if (navigation)
