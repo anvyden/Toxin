@@ -1,4 +1,5 @@
 import searchRoom from '@pages/search-room/search-room.scss';
+import Slider from '@libs/swiper/swiper';
 import Dropdown from '~/components/dropdown/dropdown';
 import Datepicker from '~/components/datepicker/datepicker';
 import RangeSlider from '~/components/range-slider/range-slider';
@@ -7,11 +8,10 @@ import CheckboxList from '~/components/checkbox-list/checkbox-list';
 import Header from '~/components/header/header';
 import Menu from '~/components/menu/menu';
 import Sidebar from '~/components/sidebar/sidebar';
-import Slider from '@libs/swiper/swiper';
 
 const init = {
   header: new Header(
-    document.querySelector('.js-header__burger-menu-container')
+    document.querySelector('.js-header__burger-menu-container'),
   ),
   menu: document
     .querySelectorAll('.js-menu__item')

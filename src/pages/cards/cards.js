@@ -48,7 +48,7 @@ const init = {
         roomPrice: '9990₽',
         discount: '2179₽',
         additionalServicesSum: '300₽',
-      }
+      },
     ),
   },
   datepicker: new Datepicker('.js-datepicker', {

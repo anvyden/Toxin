@@ -19,10 +19,10 @@
 @import '~/components/copyright-bar/copyright-bar';
 
 .sign-up {
-  background: url('./img/registration.jpg') no-repeat;
-  background-size: cover;
-  background-position: 50% -70px;
   padding: rem(19) rem(10) rem(19) rem(10);
+  background: url('./img/registration.jpg') no-repeat;
+  background-position: 50% -70px;
+  background-size: cover;
 
   @media screen and (max-width: 1439px) {
     background-position: center;

@@ -16,11 +16,11 @@ class Sidebar {
   _bindEventsListeners() {
     this.button.addEventListener(
       'pointerdown',
-      this._handleSidebarPointerDown.bind(this)
+      this._handleSidebarPointerDown.bind(this),
     );
     this.button.addEventListener(
       'keydown',
-      this._handleSidebarKeyDown.bind(this)
+      this._handleSidebarKeyDown.bind(this),
     );
   }
 
@@ -48,14 +48,14 @@ class Sidebar {
   _addDocumentListener() {
     document.addEventListener(
       'pointerdown',
-      this._handleDocumentPointerDown.bind(this)
+      this._handleDocumentPointerDown.bind(this),
     );
   }
 
   _removeDocumentListener() {
     document.removeEventListener(
       'pointerdown',
-      this._handleDocumentPointerDown.bind(this)
+      this._handleDocumentPointerDown.bind(this),
     );
   }
 

@@ -21,10 +21,10 @@
 @import '~/components/copyright-bar/copyright-bar';
 
 .landing {
-  background: url('./img/landing.jpg') no-repeat;
-  background-size: cover;
-  background-position: 50% -70px;
   padding: rem(70) rem(30) rem(21) rem(30);
+  background: url('./img/landing.jpg') no-repeat;
+  background-position: 50% -70px;
+  background-size: cover;
 
   @media screen and (max-width: 1439px) {
     background-position: center;
@@ -40,8 +40,8 @@
 
     @media screen and (max-width: 767px) {
       display: flex;
-      align-items: center;
       flex-direction: column;
+      align-items: center;
     }
   }
 

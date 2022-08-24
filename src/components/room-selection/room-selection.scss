@@ -13,8 +13,7 @@
 
   &__rooms {
     display: grid;
-    grid-row-gap: rem(21.5);
-    grid-column-gap: rem(12);
+    grid-gap: rem(21.5) rem(12);
     grid-template-columns: repeat(auto-fit, rem(270));
     justify-content: center;
     max-width: rem(835);
