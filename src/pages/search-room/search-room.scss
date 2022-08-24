@@ -1,4 +1,3 @@
-@import '~normalize.css';
 @import '~/scss/montserrat';
 @import '~/scss/material-icons';
 @import '@fortawesome/fontawesome-free/css/all.css';
@@ -25,90 +24,29 @@
 @import '~/components/copyright-bar/copyright-bar';
 @import '@libs/swiper/swiper';
 @import '~/components/sidebar/sidebar';
-@import '~/components/rooms/rooms';
+@import '~/components/room-selection/room-selection';
 
-.content {
+.search-room {
   display: flex;
   position: relative;
   padding: rem(30) rem(30) rem(72) rem(30);
-  border-bottom: 1px solid $darkShade25;
-}
+  border-bottom: $mainBorder;
 
-.content__container {
-  display: flex;
-  margin: 0 auto;
-  max-width: rem(1160);
-}
-
-.content__sidebar {
-  width: 100%;
-  max-width: rem(266);
-  margin-right: rem(60);
-}
-
-@media screen and (max-width: 1399px) {
-  .content__sidebar {
-    margin-right: rem(40);
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .content__sidebar {
-    position: absolute;
-    top: rem(80);
-    left: rem(-300);
-    margin-right: 0;
-    padding: rem(15);
-    max-width: rem(300);
-    background: #fff;
-    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-    z-index: 2;
-    transition: left 0.5s ease;
-  }
-
-  .content__sidebar--visible {
-    left: 0;
-  }
-}
-
-@media screen and (max-width: 479px) {
-  .content__sidebar {
+  &__container {
     display: flex;
-    justify-content: center;
-    top: 0;
-    left: -100%;
-    padding: rem(50);
-    max-width: none;
+    margin: 0 auto;
+    max-width: rem(1160);
   }
 
-  .content__sidebar--visible {
-    left: -20px;
-  }
-}
+  &__sidebar {
+    margin-right: rem(60);
 
-// @media screen and (max-width: 1023px) {
-//   .content__sidebar-button {
-//     content: '';
-//     position: absolute;
-//     top: 0;
-//     right: -20px;
-//     width: 20px;
-//     height: 100%;
-//     border-radius: 0 20px 20px 0;
-//     background: $secondaryGradient;
-//     cursor: pointer;
-//     transition: border-radius 1s ease;
-//   }
-// }
+    @media screen and (max-width: 1399px) {
+      margin-right: rem(40);
+    }
 
-// @media screen and (max-width: 479px) {
-//   .content__sidebar--visible > .content__sidebar-button {
-//     border-radius: 0;
-//   }
-// }
-
-@media screen and (max-width: 1023px) {
-  .rooms__heading {
-    text-align: center;
+    @media screen and (max-width: 1023px) {
+      margin-right: 0;
+    }
   }
 }

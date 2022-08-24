@@ -4,7 +4,7 @@ include ~/components/range-slider/range-slider
 include ~/components/checkbox-list/checkbox-list
 
 mixin sidebar({} = {})
-  aside.sidebar
+  aside.sidebar.js-sidebar
     .sidebar__filter
       .sidebar__date-dropdown
         +date-dropdown({
@@ -93,4 +93,4 @@ mixin sidebar({} = {})
             { title: 'Шампунь', name: 'shampoo2' },
           ]
         })
-    .sidebar__button
+    .sidebar__button.js-sidebar__button(tabindex='0')

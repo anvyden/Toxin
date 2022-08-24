@@ -1,7 +1,7 @@
 extends ~/layouts/main-layout/main-layout
 include ~/components/logo/logo
 include ~/components/sidebar/sidebar
-include ~/components/rooms/rooms
+include ~/components/room-selection/room-selection
 
 block variables
   -
@@ -15,201 +15,197 @@ block variables
       manifest: `static/favicon/active/site.webmanifest`,
       pinned: 'static/favicon/active/safari-pinned-tab.svg',
     }
-    const pageClass = 'search-room'
-    const pageContainerClass = 'search-room__container'
 
 block content
-  main.main
-    .content
-      .content__container
-        .content__sidebar.js-sidebar
-          +sidebar
-          //- .content__sidebar-button.js-sidebar-button
-        .content__rooms-wrapper
-          +room-selection({
-            title: 'Номера, которые мы для вас подобрали',
-            rooms: [
-              {
-                number: '888',
-                price: '9 990₽',
-                rating: 5,
-                luxe: true,
-                reviews: {
-                  count: '145',
-                  text: 'Отзывов',
-                },
-                imgs: [
-                  'room-888.jpg',
-                  'room-888.jpg',
-                  'room-888.jpg',
-                  'room-888.jpg',
-                ]
+  main.search-room
+    .search-room__container
+      .search-room__sidebar
+        +sidebar
+      .search-room__rooms
+        +room-selection({
+          title: 'Номера, которые мы для вас подобрали',
+          rooms: [
+            {
+              number: '888',
+              price: '9 990₽',
+              rating: 5,
+              luxe: true,
+              reviews: {
+                count: '145',
+                text: 'Отзывов',
               },
-              {
-                number: '840',
-                price: '9 900₽',
-                rating: 4,
-                reviews: {
-                  count: '65',
-                  text: 'Отзывов',
-                },
-                imgs: [
-                  'room-840.jpg',
-                  'room-840.jpg',
-                  'room-840.jpg',
-                  'room-840.jpg',
-                ]
+              imgs: [
+                'room-888.jpg',
+                'room-888.jpg',
+                'room-888.jpg',
+                'room-888.jpg',
+              ]
+            },
+            {
+              number: '840',
+              price: '9 900₽',
+              rating: 4,
+              reviews: {
+                count: '65',
+                text: 'Отзывов',
               },
-              {
-                number: '980',
-                price: '8 500₽',
-                rating: 3,
-                luxe: true,
-                reviews: {
-                  count: '35',
-                  text: 'Отзывов',
-                },
-                imgs: [
-                  'room-980.jpg',
-                  'room-980.jpg',
-                  'room-980.jpg',
-                  'room-980.jpg',
-                ]
+              imgs: [
+                'room-840.jpg',
+                'room-840.jpg',
+                'room-840.jpg',
+                'room-840.jpg',
+              ]
+            },
+            {
+              number: '980',
+              price: '8 500₽',
+              rating: 3,
+              luxe: true,
+              reviews: {
+                count: '35',
+                text: 'Отзывов',
               },
-              {
-                number: '856',
-                price: '7 300₽',
-                rating: 5,
-                reviews: {
-                  count: '19',
-                  text: 'Отзывов',
-                },
-                imgs: [
-                  'room-856.jpg',
-                  'room-856.jpg',
-                  'room-856.jpg',
-                  'room-856.jpg',
-                ]
+              imgs: [
+                'room-980.jpg',
+                'room-980.jpg',
+                'room-980.jpg',
+                'room-980.jpg',
+              ]
+            },
+            {
+              number: '856',
+              price: '7 300₽',
+              rating: 5,
+              reviews: {
+                count: '19',
+                text: 'Отзывов',
               },
-              {
-                number: '740',
-                price: '6 000₽',
-                rating: 4,
-                reviews: {
-                  count: '44',
-                  text: 'Отзывов',
-                },
-                imgs: [
-                  'room-740.jpg',
-                  'room-740.jpg',
-                  'room-740.jpg',
-                  'room-740.jpg',
-                ]
+              imgs: [
+                'room-856.jpg',
+                'room-856.jpg',
+                'room-856.jpg',
+                'room-856.jpg',
+              ]
+            },
+            {
+              number: '740',
+              price: '6 000₽',
+              rating: 4,
+              reviews: {
+                count: '44',
+                text: 'Отзывов',
               },
-              {
-                number: '982',
-                price: '5 800₽',
-                rating: 3,
-                reviews: {
-                  count: '56',
-                  text: 'Отзывов',
-                },
-                imgs: [
-                  'room-982.jpg',
-                  'room-982.jpg',
-                  'room-982.jpg',
-                  'room-982.jpg',
-                ]
+              imgs: [
+                'room-740.jpg',
+                'room-740.jpg',
+                'room-740.jpg',
+                'room-740.jpg',
+              ]
+            },
+            {
+              number: '982',
+              price: '5 800₽',
+              rating: 3,
+              reviews: {
+                count: '56',
+                text: 'Отзывов',
               },
-              {
-                number: '678',
-                price: '5 500₽',
-                rating: 5,
-                reviews: {
-                  count: '45',
-                  text: 'Отзывов',
-                },
-                imgs: [
-                  'room-678.jpg',
-                  'room-678.jpg',
-                  'room-678.jpg',
-                  'room-678.jpg',
-                ]
+              imgs: [
+                'room-982.jpg',
+                'room-982.jpg',
+                'room-982.jpg',
+                'room-982.jpg',
+              ]
+            },
+            {
+              number: '678',
+              price: '5 500₽',
+              rating: 5,
+              reviews: {
+                count: '45',
+                text: 'Отзывов',
               },
-              {
-                number: '450',
-                price: '5 300₽',
-                rating: 4,
-                reviews: {
-                  count: '39',
-                  text: 'Отзывов',
-                },
-                imgs: [
-                  'room-450.jpg',
-                  'room-450.jpg',
-                  'room-450.jpg',
-                  'room-450.jpg',
-                ]
+              imgs: [
+                'room-678.jpg',
+                'room-678.jpg',
+                'room-678.jpg',
+                'room-678.jpg',
+              ]
+            },
+            {
+              number: '450',
+              price: '5 300₽',
+              rating: 4,
+              reviews: {
+                count: '39',
+                text: 'Отзывов',
               },
-              {
-                number: '350',
-                price: '5 000₽',
-                rating: 3,
-                reviews: {
-                  count: '77',
-                  text: 'Отзывов',
-                },
-                imgs: [
-                  'room-350.jpg',
-                  'room-350.jpg',
-                  'room-350.jpg',
-                  'room-350.jpg',
-                ]
+              imgs: [
+                'room-450.jpg',
+                'room-450.jpg',
+                'room-450.jpg',
+                'room-450.jpg',
+              ]
+            },
+            {
+              number: '350',
+              price: '5 000₽',
+              rating: 3,
+              reviews: {
+                count: '77',
+                text: 'Отзывов',
               },
-              {
-                number: '666',
-                price: '5 000₽',
-                rating: 5,
-                reviews: {
-                  count: '25',
-                  text: 'Отзывов',
-                },
-                imgs: [
-                  'room-666.jpg',
-                  'room-666.jpg',
-                  'room-666.jpg',
-                  'room-666.jpg',
-                ]
+              imgs: [
+                'room-350.jpg',
+                'room-350.jpg',
+                'room-350.jpg',
+                'room-350.jpg',
+              ]
+            },
+            {
+              number: '666',
+              price: '5 000₽',
+              rating: 5,
+              reviews: {
+                count: '25',
+                text: 'Отзывов',
               },
-              {
-                number: '444',
-                price: '5 000₽',
-                rating: 3,
-                reviews: {
-                  count: '15',
-                  text: 'Отзывов',
-                },
-                imgs: [
-                  'room-444.jpg',
-                  'room-444.jpg',
-                  'room-444.jpg',
-                  'room-444.jpg',
-                ]
+              imgs: [
+                'room-666.jpg',
+                'room-666.jpg',
+                'room-666.jpg',
+                'room-666.jpg',
+              ]
+            },
+            {
+              number: '444',
+              price: '5 000₽',
+              rating: 3,
+              reviews: {
+                count: '15',
+                text: 'Отзывов',
               },
-              {
-                number: '352',
-                price: '5 000₽',
-                rating: 3,
-                reviews: {
-                  count: '55',
-                  text: 'Отзывов',
-                },
-                imgs: [
-                  'room-352.jpg',
-                  'room-352.jpg',
-                  'room-352.jpg',
-                  'room-352.jpg',
-                ]
+              imgs: [
+                'room-444.jpg',
+                'room-444.jpg',
+                'room-444.jpg',
+                'room-444.jpg',
+              ]
+            },
+            {
+              number: '352',
+              price: '5 000₽',
+              rating: 3,
+              reviews: {
+                count: '55',
+                text: 'Отзывов',
               },
-            ]
-          })
+              imgs: [
+                'room-352.jpg',
+                'room-352.jpg',
+                'room-352.jpg',
+                'room-352.jpg',
+              ]
+            },
+          ]
+        })

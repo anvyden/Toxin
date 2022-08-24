@@ -17,16 +17,20 @@ class Header {
   _bindEventsListeners() {
     this.button.addEventListener(
       'pointerdown',
-      this._handleButtonPointerDown.bind(this),
+      this._handleButtonPointerDown.bind(this)
     );
     this.button.addEventListener(
       'keydown',
-      this._handleButtonKeyDown.bind(this),
+      this._handleButtonKeyDown.bind(this)
     );
   }
 
   _handleButtonPointerDown() {
     this._toggle();
+
+    this.menu.classList.contains('header__burger-menu-wrapper--visible')
+      ? this._addDocumentListener()
+      : this._removeDocumentListener();
   }
 
   _handleButtonKeyDown(event) {
@@ -35,7 +39,38 @@ class Header {
     if (code === 'Space') {
       event.preventDefault();
       this._toggle();
+
+      this.menu.classList.contains('header__burger-menu-wrapper--visible')
+        ? this._addDocumentListener()
+        : this._removeDocumentListener();
     }
+  }
+
+  _addDocumentListener() {
+    document.addEventListener(
+      'pointerdown',
+      this._handleDocumentPointerDown.bind(this)
+    );
+  }
+
+  _removeDocumentListener() {
+    document.removeEventListener(
+      'pointerdown',
+      this._handleDocumentPointerDown.bind(this)
+    );
+  }
+
+  _handleDocumentPointerDown(event) {
+    const { target } = event;
+
+    if (!target.closest('.js-header__burger-menu-container')) {
+      this._close();
+    }
+  }
+
+  _close() {
+    this.button.classList.remove('header__burger-button--active');
+    this.menu.classList.remove('header__burger-menu-wrapper--visible');
   }
 
   _toggle() {

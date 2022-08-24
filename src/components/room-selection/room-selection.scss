@@ -1,0 +1,36 @@
+.room-selection {
+  @media screen and (max-width: 479px) {
+    max-width: rem(380);
+  }
+
+  &__heading {
+    margin-bottom: rem(22);
+
+    @media screen and (max-width: 479px) {
+      text-align: center;
+    }
+  }
+
+  &__rooms {
+    display: grid;
+    grid-row-gap: rem(21.5);
+    grid-column-gap: rem(12);
+    grid-template-columns: repeat(auto-fit, rem(270));
+    justify-content: center;
+    max-width: rem(835);
+
+    @media screen and (max-width: 767px) {
+      max-width: rem(580);
+    }
+
+    @media screen and (max-width: 479px) {
+      grid-template-columns: auto;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: rem(41.5);
+  }
+}
