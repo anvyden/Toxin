@@ -10,6 +10,7 @@
 @import '~/components/text-field/text-field';
 @import '~/components/button/button';
 @import '~/components/dropdown/dropdown';
+@import '~/components/date-dropdown/date-dropdown';
 @import '~/components/features/features';
 @import '~/components/bullet-list/bullet-list';
 @import '~/components/like-button/like-button';
@@ -18,9 +19,11 @@
 @import '~/components/booking-card/booking-card';
 @import '~/components/header/header';
 @import '~/components/menu/menu';
+@import '~/components/sub-menu/sub-menu';
 @import '~/components/footer/footer';
+@import '~/components/footer-mobile/footer-mobile';
 @import '~/components/copyright-bar/copyright-bar';
-@import '@~/components/votes-pie-chart/votes-pie-chart';
+@import '~/components/votes-pie-chart/votes-pie-chart';
 
 .content__container {
   border-bottom: 1px solid $darkShade25;
