@@ -1,7 +1,6 @@
-.comment {
-  width: 100%;
-
+.comments {
   &__comment {
+    width: 100%;
     margin-bottom: rem(22.5);
 
     @media screen and (max-width: 568px) {
@@ -11,59 +10,59 @@
     &:last-child {
       margin-bottom: 0;
     }
-  }
 
-  &__header {
-    display: flex;
+    &-header {
+      display: flex;
 
-    @media screen and (max-width: 568px) {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      @media screen and (max-width: 568px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
     }
-  }
 
-  &__avatar-wrapper {
-    margin-right: rem(10);
+    &-avatar {
+      width: rem(48);
+      height: rem(48);
+      object-fit: cover;
+      border: $avatarBorder;
+      border-radius: 50%;
+      filter: drop-shadow($avatarBoxShadow);
 
-    @media screen and (max-width: 568px) {
-      margin-right: 0;
+      &-wrapper {
+        margin-right: rem(10);
+
+        @media screen and (max-width: 568px) {
+          margin-right: 0;
+        }
+      }
     }
-  }
 
-  &__avatar {
-    width: rem(48);
-    height: rem(48);
-    object-fit: cover;
-    border: $avatarBorder;
-    border-radius: 50%;
-    filter: drop-shadow($avatarBoxShadow);
-  }
-
-  &__name {
-    font-weight: bold;
-  }
-
-  &__body {
-    display: flex;
-    margin-top: rem(3);
-    margin-left: rem(4);
-
-    @media screen and (max-width: 568px) {
-      flex-direction: column;
-      margin-top: 0;
-      margin-left: 0;
+    &-name {
+      font-weight: bold;
     }
-  }
 
-  &__like-wrapper {
-    margin-top: rem(2);
-    margin-right: rem(15);
+    &-body {
+      display: flex;
+      margin-top: rem(3);
+      margin-left: rem(4);
 
-    @media screen and (max-width: 568px) {
-      order: 1;
-      margin-top: rem(6);
-      margin-right: 0;
+      @media screen and (max-width: 568px) {
+        flex-direction: column;
+        margin-top: 0;
+        margin-left: 0;
+      }
+    }
+
+    &-like-wrapper {
+      margin-top: rem(2);
+      margin-right: rem(15);
+
+      @media screen and (max-width: 568px) {
+        order: 1;
+        margin-top: rem(6);
+        margin-right: 0;
+      }
     }
   }
 }

@@ -13,15 +13,19 @@ mixin comments( commentsList=[] )
           likeIsActive
         } = comment
 
-      .comment.comments__comment
-        .comment__header
-          .comment__avatar-wrapper
-            img(class='comment__avatar' src=require(`@pages/room-details/img/avatars/${imgName}`) alt='avatar')
-          .comment__info
-            p.comment__name=name
-            p.pcomment__date-of-comment=dateOfComment
-        .comment__body
-          .comment__like-wrapper
+      .comments__comment
+        .comments__comment-header
+          .comments__comment-avatar-wrapper
+            img&attributes({
+              class: 'comments__comment-avatar',
+              src: require(`@pages/room-details/img/avatars/${imgName}`),
+              alt:'avatar',
+            })
+          .comments__comment-info
+            p.comments__comment-name=name
+            p.comments__comment-date-of-comment=dateOfComment
+        .comments__comment-body
+          .comments__comment-like-wrapper
             +likeButton({ count: likeCount, isActive: likeIsActive })
-          .comment__text-wrapper
-            span.comment__text=text
+          .comments__comments-text-wrapper
+            span.comments__comments-text=text
