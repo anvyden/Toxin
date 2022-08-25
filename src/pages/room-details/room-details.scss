@@ -25,73 +25,61 @@
 @import '~/components/copyright-bar/copyright-bar';
 @import '~/components/votes-pie-chart/votes-pie-chart';
 
-.content__container {
-  border-bottom: 1px solid $darkShade25;
-}
+.room-details {
+  border-bottom: $mainBorder;
 
-.room-details__room-imgs {
-  display: flex;
-  max-height: rem(485);
-}
+  &__room {
+    &-imgs {
+      display: flex;
+      max-height: rem(485);
 
-@media screen and (max-width: 568px) {
-  .room-details__room-imgs {
-    flex-direction: column;
-    max-height: none;
-  }
-}
+      @media screen and (max-width: 568px) {
+        flex-direction: column;
+        max-height: none;
+      }
+    }
 
-.room-details__room-img-primary {
-  width: 68.125%;
-}
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
 
-@media screen and (max-width: 568px) {
-  .room-details__room-img-primary {
-    width: 100%;
-  }
-}
+      &-main {
+        flex-basis: 68.125%;
+      }
 
-.room-details__room-img-secondary {
-  width: 31.785%;
-}
+      &-aside {
+        flex-basis: 31.785%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
 
-@media screen and (max-width: 568px) {
-  .room-details__room-img-secondary {
-    width: 100%;
-  }
-}
+        @media screen and (max-width: 568px) {
+          flex-basis: auto;
+          flex-direction: row;
+          max-height: none;
+        }
 
-.content__room-img {
-  object-fit: cover;
-  vertical-align: middle;
-}
+        &-top {
+          height: 50%;
 
-.content__room-img-1 {
-  width: 100%;
-  height: 100%;
-}
+          @media screen and (max-width: 568px) {
+            height: auto;
+            width: 50%;
+          }
+        }
 
-.content__room-img-2 {
-  width: 100%;
-  height: 50%;
-}
+        &-bottom {
+          height: 50%;
 
-@media screen and (max-width: 568px) {
-  .content__room-img-2 {
-    width: 50%;
-    height: 100%;
-  }
-}
-
-.content__room-img-3 {
-  width: 100%;
-  height: 50%;
-}
-
-@media screen and (max-width: 568px) {
-  .content__room-img-3 {
-    width: 50%;
-    height: 100%;
+          @media screen and (max-width: 568px) {
+            height: auto;
+            width: 50%;
+          }
+        }
+      }
+    }
   }
 }
 
