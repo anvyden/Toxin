@@ -1,11 +1,11 @@
-import roomDetails from '@pages/room-details/room-details.scss'
-import Dropdown from '~/components/dropdown/dropdown'
-import LikeButton from '~/components/like-button/like-button'
-import Datepicker from '~/components/datepicker/datepicker'
-import BookingCard from '~/components/booking-card/booking-card'
-import Menu from '~/components/menu/menu'
-import Header from '~/components/header/header'
-import VotesPieChart from '~/components/votes-pie-chart/votes-pie-chart'
+import roomDetails from '@pages/room-details/room-details.scss';
+import Dropdown from '~/components/dropdown/dropdown';
+import LikeButton from '~/components/like-button/like-button';
+import Datepicker from '~/components/datepicker/datepicker';
+import BookingCard from '~/components/booking-card/booking-card';
+import Menu from '~/components/menu/menu';
+import Header from '~/components/header/header';
+import VotesPieChart from '~/components/votes-pie-chart/votes-pie-chart';
 
 const roomDetailsParams = {
   roomInfo: {
@@ -21,28 +21,43 @@ const roomDetailsParams = {
     disappointed: 0,
     total: 990,
   },
-}
+};
 
-const init = (function () {
-  return {
-    menu: new Menu(),
-    header: new Header(),
-    datepicker: new Datepicker(
+const init = {
+  header: new Header(
+    document.querySelector('.js-header__burger-menu-container')
+  ),
+  menu: document
+    .querySelectorAll('.js-menu__item')
+    .forEach((item) => new Menu(item)),
+  bookindCard: {
+    dateDropdown: new Datepicker(
+      '.js-booking-card-date-dropdown',
       {
-        datepickerSelectors: {
-          input: document.querySelector('.js-booking-card-input-1'),
-          inputSecond: document.querySelector('.js-booking-card-input-2'),
-          datepickerDropdowns: document.querySelectorAll('.js-booking-card-dropdown .js-dropdown__dropdown-default'),
-        },
+        hasTwoInputs: true,
+        initialDates: ['2019-08-19', '2019-08-23'],
       },
-      roomDetailsParams.roomInfo,
+      {
+        selector: '.js-room-details-booking-card',
+        roomNumber: '888',
+        roomPrice: '9990₽',
+        discount: '2179₽',
+        additionalServicesSum: '300₽',
+      }
     ),
-    dropdownGuests: new Dropdown('.js-booking-card-guests', {
-      dropdownButtons: true,
-      combineTwoFirstItems: true,
+    guestsDropdown: new Dropdown('.js-booking-card-guests', {
+      type: 'guests',
+      maxLengthItems: {
+        item0: 5,
+        item1: 10,
+        item2: 10,
+      },
+      plurals: {
+        guests: ['гость', 'гостя', 'гостей'],
+        babies: ['младенец', 'младенца', 'младенцев'],
+      },
     }),
-    bookingCard: new BookingCard(roomDetailsParams.roomInfo),
-    likeButtons: new LikeButton('js-like-button'),
-    chart: new VotesPieChart(roomDetailsParams.chartParams),
-  }
-}())
+  },
+  likeButtons: new LikeButton('js-like-button'),
+  chart: new VotesPieChart(roomDetailsParams.chartParams),
+};
