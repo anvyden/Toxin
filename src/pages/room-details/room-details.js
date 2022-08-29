@@ -4,11 +4,11 @@ import LikeButton from '~/components/like-button/like-button';
 import Datepicker from '~/components/datepicker/datepicker';
 import Menu from '~/components/menu/menu';
 import Header from '~/components/header/header';
-import PieChart from '~/components/votes-pie-chart/votes-pie-chart';
+import PieChart from '~/components/pie-chart/pie-chart';
 
 const init = {
   header: new Header(
-    document.querySelector('.js-header__burger-menu-container')
+    document.querySelector('.js-header__burger-menu-container'),
   ),
   menu: document
     .querySelectorAll('.js-menu__item')
@@ -26,7 +26,7 @@ const init = {
         roomPrice: '9990₽',
         discount: '2179₽',
         additionalServicesSum: '300₽',
-      }
+      },
     ),
     guestsDropdown: new Dropdown('.js-booking-card-guests', {
       type: 'guests',

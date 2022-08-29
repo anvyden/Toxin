@@ -6,7 +6,7 @@
   }
 
   &__body {
-    @keyframes chartRotation {
+    @keyframes chart-rotation {
       0% {
         transform: rotate(0deg);
       }
@@ -19,15 +19,15 @@
     display: block;
     width: 120px;
     height: 120px;
+    animation: chart-rotation 60s linear infinite;
     clip-path: circle(50%);
-    animation: chartRotation 60s linear infinite;
   }
 
   &__line {
-    fill: none;
     outline: none;
     cursor: pointer;
     transition: 0.5s stroke-width ease;
+    fill: none;
 
     &--focused {
       stroke-width: 24px;
@@ -38,8 +38,8 @@
     position: absolute;
     top: 48%;
     left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
+    transform: translate(-50%, -50%);
 
     &--sumptuously {
       color: $yellow;
@@ -58,16 +58,16 @@
     }
 
     &-count {
+      margin-bottom: 0;
+      font-weight: bold;
       font-size: rem(24);
       line-height: rem(29.26);
-      font-weight: bold;
-      margin-bottom: 0;
     }
 
     &-text {
+      font-weight: bold;
       font-size: rem(12);
       line-height: rem(14.63);
-      font-weight: bold;
       text-transform: uppercase;
     }
   }
@@ -81,14 +81,23 @@
       cursor: pointer;
 
       &::before {
-        content: '';
         position: absolute;
         top: 50%;
         left: -15px;
-        transform: translate(0, -50%);
         width: 10px;
         height: 10px;
         border-radius: 50%;
+        transform: translate(0, -50%);
+        content: '';
+      }
+
+      &:focus-visible {
+        color: $darkShade100;
+        outline: none;
+      }
+
+      &:hover {
+        color: $darkShade100;
       }
 
       &--sumptuously {

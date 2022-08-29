@@ -22,7 +22,7 @@
 @import '~/components/footer/footer';
 @import '~/components/footer-mobile/footer-mobile';
 @import '~/components/copyright-bar/copyright-bar';
-@import '~/components/votes-pie-chart/votes-pie-chart';
+@import '~/components/pie-chart/pie-chart';
 
 .room-details {
   border-bottom: $mainBorder;
@@ -48,8 +48,8 @@
       }
 
       &-aside {
-        flex-basis: 31.785%;
         display: flex;
+        flex-basis: 31.785%;
         flex-direction: column;
         justify-content: center;
         width: 100%;
@@ -64,8 +64,8 @@
           height: 50%;
 
           @media screen and (max-width: 568px) {
-            height: auto;
             width: 50%;
+            height: auto;
           }
         }
 
@@ -73,8 +73,8 @@
           height: 50%;
 
           @media screen and (max-width: 568px) {
-            height: auto;
             width: 50%;
+            height: auto;
           }
         }
       }
@@ -116,8 +116,8 @@
 
     @media screen and (max-width: 568px) {
       grid-gap: rem(40);
-      justify-items: center;
       grid-template-columns: 1fr;
+      justify-items: center;
     }
   }
 
@@ -157,8 +157,8 @@
 
       &-heading {
         flex-direction: column;
-        align-items: center;
         gap: rem(6);
+        align-items: center;
         margin-bottom: rem(10);
       }
     }

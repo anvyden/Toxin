@@ -14,12 +14,12 @@
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "lintone": "eslint \"src/components/room-selection/room-selection.js\"",
-    "lintone:fix": "eslint \"src/components/room-selection/room-selection.js\" --fix",
+    "lintone": "eslint \"src/pages/room-details/room-details.js\"",
+    "lintone:fix": "eslint \"src/pages/room-details/room-details.js\" --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
-    "stylelintone": "stylelint \"src/components/room-selection/room-selection.scss\"",
-    "stylelintone:fix": "stylelint \"src/components/room-selection/room-selection.scss\" --fix"
+    "stylelintone": "stylelint \"src/pages/room-details/room-details.scss\"",
+    "stylelintone:fix": "stylelint \"src/pages/room-details/room-details.scss\" --fix"
   },
   "browserslist": [
     "> 0.25%",

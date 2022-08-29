@@ -45,20 +45,20 @@ class PieChart {
         PieChart.getLinearGradientTemplate(
           item.id,
           item.firstStopColor,
-          item.secondStopColor
-        )
+          item.secondStopColor,
+        ),
       );
       this.chartBody.insertAdjacentHTML(
         'beforeend',
         PieChart.getLineTemplate(
           item.id,
           strokeDasharray,
-          strokeDashoffset
-        )
+          strokeDashoffset,
+        ),
       );
       this.legendList.insertAdjacentHTML(
         'afterend',
-        PieChart.getLegendItemTemplate(item.id, item.text)
+        PieChart.getLegendItemTemplate(item.id, item.text),
       );
     });
 
@@ -75,7 +75,7 @@ class PieChart {
   _addEventsListeners() {
     this.root.addEventListener(
       'pointerover',
-      this._handleChartFocus.bind(this)
+      this._handleChartFocus.bind(this),
     );
     this.root.addEventListener('pointerout', this._handleChartBlur.bind(this));
     this.root.addEventListener('focusin', this._handleChartFocus.bind(this));
@@ -89,7 +89,7 @@ class PieChart {
       this.items.forEach((item) => {
         if (item.id === id) {
           this.votesBody.innerHTML = PieChart.getVotesTemplate(
-            item.votesAmount
+            item.votesAmount,
           );
           this.votesBody.classList.add(`pie-chart__votes--${id}`);
 
@@ -122,7 +122,7 @@ class PieChart {
   static getLinearGradientTemplate(
     id = '',
     firstStopColor = '',
-    secondStopColor = ''
+    secondStopColor = '',
   ) {
     return `
       <linearGradient id="${id}" x1='1' y1='0' x2='0' y2='0'>
@@ -142,10 +142,10 @@ class PieChart {
     return `
       <h1 class='pie-chart__votes-count'>${votes}</h1>
       <h3 class='pie-chart__votes-text'>${declination(votes, [
-        'голос',
-        'голоса',
-        'голосов',
-      ])}</h3>
+    'голос',
+    'голоса',
+    'голосов',
+  ])}</h3>
     `;
   }
 

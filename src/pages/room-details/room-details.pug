@@ -5,7 +5,7 @@ include ~/components/features/features
 include ~/components/bullet-list/bullet-list
 include ~/components/comments/comments
 include ~/components/booking-card/booking-card
-include ~/components/votes-pie-chart/votes-pie-chart
+include ~/components/pie-chart/pie-chart
 
 block variables
   -
@@ -58,7 +58,7 @@ block content
             .room-details__impressions-title
               +text({ text: 'Впечатления от номера', type: 'h2', color: 'dark-shade-100', bold: true })
             .room-details__impressions-chart
-              +votesPieChart({ classForJs: 'js-pie-chart' })
+              +pie-chart({ classForJs: 'js-pie-chart' })
           section.room-details__comments
             .room-details__comments-heading
               +text({ text: 'Отзывы посетителей номера', type: 'h2', color: 'dark-shade-100', bold: true })
