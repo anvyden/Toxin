@@ -58,13 +58,7 @@ block content
             .room-details__impressions-title
               +text({ text: 'Впечатления от номера', type: 'h2', color: 'dark-shade-100', bold: true })
             .room-details__impressions-chart
-              +votesPieChart({
-                legendItems: [
-                  { text: 'Великолепно', itemModifier: 'perfectly', classForJs: 'js-chart-legend-perfectly' },
-                  { text: 'Хорошо', itemModifier: 'well', classForJs: 'js-chart-legend-well' },
-                  { text: 'Удовлетворительно', itemModifier: 'satisfactory', classForJs: 'js-chart-legend-satisfactory' },
-                  { text: 'Разочарован', itemModifier: 'disappointed', classForJs: 'js-chart-legend-disappointed' },
-              ]})
+              +votesPieChart({ classForJs: 'js-pie-chart' })
           section.room-details__comments
             .room-details__comments-heading
               +text({ text: 'Отзывы посетителей номера', type: 'h2', color: 'dark-shade-100', bold: true })

@@ -1,135 +1,119 @@
-.votes-chart {
+.pie-chart {
   display: flex;
-}
 
-.votes-chart__chart-wrapper {
-  position: relative;
-}
-
-@keyframes chartRotation {
-  0% {
-    transform: rotate(0deg);
+  &__chart {
+    position: relative;
   }
 
-  100% {
-    transform: rotate(1turn);
+  &__body {
+    @keyframes chartRotation {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(1turn);
+      }
+    }
+
+    display: block;
+    width: 120px;
+    height: 120px;
+    clip-path: circle(50%);
+    animation: chartRotation 60s linear infinite;
   }
-}
 
-.votes-chart__chart {
-  display: block;
-  width: 120px;
-  height: 120px;
-  clip-path: circle(50%);
-  animation: chartRotation 60s linear infinite;
-}
+  &__line {
+    fill: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s stroke-width ease;
 
-.votes-chart__chart-item {
-  fill: none;
-  outline: none;
-  cursor: pointer;
-  transition: 0.5s stroke-width ease;
-}
+    &--focused {
+      stroke-width: 24px;
+    }
+  }
 
-.votes-chart__chart-item--active {
-  stroke-width: 24px;
-}
+  &__votes {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 
-.primary-gradient--start {
-  stop-color: #BC9CFF;
-}
+    &--sumptuously {
+      color: $yellow;
+    }
 
-.primary-gradient--end {
-  stop-color:#8BA4F9;
-}
+    &--good {
+      color: $green;
+    }
 
-.secondary-gradient--start {
-  stop-color: #66D2EA;
-}
+    &--satisfactorily {
+      color: $purple;
+    }
 
-.secondary-gradient--end {
-  stop-color: #6FCF97;
-}
+    &--disappointed {
+      color: $black;
+    }
 
-.yellow-gradient--start {
-  stop-color: #FFE39C;
-}
+    &-count {
+      font-size: rem(24);
+      line-height: rem(29.26);
+      font-weight: bold;
+      margin-bottom: 0;
+    }
 
-.yellow-gradient--end {
-  stop-color: #FFBA9C;
-}
+    &-text {
+      font-size: rem(12);
+      line-height: rem(14.63);
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
 
-.votes-chart__chart-votes-wrapper {
-  position: absolute;
-  top: 48%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+  &__legend {
+    margin-top: rem(26.5);
+    margin-left: rem(45);
 
-.votes-chart__chart-votes-wrapper--perfectly {
-  color: $yellow;
-}
+    &-item {
+      position: relative;
+      cursor: pointer;
 
-.votes-chart__chart-votes-wrapper--well {
-  color: $green;
-}
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -15px;
+        transform: translate(0, -50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
 
-.votes-chart__chart-votes-wrapper--satisfactory {
-  color: $purple;
-}
+      &--sumptuously {
+        &::before {
+          background: $yellowGradient;
+        }
+      }
 
-.votes-chart__chart-votes-wrapper--disappointed {
-  color: $black;
-}
+      &--good {
+        &::before {
+          background: $secondaryGradient;
+        }
+      }
 
-.votes-chart__chart-votes-count {
-  font-size: rem(24);
-  line-height: rem(29.26);
-  font-weight: bold;
-  margin-bottom: 0;
-}
+      &--satisfactorily {
+        &::before {
+          background: $primaryGradient;
+        }
+      }
 
-.votes-chart__chart-votes-text {
-  font-size: rem(12);
-  line-height: rem(14.63);
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.votes-chart__legend {
-  margin-top: rem(26.5);
-  margin-left: rem(45);
-}
-
-.votes-chart__legend-item {
-  position: relative;
-  cursor: pointer;
-}
-
-.votes-chart__legend-item::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -15px;
-  transform: translate(0, -50%);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.votes-chart__legend-item--perfectly::before {
-  background: $yellowGradient;
-}
-
-.votes-chart__legend-item--well::before {
-  background: $secondaryGradient;
-}
-
-.votes-chart__legend-item--satisfactory::before {
-  background: $primaryGradient;
-}
-
-.votes-chart__legend-item--disappointed::before {
-  background: $blackGradient;
+      &--disappointed {
+        &::before {
+          background: $blackGradient;
+        }
+      }
+    }
+  }
 }

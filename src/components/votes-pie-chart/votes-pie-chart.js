@@ -1,270 +1,161 @@
-import declination from '~/components/dropdown/utils/declination'
+import declination from '~/components/dropdown/utils/declination';
 
-class VotesPieChart {
-  constructor(params) {
-    this.params = params
-    this._render(params)
+class PieChart {
+  constructor(root, items) {
+    this.root = root;
+    this.items = items;
+    this._init();
   }
 
-  calculateChartLines(params) {
-    const {
-      perfectly,
-      well,
-      satisfactory,
-      disappointed,
-      total,
-    } = params
+  _init() {
+    this.root.insertAdjacentHTML('afterbegin', PieChart.getMainTemplate());
+    this.totalVotes = this._getTotalVotes();
 
-    const disappointedLenght = (disappointed / total) * 364
-    const satisfactoryLenght = (satisfactory / total) * 364
-    const wellLenght = (well / total) * 364
-    const perfectlyLenght = (perfectly / total) * 364
-
-    const disappointedStrokeDasharray = `${disappointedLenght}, 364`
-    const satisfactoryStrokeDasharray = `${satisfactoryLenght}, 364`
-    const wellStrokeDasharray = `${wellLenght}, 364`
-    const perfectlyStrokeDasharray = `${perfectlyLenght}, 364`
-
-    const disappointedStrokeDashoffset = disappointedLenght ? -2 : 0
-    const satisfactoryStrokeDashoffset = -((-disappointedStrokeDashoffset) + disappointedLenght + 2)
-    const wellStrokeDashoffset = -((-satisfactoryStrokeDashoffset) + satisfactoryLenght + 2)
-    const perfectlyStrokeDashoffset = -((-wellStrokeDashoffset) + wellLenght + 2)
-
-    this.chartParams = {
-      disappointedStrokeDasharray,
-      satisfactoryStrokeDasharray,
-      wellStrokeDasharray,
-      perfectlyStrokeDasharray,
-      disappointedStrokeDashoffset,
-      satisfactoryStrokeDashoffset,
-      wellStrokeDashoffset,
-      perfectlyStrokeDashoffset,
-    }
-
-    return this.chartParams
+    this._addChartElements();
+    this._addEventsListeners();
   }
 
-  handleLineClick() {
-    this.lines = Object.values(this._getLines())
-    this.clickHandlerLine = this.clickHandlerLine.bind(this)
-    this.lines.forEach((line) => {
-      line.addEventListener('click', this.clickHandlerLine)
-    })
+  _getTotalVotes() {
+    return this.items.reduce((votes, item) => item.votesAmount + votes, 0);
   }
 
-  clickHandlerLine(event) {
-    const { target } = event
-    const { votesCount, votesText, votesWrapper } = this._getVotes()
-    const {
-      legendItemPerfectly,
-      legendItemWell,
-      legendItemSatisfactory,
-      legendItemDisappointed,
-    } = this._getLegendItems()
+  _addChartElements() {
+    this.chartBody = this.root.querySelector('.js-pie-chart__body');
+    this.legendBody = this.root.querySelector('.js-pie-chart__legend');
+    this.votesBody = this.root.querySelector('.js-pie-chart__votes');
 
-    const {
-      perfectly,
-      well,
-      satisfactory,
-      disappointed,
-      total,
-    } = this.params
+    this.legendBody.appendChild(this._createLegendList());
 
-    target.classList.toggle('votes-chart__chart-item--active')
+    let strokeDasharray = 0;
+    let strokeDashoffset = 0;
 
-    if (this.currentLine === undefined) {
-      this.currentLine = target
-    } else if (this.currentLine !== target) {
-      this.currentLine.classList.remove('votes-chart__chart-item--active')
-      votesWrapper.classList = 'votes-chart__chart-votes-wrapper js-chart-votes-wrapper'
-      this.currentLine = target
-    }
+    this.items.forEach((item, index) => {
+      if (index === 0) {
+        item.votesAmount === 0
+          ? (strokeDashoffset = 0)
+          : (strokeDashoffset = -2);
+      } else {
+        strokeDashoffset = -(-strokeDashoffset + strokeDasharray + 2);
+      }
 
-    switch (true) {
-      case target.classList.contains('js-chart-item-votes-perfectly'):
-        this.pasteVotes(perfectly, votesText, votesCount)
-        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--perfectly')
-        this.currentLegend = legendItemPerfectly
-        break
-      case target.classList.contains('js-chart-item-votes-well'):
-        this.pasteVotes(well, votesText, votesCount)
-        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--well')
-        this.currentLegend = legendItemWell
-        break
-      case target.classList.contains('js-chart-item-votes-satisfactory'):
-        this.pasteVotes(satisfactory, votesText, votesCount)
-        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--satisfactory')
-        this.currentLegend = legendItemSatisfactory
-        break
-      case target.classList.contains('js-chart-item-votes-disappointed'):
-        this.pasteVotes(disappointed, votesText, votesCount)
-        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--disappointed')
-        this.currentLegend = legendItemDisappointed
-        break
-      default:
-        this.pasteVotes(total, votesText, votesCount)
-    }
+      strokeDasharray = (item.votesAmount / this.totalVotes) * 360;
 
-    if (!this.lines.find((line) => line.classList.contains('votes-chart__chart-item--active'))) {
-      this.pasteVotes(total, votesText, votesCount)
+      this.chartBody.insertAdjacentHTML(
+        'afterbegin',
+        PieChart.getLinearGradientTemplate(
+          item.id,
+          item.firstStopColor,
+          item.secondStopColor
+        )
+      );
+      this.chartBody.insertAdjacentHTML(
+        'beforeend',
+        PieChart.getLineTemplate(
+          item.id,
+          strokeDasharray,
+          strokeDashoffset
+        )
+      );
+      this.legendList.insertAdjacentHTML(
+        'afterend',
+        PieChart.getLegendItemTemplate(item.id, item.text)
+      );
+    });
+
+    this.votesBody.innerHTML = PieChart.getVotesTemplate(this.totalVotes);
+  }
+
+  _createLegendList() {
+    this.legendList = document.createElement('ul');
+    this.legendList.classList.add('pie-chart__legend-list');
+
+    return this.legendList;
+  }
+
+  _addEventsListeners() {
+    this.root.addEventListener(
+      'pointerover',
+      this._handleChartFocus.bind(this)
+    );
+    this.root.addEventListener('pointerout', this._handleChartBlur.bind(this));
+    this.root.addEventListener('focusin', this._handleChartFocus.bind(this));
+    this.root.addEventListener('focusout', this._handleChartBlur.bind(this));
+  }
+
+  _handleChartFocus({ target }) {
+    const { id } = target.dataset;
+
+    if (id) {
+      this.items.forEach((item) => {
+        if (item.id === id) {
+          this.votesBody.innerHTML = PieChart.getVotesTemplate(
+            item.votesAmount
+          );
+          this.votesBody.classList.add(`pie-chart__votes--${id}`);
+
+          const currentLine = this.chartBody.querySelector(`[data-id=${id}]`);
+          currentLine.classList.add('pie-chart__line--focused');
+        }
+      });
     }
   }
 
-  handleLegendItemClick() {
-    this.legendItems = Object.values(this._getLegendItems())
-    this.clickHandlerLegendItem = this.clickHandlerLegendItem.bind(this)
-    this.legendItems.forEach((item) => {
-      item.addEventListener('click', this.clickHandlerLegendItem)
-    })
+  _handleChartBlur({ target }) {
+    const { id } = target.dataset;
+    this.votesBody.innerHTML = PieChart.getVotesTemplate(this.totalVotes);
+    this.votesBody.classList.remove(`pie-chart__votes--${id}`);
+
+    const currentLine = this.chartBody.querySelector(`[data-id=${id}]`);
+    if (currentLine) currentLine.classList.remove('pie-chart__line--focused');
   }
 
-  clickHandlerLegendItem(event) {
-    const { target } = event
-    const {
-      chartVotesPerfectly,
-      chartVotesWell,
-      chartVotesSatisfactory,
-      chartVotesDisappointed,
-    } = this._getLines()
-
-    const { votesCount, votesText, votesWrapper } = this._getVotes()
-    const {
-      perfectly,
-      well,
-      satisfactory,
-      disappointed,
-      total,
-    } = this.params
-
-    if (this.currentLegend === undefined) {
-      this.currentLegend = target
-    } else if (this.currentLegend !== target) {
-      this.currentLine.classList.remove('votes-chart__chart-item--active')
-      votesWrapper.classList = 'votes-chart__chart-votes-wrapper js-chart-votes-wrapper'
-      this.currentLegend = target
-    }
-
-    switch (true) {
-      case target.classList.contains('js-chart-legend-perfectly'):
-        this.pasteVotes(perfectly, votesText, votesCount)
-        chartVotesPerfectly.classList.toggle('votes-chart__chart-item--active')
-        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--perfectly')
-        this.currentLine = chartVotesPerfectly
-        break
-      case target.classList.contains('js-chart-legend-well'):
-        this.pasteVotes(well, votesText, votesCount)
-        chartVotesWell.classList.toggle('votes-chart__chart-item--active')
-        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--well')
-        this.currentLine = chartVotesWell
-        break
-      case target.classList.contains('js-chart-legend-satisfactory'):
-        this.pasteVotes(satisfactory, votesText, votesCount)
-        chartVotesSatisfactory.classList.toggle('votes-chart__chart-item--active')
-        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--satisfactory')
-        this.currentLine = chartVotesSatisfactory
-        break
-      case target.classList.contains('js-chart-legend-disappointed'):
-        this.pasteVotes(disappointed, votesText, votesCount)
-        chartVotesDisappointed.classList.toggle('votes-chart__chart-item--active')
-        votesWrapper.classList.toggle('votes-chart__chart-votes-wrapper--disappointed')
-        this.currentLine = chartVotesDisappointed
-        break
-      default:
-        this.pasteVotes(total, votesText, votesCount)
-    }
-
-    if (!this.lines.find((line) => line.classList.contains('votes-chart__chart-item--active'))) {
-      this.pasteVotes(total, votesText, votesCount)
-    }
+  static getMainTemplate() {
+    return `
+      <div class='pie-chart__chart'>
+        <svg class='pie-chart__body js-pie-chart__body' viewBox='0 0 120 120'></svg>
+        <div class='pie-chart__votes js-pie-chart__votes'></div>
+      </div>
+      <div class='pie-chart__legend js-pie-chart__legend'></div>
+    `;
   }
 
-  pasteVotes(votes, votesText, votesCount) {
-    this.votesTextElements = {
-      count: votesCount,
-      text: votesText,
-    }
-
-    const names = ['голос', 'голоса', 'голосов']
-    const votesTextDeclination = declination(votes, names)
-
-    this.votesTextElements.count.innerHTML = votes
-    this.votesTextElements.text.innerHTML = votesTextDeclination
+  static getLinearGradientTemplate(
+    id = '',
+    firstStopColor = '',
+    secondStopColor = ''
+  ) {
+    return `
+      <linearGradient id="${id}" x1='1' y1='0' x2='0' y2='0'>
+        <stop offset="0%" stop-color=${firstStopColor}></stop>
+        <stop offset="100%" stop-color=${secondStopColor}></stop>
+      </linearGradient>
+    `;
   }
 
-  _render(params) {
-    const {
-      chartVotesPerfectly,
-      chartVotesWell,
-      chartVotesSatisfactory,
-      chartVotesDisappointed,
-    } = this._getLines()
-
-    const { votesCount } = this._getVotes()
-    const { total } = params
-
-    const {
-      disappointedStrokeDasharray,
-      satisfactoryStrokeDasharray,
-      wellStrokeDasharray,
-      perfectlyStrokeDasharray,
-      disappointedStrokeDashoffset,
-      satisfactoryStrokeDashoffset,
-      wellStrokeDashoffset,
-      perfectlyStrokeDashoffset,
-    } = this.calculateChartLines(params)
-
-    chartVotesDisappointed.setAttribute('stroke-dasharray', disappointedStrokeDasharray)
-    chartVotesSatisfactory.setAttribute('stroke-dasharray', satisfactoryStrokeDasharray)
-    chartVotesWell.setAttribute('stroke-dasharray', wellStrokeDasharray)
-    chartVotesPerfectly.setAttribute('stroke-dasharray', perfectlyStrokeDasharray)
-
-    chartVotesDisappointed.setAttribute('stroke-dashoffset', disappointedStrokeDashoffset)
-    chartVotesSatisfactory.setAttribute('stroke-dashoffset', satisfactoryStrokeDashoffset)
-    chartVotesWell.setAttribute('stroke-dashoffset', wellStrokeDashoffset)
-    chartVotesPerfectly.setAttribute('stroke-dashoffset', perfectlyStrokeDashoffset)
-
-    votesCount.innerHTML = total
-
-    this.handleLineClick()
-    this.handleLegendItemClick()
+  static getLineTemplate(id = '', strokeDasharray = '', strokeDashoffset = '') {
+    return `
+      <circle class='pie-chart__line' cx='50%' cy='50%' r='58' stroke-width='4' stroke='url(#${id})' data-id=${id} stroke-dasharray='${strokeDasharray}, 360' stroke-dashoffset='${strokeDashoffset}'></circle>
+    `;
   }
 
-  _getLines() {
-    const chartVotesPerfectly = document.querySelector('.js-chart-item-votes-perfectly')
-    const chartVotesWell = document.querySelector('.js-chart-item-votes-well')
-    const chartVotesSatisfactory = document.querySelector('.js-chart-item-votes-satisfactory')
-    const chartVotesDisappointed = document.querySelector('.js-chart-item-votes-disappointed')
-
-    this.chartLines = {
-      chartVotesPerfectly,
-      chartVotesWell,
-      chartVotesSatisfactory,
-      chartVotesDisappointed,
-    }
-
-    return this.chartLines
+  static getVotesTemplate(votes = 0) {
+    return `
+      <h1 class='pie-chart__votes-count'>${votes}</h1>
+      <h3 class='pie-chart__votes-text'>${declination(votes, [
+        'голос',
+        'голоса',
+        'голосов',
+      ])}</h3>
+    `;
   }
 
-  _getVotes() {
-    this.chartVotes = {
-      votesCount: document.querySelector('.js-chart-votes-count'),
-      votesText: document.querySelector('.js-chart-votes-text'),
-      votesWrapper: document.querySelector('.js-chart-votes-wrapper'),
-    }
-
-    return this.chartVotes
-  }
-
-  _getLegendItems() {
-    this.chartLegendItems = {
-      legendItemPerfectly: document.querySelector('.js-chart-legend-perfectly'),
-      legendItemWell: document.querySelector('.js-chart-legend-well'),
-      legendItemSatisfactory: document.querySelector('.js-chart-legend-satisfactory'),
-      legendItemDisappointed: document.querySelector('.js-chart-legend-disappointed'),
-    }
-
-    return this.chartLegendItems
+  static getLegendItemTemplate(id = '', text = '') {
+    return `
+      <li class='pie-chart__legend-item pie-chart__legend-item--${id}' data-id=${id} tabindex='0'>
+        ${text}
+      </li>
+    `;
   }
 }
 
-export default VotesPieChart
+export default PieChart;
