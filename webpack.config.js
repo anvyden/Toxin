@@ -149,24 +149,18 @@ const jsLoaders = () => {
 
 const plugins = () => {
   const base = [
-    new HTMLWebpackPlugin({
-      template: `${PATHS.src}/pages/headers-footers/headers-footers.pug`,
-      filename: 'headers-footers.pug'.replace(/\.pug/, '.html'),
-      chunks: ['headers-footers.pug'.replace(/\.pug/, '')],
-      inject: 'body',
-      minify: {
-        collapseWhitespace: isProd,
-      },
-    }),
-    // ...PAGES.map((page, index) => new HTMLWebpackPlugin({
-    //   template: `${PAGES_DIR}/${PAGES_FOLDERS[index]}/${page}`,
-    //   filename: `./${page.replace(/\.pug/, '.html')}`,
-    //   chunks: [`${page.replace(/\.pug/, '')}`],
-    //   inject: 'body',
-    //   minify: {
-    //     collapseWhitespace: isProd
-    //   }
-    // })),
+    ...PAGES.map(
+      (page, index) =>
+        new HTMLWebpackPlugin({
+          template: `${PAGES_DIR}/${PAGES_FOLDERS[index]}/${page}`,
+          filename: `./${page.replace(/\.pug/, '.html')}`,
+          chunks: [`${page.replace(/\.pug/, '')}`],
+          inject: 'body',
+          minify: {
+            collapseWhitespace: isProd,
+          },
+        })
+    ),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
@@ -191,7 +185,6 @@ const plugins = () => {
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
-  // entry: ['./pages/form-elements/form-elements.js'],
   entry: PAGES_ENTRYS,
   output: {
     filename: `${PATHS.assets}js/[name].js`,

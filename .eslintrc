@@ -16,7 +16,7 @@
     "no-underscore-dangle": "off",
     "no-new": "off",
     "import/no-unresolved": "off",
-    "import/extensions": "never",
+    "import/extensions": 0,
     "no-unused-vars": "off"
   }
 }
