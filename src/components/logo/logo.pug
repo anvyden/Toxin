@@ -1,21 +1,19 @@
-mixin logo(options)
+mixin logo(options = {})
   -
-    const { active, posAbsolute, link } = options
-
-    let logoClass = 'logo'
-
-    if (posAbsolute) {
-      logoClass += ' logo--pos-absolute'
-    }
-
-    if (active) {
-      logoClass += ' logo--active'
-    }
+    const { active, link } = options
 
   if (active)
-    div(class=logoClass)
-      a(class='logo__link' href=link)
-        img(class='logo__img' src=require('~/components/logo/img/logo-active.svg') alt='Лого')
+    .logo.logo--active
+      a.logo__link(href=link)
+        img&attributes({
+          class: 'logo__img',
+          src: require('~/components/logo/img/logo-active.svg'),
+          alt: 'logo',
+        })
   else
-    div(class=logoClass)
-      img(src=require('~/components/logo/img/logo-inactive.svg') alt='Лого')
+    .logo.logo--inactive
+      img&attributes({
+        class: 'logo__img',
+        src: require('~/components/logo/img/logo-inactive.svg'),
+        alt: 'logo',
+      })

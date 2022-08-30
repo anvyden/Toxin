@@ -9,7 +9,13 @@ class RangeSlider {
   }
 
   _init() {
-    const { min, max, step, minStartValue, maxStartValue } = this.options;
+    const {
+      min,
+      max,
+      step,
+      minStartValue,
+      maxStartValue,
+    } = this.options;
 
     this._getElements();
     this._addClassesForStyles();
@@ -17,7 +23,7 @@ class RangeSlider {
     if (this.slider) {
       noUiSlider.create(this.slider, {
         start: [minStartValue, maxStartValue],
-        step: step,
+        step,
         connect: true,
         range: {
           min: [min],

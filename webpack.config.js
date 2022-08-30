@@ -150,9 +150,9 @@ const jsLoaders = () => {
 const plugins = () => {
   const base = [
     new HTMLWebpackPlugin({
-      template: `${PATHS.src}/pages/room-details/room-details.pug`,
-      filename: 'room-details.pug'.replace(/\.pug/, '.html'),
-      chunks: ['room-details.pug'.replace(/\.pug/, '')],
+      template: `${PATHS.src}/pages/headers-footers/headers-footers.pug`,
+      filename: 'headers-footers.pug'.replace(/\.pug/, '.html'),
+      chunks: ['headers-footers.pug'.replace(/\.pug/, '')],
       inject: 'body',
       minify: {
         collapseWhitespace: isProd,
@@ -216,7 +216,7 @@ module.exports = {
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'room-details.html',
+    index: 'headers-footers.html',
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),

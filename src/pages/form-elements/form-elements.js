@@ -66,6 +66,6 @@ const init = {
   }),
   expandableCheckboxList: new CheckboxList('.js-expandable-checkbox'),
   likeButtons: [...document.querySelectorAll('.js-like-button__button')].map(
-    (button) => new LikeButton(button)
+    (button) => new LikeButton(button),
   ),
 };

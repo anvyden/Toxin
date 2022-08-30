@@ -1,21 +1,21 @@
 .logo {
   display: flex;
-}
 
-.logo__link {
-  display: flex;
-}
+  &--active {
+    cursor: pointer;
+  }
 
-.logo__link:focus-visible {
-  outline: 2px solid $purple;
-}
+  &--inactive {
+    position: absolute;
+    top: rem(30);
+    left: rem(30);
+  }
 
-.logo--pos-absolute {
-  position: absolute;
-  left: rem(30);
-  top: rem(30);
-}
+  &__link {
+    display: flex;
 
-.logo--active > .logo__link {
-  cursor: pointer;
+    &:focus-visible {
+      outline: $thinFocusOutline;
+    }
+  }
 }

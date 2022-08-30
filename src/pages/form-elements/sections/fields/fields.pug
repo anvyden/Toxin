@@ -6,7 +6,7 @@ mixin fields()
   section.fields
     .fields__container
       .fields__text-field
-        +textField({
+        +text-field({
           hasTitle: true,
           title: 'text field',
           subtitle: 'default',
@@ -15,7 +15,7 @@ mixin fields()
           placeholder: 'Email'
         })
       .fields__text-field
-        +textField({
+        +text-field({
           hasTitle: true,
           title: 'text field',
           subtitle: 'hover / focus',
@@ -28,7 +28,7 @@ mixin fields()
       .fields__dropdown
         +dropdown({ hasTitle: true, title: 'dropdown', value: 'Сколько гостей' })
       .fields__masked-text-field
-        +textField({
+        +text-field({
           hasTitle: true,
           title: 'masked text field',
           type: 'text',
@@ -62,7 +62,7 @@ mixin fields()
           classForJs: 'js-filter-date-dropdown'
         })
       .fields__subscription-text-field
-        +textField({
+        +text-field({
           hasTitle: true,
           title: 'subscription text field',
           type: 'text',

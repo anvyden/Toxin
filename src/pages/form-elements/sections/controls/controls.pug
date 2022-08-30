@@ -8,7 +8,7 @@ mixin controls()
   .controls
     .controls__container
       .controls__checkbox-buttons
-        +checkboxList({
+        +checkbox-list({
           title: 'checkbox buttons',
           items: [
             { title: 'Можно курить', name: 'smoke'},
@@ -19,7 +19,7 @@ mixin controls()
       .controls__radio-buttons
         .controls__title
           +text({ text: 'radio buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
-        +radioButtons({
+        +radio-buttons({
           group: 'gender',
           items: [
             { text: 'Мужчина', value: 'man', isChecked: true},
@@ -30,17 +30,17 @@ mixin controls()
         .controls__title
           +text({ text: 'toggle', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         .controls__toggle-buttons-wrapper
-          +toggleButton({ text: 'Получать спецпредложения', name: 'offers1', isChecked: true })
-          +toggleButton({ text: 'Получать спецпредложения', name: 'offers2' })
+          +toggle-button({ text: 'Получать спецпредложения', name: 'offers1', isChecked: true })
+          +toggle-button({ text: 'Получать спецпредложения', name: 'offers2' })
       .controls__like-buttons
         .controls__title
           +text({ text: 'like button', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         .controls__like-buttons-wrapper
-          +likeButton({ count: 2 })
-          +likeButton({ count: 12, isActive: true })
+          +like-button({ count: 2 })
+          +like-button({ count: 12, isActive: true })
       .controls__rate-buttons
         .controls__title
           +text({ text: 'rate button', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         .controls__rate-buttons-wrapper
-          +starRating(4)
-          +starRating(5)
+          +star-rating(4)
+          +star-rating(5)

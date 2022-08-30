@@ -18,14 +18,14 @@ mixin sign-in-card(options)
       form(class='sign-up-card__form' action=formAction method=formMethod)
         .sign-in-card__login-details
           .sign-in-card__email
-            +textField({
+            +text-field({
               type: 'email',
               placeholder: 'Email',
               name: 'email',
               autocomplete: 'on'
             })
           .sign-in-card__password
-            +textField({
+            +text-field({
               type: 'password',
               placeholder: 'Пароль',
               name: 'password',

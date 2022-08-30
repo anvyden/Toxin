@@ -26,6 +26,6 @@ mixin comments( commentsList=[] )
             p.comments__comment-date-of-comment=dateOfComment
         .comments__comment-body
           .comments__comment-like-wrapper
-            +likeButton({ count: likeCount, isActive: likeIsActive })
+            +like-button({ count: likeCount, isActive: likeIsActive })
           .comments__comments-text-wrapper
             span.comments__comments-text=text

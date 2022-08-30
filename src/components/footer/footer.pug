@@ -53,7 +53,7 @@ mixin footer({ logoLink } = {})
           +text({ text: 'Подписка', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
           p.footer__subscription-text='Получайте специальные предложения и новости сервиса'
           form.footer__subscription-form
-            +textField({
+            +text-field({
               type: 'email',
               placeholder: 'Email',
               name: 'email',
@@ -61,7 +61,7 @@ mixin footer({ logoLink } = {})
               autocomplete: 'on',
             })
     .footer__copyright-bar
-      +copyrightBar({
+      +copyright-bar({
         socialItems: [
           { fontAwesomeIconClass: 'fa-twitter', link: 'change-me' },
           { fontAwesomeIconClass: 'fa-facebook-square', link: 'change-me' },

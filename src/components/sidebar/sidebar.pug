@@ -33,13 +33,13 @@ mixin sidebar({} = {})
           ]
         })
       .sidebar__range-slider
-        +rangeSlider({
+        +range-slider({
           title: 'Диапазон цены',
           description: 'Стоимость за сутки пребывания в номере',
           classForJs: 'js-sidebar-range-slider',
         })
       .sidebar__checkboxs
-        +checkboxList({
+        +checkbox-list({
           title: 'Правила дома',
           items: [
             { title: 'Можно курить', name: 'smoke' },
@@ -48,7 +48,7 @@ mixin sidebar({} = {})
           ]
         })
       .sidebar__rich-checkboxs
-        +checkboxList({
+        +checkbox-list({
           title: 'Доступность',
           isRich: true,
           items: [
@@ -78,7 +78,7 @@ mixin sidebar({} = {})
           ]
         })
       .sidebar__expandable-checkboxs
-        +checkboxList({
+        +checkbox-list({
           title: 'Дополнительные удобства',
           expandable: true,
           classForJs: 'js-sidebar-checkbox-list-comfort',

@@ -23,7 +23,7 @@ mixin date-dropdown(options={})
     .date-dropdown(class=classForJs)
       .date-dropdown__wrapper 
         .date-dropdown__start 
-          +textField({
+          +text-field({
             hasTitle: true,
             title,
             type,
@@ -35,7 +35,7 @@ mixin date-dropdown(options={})
             isReadonly,
           })
         .date-dropdown__end 
-          +textField({
+          +text-field({
             hasTitle: true,
             title: titleEnd,
             type,
@@ -48,7 +48,7 @@ mixin date-dropdown(options={})
           })
   else
     .date-dropdown(class=classForJs)
-      +textField({
+      +text-field({
         hasTitle: true,
         title,
         type,
