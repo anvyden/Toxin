@@ -5,7 +5,6 @@
     "jquery": true,
     "node": true
   },
-  // "ignorePatterns": ["**/src/**/*.js"],
   "extends": ["airbnb/base", "plugin:fsd/all"],
   "globals": {
     "$": "readonly",
@@ -13,10 +12,11 @@
   },
   "plugins": ["fsd", "pug"],
   "rules": {
-//    "no-param-reassign": ["error", { "props": false }],
     "no-unused-expressions": ["error", { "allowTernary": true }],
     "no-underscore-dangle": "off",
     "no-new": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "import/extensions": "never",
+    "no-unused-vars": "off"
   }
 }

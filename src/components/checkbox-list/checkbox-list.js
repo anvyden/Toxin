@@ -19,11 +19,11 @@ class CheckboxList {
   _bindEventListeners() {
     this.dropdown.addEventListener(
       'pointerdown',
-      this._pointerDownHandlerCheckboxList.bind(this)
+      this._pointerDownHandlerCheckboxList.bind(this),
     );
     this.dropdown.addEventListener(
       'keydown',
-      this._keyDownHandlerCheckboxList.bind(this)
+      this._keyDownHandlerCheckboxList.bind(this),
     );
   }
 
