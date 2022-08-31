@@ -6,10 +6,10 @@
 
 - Был применен компонентный подход, который заключается в разделении элементов на независимые блоки, а именно методология [БЭМ](https://ru.bem.info/methodology/quick-start/)
 - Для реализации компонентного подхода использовались такие технологии, как шаблонизатор [Pug(Jade)](https://gist.github.com/neretin-trike/53aff5afb76153f050c958b82abd9228), препроцессор [SCSS](https://sass-scss.ru) и сборщик проектов [Webpack](https://webpack.js.org).
-- В проекте был Использован шрифт [Montserrat](https://fonts.google.com/specimen/Montserrat). Все шрифты подключены локально в форматах: _woff2_, _woff_, _ttf_, _eot_ и _svg_. Также некоторые элементы дизайна выполнены иконочными шрифтами [Material Icons](https://google.github.io/material-design-icons/) и [Font Awesome 6](https://fontawesome.com)
+- В проекте был использован шрифт [Montserrat](https://fonts.google.com/specimen/Montserrat). Все шрифты подключены локально в форматах: _woff2_, _woff_, _ttf_, _eot_ и _svg_. Также некоторые элементы дизайна выполнены иконочными шрифтами [Material Icons](https://google.github.io/material-design-icons/) и [Font Awesome 6](https://fontawesome.com)
 - Для адаптации сайта под разрешения экрана от 320px до 1980px был применен responsive подход
 - Для преобразования кода ES6 в более старую версию JavaScript был использован [Babel](https://babeljs.io), а для соблюдения кроссбраузерности и компактности CSS был использован [PostCSS](https://postcss.org)
-- Для соблюдения единобразия и чистоты кода был использован [стайлгайд от AirBnB](https://github.com/airbnb/javascript), который проверялся линтером [eslint](https://eslint.org/)
+- Для соблюдения единобразия и чистоты кода был использован [стайлгайд от AirBnB](https://github.com/airbnb/javascript), который проверялся линтером [eslint](https://eslint.org/) и [stylelint](https://stylelint.io)
 - В проекте было выполнено требование PixelPerfect
 - Разработка велась под последние версии Chrome и Firefox (last 3 version)
 
@@ -40,13 +40,27 @@
 
 **Development server:**
 
-`npm start` - **start the project on the server localhost:8081**
+`npm start` - **start of the project on the server localhost:8081**
 
 **Development and production project:**
 
-`npm run dev` - **start the project in development mode**
+`npm run dev` - **start of the project in development mode**
 
-`npm run build` - **start the project in production mode**
+`npm run build` - **start of the project in production mode**
+
+**Linting code:**
+
+`npm run lint` - **linting javascript code**
+
+`npm run lint:fix` - **fix javascript syntax errors**
+
+`npm run stylelint` - **linting scss code**
+
+`npm run stylelint:fix` - **fix scss syntax errors**
+
+**Deploying project:**
+
+`npm run deploy` - **deploying the project to gh-pages**
 
 ## Сторонние библиотеки
 
