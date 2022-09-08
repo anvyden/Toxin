@@ -29,12 +29,13 @@ class Datepicker {
 
     this.root.addEventListener(
       'pointerdown',
-      this._handleDateDropdownClick.bind(this),
+      this._handleDateDropdownClick.bind(this)
     );
     this.root.addEventListener(
       'keydown',
-      this._handleDateDropdownKeyDown.bind(this),
+      this._handleDateDropdownKeyDown.bind(this)
     );
+    this._bindDocumentListener();
 
     if (initialDates) this._setInitialDates(initialDates);
   }
@@ -81,16 +82,16 @@ class Datepicker {
     const { hasTwoInputs } = this.options;
 
     this.filterDateDropdown = this.root.querySelector(
-      '[data-type="filter-date-dropdown"]',
+      '[data-type="filter-date-dropdown"]'
     );
     this.arrowButtons = this.root.querySelectorAll('[data-type="arrow"]');
 
     if (hasTwoInputs) {
       this.startInput = this.root.querySelector(
-        '[data-type="date-dropdown-start"]',
+        '[data-type="date-dropdown-start"]'
       );
       this.endInput = this.root.querySelector(
-        '[data-type="date-dropdown-end"]',
+        '[data-type="date-dropdown-end"]'
       );
     }
   }
@@ -192,11 +193,15 @@ class Datepicker {
     }
   }
 
-  _handleDocumentPoinerDown(event) {
-    if (!this._isPoinerDownOnDatepicker(event)) this._close();
+  _bindDocumentListener() {
+    this.handleDocumentPoitnerDown = this._handleDocumentPoitnerDown.bind(this);
   }
 
-  _isPoinerDownOnDatepicker({ target }) {
+  _handleDocumentPoitnerDown(event) {
+    if (!this._isPoitnerDownOnDatepicker(event)) this._close();
+  }
+
+  _isPoitnerDownOnDatepicker({ target }) {
     return target.closest(this.selector);
   }
 
@@ -207,19 +212,13 @@ class Datepicker {
   _close() {
     this.container.classList.remove('-active-');
     this._arrowDown();
-    document.removeEventListener(
-      'pointerdown',
-      this._handleDocumentPoinerDown.bind(this),
-    );
+    document.removeEventListener('pointerdown', this.handleDocumentPoitnerDown);
   }
 
   _open() {
     this.container.classList.add('-active-');
     this._arrowUp();
-    document.addEventListener(
-      'pointerdown',
-      this._handleDocumentPoinerDown.bind(this),
-    );
+    document.addEventListener('pointerdown', this.handleDocumentPoitnerDown);
   }
 
   _toggle() {
@@ -231,11 +230,15 @@ class Datepicker {
   }
 
   _arrowUp() {
-    this.arrowButtons.forEach((arrow) => arrow.classList.add('text-field__arrow-button--rotate'));
+    this.arrowButtons.forEach((arrow) =>
+      arrow.classList.add('text-field__arrow-button--rotate')
+    );
   }
 
   _arrowDown() {
-    this.arrowButtons.forEach((arrow) => arrow.classList.remove('text-field__arrow-button--rotate'));
+    this.arrowButtons.forEach((arrow) =>
+      arrow.classList.remove('text-field__arrow-button--rotate')
+    );
   }
 
   _showClearButton() {

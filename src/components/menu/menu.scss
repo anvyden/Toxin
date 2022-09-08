@@ -48,6 +48,11 @@
         color: $darkShade75;
         font-weight: bold;
       }
+
+      @media screen and (max-width: 1023px) {
+        display: block;
+        padding: rem(10) 0;
+      }
     }
 
     &-arrow {
@@ -65,11 +70,15 @@
 
     @media screen and (max-width: 1023px) {
       margin-right: 0;
-      padding: rem(10) 0;
       border-bottom: 1px solid $uiKitPagesBackground;
 
       &--with-arrow {
-        padding-left: rem(20);
+        padding: rem(10) 0 rem(10) rem(20);
+
+        .menu__item-link {
+          display: inline;
+          padding: 0;
+        }
       }
     }
   }

@@ -47,7 +47,6 @@
 
     @media screen and (max-width: 1023px) {
       margin: 0;
-      padding: rem(10) 0;
       border-bottom: 1px solid #f4f4f6;
 
       &:last-child {
@@ -65,6 +64,11 @@
 
       &:hover {
         color: $darkShade75;
+      }
+
+      @media screen and (max-width: 1023px) {
+        display: block;
+        padding: rem(10) 0;
       }
     }
   }

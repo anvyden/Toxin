@@ -8,30 +8,32 @@ class Menu {
     this.arrow = this.root.querySelector('.js-menu__item-arrow');
     this.subMenu = this.root.querySelector('.js-menu__sub-menu');
     this._bindItemListeners();
+    this._bindDocumentListener();
   }
 
   _bindItemListeners() {
     this.root.addEventListener(
       'pointerdown',
-      this._handleItemPointerDown.bind(this),
+      this._handleItemPointerDown.bind(this)
     );
     this.root.addEventListener('keydown', this._handleItemKeyDown.bind(this));
   }
 
+  _bindDocumentListener() {
+    this.handleDocumentPoinerDown = this._handleDocumentPoinerDown.bind(this);
+  }
+
   _addDocumentListener() {
-    document.addEventListener(
-      'pointerdown',
-      this._handleDocumentPoinerDown.bind(this),
-    );
+    document.addEventListener('pointerdown', this.handleDocumentPoinerDown);
   }
 
   _removeDocumentListener() {
-    document.removeEventListener('pointerdown', this._handleDocumentPoinerDown);
+    document.removeEventListener('pointerdown', this.handleDocumentPoinerDown);
   }
 
   _handleItemPointerDown(event) {
     const { target } = event;
-    const isItem = target.dataset.type === 'link' || target.dataset.type === 'arrow';
+    const isItem = target.dataset.type === 'item' || target.dataset.type === 'link' || target.dataset.type === 'arrow';
 
     if (isItem) {
       this._toggleSubMenu();
@@ -64,7 +66,7 @@ class Menu {
 
   _handleDocumentPoinerDown(event) {
     const { target } = event;
-    const isItem = target.dataset.type === 'link' || target.dataset.type === 'arrow';
+    const isItem = target.closest('.js-menu__item');
 
     if (!isItem) {
       this._closeSubMenu();

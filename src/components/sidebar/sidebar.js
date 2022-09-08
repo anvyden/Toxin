@@ -7,6 +7,7 @@ class Sidebar {
   _init() {
     this._findElements();
     this._bindEventsListeners();
+    this._bindDocumentListener();
   }
 
   _findElements() {
@@ -45,17 +46,21 @@ class Sidebar {
     }
   }
 
+  _bindDocumentListener() {
+    this.handleDocumentPointerDown = this._handleDocumentPointerDown.bind(this)
+  }
+
   _addDocumentListener() {
     document.addEventListener(
       'pointerdown',
-      this._handleDocumentPointerDown.bind(this),
+      this.handleDocumentPointerDown,
     );
   }
 
   _removeDocumentListener() {
     document.removeEventListener(
       'pointerdown',
-      this._handleDocumentPointerDown.bind(this),
+      this.handleDocumentPointerDown,
     );
   }
 
@@ -64,6 +69,7 @@ class Sidebar {
 
     if (!target.closest('.js-sidebar')) {
       this._close();
+      this._removeDocumentListener();
     }
   }
 
