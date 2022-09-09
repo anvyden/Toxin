@@ -47,7 +47,7 @@ class Sidebar {
   }
 
   _bindDocumentListener() {
-    this.handleDocumentPointerDown = this._handleDocumentPointerDown.bind(this)
+    this.handleDocumentPointerDown = this._handleDocumentPointerDown.bind(this);
   }
 
   _addDocumentListener() {

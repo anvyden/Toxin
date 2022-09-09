@@ -14,7 +14,7 @@ class Menu {
   _bindItemListeners() {
     this.root.addEventListener(
       'pointerdown',
-      this._handleItemPointerDown.bind(this)
+      this._handleItemPointerDown.bind(this),
     );
     this.root.addEventListener('keydown', this._handleItemKeyDown.bind(this));
   }
