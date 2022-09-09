@@ -1,0 +1,143 @@
+@import '~/scss/montserrat';
+@import '~/scss/material-icons';
+@import '~/scss/variables';
+@import '~/scss/mixins';
+@import '~/scss/settings';
+@import '~/components/menu/menu';
+
+.start-page {
+  display: flex;
+  padding: rem(20) 0 0 0;
+  background: $black;
+  min-height: 100vh;
+
+  &__container {
+    max-width: rem(1440);
+    margin: 0 auto;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: rem(180);
+  }
+
+  &__heading {
+    min-height: rem(30);
+    text-align: center;
+    font-size: rem(29);
+    line-height: rem(24);
+    color: transparent;
+    background-clip: text;
+    margin-bottom: rem(20);
+  }
+
+  &__UI-kit-menu {
+    margin-bottom: rem(50);
+    min-height: rem(80);
+
+    .start-page {
+      &__heading {
+        background-image: $primaryGradient;
+      }
+    }
+
+    .menu {
+      &__list {
+        justify-content: center;
+      }
+
+      &__item {
+        @media screen and (max-width: 1023px) {
+          border-bottom: none;
+        }
+
+        &-link {
+          font-size: rem(18);
+          color: $purple;
+          font-weight: bold;
+          transition: font 0.5s ease;
+
+          &::after {
+            position: absolute;
+            bottom: rem(-8);
+            left: 0;
+            width: 0;
+            height: rem(3);
+            background-color: $purple;
+            content: '';
+            -webkit-transition: width 0.5s ease;
+            -moz-transition: width 0.5s ease;
+            -o-transition: width 0.5s ease;
+            transition: width 0.5s ease;
+
+            @media screen and (max-width: 1023px) {
+              bottom: 0;
+            }
+          }
+
+          &:hover,
+          &:focus-visible {
+            font-size: rem(24);
+
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__site-menu {
+    min-height: rem(80);
+
+    .start-page {
+      &__heading {
+        background-image: $secondaryGradient;
+      }
+    }
+
+    .menu {
+      &__item {
+        @media screen and (max-width: 1023px) {
+          border-bottom: none;
+        }
+
+        &-link {
+          font-size: rem(18);
+          color: $green;
+          font-weight: bold;
+          transition: font 0.5s ease;
+
+          &::after {
+            position: absolute;
+            bottom: rem(-8);
+            left: 0;
+            width: 0;
+            height: rem(3);
+            background-color: $green;
+            content: '';
+            -webkit-transition: width 0.5s ease;
+            -moz-transition: width 0.5s ease;
+            -o-transition: width 0.5s ease;
+            transition: width 0.5s ease;
+
+            @media screen and (max-width: 1023px) {
+              bottom: 0;
+            }
+          }
+
+          &:hover,
+          &:focus-visible {
+            font-size: rem(24);
+
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

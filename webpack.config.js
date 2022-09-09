@@ -209,7 +209,7 @@ module.exports = {
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'landing-page.html',
+    index: 'start-page.html',
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),
