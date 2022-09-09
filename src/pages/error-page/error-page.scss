@@ -1,0 +1,88 @@
+@import '~/scss/montserrat';
+@import '~/scss/material-icons';
+@import '~/scss/variables';
+@import '~/scss/mixins';
+@import '~/scss/settings';
+
+.error-page {
+  display: flex;
+  min-height: 100vh;
+  padding: rem(20) 0 0 0;
+  background: $black;
+
+  &__container {
+    max-width: rem(1440);
+    margin: 0 auto;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: rem(250);
+
+    &-link {
+      display: flex;
+
+      &:focus-visible {
+        outline: $focusOutline;
+      }
+    }
+  }
+
+  &__content {
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__error {
+    margin-bottom: rem(40);
+    color: transparent;
+    font-size: rem(100);
+    background-image: $primaryGradient;
+    background-clip: text;
+  }
+
+  &__heading {
+    margin-bottom: rem(40);
+    color: transparent;
+    font-size: rem(50);
+    background-image: $primaryGradient;
+    background-clip: text;
+  }
+
+  &__link {
+    position: relative;
+    color: transparent;
+    font-size: rem(30);
+    text-decoration: none;
+    background-image: $secondaryGradient;
+    background-clip: text;
+    transition: font 0.5s ease;
+
+    &::after {
+      position: absolute;
+      bottom: rem(-8);
+      left: 0;
+      width: 0;
+      height: rem(3);
+      background: $secondaryGradient;
+      transition: width 0.5s ease;
+      content: '';
+    }
+
+    &:hover,
+    &:focus-visible {
+      font-size: rem(40);
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}

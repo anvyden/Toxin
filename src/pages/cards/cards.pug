@@ -31,13 +31,13 @@ block content
             title: 'Найдём номера под ваши\u00A0пожелания',
             dateDropdownClassForJs: 'js-date-dropdown',
             guestsDropdownClassForJs: 'js-find-room-guests',
-            formAction: './change-me.html'           
+            formAction: './error-page.html'           
           })
         .cards__sing-up-card
           +sign-up-card({
             title: 'Регистрация аккаунта',
-            logInlink: './change-me.html',
-            formAction: './change-me.html'
+            logInlink: './error-page.html',
+            formAction: './error-page.html'
           })
       .cards__wrapper
         .cards__booking-card
@@ -45,14 +45,14 @@ block content
             luxe: true,
             dateDropdownClassForJs: 'js-booking-card-date-dropdown',
             guestsDropdownClassForJs: 'js-booking-card-guests',
-            formAction: './change-me.html',
+            formAction: './error-page.html',
             classForJs: 'js-booking-card'
           })
         .cards__sing-in-card
           +sign-in-card({
             title: 'Войти',
-            signUpLink: './change-me.html',
-            formAction: './change-me.html'
+            signUpLink: './error-page.html',
+            formAction: './error-page.html'
           })
       .cards__wrapper
         .cards__datepicker

@@ -15,7 +15,9 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
-    "stylelint:fix": "stylelint \"src/**/*.scss\" --fix"
+    "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
+    "stylelintone": "stylelint \"src/pages/error-page/error-page.scss\"",
+    "stylelintone:fix": "stylelint \"src/pages/error-page/error-page.scss\" --fix"
   },
   "browserslist": [
     "> 0.25%",

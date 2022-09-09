@@ -15,34 +15,35 @@ mixin header(options = {})
               items: [
                 {
                   text: 'О нас',
-                  link: 'change-me',
+                  link: './error-page.html',
                   isActive: firstItemMenuActive,
                 },
                 {
                   text: 'Услуги',
                   subMenu: true,
                   subMenuItems: [
-                    { text: 'Услуги', link: 'change-me' },
-                    { text: 'Услуги', link: 'change-me' }
+                    { text: 'Услуги', link: './error-page.html' },
+                    { text: 'Услуги', link: './error-page.html' }
                   ]
                 },
                 {
                   text: 'Вакансии',
-                  link: 'change-me',
+                  link: './error-page.html',
                 },
                 {
                   text: 'Новости',
-                  link: 'change-me',
+                  link: './error-page.html',
                 },
                 {
                   text: 'Соглашения',
                   subMenu: true,
                   subMenuItems: [
-                    { text: 'Соглашения', link: 'change-me' },
-                    { text: 'Соглашения', link: 'change-me' }
+                    { text: 'Соглашения', link: './error-page.html' },
+                    { text: 'Соглашения', link: './error-page.html' }
                   ]
                 }
-              ]
+              ],
+              options: { isNavigation: true }
             })
         if (!logIn)
           .header__authorization
@@ -63,31 +64,31 @@ mixin header(options = {})
               items: [
                 {
                   text: 'О нас',
-                  link: 'change-me',
+                  link: './error-page.html',
                   isActive: true,
                 },
                 {
                   text: 'Услуги',
                   subMenu: true,
                   subMenuItems: [
-                    { text: 'Услуги', link: 'change-me' },
-                    { text: 'Услуги', link: 'change-me' }
+                    { text: 'Услуги', link: './error-page.html' },
+                    { text: 'Услуги', link: './error-page.html' }
                   ]
                 },
                 {
                   text: 'Вакансии',
-                  link: 'change-me',
+                  link: './error-page.html',
                 },
                 {
                   text: 'Новости',
-                  link: 'change-me',
+                  link: './error-page.html',
                 },
                 {
                   text: 'Соглашения',
                   subMenu: true,
                   subMenuItems: [
-                    { text: 'Соглашения', link: 'change-me' },
-                    { text: 'Соглашения', link: 'change-me' }
+                    { text: 'Соглашения', link: './error-page.html' },
+                    { text: 'Соглашения', link: './error-page.html' }
                   ]
                 }
               ]

@@ -1,32 +1,32 @@
 mixin button(options)
-   -
-     const { text, type, variant, disabled, link, size, color, dataType, classForJs } = options
+  -
+    const { text, type, variant, disabled, link, size, color, dataType, classForJs } = options
 
-     const sizes = ['large', 'medium', 'small']
-     const colors = ['purple', 'gray', 'white']
+    const sizes = ['large', 'medium', 'small']
+    const colors = ['purple', 'gray', 'white']
 
-     const mainClass = 'button'
-     const buttonTag = link ? 'a' : 'button'
-     const buttonInlineModifier = variant === 'inline' && `button--variant-${variant}`
-     const buttonWithArrowModifier = variant === 'with-arrow' && `button--variant-${variant}`
-     const buttonBackgroundModifier = variant === 'fill-white' && `button__inner--fill-white`
-     const buttonSizeModifier = sizes.includes(size) && `button--size-${size}`
-     const sizeModifier = sizes.includes(size) && `button__inner--size-${size}`
-     const colorModifier = colors.includes(color) && `button__inner--text-${color}`
+    const mainClass = 'button'
+    const buttonTag = link ? 'a' : 'button'
+    const buttonInlineModifier = variant === 'inline' && `button--variant-${variant}`
+    const buttonWithArrowModifier = variant === 'with-arrow' && `button--variant-${variant}`
+    const buttonBackgroundModifier = variant === 'fill-white' && `button__inner--fill-white`
+    const buttonSizeModifier = sizes.includes(size) && `button--size-${size}`
+    const sizeModifier = sizes.includes(size) && `button__inner--size-${size}`
+    const colorModifier = colors.includes(color) && `button__inner--text-${color}`
 
-     const attrs = {
-       button: {
-         class: [mainClass, buttonInlineModifier, buttonWithArrowModifier, buttonSizeModifier, classForJs],
-         type: type,
-         disabled: disabled,
-         'data-type': dataType
-       },
-       a: {
-         class: [mainClass, buttonInlineModifier, buttonWithArrowModifier, buttonSizeModifier],
-         href: link
-       }
-     }
+    const attrs = {
+      button: {
+        class: [mainClass, buttonInlineModifier, buttonWithArrowModifier, buttonSizeModifier, classForJs],
+        type: type,
+        disabled: disabled,
+        'data-type': dataType
+      },
+      a: {
+        class: [mainClass, buttonInlineModifier, buttonWithArrowModifier, buttonSizeModifier],
+        href: link
+      }
+    }
 
-   #{buttonTag}&attributes(attrs[buttonTag])
-     p(class=['button__inner', sizeModifier, colorModifier, buttonBackgroundModifier] 'data-type'=dataType)=text
+  #{buttonTag}&attributes(attrs[buttonTag])
+    p(class=['button__inner', sizeModifier, colorModifier, buttonBackgroundModifier] 'data-type'=dataType)=text
 

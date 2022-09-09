@@ -2,13 +2,14 @@ include ~/components/sub-menu/sub-menu
 
 mixin menu({ items = [], options = {} })
   -
-    const { column } = options 
+    const { column, isNavigation = false } = options 
 
     const listColumnModifier = column && 'menu__list--column'
     const itemColumnModifier = column && 'menu__item--column'
+    const wrapperTag = isNavigation ? 'nav' : 'div'
 
   .menu 
-    nav.menu__menu
+    #{wrapperTag}.menu__menu
       ul.menu__list(class=listColumnModifier)
         each item in items 
           -

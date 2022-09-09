@@ -22,10 +22,10 @@ block content
     +logo({ active: false, posAbsolute: true })
     .headers-footers__container
       .headers-footers__header
-        +header({ logoLink: 'change-me', firstItemMenuActive: true })
+        +header({ logoLink: './error-page.html', firstItemMenuActive: true })
       .headers-footers__header-logged-in
-        +header({ logIn: true, logoLink: 'change-me', firstMenuItemActive: true })
+        +header({ logIn: true, logoLink: './error-page.html', firstMenuItemActive: true })
       .headers-footers__footer
-        +footer({ logoLink: 'change-me' })
+        +footer({ logoLink: './error-page.html' })
       .headers-footers__footer-mobile
-        +footer-mobile({ logoLink: 'change-me' })
+        +footer-mobile({ logoLink: './error-page.html' })
