@@ -43,6 +43,7 @@ PAGES_ENTRY_FILES.forEach((pageEntryFile, index) => {
 
 const optimization = () => {
   const config = {
+    moduleIds: 'deterministic',
     runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
