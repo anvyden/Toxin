@@ -1,4 +1,3 @@
-import formElements from './form-elements.scss';
 import * as textField from '~/components/text-field/text-field';
 import Dropdown from '~/components/dropdown/dropdown';
 import LikeButton from '~/components/like-button/like-button';
@@ -6,6 +5,8 @@ import RangeSlider from '~/components/range-slider/range-slider';
 import Pagination from '~/components/pagination/pagination';
 import CheckboxList from '~/components/checkbox-list/checkbox-list';
 import Datepicker from '~/components/datepicker/datepicker';
+
+import formElements from './form-elements.scss';
 
 const init = {
   dateDropdown: new Datepicker('.js-date-dropdown', {

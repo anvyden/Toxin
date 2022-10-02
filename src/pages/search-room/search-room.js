@@ -1,4 +1,3 @@
-import searchRoom from '@pages/search-room/search-room.scss';
 import Slider from '@libs/swiper/swiper';
 import Dropdown from '~/components/dropdown/dropdown';
 import Datepicker from '~/components/datepicker/datepicker';
@@ -8,6 +7,8 @@ import CheckboxList from '~/components/checkbox-list/checkbox-list';
 import Header from '~/components/header/header';
 import Menu from '~/components/menu/menu';
 import Sidebar from '~/components/sidebar/sidebar';
+
+import searchRoom from './search-room.scss';
 
 const init = {
   header: new Header(

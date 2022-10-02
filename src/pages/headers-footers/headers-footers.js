@@ -1,6 +1,7 @@
-import headersFooters from '@pages/headers-footers/headers-footers.scss';
 import Header from '~/components/header/header';
 import Menu from '~/components/menu/menu';
+
+import headersFooters from './headers-footers.scss';
 
 const init = {
   header: document

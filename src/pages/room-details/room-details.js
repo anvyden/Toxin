@@ -1,10 +1,11 @@
-import roomDetails from '@pages/room-details/room-details.scss';
 import Dropdown from '~/components/dropdown/dropdown';
 import LikeButton from '~/components/like-button/like-button';
 import Datepicker from '~/components/datepicker/datepicker';
 import Menu from '~/components/menu/menu';
 import Header from '~/components/header/header';
 import PieChart from '~/components/pie-chart/pie-chart';
+
+import roomDetails from './room-details.scss';
 
 const init = {
   header: new Header(

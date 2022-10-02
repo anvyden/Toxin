@@ -1,8 +1,9 @@
-import landingPage from '@pages/landing-page/landing-page.scss';
 import Dropdown from '~/components/dropdown/dropdown';
 import Datepicker from '~/components/datepicker/datepicker';
 import Header from '~/components/header/header';
 import Menu from '~/components/menu/menu';
+
+import landingPage from './landing-page.scss';
 
 const init = {
   header: new Header(
