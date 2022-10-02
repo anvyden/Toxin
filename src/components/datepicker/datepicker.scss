@@ -407,6 +407,7 @@
   &--size-small {
     min-width: rem(266);
     max-width: rem(266);
+    line-height: 1;
 
     .air-datepicker {
       &-body {

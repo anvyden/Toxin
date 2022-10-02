@@ -2,15 +2,14 @@
   &__item {
     display: flex;
     margin-bottom: rem(20);
-    padding-bottom: rem(13);
 
     &--with-border {
       border-bottom: $featuresBorder;
+      padding-bottom: rem(13);
     }
 
     &:last-child {
       margin-bottom: 0;
-      padding-bottom: 0;
     }
 
     &-icon {

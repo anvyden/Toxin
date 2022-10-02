@@ -136,7 +136,7 @@ class PieChart {
 
   static getVotesTemplate(votes = 0) {
     return `
-      <h1 class='pie-chart__votes-count'>${votes}</h1>
+      <h3 class='pie-chart__votes-count'>${votes}</h3>
       <h3 class='pie-chart__votes-text'>${declination(votes, [
     'голос',
     'голоса',

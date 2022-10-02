@@ -58,12 +58,13 @@ mixin text-field( options={} )
           bold: true,
           hasUpper: true
         })
-        +text({
-          text: subtitle,
-          type: 'h3',
-          color: 'dark-shade-50',
-          hasUpper: true
-        })
+        if (subtitle)
+          +text({
+            text: subtitle,
+            type: 'h3',
+            color: 'dark-shade-50',
+            hasUpper: true
+          })
     .text-field__wrapper
       input&attributes(attrs)
       if (hasArrow)

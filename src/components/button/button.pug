@@ -28,5 +28,5 @@ mixin button(options)
     }
 
   #{buttonTag}&attributes(attrs[buttonTag])
-    p(class=['button__inner', sizeModifier, colorModifier, buttonBackgroundModifier] 'data-type'=dataType)=text
+    span(class=['button__inner', sizeModifier, colorModifier, buttonBackgroundModifier] 'data-type'=dataType)=text
 
