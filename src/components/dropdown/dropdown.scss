@@ -1,3 +1,6 @@
+@import '~/scss/variables';
+@import '~/scss/mixins';
+
 .dropdown {
   &--size-small {
     max-width: rem(150);
