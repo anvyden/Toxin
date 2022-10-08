@@ -1,6 +1,6 @@
 extends ~/layouts/UI-kit-layout/UI-kit-layout
 include ~/components/colors/colors
-include ~/components/type/type
+include ~/components/types/types
 
 block variables
   -
@@ -18,7 +18,7 @@ block variables
 block content
   main.colors-types
     .colors-types__container
-      +color([
+      +colors([
         { color: 'dark-shade-100', name: 'Dark Shade 100%', hex: '#1F2041' },
         { color: 'dark-shade-75', name: 'Dark Shade 75%', hex: '#1F2041' },
         { color: 'dark-shade-50', name: 'Dark Shade 50%', hex: '#1F2041' },
@@ -27,7 +27,7 @@ block content
         { color: 'purple', name: 'Purple', hex: '#BC9CFF' },
         { color: 'green', name: 'Green', hex: '#6FCF97' }
       ])
-      +type([
+      +types([
         { type: 'h1', title: 'h1', text: 'This one is the sub-section or widget title', typeHeaderHasUpper: true },
         { type: 'h2', title: 'h2', text: 'Next one is the item title inside widgets', typeHeaderHasUpper: true },
         { type: 'h3', title: 'h3', text: 'This is a label or CTA text', typeHeaderHasUpper: true },

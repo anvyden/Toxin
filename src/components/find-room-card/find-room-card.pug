@@ -44,7 +44,19 @@ mixin find-room-card(options={})
               { text: 'Взрослые', counter: '0', dataId: 'adults' },
               { text: 'Дети', counter: '0', dataId: 'children' },
               { text: 'Младенцы', counter: '0', dataId: 'babies' },
-            ]
+            ],
+          },
+          {
+            type: 'guests',
+            maxLengthItems: {
+              item0: 5,
+              item1: 10,
+              item2: 10,
+            },
+            plurals: {
+              guests: ['гость', 'гостя', 'гостей'],
+              babies: ['младенец', 'младенца', 'младенцев'],
+            },
           })
         .find-room-card__button
           +button({

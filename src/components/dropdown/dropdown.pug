@@ -1,7 +1,7 @@
 include ~/components/text/text
 include ~/components/button/button
 
-mixin dropdown(options={})
+mixin dropdown(options={}, props={})
   -
     const {
       hasTitle,
@@ -20,7 +20,7 @@ mixin dropdown(options={})
 
     const sizes = ['small', 'medium', 'large']
 
-    const mainClass = 'dropdown'
+    const mainClass = 'dropdown js-dropdown'
     const inputClass = 'dropdown__input js-dropdown__input'
     const buttonClass = 'dropdown__arrow-button material-icons js-dropdown__arrow-button'
     const dropClass = 'dropdown__drop js-dropdown__drop'
@@ -37,7 +37,8 @@ mixin dropdown(options={})
       openModifier,
       classForJs
     ],
-    'data-id': dataId
+    'data-id': dataId,
+    'data-props': props,
   })
     if (hasTitle)
       .dropdown__title

@@ -1,10 +1,16 @@
 import declination from './utils/declination';
 
 class Dropdown {
-  constructor(selector, options = {}) {
-    this.selector = selector;
-    this.options = options;
-    this._init();
+  constructor(dropdown) {
+    this.dropdown = dropdown;
+    const { props } = this.dropdown.dataset;
+
+    try {
+      this.props = JSON.parse(props);
+      this._init();
+    } catch (e) {
+      throw new Error('failed to get props for Dropdown class', e)
+    }
   }
 
   _init() {
@@ -16,7 +22,6 @@ class Dropdown {
   }
 
   _findDOMElements() {
-    this.dropdown = document.querySelector(this.selector);
     this.input = this.dropdown.querySelector('.js-dropdown__input');
     this.arrowButton = this.dropdown.querySelector(
       '.js-dropdown__arrow-button',
@@ -41,13 +46,13 @@ class Dropdown {
       ? Object.keys(this.getMaxLengthItems)
       : [];
 
-    this.options.maxLengthItems = Object.fromEntries(
+    this.props.maxLengthItems = Object.fromEntries(
       [...this.items].map((item, index) => {
         const key = `item${index}`;
         let value;
 
         keys.includes(key)
-          ? (value = this.options.maxLengthItems[key])
+          ? (value = this.props.maxLengthItems[key])
           : (value = 8);
 
         return [key, value];
@@ -56,7 +61,7 @@ class Dropdown {
   }
 
   get getMaxLengthItems() {
-    const { maxLengthItems } = this.options;
+    const { maxLengthItems } = this.props;
     return maxLengthItems;
   }
 
@@ -239,7 +244,7 @@ class Dropdown {
   }
 
   _setInputValue() {
-    const { plurals, type } = this.options;
+    const { plurals, type } = this.props;
     const value = [];
 
     if (type === 'comfort') {
