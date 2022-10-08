@@ -1,3 +1,6 @@
+@import '~/scss/variables';
+@import '~/scss/mixins';
+
 .footer {
   @media screen and (max-width: 1023px) {
     display: none;

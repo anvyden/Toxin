@@ -1,3 +1,6 @@
+@import '~/scss/variables';
+@import '~/scss/mixins';
+
 .toggle-button {
   color: $darkShade50;
   line-height: rem(20);

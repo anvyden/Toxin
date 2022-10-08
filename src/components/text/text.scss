@@ -1,3 +1,6 @@
+@import '~/scss/variables';
+@import '~/scss/mixins';
+
 .text {
   &--with-type-h1 {
     font-weight: 400;

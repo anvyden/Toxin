@@ -1,4 +1,6 @@
 @import '../../../node_modules/air-datepicker/air-datepicker.css';
+@import '~/scss/variables';
+@import '~/scss/mixins';
 
 .air-datepicker {
   box-sizing: border-box;

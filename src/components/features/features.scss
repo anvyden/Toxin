@@ -1,3 +1,6 @@
+@import '~/scss/variables';
+@import '~/scss/mixins';
+
 .features {
   &__item {
     display: flex;

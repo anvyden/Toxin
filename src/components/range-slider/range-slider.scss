@@ -1,4 +1,6 @@
 @import 'nouislider';
+@import '~/scss/variables';
+@import '~/scss/mixins';
 
 .range-slider {
   &__heading {

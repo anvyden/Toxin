@@ -1,3 +1,5 @@
+@import '~/scss/mixins';
+
 .room-selection {
   @media screen and (max-width: 479px) {
     max-width: rem(380);

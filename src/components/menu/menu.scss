@@ -1,3 +1,6 @@
+@import '~/scss/variables';
+@import '~/scss/mixins';
+
 .menu {
   &__list {
     display: flex;
