@@ -210,7 +210,7 @@ module.exports = {
     port: 8081,
     hot: isDev,
     watchContentBase: true,
-    index: 'colors-type.html',
+    index: 'start-page.html',
   },
   devtool: isDev ? 'source-map' : false,
   plugins: plugins(),

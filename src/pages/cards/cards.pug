@@ -1,6 +1,4 @@
 extends ~/layouts/UI-kit-layout/UI-kit-layout
-include ~/components/logo/logo
-include ~/components/text/text
 include ~/components/find-room-card/find-room-card
 include ~/components/sign-up-card/sign-up-card
 include ~/components/booking-card/booking-card
@@ -23,7 +21,6 @@ block variables
 
 block content
   .cards
-    +logo({ active: false, posAbsolute: true })
     .cards__container
       .cards__wrapper
         .cards__find-room-card

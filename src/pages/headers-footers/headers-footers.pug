@@ -1,5 +1,4 @@
 extends ~/layouts/UI-kit-layout/UI-kit-layout
-include ~/components/logo/logo
 include ~/components/header/header
 include ~/components/footer/footer
 include ~/components/footer-mobile/footer-mobile
@@ -19,7 +18,6 @@ block variables
 
 block content
   .headers-footers
-    +logo({ active: false, posAbsolute: true })
     .headers-footers__container
       .headers-footers__header
         +header({ logoLink: './error-page.html', firstItemMenuActive: true })
