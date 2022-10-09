@@ -1,4 +1,2 @@
-mixin pagination(options = {})
-  - const { classForJs } = options
-
-  div(class=['pagination', classForJs])
+mixin pagination(props = {})
+  div(class=['pagination', 'js-pagination'], data-props=props)

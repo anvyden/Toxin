@@ -2,10 +2,16 @@ import noUiSlider from 'nouislider';
 import wNumb from 'wnumb';
 
 class RangeSlider {
-  constructor(selector, options) {
-    this.selector = selector;
-    this.options = options;
-    this._init();
+  constructor(root) {
+    this.root = root;
+    const { props } = this.root.dataset;
+    
+    try {
+      this.props = JSON.parse(props);
+      this._init();
+    } catch (error) {
+      throw new Error('failed to get props for RangeSlider class', error)
+    }
   }
 
   _init() {
@@ -15,7 +21,7 @@ class RangeSlider {
       step,
       minStartValue,
       maxStartValue,
-    } = this.options;
+    } = this.props;
 
     this._getElements();
     this._addClassesForStyles();
@@ -43,9 +49,8 @@ class RangeSlider {
   }
 
   _getElements() {
-    const root = document.querySelector(this.selector);
-    this.slider = root.querySelector('.js-range-slider__slider');
-    this.sliderValue = root.querySelector('.js-range-slider__value');
+    this.slider = this.root.querySelector('.js-range-slider__slider');
+    this.sliderValue = this.root.querySelector('.js-range-slider__value');
   }
 
   _addClassesForStyles() {

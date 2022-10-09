@@ -1,8 +1,14 @@
 class Pagination {
-  constructor(selector, options) {
-    this.selector = selector;
-    this.options = options;
-    this._init();
+  constructor(pagination) {
+    this.pagination = pagination;
+    const { props } = this.pagination.dataset
+
+    try {
+      this.props = JSON.parse(props)
+      this._init()
+    } catch (error) {
+      throw new Error('failed to get props for Pagination class', error)
+    }
   }
 
   destroy() {
@@ -15,17 +21,12 @@ class Pagination {
   }
 
   _init() {
-    this._findDOMElements();
     this._setup();
     this._render();
   }
 
-  _findDOMElements() {
-    this.pagination = document.querySelector(this.selector);
-  }
-
   _setup() {
-    const { countOfItems, itemsPerPage } = this.options;
+    const { countOfItems, itemsPerPage } = this.props;
     this.countOfPages = Math.ceil(countOfItems / itemsPerPage);
     this.dataValue = 1;
   }
@@ -197,7 +198,7 @@ class Pagination {
   }
 
   _createDescription() {
-    const { itemsPerPage } = this.options;
+    const { itemsPerPage } = this.props;
 
     this.description = document.createElement('span');
     this.description.classList.add('pagination__description');

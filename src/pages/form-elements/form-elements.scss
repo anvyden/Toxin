@@ -1,16 +1,4 @@
-@import '~/assets/fonts/montserrat/montserrat';
-@import '~/assets/fonts/material-icons/material-icons';
-@import '~/scss/variables';
 @import '~/scss/mixins';
-@import '~/scss/settings';
-@import '~/components/logo/logo';
-@import '~/components/text/text';
-@import '@pages/form-elements/sections/fields/fields';
-@import '@pages/form-elements/sections/controls/controls';
-@import '@pages/form-elements/sections/buttons/buttons';
-@import '@pages/form-elements/sections/dropdowns/dropdowns';
-@import '@pages/form-elements/sections/checkboxs/checkboxs';
-@import '@pages/form-elements/sections/room-info/room-info';
 
 .form-elements {
   &__container {

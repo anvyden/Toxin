@@ -49,6 +49,13 @@ mixin sidebar({} = {})
           title: 'Диапазон цены',
           description: 'Стоимость за сутки пребывания в номере',
           classForJs: 'js-sidebar-range-slider',
+        },
+        {
+          min: 0,
+          max: 15000,
+          step: 50,
+          minStartValue: 5000,
+          maxStartValue: 10000,
         })
       .sidebar__checkboxs
         +checkbox-list({

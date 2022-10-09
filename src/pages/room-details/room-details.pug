@@ -57,7 +57,36 @@ block content
             .room-details__impressions-title
               +text({ text: 'Впечатления от номера', type: 'h2', color: 'dark-shade-100', bold: true })
             .room-details__impressions-chart
-              +pie-chart({ classForJs: 'js-pie-chart' })
+              +pie-chart([
+                {
+                  id: 'disappointed',
+                  text: 'Разочарован',
+                  votesAmount: 0,
+                  firstStopColor: '#919191',
+                  secondStopColor: '#3D4975',
+                },
+                {
+                  id: 'satisfactorily',
+                  text: 'Удовлетворительно',
+                  votesAmount: 260,
+                  firstStopColor: '#BC9CFF',
+                  secondStopColor: '#8BA4F9',
+                },
+                {
+                  id: 'good',
+                  votesAmount: 260,
+                  text: 'Хорошо',
+                  firstStopColor: '#6FCF97',
+                  secondStopColor: '#66D2EA',
+                },
+                {
+                  id: 'sumptuously',
+                  text: 'Великолепно',
+                  votesAmount: 520,
+                  firstStopColor: '#FFE39C',
+                  secondStopColor: '#FFBA9C',
+                },
+              ])
           section.room-details__comments
             .room-details__comments-heading
               +text({ text: 'Отзывы посетителей номера', type: 'h2', color: 'dark-shade-100', bold: true })

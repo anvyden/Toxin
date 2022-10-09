@@ -1,13 +1,10 @@
+import '~/assets/fonts/montserrat/montserrat.scss';
+import '~/assets/fonts/material-icons/material-icons.scss';
+import '@fortawesome/fontawesome-free/css/all.css';
+import '~/scss/settings.scss';
+import '~/layouts/UI-kit-layout';
 import '~/components/header';
-import '~/components/menu';
+import '~/components/footer';
+import '~/components/footer-mobile';
 
-import headersFooters from './headers-footers.scss';
-
-const init = {
-  // header: document
-  //   .querySelectorAll('.js-header__burger-menu-container')
-  //   .forEach((header) => new Header(header)),
-  // menu: document
-  //   .querySelectorAll('.js-menu__item')
-  //   .forEach((item) => new Menu(item)),
-};
+import './headers-footers.scss';

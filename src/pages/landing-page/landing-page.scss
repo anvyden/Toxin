@@ -1,24 +1,6 @@
-@import '~/assets/fonts/montserrat/montserrat';
-@import '~/assets/fonts/material-icons/material-icons';
-@import '@fortawesome/fontawesome-free/css/all.css';
-@import '~/scss/variables';
 @import '~/scss/mixins';
-@import '~/scss/settings';
 @import '~/layouts/main-layout/main-layout';
-@import '~/components/logo/logo';
-@import '~/components/text/text';
-@import '~/components/text-field/text-field';
-@import '~/components/button/button';
-@import '~/components/dropdown/dropdown';
-@import '~/components/date-dropdown/date-dropdown';
-@import '~/components/find-room-card/find-room-card';
 @import '~/components/datepicker/datepicker';
-@import '~/components/header/header';
-@import '~/components/menu/menu';
-@import '~/components/sub-menu/sub-menu';
-@import '~/components/footer/footer';
-@import '~/components/footer-mobile/footer-mobile';
-@import '~/components/copyright-bar/copyright-bar';
 
 .landing {
   padding: rem(70) rem(30) rem(21) rem(30);

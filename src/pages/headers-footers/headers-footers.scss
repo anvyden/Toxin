@@ -1,19 +1,5 @@
-@import '~/assets/fonts/montserrat/montserrat';
-@import '~/assets/fonts/material-icons/material-icons';
-@import '@fortawesome/fontawesome-free/css/all.css';
 @import '~/scss/variables';
 @import '~/scss/mixins';
-@import '~/scss/settings';
-@import '~/components/logo/logo';
-@import '~/components/text/text';
-@import '~/components/text-field/text-field';
-@import '~/components/button/button';
-@import '~/components/menu/menu';
-@import '~/components/sub-menu/sub-menu';
-@import '~/components/header/header';
-@import '~/components/copyright-bar/copyright-bar';
-@import '~/components/footer/footer';
-@import '~/components/footer-mobile/footer-mobile';
 
 .headers-footers {
   background: $uiKitPagesBackground;

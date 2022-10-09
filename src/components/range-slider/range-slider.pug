@@ -1,7 +1,7 @@
 include ~/components/text/text
 
-mixin range-slider({ title='', description='', classForJs='' } = {} )
-  div(class=['range-slider', classForJs])
+mixin range-slider({ title='', description='', classForJs='' } = {}, props = {})
+  div(class=['range-slider', 'js-range-slider'], data-props=props)
     .range-slider__heading
       +text({
         text: title,

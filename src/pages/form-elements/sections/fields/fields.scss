@@ -1,7 +1,5 @@
-@import '~/components/text-field/text-field';
-@import '~/components/dropdown/dropdown';
-@import '~/components/date-dropdown/date-dropdown';
 @import '~/components/datepicker/datepicker';
+@import '~/scss/mixins';
 
 .fields {
   &__container {

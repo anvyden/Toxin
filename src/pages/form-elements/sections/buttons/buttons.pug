@@ -1,12 +1,23 @@
-include ~/components/range-slider/range-slider
+include ~/components/text/text
 include ~/components/button/button
 include ~/components/pagination/pagination
+include ~/components/range-slider/range-slider
 
 mixin buttons()
   .buttons
     .buttons__container
       .buttons__range-slider
-        +range-slider({title: 'Range slider', classForJs: 'js-range-slider'})
+        +range-slider({
+          title: 'Range slider',
+          classForJs: 'js-range-slider'
+        },
+        {
+          min: 0,
+          max: 15000,
+          step: 50,
+          minStartValue: 5000,
+          maxStartValue: 10000,
+        })
       .buttons__buttons
         .buttons__heading
           +text({ text: 'buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
@@ -26,4 +37,7 @@ mixin buttons()
         .buttons__heading
           +text({ text: 'pagination', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         .buttons__pagination-wrapper
-          +pagination({ classForJs: 'js-pagination' })
+          +pagination({
+            countOfItems: 180,
+            itemsPerPage: 12,
+          })

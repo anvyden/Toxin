@@ -11,11 +11,12 @@ mixin checkbox-list(options={})
       items=[]
     } = options
 
+    const expandableClassForJs = expandable && 'js-checkbox-list'
     const hiddenModifier = expandable && !isOpened && 'checkbox-list__list--hidden'
     const rotateModifier = expandable && isOpened && 'checkbox-list__button--rotate'
     const richModifier = isRich && 'checkbox-list__list--rich'
 
-  .checkbox-list(class=classForJs)
+  .checkbox-list(class=expandableClassForJs)
     if (expandable)
       .checkbox-list__dropdown.js-checkbox-list__dropdown(tabindex=0)
         +text({

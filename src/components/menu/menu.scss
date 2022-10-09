@@ -88,5 +88,9 @@
 
   &__sub-menu {
     display: none;
+
+    &--visible {
+      display: block;
+    }
   }
 }

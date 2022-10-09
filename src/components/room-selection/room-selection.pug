@@ -11,4 +11,7 @@ mixin room-selection({ title, rooms = [] } = {})
         li.room-selection__room
           +room-card(room)
     .room-selection__pagination
-      +pagination({ classForJs: 'js-room-selection-pagination' })
+      +pagination({
+      countOfItems: 180,
+      itemsPerPage: 12,
+    })

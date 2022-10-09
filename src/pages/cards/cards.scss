@@ -1,23 +1,6 @@
-@import '~/assets/fonts/montserrat/montserrat';
-@import '~/assets/fonts/material-icons/material-icons';
 @import '~/scss/variables';
 @import '~/scss/mixins';
-@import '~/scss/settings';
-@import '~/components/logo/logo';
-@import '~/components/text/text';
-@import '~/components/text-field/text-field';
-@import '~/components/dropdown/dropdown';
-@import '~/components/date-dropdown/date-dropdown';
-@import '~/components/radio-button/radio-button';
-@import '~/components/toggle-button/toggle-button';
-@import '~/components/star-rating/star-rating';
-@import '~/components/button/button';
-@import '~/components/find-room-card/find-room-card';
-@import '~/components/sign-up-card/sign-up-card';
-@import '~/components/booking-card/booking-card';
-@import '~/components/sign-in-card/sign-in-card';
 @import '~/components/datepicker/datepicker';
-@import '~/components/room-card/room-card';
 @import '@libs/swiper/swiper';
 
 .cards {

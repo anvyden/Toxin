@@ -1,19 +1,19 @@
-import Dropdown from '~/components/dropdown/dropdown';
-import '~/components/like-button';
+import '~/assets/fonts/montserrat/montserrat.scss';
+import '~/assets/fonts/material-icons/material-icons.scss';
+import '@fortawesome/fontawesome-free/css/all.css';
+import '~/scss/settings.scss';
+import '~/layouts/main-layout';
+import '~/components/text';
+import '~/components/features';
+import '~/components/bullet-list';
+import '~/components/comments';
+import '~/components/booking-card';
+import '~/components/pie-chart';
 import Datepicker from '~/components/datepicker/datepicker';
-import '~/components/menu';
-import '~/components/header';
-import PieChart from '~/components/pie-chart/pie-chart';
 
-import roomDetails from './room-details.scss';
+import './room-details.scss';
 
 const init = {
-  // header: new Header(
-  //   document.querySelector('.js-header__burger-menu-container'),
-  // ),
-  // menu: document
-  //   .querySelectorAll('.js-menu__item')
-  //   .forEach((item) => new Menu(item)),
   bookindCard: {
     dateDropdown: new Datepicker(
       '.js-booking-card-date-dropdown',
@@ -27,52 +27,7 @@ const init = {
         roomPrice: '9990₽',
         discount: '2179₽',
         additionalServicesSum: '300₽',
-      },
+      }
     ),
-    guestsDropdown: new Dropdown('.js-booking-card-guests', {
-      type: 'guests',
-      maxLengthItems: {
-        item0: 5,
-        item1: 10,
-        item2: 10,
-      },
-      plurals: {
-        guests: ['гость', 'гостя', 'гостей'],
-        babies: ['младенец', 'младенца', 'младенцев'],
-      },
-    }),
   },
-  // likeButtons: document
-  //   .querySelectorAll('.js-like-button__button')
-  //   .forEach((button) => new LikeButton(button)),
-  chart: new PieChart(document.querySelector('.js-pie-chart'), [
-    {
-      id: 'disappointed',
-      text: 'Разочарован',
-      votesAmount: 0,
-      firstStopColor: '#919191',
-      secondStopColor: '#3D4975',
-    },
-    {
-      id: 'satisfactorily',
-      text: 'Удовлетворительно',
-      votesAmount: 260,
-      firstStopColor: '#BC9CFF',
-      secondStopColor: '#8BA4F9',
-    },
-    {
-      id: 'good',
-      votesAmount: 260,
-      text: 'Хорошо',
-      firstStopColor: '#6FCF97',
-      secondStopColor: '#66D2EA',
-    },
-    {
-      id: 'sumptuously',
-      text: 'Великолепно',
-      votesAmount: 520,
-      firstStopColor: '#FFE39C',
-      secondStopColor: '#FFBA9C',
-    },
-  ]),
 };

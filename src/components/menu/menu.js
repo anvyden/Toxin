@@ -40,7 +40,7 @@ class Menu {
       this._rotateArrow();
     }
 
-    this.subMenu.classList.contains('sub-menu--visible')
+    this.subMenu.classList.contains('menu__sub-menu--visible')
       ? this._addDocumentListener()
       : this._removeDocumentListener();
   }
@@ -59,7 +59,7 @@ class Menu {
       this._closeSubMenu();
     }
 
-    this.subMenu.classList.contains('sub-menu--visible')
+    this.subMenu.classList.contains('menu__sub-menu--visible')
       ? this._addDocumentListener()
       : this._removeDocumentListener();
   }
@@ -79,11 +79,11 @@ class Menu {
   }
 
   _toggleSubMenu() {
-    this.subMenu.classList.toggle('sub-menu--visible');
+    this.subMenu.classList.toggle('menu__sub-menu--visible');
   }
 
   _closeSubMenu() {
-    this.subMenu.classList.remove('sub-menu--visible');
+    this.subMenu.classList.remove('menu__sub-menu--visible');
     this.arrow.classList.remove('menu__item-arrow--rotate');
   }
 }

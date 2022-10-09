@@ -1,5 +1,5 @@
 @import '~/scss/variables';
-
+@import '~/scss/mixins';
 
 .sign-up-card {
   @include card;

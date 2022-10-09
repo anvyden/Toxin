@@ -1,10 +1,16 @@
 import declination from '~/components/dropdown/utils/declination';
 
 class PieChart {
-  constructor(root, items) {
+  constructor(root) {
     this.root = root;
-    this.items = items;
-    this._init();
+    const { votes } = this.root.dataset;
+
+    try {
+      this.items = JSON.parse(votes);
+      this._init();
+    } catch (error) {
+      throw new Error('failed to get votes data for PieChart class', error);
+    }
   }
 
   _init() {

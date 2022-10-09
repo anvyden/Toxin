@@ -8,8 +8,8 @@ class Dropdown {
     try {
       this.props = JSON.parse(props);
       this._init();
-    } catch (e) {
-      throw new Error('failed to get props for Dropdown class', e)
+    } catch (error) {
+      throw new Error('failed to get props for Dropdown class', error)
     }
   }
 
