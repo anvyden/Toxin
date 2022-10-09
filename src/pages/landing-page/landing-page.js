@@ -1,18 +1,18 @@
 // import Dropdown from '~/components/dropdown/dropdown';
 import '~/components/find-room-card'
 import Datepicker from '~/components/datepicker/datepicker';
-import Header from '~/components/header/header';
-import Menu from '~/components/menu/menu';
+import '~/components/header';
+import '~/components/menu';
 
 import landingPage from './landing-page.scss';
 
 const init = {
-  header: new Header(
-    document.querySelector('.js-header__burger-menu-container'),
-  ),
-  menu: document
-    .querySelectorAll('.js-menu__item')
-    .forEach((item) => new Menu(item)),
+  // header: new Header(
+  //   document.querySelector('.js-header__burger-menu-container'),
+  // ),
+  // menu: document
+  //   .querySelectorAll('.js-menu__item')
+  //   .forEach((item) => new Menu(item)),
   findRoomCard: {
     // guestsDropdown: new Dropdown('.js-find-room-guests', {
     //   type: 'guests',

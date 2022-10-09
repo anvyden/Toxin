@@ -1,19 +1,19 @@
 import Dropdown from '~/components/dropdown/dropdown';
-import LikeButton from '~/components/like-button/like-button';
+import '~/components/like-button';
 import Datepicker from '~/components/datepicker/datepicker';
-import Menu from '~/components/menu/menu';
-import Header from '~/components/header/header';
+import '~/components/menu';
+import '~/components/header';
 import PieChart from '~/components/pie-chart/pie-chart';
 
 import roomDetails from './room-details.scss';
 
 const init = {
-  header: new Header(
-    document.querySelector('.js-header__burger-menu-container'),
-  ),
-  menu: document
-    .querySelectorAll('.js-menu__item')
-    .forEach((item) => new Menu(item)),
+  // header: new Header(
+  //   document.querySelector('.js-header__burger-menu-container'),
+  // ),
+  // menu: document
+  //   .querySelectorAll('.js-menu__item')
+  //   .forEach((item) => new Menu(item)),
   bookindCard: {
     dateDropdown: new Datepicker(
       '.js-booking-card-date-dropdown',
@@ -42,9 +42,9 @@ const init = {
       },
     }),
   },
-  likeButtons: document
-    .querySelectorAll('.js-like-button__button')
-    .forEach((button) => new LikeButton(button)),
+  // likeButtons: document
+  //   .querySelectorAll('.js-like-button__button')
+  //   .forEach((button) => new LikeButton(button)),
   chart: new PieChart(document.querySelector('.js-pie-chart'), [
     {
       id: 'disappointed',

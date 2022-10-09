@@ -25,6 +25,19 @@ mixin dropdowns()
               { text: 'Кровати', counter: '2', dataId: 'beds' },
               { text: 'Ванные комнаты', counter: '0', dataId: 'bathrooms' },
             ]
+          },
+          {
+            type: 'comfort',
+            maxLengthItems: {
+              item0: 10,
+              item1: 15,
+              item2: 6,
+            },
+            plurals: {
+              bedrooms: ['спальня', 'спальни', 'спален'],
+              beds: ['кровать', 'кровати', 'кроватей'],
+              bathrooms: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+            },
           })
       .dropdowns__guests
         .dropdowns__dropdown-guests
@@ -40,6 +53,18 @@ mixin dropdowns()
               { text: 'Дети', counter: '0', dataId: 'children' },
               { text: 'Младенцы', counter: '0', dataId: 'babies' },
             ]
+          },
+          {
+            type: 'guests',
+            maxLengthItems: {
+              item0: 10,
+              item1: 15,
+              item2: 6,
+            },
+            plurals: {
+              guests: ['гость', 'гостя', 'гостей'],
+              babies: ['младенец', 'младенца', 'младенцев'],
+            },
           })
         .dropdowns__dropdown-guests-selected
           +dropdown({
@@ -55,4 +80,16 @@ mixin dropdowns()
               { text: 'Дети', counter: '1', dataId: 'children' },
               { text: 'Младенцы', counter: '0', dataId: 'babies' },
             ]
+          },
+          {
+            type: 'guests',
+            maxLengthItems: {
+              item0: 10,
+              item1: 15,
+              item2: 6,
+            },
+            plurals: {
+              guests: ['гость', 'гостя', 'гостей'],
+              babies: ['младенец', 'младенца', 'младенцев'],
+            },
           })

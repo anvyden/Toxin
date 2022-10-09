@@ -1,6 +1,6 @@
 class CheckboxList {
-  constructor(selector) {
-    this.selector = selector;
+  constructor(checkbox) {
+    this.checkbox = checkbox;
     this._init();
   }
 
@@ -10,7 +10,6 @@ class CheckboxList {
   }
 
   _getElements() {
-    this.checkbox = document.querySelector(this.selector);
     this.dropdown = this.checkbox.querySelector('.js-checkbox-list__dropdown');
     this.list = this.checkbox.querySelector('.js-checkbox-list__list');
     this.button = this.checkbox.querySelector('.js-checkbox-list__button');

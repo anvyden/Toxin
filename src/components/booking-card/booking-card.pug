@@ -54,6 +54,18 @@ mixin booking-card(options)
               { text: 'Дети', counter: '1', dataId: 'children' },
               { text: 'Младенцы', counter: '0', dataId: 'babies' },
             ]
+          },
+          {
+            type: 'guests',
+            maxLengthItems: {
+              item0: 5,
+              item1: 10,
+              item2: 10,
+            },
+            plurals: {
+              guests: ['гость', 'гостя', 'гостей'],
+              babies: ['младенец', 'младенца', 'младенцев'],
+            },
           })
         .booking-card__calculation
           .booking-card__calculation-item
