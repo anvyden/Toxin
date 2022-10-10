@@ -3,7 +3,7 @@ include ~/components/find-room-card/find-room-card
 include ~/components/sign-up-card/sign-up-card
 include ~/components/booking-card/booking-card
 include ~/components/sign-in-card/sign-in-card
-include ~/components/datepicker/datepicker
+//- include ~/components/datepicker/datepicker
 include ~/components/room-card/room-card
 
 block variables
@@ -53,7 +53,7 @@ block content
           })
       .cards__wrapper
         .cards__datepicker
-          +datepicker({ classForJs: 'js-datepicker' })
+          //- +datepicker({ classForJs: 'js-datepicker' })
         .cards__room-cards
           .cards__room-card
             +room-card({

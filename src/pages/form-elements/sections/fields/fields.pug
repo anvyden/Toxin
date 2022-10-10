@@ -47,7 +47,11 @@ mixin fields()
             isReadonly: true,
             title: 'date dropdown',
             titleEnd: 'date dropdown',
-            classForJs: 'js-date-dropdown'
+            classForJs: 'js-date-dropdown',
+            props: {
+              hasTwoInputs: true,
+              initialDates: ['2019-08-19', '2019-08-23'],
+            },
           })
       .fields__filter-date-dropdown
         +date-dropdown({
@@ -59,7 +63,11 @@ mixin fields()
           readonly: true,
           isLowerCase: true,
           title: 'filter date dropdown',
-          classForJs: 'js-filter-date-dropdown'
+          classForJs: 'js-filter-date-dropdown',
+          props: {
+            initialDates: ['2019-08-19', '2019-08-23'],
+            size: 'small',
+          },
         })
       .fields__subscription-text-field
         +text-field({

@@ -30,7 +30,11 @@ mixin find-room-card(options={})
             isReadonly: true,
             title: 'Прибытие',
             titleEnd: 'Выезд',
-            classForJs: dateDropdownClassForJs
+            classForJs: dateDropdownClassForJs,
+            props: {
+              hasTwoInputs: true,
+              initialDates: ['2019-08-19', '2019-08-23'],
+            },
           })
         .find-room-card__dropdown-guests
           +dropdown({

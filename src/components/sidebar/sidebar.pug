@@ -16,7 +16,11 @@ mixin sidebar({} = {})
           readonly: true,
           isLowerCase: true,
           title: 'Даты пребывания в отеле',
-          classForJs: 'js-sidebar-date-dropdown'
+          classForJs: 'js-sidebar-date-dropdown',
+          props: {
+            initialDates: ['2019-08-19', '2019-08-23'],
+            size: 'small',
+          },
         })
       .sidebar__dropdown-guests
         +dropdown({
