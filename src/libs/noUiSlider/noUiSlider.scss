@@ -1,0 +1,53 @@
+@import '~nouislider';
+@import '~/scss/variables';
+@import '~/scss/mixins';
+
+.range-slider {
+  &__target {
+    height: rem(6);
+    background: #fff;
+    border: $mainBorder;
+    border-radius: 3px;
+    box-shadow: none;
+  }
+
+  &__connects {
+    overflow: visible;
+  }
+
+  &__connect {
+    top: rem(-1);
+    height: rem(5.5);
+    background: $secondaryGradient;
+  }
+
+  &__handle {
+    &:focus-visible {
+      outline: $secondaryFocusOutline;
+    }
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &__origin {
+    > .range-slider {
+      &__handle {
+        top: rem(-6);
+        right: rem(-2);
+        width: rem(16);
+        height: rem(16);
+        background: $secondaryGradient;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        box-shadow: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
