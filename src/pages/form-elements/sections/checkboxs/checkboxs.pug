@@ -7,7 +7,20 @@ mixin checkboxs()
     .checkboxs__container
       .checkboxs__expandable-checkboxs
         .checkboxs__expandable-checkbox
-          +checkbox-list({ expandable: true, title: 'expandable checkbox list' })
+          +checkbox-list({
+            expandable: true,
+            title: 'expandable checkbox list',
+            items: [
+              { title: 'Завтрак', name: 'breakfast' },
+              { title: 'Письменный стол', name: 'table', isChecked: true },
+              { title: 'Стул для кормления', name: 'chair', isChecked: true },
+              { title: 'Кроватка', name: 'bed', isChecked: true },
+              { title: 'Телевизор', name: 'tv1' },
+              { title: 'Шампунь', name: 'shampoo1' },
+              { title: 'Телевизор', name: 'tv2' },
+              { title: 'Шампунь', name: 'shampoo2' },
+            ]
+          })
         .checkboxs__expandable-checkbox
           +checkbox-list({
             title: 'expandable checkbox list',

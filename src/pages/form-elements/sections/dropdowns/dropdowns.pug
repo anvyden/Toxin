@@ -9,7 +9,26 @@ mixin dropdowns()
             hasTitle: true,
             title: 'dropdown',
             subtitle: 'default',
-            value: '2 спальни, 2 кровати...'
+            value: '2 спальни, 2 кровати...',
+            placeholder: 'Удобства номера',
+            items: [
+              { text: 'Спальни', counter: '2', dataId: 'bedrooms' },
+              { text: 'Кровати', counter: '2', dataId: 'beds' },
+              { text: 'Ванные комнаты', counter: '0', dataId: 'bathrooms' },
+            ]
+          },
+          {
+            type: 'comfort',
+            maxLengthItems: {
+              item0: 10,
+              item1: 15,
+              item2: 6,
+            },
+            plurals: {
+              bedrooms: ['спальня', 'спальни', 'спален'],
+              beds: ['кровать', 'кровати', 'кроватей'],
+              bathrooms: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+            },
           })
         .dropdowns__dropdown-expanded
           +dropdown({

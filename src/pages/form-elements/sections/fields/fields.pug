@@ -26,7 +26,30 @@ mixin fields()
           value: 'This is pretty awesome'
         })
       .fields__dropdown
-        +dropdown({ hasTitle: true, title: 'dropdown', value: 'Сколько гостей' })
+        +dropdown({
+          hasTitle: true,
+          withButtons: true,
+          title: 'dropdown',
+          value: 'Сколько гостей',
+          placeholder: 'Сколько гостей',
+          items: [
+              { text: 'Взрослые', counter: '0', dataId: 'adults' },
+              { text: 'Дети', counter: '0', dataId: 'children' },
+              { text: 'Младенцы', counter: '0', dataId: 'babies' },
+            ]
+          },
+          {
+            type: 'guests',
+            maxLengthItems: {
+              item0: 10,
+              item1: 15,
+              item2: 6,
+            },
+            plurals: {
+              guests: ['гость', 'гостя', 'гостей'],
+              babies: ['младенец', 'младенца', 'младенцев'],
+            },
+          })
       .fields__masked-text-field
         +text-field({
           hasTitle: true,
