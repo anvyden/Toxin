@@ -13,15 +13,16 @@ mixin text-field( options={} )
       dataType,
       hasArrow,
       isSubscribe,
+      isMasked,
       isReadonly,
       isLowerCase,
       withSpellcheck,
       focused,
-      autocomplete='off',
-      classForJs
+      autocomplete='off'
     } = options
 
     const mainClass = 'text-field__input'
+    const maskedClass = isMasked && 'js-masked-text-field'
     const focusedModifier = focused && 'text-field__input--focused'
     const inputWithButtonModifier = withButton && 'text-field__input--with-button'
     const arrowClass = 'text-field__arrow-button material-icons js-text-field__arrow-button'
@@ -36,7 +37,7 @@ mixin text-field( options={} )
         inputWithButtonModifier,
         lowerCaseModifier,
         buttonModifier,
-        classForJs
+        maskedClass
       ],
       type: type,
       'data-type': dataType,

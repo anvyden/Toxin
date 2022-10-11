@@ -1,14 +1,15 @@
 class Pagination {
   constructor(pagination) {
     this.pagination = pagination;
-    const { props } = this.pagination.dataset
+    const { props } = this.pagination.dataset;
 
     try {
-      this.props = JSON.parse(props)
-      this._init()
+      this.props = JSON.parse(props);
     } catch (error) {
-      throw new Error('failed to get props for Pagination class', error)
+      throw new Error('failed to get props for Pagination class', error);
     }
+
+    this._init();
   }
 
   destroy() {
@@ -43,7 +44,7 @@ class Pagination {
 
         arrow.addEventListener(
           'pointerdown',
-          this._handleArrowPointerDown.bind(this),
+          this._handleArrowPointerDown.bind(this)
         );
         arrow.addEventListener('keydown', this._handleArrowKeyDown.bind(this));
 
@@ -54,7 +55,7 @@ class Pagination {
         if (value !== '...') {
           item.addEventListener(
             'pointerdown',
-            this._handleItemPointerDown.bind(this),
+            this._handleItemPointerDown.bind(this)
           );
           item.addEventListener('keydown', this._handleItemKeyDown.bind(this));
         }
@@ -115,17 +116,23 @@ class Pagination {
     }
 
     const correctValues = values.map((value) => {
-      const isMoreDataValueByTwo = countOfPages - (dataValue + 2) > 2 && value > dataValue + 2;
-      const isLessDataValueByTwo = dataValue - 2 - 1 > 2 && value < dataValue - 2;
-      const isDiffersByLessThanTwo = dataValue + 2 >= value && value >= dataValue - 2;
+      const isMoreDataValueByTwo =
+        countOfPages - (dataValue + 2) > 2 && value > dataValue + 2;
+      const isLessDataValueByTwo =
+        dataValue - 2 - 1 > 2 && value < dataValue - 2;
+      const isDiffersByLessThanTwo =
+        dataValue + 2 >= value && value >= dataValue - 2;
 
       if (value === 1 || value === countOfPages) {
         return value;
-      } if (isMoreDataValueByTwo) {
+      }
+      if (isMoreDataValueByTwo) {
         return '...';
-      } if (isLessDataValueByTwo) {
+      }
+      if (isLessDataValueByTwo) {
         return '...';
-      } if (isDiffersByLessThanTwo) {
+      }
+      if (isDiffersByLessThanTwo) {
         return value;
       }
       return value;
@@ -139,8 +146,10 @@ class Pagination {
       ...secondHalf.filter((item, index) => secondHalf.indexOf(item) === index),
     ];
 
-    if (dataValue !== 1) this.filteredValues = ['arrow_back', ...this.filteredValues];
-    if (dataValue !== countOfPages) this.filteredValues = [...this.filteredValues, 'arrow_forward'];
+    if (dataValue !== 1)
+      this.filteredValues = ['arrow_back', ...this.filteredValues];
+    if (dataValue !== countOfPages)
+      this.filteredValues = [...this.filteredValues, 'arrow_forward'];
 
     return this.filteredValues;
   }
@@ -156,7 +165,8 @@ class Pagination {
     this.item = document.createElement('li');
     this.item.classList.add('pagination__item');
 
-    if (this.dataValue === value) this.item.classList.add('pagination__item--active');
+    if (this.dataValue === value)
+      this.item.classList.add('pagination__item--active');
     if (value === '...') this.item.classList.add('pagination__item--disabled');
 
     const link = document.createElement('a');
@@ -173,7 +183,10 @@ class Pagination {
 
   _createArrow(value) {
     this.arrow = document.createElement('li');
-    this.arrow.classList.add('pagination__item', 'pagination__item--with-arrow');
+    this.arrow.classList.add(
+      'pagination__item',
+      'pagination__item--with-arrow'
+    );
 
     const arrowLink = document.createElement('a');
     arrowLink.classList.add('pagination__item-link', 'material-icons');
@@ -182,12 +195,12 @@ class Pagination {
 
     if (value === 'arrow_forward') {
       arrowLink.classList.add(
-        ...['pagination__arrow-prev', 'js-pagination__arrow-prev'],
+        ...['pagination__arrow-prev', 'js-pagination__arrow-prev']
       );
       arrowLink.dataset.type = 'next';
     } else {
       arrowLink.classList.add(
-        ...['pagination__arrow-next', 'js-pagination__arrow-next'],
+        ...['pagination__arrow-next', 'js-pagination__arrow-next']
       );
       arrowLink.dataset.type = 'prev';
     }

@@ -7,8 +7,6 @@ mixin find-room-card(options={})
   -
     const {
       title,
-      dateDropdownClassForJs,
-      guestsDropdownClassForJs,
       formAction='./error-page.html',
       formMethod
     } = options
@@ -31,7 +29,6 @@ mixin find-room-card(options={})
             isReadonly: true,
             title: 'Прибытие',
             titleEnd: 'Выезд',
-            classForJs: dateDropdownClassForJs,
             props: {
               hasTwoInputs: true,
               initialDates: ['2019-08-19', '2019-08-23'],
@@ -44,7 +41,6 @@ mixin find-room-card(options={})
             title: 'Гости',
             placeholder: 'Сколько гостей',
             name: 'guests',
-            classForJs: guestsDropdownClassForJs,
             items: [
               { text: 'Взрослые', counter: '0', dataId: 'adults' },
               { text: 'Дети', counter: '0', dataId: 'children' },

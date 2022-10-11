@@ -17,14 +17,13 @@ mixin date-dropdown(options={})
       demo=false,
       title,
       titleEnd,
-      classForJs,
       props
     } = options
 
   if demo 
     .date-dropdown.js-date-dropdown(data-props=props)
   else if hasTwoInputs
-    .date-dropdown.js-date-dropdown(class=classForJs, data-props=props)
+    .date-dropdown.js-date-dropdown(data-props=props)
       .date-dropdown__wrapper 
         .date-dropdown__start 
           +text-field({
@@ -51,7 +50,7 @@ mixin date-dropdown(options={})
             isReadonly,
           })
   else
-    .date-dropdown.js-date-dropdown(class=classForJs, data-props=props)
+    .date-dropdown.js-date-dropdown(data-props=props)
       +text-field({
         hasTitle: true,
         title,

@@ -14,7 +14,6 @@ mixin dropdown(options={}, props={})
       isOpened,
       size,
       withButtons,
-      classForJs,
       items=[]
     } = options
 
@@ -34,8 +33,7 @@ mixin dropdown(options={}, props={})
     class: [
       mainClass,
       sizeModifier,
-      openModifier,
-      classForJs
+      openModifier
     ],
     'data-id': dataId,
     'data-props': props,
