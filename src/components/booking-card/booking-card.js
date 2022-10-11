@@ -8,8 +8,13 @@ const moneyFormat = wNumb({
 
 class BookingCard {
   constructor(params) {
-    this.selector = params.selector;
-    this.params = params;
+    try {
+      this.selector = params.selector;
+      this.params = params;
+    } catch (error) {
+      throw new Error('failed to get params for BookingCard class', error);
+    }
+
     this._init();
   }
 
@@ -26,13 +31,13 @@ class BookingCard {
     this.roomNumber.textContent = roomNumber;
     this.roomPrice.textContent = `${moneyFormat.to(roomPrice)}₽`;
     this.priceInDays.textContent = `${moneyFormat.to(
-      roomPrice,
+      roomPrice
     )}₽ х ${days} ${declination(days, ['сутки', 'суток', 'суток'])}`;
     this.sumPriceInDays.textContent = `${moneyFormat.to(
-      priceForSelectedDays,
+      priceForSelectedDays
     )}₽`;
     this.servicesPrice.textContent = `Сбор за услуги: скидка ${moneyFormat.to(
-      discount,
+      discount
     )}₽`;
     this.servicesSumPrice.textContent = '0₽';
     this.additionalServicesSum.textContent = `${additionalServicesSum}₽`;
@@ -51,16 +56,16 @@ class BookingCard {
   }
 
   _getCorrectParams(days) {
-    const {
-      roomNumber, roomPrice, discount, additionalServicesSum,
-    } = this.params;
+    const { roomNumber, roomPrice, discount, additionalServicesSum } =
+      this.params;
 
     const correntRoomNumber = parseInt(roomNumber, 10);
     const correctRoomPrice = parseInt(roomPrice, 10);
     const correctDiscount = parseInt(discount, 10);
     const correctAdditionalServicesSum = parseInt(additionalServicesSum, 10);
     const priceForSelectedDays = correctRoomPrice * days;
-    const totalSum = priceForSelectedDays - correctDiscount + correctAdditionalServicesSum;
+    const totalSum =
+      priceForSelectedDays - correctDiscount + correctAdditionalServicesSum;
 
     return {
       roomNumber: correntRoomNumber,
@@ -74,24 +79,24 @@ class BookingCard {
 
   _getElemetns() {
     this.roomNumber = this.root.querySelector(
-      '.js-booking-card__room-number-value',
+      '.js-booking-card__room-number-value'
     );
     this.roomPrice = this.root.querySelector(
-      '.js-booking-card__room-price-value',
+      '.js-booking-card__room-price-value'
     );
     this.priceInDays = this.root.querySelector('.js-booking-card__days-value');
     this.sumPriceInDays = this.root.querySelector('.js-booking-card__days-sum');
     this.servicesPrice = this.root.querySelector(
-      '.js-booking-card__services-value',
+      '.js-booking-card__services-value'
     );
     this.servicesSumPrice = this.root.querySelector(
-      '.js-booking-card__services-sum',
+      '.js-booking-card__services-sum'
     );
     this.additionalServicesSum = this.root.querySelector(
-      '.js-booking-card__additional-services-sum',
+      '.js-booking-card__additional-services-sum'
     );
     this.totalSum = this.root.querySelector(
-      '.js-booking-card__total-price-sum',
+      '.js-booking-card__total-price-sum'
     );
   }
 }

@@ -1,5 +1,5 @@
 import '~/components/text-field';
-import Datepicker from '@libs/datepicker';
+import Datepicker from '@libs/air-datepicker';
 
 import './date-dropdown.scss';
 

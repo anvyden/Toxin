@@ -1,0 +1,125 @@
+@import '~/scss/variables';
+@import '~/scss/mixins';
+
+.slider {
+  position: relative;
+  height: rem(151.38);
+  border-radius: 4px 4px 0 0;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: rem(42);
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0) 99.99%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    content: '';
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: rem(42);
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0) 99.99%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    content: '';
+  }
+
+  &:focus-visible {
+    outline: $focusOutline;
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4px 4px 0 0;
+  }
+
+  &__pagination {
+    &-bullet {
+      display: block;
+      width: rem(7.2);
+      height: rem(7.2);
+      margin-right: rem(3.75);
+      border: 1px solid #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      filter: $sliderBulletsShadow;
+
+      &--active {
+        background: #fff;
+        box-shadow: $sliderBulletActiveShadow;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  & > .swiper-pagination-bullets.slider {
+    &__pagination {
+      right: rem(16);
+      bottom: rem(15);
+      left: auto;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  & > .slider {
+    &__button {
+      left: rem(9);
+      z-index: 5;
+      color: #fff;
+      transform: rotate(90deg);
+      opacity: 0;
+      user-select: none;
+
+      &:last-child {
+        right: rem(8);
+        left: auto;
+        transform: rotate(-90deg);
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      opacity: 1;
+    }
+
+    .slider {
+      &__button {
+        opacity: 1;
+
+        &--disabled {
+          opacity: 0.35;
+        }
+      }
+    }
+  }
+}

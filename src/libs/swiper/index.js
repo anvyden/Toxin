@@ -1,13 +1,15 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
 
+import './swiper.scss';
+
 class Slider {
-  constructor(selector) {
-    this.selector = selector;
+  constructor(root) {
+    this.root = root;
     this._init();
   }
 
   _init() {
-    this.slider = new Swiper(this.selector, {
+    this.slider = new Swiper(this.root, {
       modules: [Navigation, Pagination],
       pagination: {
         el: '.swiper-pagination',
@@ -17,6 +19,7 @@ class Slider {
         clickable: true,
       },
       navigation: {
+        disabledClass: 'slider__button--disabled',
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },

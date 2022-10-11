@@ -2,7 +2,7 @@ import AirDatepicker from 'air-datepicker';
 
 import BookingCard from '~/components/booking-card/booking-card';
 
-import './datepicker.scss';
+import './air-datepicker.scss';
 
 class Datepicker {
   constructor(root) {

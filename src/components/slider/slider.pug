@@ -2,7 +2,7 @@ mixin slider({ images = [], options = {} } = {})
   -
     const { pagination = true, navigation = true } = options
 
-  .swiper.slider
+  .swiper.slider.js-slider
     .swiper-wrapper.slider-wrapper
       each image in images
         .swiper-slide.slider__slide

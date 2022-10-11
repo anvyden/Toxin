@@ -14,7 +14,7 @@ mixin booking-card(options)
       classForJs
     } = options
 
-  .booking-card(class=classForJs)
+  .booking-card.js-booking-card(class=classForJs)
     .booking-card__container
       form(class='booking-card__form' action=formAction method=formMethod)
         .booking-card__room-info
@@ -45,7 +45,7 @@ mixin booking-card(options)
               hasTwoInputs: true,
               initialDates: ['2019-08-19', '2019-08-23'],
               bookingCardParams: {
-                selector: '.js-room-details-booking-card',
+                selector: '.js-booking-card',
                 roomNumber: '888',
                 roomPrice: '9990₽',
                 discount: '2179₽',
