@@ -1,7 +1,7 @@
 import noUiSlider from 'nouislider';
 import wNumb from 'wnumb';
 
-import './noUiSlider.scss';
+import './nouislider.scss';
 
 class RangeSlider {
   constructor(root) {

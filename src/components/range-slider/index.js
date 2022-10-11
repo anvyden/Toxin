@@ -1,6 +1,6 @@
 import '~/components/text';
 
-import RangeSlider from '~/libs/noUiSlider';
+import RangeSlider from '~/libs/nouislider';
 import './range-slider.scss';
 
 const sliders = document.querySelectorAll('.js-range-slider');
