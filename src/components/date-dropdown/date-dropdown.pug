@@ -14,13 +14,16 @@ mixin date-dropdown(options={})
       isReadonly,
       isLowerCase,
       hasTwoInputs=false,
+      demo=false,
       title,
       titleEnd,
       classForJs,
       props
     } = options
 
-  if hasTwoInputs
+  if demo 
+    .date-dropdown.js-date-dropdown(data-props=props)
+  else if hasTwoInputs
     .date-dropdown.js-date-dropdown(class=classForJs, data-props=props)
       .date-dropdown__wrapper 
         .date-dropdown__start 

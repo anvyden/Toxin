@@ -103,16 +103,25 @@
 
       &:hover,
       &:focus-visible {
-        text-decoration: 2px underline $purple;
         background: none;
         outline: none;
+
+        .button {
+          &__inner {
+            text-decoration: $focusUnderline;
+          }
+        }
       }
 
       &:disabled {
         background: none;
 
         &:hover {
-          text-decoration: none;
+          .button {
+            &__inner {
+              text-decoration: none;
+            }
+          }
         }
 
         .button {

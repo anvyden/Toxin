@@ -53,7 +53,13 @@ block content
           })
       .cards__wrapper
         .cards__datepicker
-          //- +datepicker({ classForJs: 'js-datepicker' })
+          +date-dropdown({
+            demo: true,
+            props: {
+              inline: true,
+              initialDates: ['2019-08-19', '2019-08-23']
+            }
+          })
         .cards__room-cards
           .cards__room-card
             +room-card({

@@ -67,7 +67,7 @@ class Sidebar {
   _handleDocumentPointerDown(event) {
     const { target } = event;
 
-    if (!target.closest('.js-sidebar')) {
+    if (!this.root.contains(target)) {
       this._close();
       this._removeDocumentListener();
     }

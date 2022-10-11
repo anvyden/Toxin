@@ -11,10 +11,11 @@ class Datepicker {
 
     try {
       this.props = JSON.parse(props);
-      this._init();
     } catch (error) {
       throw new Error('failed to get props for Datepicker class', error);
     }
+
+    this._init();
   }
 
   _init() {
@@ -48,7 +49,7 @@ class Datepicker {
   _setup() {
     const { hasTwoInputs } = this.props;
 
-    const params = {
+    this.params = {
       dateFormat: 'dd MMM',
       range: true,
       multipleDatesSeparator: ' - ',
@@ -64,23 +65,20 @@ class Datepicker {
         '<span class="material-icons air-datepicker-arrow">arrow_forward</span>',
     };
 
-    const paramsWithTwoInputs = {
-      position: 'bottom left',
-      dateFormat: 'dd.MM.yyyy',
-      range: true,
-      buttons: this._createButtons(),
-      navTitles: {
-        days: 'MMMM yyyy',
-      },
-      onSelect: this._onSelect.bind(this),
-      onChangeView: this._onChangeView.bind(this),
-      prevHtml:
-        '<span class="material-icons air-datepicker-arrow">arrow_back</span>',
-      nextHtml:
-        '<span class="material-icons air-datepicker-arrow">arrow_forward</span>',
-    };
+    if (!hasTwoInputs) {
+      this.params = {
+        ...this.params,
+        multipleDatesSeparator: ' - ',
+      };
+    }
 
-    this.params = hasTwoInputs ? paramsWithTwoInputs : params;
+    if (hasTwoInputs) {
+      this.params = {
+        ...this.params,
+        position: 'bottom left',
+        dateFormat: 'dd.MM.yyyy',
+      };
+    }
   }
 
   _findDOMElements() {
@@ -109,8 +107,8 @@ class Datepicker {
         tabindex: '-1',
         'data-type': 'apply',
       },
-      onClick: (datepicker) => {
-        datepicker.$datepicker.classList.remove('-active-');
+      onClick: () => {
+        this._close();
       },
     };
 
@@ -131,7 +129,7 @@ class Datepicker {
   }
 
   _onSelect({ formattedDate }) {
-    const { hasTwoInputs, bookingCardParams = undefined } = this.props;
+    const { hasTwoInputs, bookingCardParams } = this.props;
     const [startDate = '', endDate = ''] = formattedDate;
 
     if (formattedDate.length) {
@@ -149,7 +147,7 @@ class Datepicker {
       this.filterDateDropdown.value = formattedDate.join(' - ');
     }
 
-    if (bookingCardParams !== undefined) {
+    if (bookingCardParams) {
       const oneDay = 1000 * 60 * 60 * 24;
       const parsedStartDate = Date.parse(endDate.split('.').reverse());
       const parsedEndDate = Date.parse(startDate.split('.').reverse());
@@ -203,11 +201,11 @@ class Datepicker {
   }
 
   _handleDocumentPoitnerDown(event) {
-    if (!this._isPoitnerDownOnDatepicker(event)) this._close();
+    if (!this._isPointerDownOnDatepicker(event)) this._close();
   }
 
-  _isPoitnerDownOnDatepicker({ target }) {
-    return target.closest('.js-date-dropdown');
+  _isPointerDownOnDatepicker({ target }) {
+    return this.root.contains(target);
   }
 
   get isOpen() {

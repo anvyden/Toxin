@@ -66,9 +66,8 @@ class Menu {
 
   _handleDocumentPoinerDown(event) {
     const { target } = event;
-    const isItem = target.closest('.js-menu__item');
 
-    if (!isItem) {
+    if (!this.root.contains(target)) {
       this._closeSubMenu();
       this._removeDocumentListener();
     }

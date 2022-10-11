@@ -141,7 +141,11 @@ class Dropdown {
   }
 
   _handleDocumentPointerDown(event) {
-    if (!event.target.closest('.dropdown')) this._close();
+    if (!this._isPointerDownOnDropdown(event)) this._close();
+  }
+
+  _isPointerDownOnDropdown({ target }) {
+    return this.dropdown.contains(target);
   }
 
   _countTotal() {

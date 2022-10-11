@@ -63,7 +63,7 @@ class Header {
   _handleDocumentPointerDown(event) {
     const { target } = event;
 
-    if (!target.closest('.js-header__burger-menu-container')) {
+    if (!this.root.contains(target)) {
       this._close();
     }
   }

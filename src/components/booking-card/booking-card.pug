@@ -33,7 +33,8 @@ mixin booking-card(options)
             dataType: 'date-dropdown-start',
             dataTypeEnd: 'date-dropdown-end',
             placeholder: 'ДД.ММ.ГГГГ',
-            name: 'date',
+            name: 'date-start',
+            nameEnd: 'date-end',
             hasTwoInputs: true,
             hasArrow: true,
             isReadonly: true,
@@ -43,7 +44,7 @@ mixin booking-card(options)
             props: {
               hasTwoInputs: true,
               initialDates: ['2019-08-19', '2019-08-23'],
-              bookindCardParams: {
+              bookingCardParams: {
                 selector: '.js-room-details-booking-card',
                 roomNumber: '888',
                 roomPrice: '9990₽',
