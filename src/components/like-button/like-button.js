@@ -5,7 +5,12 @@ class LikeButton {
   }
 
   _init() {
+    this._getSelectors();
     this._bindEventListeners();
+  }
+
+  _getSelectors() {
+    this.buttonActiveModifier = 'like-button__button--active';
   }
 
   _bindEventListeners() {
@@ -20,7 +25,7 @@ class LikeButton {
   }
 
   get isActive() {
-    return this.likeButton.classList.contains('like-button__button--active');
+    return this.likeButton.classList.contains(this.buttonActiveModifier);
   }
 
   _pointerDownHandlerLikeButton() {
@@ -53,7 +58,7 @@ class LikeButton {
   }
 
   _toggle() {
-    this.likeButton.classList.toggle('like-button__button--active');
+    this.likeButton.classList.toggle(this.buttonActiveModifier);
   }
 
   _counterUp() {

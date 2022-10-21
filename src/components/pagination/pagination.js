@@ -22,8 +22,23 @@ class Pagination {
   }
 
   _init() {
+    this._getSelectors();
     this._setup();
     this._render();
+  }
+
+  _getSelectors() {
+    this.listClass = 'pagination__list';
+    this.itemClass = 'pagination__item';
+    this.linkClass = 'pagination__item-link';
+    this.descriptionClass = 'pagination__description';
+
+    this.itemWithArrowModifier = 'pagination__item--with-arrow';
+    this.itemActiveModifier = 'pagination__item--active';
+    this.itemDisabledModifier = 'pagination__item--disabled';
+
+    this.arrowPrevDataType = 'prev';
+    this.arrowNextDataType = 'next';
   }
 
   _setup() {
@@ -39,9 +54,10 @@ class Pagination {
     const listValues = this._getListValues(this.dataValue, this.countOfPages);
 
     listValues.forEach((value) => {
-      if (value === 'arrow_forward' || value === 'arrow_back') {
-        const arrow = this._createArrow(value);
+      const isArrow = value === 'arrow_forward' || value === 'arrow_back';
 
+      if (isArrow) {
+        const arrow = this._createArrow(value);
         arrow.addEventListener(
           'pointerdown',
           this._handleArrowPointerDown.bind(this)
@@ -88,8 +104,8 @@ class Pagination {
   _handleArrowPointerDown({ target }) {
     const { type } = target.dataset;
 
-    if (type === 'next') this.dataValue += 1;
-    if (type === 'prev') this.dataValue -= 1;
+    if (type === this.arrowNextDataType) this.dataValue += 1;
+    if (type === this.arrowPrevDataType) this.dataValue -= 1;
 
     this._render();
   }
@@ -101,8 +117,8 @@ class Pagination {
     if (code === 'Space') {
       event.preventDefault();
 
-      if (type === 'next') this.dataValue += 1;
-      if (type === 'prev') this.dataValue -= 1;
+      if (type === this.arrowNextDataType) this.dataValue += 1;
+      if (type === this.arrowPrevDataType) this.dataValue -= 1;
 
       this._render();
     }
@@ -116,6 +132,7 @@ class Pagination {
     }
 
     const correctValues = values.map((value) => {
+      const isExtremeValue = value === 1 || value === countOfPages;
       const isMoreDataValueByTwo =
         countOfPages - (dataValue + 2) > 2 && value > dataValue + 2;
       const isLessDataValueByTwo =
@@ -123,7 +140,7 @@ class Pagination {
       const isDiffersByLessThanTwo =
         dataValue + 2 >= value && value >= dataValue - 2;
 
-      if (value === 1 || value === countOfPages) {
+      if (isExtremeValue) {
         return value;
       }
       if (isMoreDataValueByTwo) {
@@ -135,6 +152,7 @@ class Pagination {
       if (isDiffersByLessThanTwo) {
         return value;
       }
+
       return value;
     });
 
@@ -156,21 +174,21 @@ class Pagination {
 
   _createList() {
     this.list = document.createElement('ul');
-    this.list.classList.add('pagination__list');
+    this.list.classList.add(this.listClass);
 
     return this.list;
   }
 
   _createItem(value) {
     this.item = document.createElement('li');
-    this.item.classList.add('pagination__item');
+    this.item.classList.add(this.itemClass);
 
     if (this.dataValue === value)
-      this.item.classList.add('pagination__item--active');
-    if (value === '...') this.item.classList.add('pagination__item--disabled');
+      this.item.classList.add(this.itemActiveModifier);
+    if (value === '...') this.item.classList.add(this.itemDisabledModifier);
 
     const link = document.createElement('a');
-    link.classList.add('pagination__item-link');
+    link.classList.add(this.linkClass);
     link.dataset.value = value;
     link.innerHTML = value;
 
@@ -183,26 +201,17 @@ class Pagination {
 
   _createArrow(value) {
     this.arrow = document.createElement('li');
-    this.arrow.classList.add(
-      'pagination__item',
-      'pagination__item--with-arrow'
-    );
+    this.arrow.classList.add(this.itemClass, this.itemWithArrowModifier);
 
     const arrowLink = document.createElement('a');
-    arrowLink.classList.add('pagination__item-link', 'material-icons');
+    arrowLink.classList.add(this.linkClass, 'material-icons');
     arrowLink.textContent = value;
     arrowLink.tabIndex = 0;
 
     if (value === 'arrow_forward') {
-      arrowLink.classList.add(
-        ...['pagination__arrow-prev', 'js-pagination__arrow-prev']
-      );
-      arrowLink.dataset.type = 'next';
+      arrowLink.dataset.type = this.arrowNextDataType;
     } else {
-      arrowLink.classList.add(
-        ...['pagination__arrow-next', 'js-pagination__arrow-next']
-      );
-      arrowLink.dataset.type = 'prev';
+      arrowLink.dataset.type = this.arrowPrevDataType;
     }
 
     this.arrow.appendChild(arrowLink);
@@ -214,7 +223,7 @@ class Pagination {
     const { itemsPerPage } = this.props;
 
     this.description = document.createElement('span');
-    this.description.classList.add('pagination__description');
+    this.description.classList.add(this.descriptionClass);
 
     const startItem = itemsPerPage * (this.dataValue - 1) + 1;
     const endItem = itemsPerPage * this.dataValue;

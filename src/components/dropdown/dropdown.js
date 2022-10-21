@@ -15,6 +15,7 @@ class Dropdown {
   }
 
   _init() {
+    this._getSelector();
     this._findDOMElements();
     this._checkOptions();
     this._setDataIndexItems();
@@ -22,23 +23,39 @@ class Dropdown {
     this._bindEventListeners();
   }
 
+  _getSelector() {
+    this.inputSelector = '.js-dropdown__input';
+    this.arrowButtonSelector = '.js-dropdown__arrow-button';
+    this.itemSelector = '.js-dropdown__item';
+    this.clearButtonSelector = '.js-dropdown__button--clear';
+    this.decrementSelector = '.js-dropdown__item-button--type-decrement';
+    this.incrementSelector = '.js-dropdown__item-button--type-increment';
+    this.counterSelector = '.js-dropdown__item-counter';
+
+    this.dropdownOpenModifier = 'dropdown--opened';
+    this.buttonHidderModifier = 'button--hidden';
+    this.itemButtonDisabledModifier = 'dropdown__item-button--disabled';
+    this.arrowButtonRotateModifier = 'dropdown__arrow-button--rotate';
+
+    this.inputDataType = 'input';
+    this.arrowButtonDataType = 'arrow';
+    this.incrementDataType = 'increment';
+    this.decrementDataType = 'decrement';
+    this.clearButtonDataType = 'clear';
+    this.applyButtonDataType = 'apply';
+  }
+
   _findDOMElements() {
-    this.input = this.dropdown.querySelector('.js-dropdown__input');
-    this.arrowButton = this.dropdown.querySelector(
-      '.js-dropdown__arrow-button'
-    );
-    this.items = this.dropdown.querySelectorAll('.js-dropdown__item');
+    this.input = this.dropdown.querySelector(this.inputSelector);
+    this.arrowButton = this.dropdown.querySelector(this.arrowButtonSelector);
+    this.items = this.dropdown.querySelectorAll(this.itemSelector);
     this.clearButton =
-      this.dropdown.querySelector('.js-dropdown__button--clear') || '';
+      this.dropdown.querySelector(this.clearButtonSelector) || '';
 
     this.itemsData = [...this.items].map((item) => ({
-      decrement: item.querySelector(
-        '.js-dropdown__item-button--type-decrement'
-      ),
-      counter: item.querySelector('.js-dropdown__item-counter'),
-      increment: item.querySelector(
-        '.js-dropdown__item-button--type-increment'
-      ),
+      decrement: item.querySelector(this.decrementSelector),
+      counter: item.querySelector(this.counterSelector),
+      increment: item.querySelector(this.incrementSelector),
       id: item.dataset.id,
     }));
   }
@@ -49,7 +66,7 @@ class Dropdown {
       : [];
 
     this.props.maxLengthItems = Object.fromEntries(
-      [...this.items].map((item, index) => {
+      [...this.items].map((_, index) => {
         const key = `item${index}`;
         let value;
 
@@ -91,7 +108,7 @@ class Dropdown {
         this._setItemButtonDisabled(item.increment);
       }
 
-      if (this.dropdown.classList.contains('dropdown--opened')) {
+      if (this.isOpen) {
         this._turnArrowUp();
       }
     });
@@ -118,12 +135,12 @@ class Dropdown {
   _handleDropdownPointerDown({ target }) {
     const { type } = target.dataset;
 
-    if (type === 'input') this._toggle();
-    if (type === 'arrow') this._toggle();
-    if (type === 'increment') this._increment(target);
-    if (type === 'decrement') this._decrement(target);
-    if (type === 'clear') this._clear();
-    if (type === 'apply') this._close();
+    if (type === this.inputDataType) this._toggle();
+    if (type === this.arrowButtonDataType) this._toggle();
+    if (type === this.incrementDataType) this._increment(target);
+    if (type === this.decrementDataType) this._decrement(target);
+    if (type === this.clearButtonDataType) this._clear();
+    if (type === this.applyButtonDataType) this._close();
   }
 
   _handleDropdownKeyDown(event) {
@@ -133,12 +150,12 @@ class Dropdown {
     if (code === 'Space') {
       event.preventDefault();
 
-      if (type === 'input') this._toggle();
-      if (type === 'arrow') this._toggle();
-      if (type === 'increment') this._increment(target);
-      if (type === 'decrement') this._decrement(target);
-      if (type === 'clear') this._clear();
-      if (type === 'apply') this._close();
+      if (type === this.inputDataType) this._toggle();
+      if (type === this.arrowButtonDataType) this._toggle();
+      if (type === this.incrementDataType) this._increment(target);
+      if (type === this.decrementDataType) this._decrement(target);
+      if (type === this.clearButtonDataType) this._clear();
+      if (type === this.applyButtonDataType) this._close();
     }
   }
 
@@ -159,17 +176,13 @@ class Dropdown {
 
   _increment(target) {
     const { parentNode } = target;
-    const counter = parentNode.querySelector('.js-dropdown__item-counter');
-    const increment = parentNode.querySelector(
-      '.js-dropdown__item-button--type-increment'
-    );
-    const decrement = parentNode.querySelector(
-      '.js-dropdown__item-button--type-decrement'
-    );
+
+    const counter = parentNode.querySelector(this.counterSelector);
+    const increment = parentNode.querySelector(this.incrementSelector);
+    const decrement = parentNode.querySelector(this.decrementSelector);
+    const item = target.closest(this.itemSelector);
 
     const maxLengthItems = this.getMaxLengthItems;
-    const item = target.closest('.js-dropdown__item');
-
     const currentValue = Number(counter.textContent);
     const newValue = currentValue + 1;
     counter.textContent = newValue;
@@ -188,17 +201,13 @@ class Dropdown {
 
   _decrement(target) {
     const { parentNode } = target;
-    const counter = parentNode.querySelector('.js-dropdown__item-counter');
-    const increment = parentNode.querySelector(
-      '.js-dropdown__item-button--type-increment'
-    );
-    const decrement = parentNode.querySelector(
-      '.js-dropdown__item-button--type-decrement'
-    );
+
+    const counter = parentNode.querySelector(this.counterSelector);
+    const increment = parentNode.querySelector(this.incrementSelector);
+    const decrement = parentNode.querySelector(this.decrementSelector);
+    const item = target.closest(this.itemSelector);
 
     const maxLengthItems = this.getMaxLengthItems;
-    const item = target.closest('.js-dropdown__item');
-
     const currentValue = Number(counter.textContent);
     const newValue = currentValue - 1;
     counter.textContent = newValue;
@@ -218,13 +227,13 @@ class Dropdown {
   _setItemButtonDisabled(button) {
     this.itemButton = button;
     this.itemButton.disabled = true;
-    this.itemButton.classList.add('dropdown__item-button--disabled');
+    this.itemButton.classList.add(this.itemButtonDisabledModifier);
   }
 
   _setItemButtonActive(button) {
     this.itemButton = button;
     this.itemButton.disabled = false;
-    this.itemButton.classList.remove('dropdown__item-button--disabled');
+    this.itemButton.classList.remove(this.itemButtonDisabledModifier);
   }
 
   _clear() {
@@ -244,8 +253,8 @@ class Dropdown {
       const total = this._countTotal();
 
       total === 0
-        ? this.clearButton.classList.add('button--hidden')
-        : this.clearButton.classList.remove('button--hidden');
+        ? this.clearButton.classList.add(this.buttonHidderModifier)
+        : this.clearButton.classList.remove(this.buttonHidderModifier);
     }
   }
 
@@ -284,7 +293,7 @@ class Dropdown {
   }
 
   get isOpen() {
-    return this.dropdown.classList.contains('dropdown--opened');
+    return this.dropdown.classList.contains(this.dropdownOpenModifier);
   }
 
   _toggle() {
@@ -296,21 +305,21 @@ class Dropdown {
   }
 
   _open() {
-    this.dropdown.classList.add('dropdown--opened');
+    this.dropdown.classList.add(this.dropdownOpenModifier);
     this._turnArrowUp();
   }
 
   _close() {
-    this.dropdown.classList.remove('dropdown--opened');
+    this.dropdown.classList.remove(this.dropdownOpenModifier);
     this._turnArrowDown();
   }
 
   _turnArrowUp() {
-    this.arrowButton.classList.add('dropdown__arrow-button--rotate');
+    this.arrowButton.classList.add(this.arrowButtonRotateModifier);
   }
 
   _turnArrowDown() {
-    this.arrowButton.classList.remove('dropdown__arrow-button--rotate');
+    this.arrowButton.classList.remove(this.arrowButtonRotateModifier);
   }
 }
 

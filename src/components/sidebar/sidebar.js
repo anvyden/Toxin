@@ -5,30 +5,37 @@ class Sidebar {
   }
 
   _init() {
+    this._getSelectors();
     this._findElements();
     this._bindEventsListeners();
     this._bindDocumentListener();
   }
 
+  _getSelectors() {
+    this.buttonSelector = '.js-sidebar__button';
+
+    this.sidebarVisibleModifier = 'sidebar--visible';
+  }
+
   _findElements() {
-    this.button = this.root.querySelector('.js-sidebar__button');
+    this.button = this.root.querySelector(this.buttonSelector);
   }
 
   _bindEventsListeners() {
     this.button.addEventListener(
       'pointerdown',
-      this._handleSidebarPointerDown.bind(this),
+      this._handleSidebarPointerDown.bind(this)
     );
     this.button.addEventListener(
       'keydown',
-      this._handleSidebarKeyDown.bind(this),
+      this._handleSidebarKeyDown.bind(this)
     );
   }
 
   _handleSidebarPointerDown() {
     this._toggle();
 
-    this.root.classList.contains('sidebar--visible')
+    this.root.classList.contains(this.sidebarVisibleModifier)
       ? this._addDocumentListener()
       : this._removeDocumentListener();
   }
@@ -40,7 +47,7 @@ class Sidebar {
       event.preventDefault();
       this._toggle();
 
-      this.menu.classList.contains('header__burger-menu-wrapper--visible')
+      this.root.classList.contains(this.sidebarVisibleModifier)
         ? this._addDocumentListener()
         : this._removeDocumentListener();
     }
@@ -51,17 +58,11 @@ class Sidebar {
   }
 
   _addDocumentListener() {
-    document.addEventListener(
-      'pointerdown',
-      this.handleDocumentPointerDown,
-    );
+    document.addEventListener('pointerdown', this.handleDocumentPointerDown);
   }
 
   _removeDocumentListener() {
-    document.removeEventListener(
-      'pointerdown',
-      this.handleDocumentPointerDown,
-    );
+    document.removeEventListener('pointerdown', this.handleDocumentPointerDown);
   }
 
   _handleDocumentPointerDown(event) {
@@ -74,11 +75,11 @@ class Sidebar {
   }
 
   _close() {
-    this.root.classList.remove('sidebar--visible');
+    this.root.classList.remove(this.sidebarVisibleModifier);
   }
 
   _toggle() {
-    this.root.classList.toggle('sidebar--visible');
+    this.root.classList.toggle(this.sidebarVisibleModifier);
   }
 }
 

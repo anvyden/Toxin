@@ -5,24 +5,34 @@ class CheckboxList {
   }
 
   _init() {
+    this._getSelectors();
     this._getElements();
     this._bindEventListeners();
   }
 
+  _getSelectors() {
+    this.dropdownSelector = '.js-checkbox-list__dropdown';
+    this.listSelector = '.js-checkbox-list__list';
+    this.buttonSelector = '.js-checkbox-list__button';
+
+    this.listHiddenModifier = 'checkbox-list__list--hidden';
+    this.buttonRotateModifier = 'checkbox-list__button--rotate';
+  }
+
   _getElements() {
-    this.dropdown = this.checkbox.querySelector('.js-checkbox-list__dropdown');
-    this.list = this.checkbox.querySelector('.js-checkbox-list__list');
-    this.button = this.checkbox.querySelector('.js-checkbox-list__button');
+    this.dropdown = this.checkbox.querySelector(this.dropdownSelector);
+    this.list = this.checkbox.querySelector(this.listSelector);
+    this.button = this.checkbox.querySelector(this.buttonSelector);
   }
 
   _bindEventListeners() {
     this.dropdown.addEventListener(
       'pointerdown',
-      this._pointerDownHandlerCheckboxList.bind(this),
+      this._pointerDownHandlerCheckboxList.bind(this)
     );
     this.dropdown.addEventListener(
       'keydown',
-      this._keyDownHandlerCheckboxList.bind(this),
+      this._keyDownHandlerCheckboxList.bind(this)
     );
   }
 
@@ -41,11 +51,11 @@ class CheckboxList {
   }
 
   _dropdownToggle() {
-    this.list.classList.toggle('checkbox-list__list--hidden');
+    this.list.classList.toggle(this.listHiddenModifier);
   }
 
   _buttonToggle() {
-    this.button.classList.toggle('checkbox-list__button--rotate');
+    this.button.classList.toggle(this.buttonRotateModifier);
   }
 }
 

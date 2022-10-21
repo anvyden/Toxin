@@ -15,6 +15,7 @@ class PieChart {
   }
 
   _init() {
+    this._getSelectors();
     this.root.insertAdjacentHTML('afterbegin', PieChart.getMainTemplate());
     this.totalVotes = this._getTotalVotes();
 
@@ -22,14 +23,20 @@ class PieChart {
     this._addEventsListeners();
   }
 
+  _getSelectors() {
+    this.chartBodySelector = '.js-pie-chart__body';
+    this.legendBodySelector = '.js-pie-chart__legend';
+    this.votesBodySelector = '.js-pie-chart__votes';
+  }
+
   _getTotalVotes() {
     return this.items.reduce((votes, item) => item.votesAmount + votes, 0);
   }
 
   _addChartElements() {
-    this.chartBody = this.root.querySelector('.js-pie-chart__body');
-    this.legendBody = this.root.querySelector('.js-pie-chart__legend');
-    this.votesBody = this.root.querySelector('.js-pie-chart__votes');
+    this.chartBody = this.root.querySelector(this.chartBodySelector);
+    this.legendBody = this.root.querySelector(this.legendBodySelector);
+    this.votesBody = this.root.querySelector(this.votesBodySelector);
 
     this.legendBody.appendChild(this._createLegendList());
 

@@ -5,30 +5,40 @@ class Header {
   }
 
   _init() {
+    this._getSelectors();
     this._findElements();
     this._bindEventsListeners();
   }
 
+  _getSelectors() {
+    this.burgerMenuWrapperSelector = '.js-header__burger-menu-wrapper';
+    this.burgerButtonSelector = '.js-header__burger-button';
+
+    this.burgerMenuWrapperVisibleModifier =
+      'header__burger-menu-wrapper--visible';
+    this.burgerButtonActiveModifier = 'header__burger-button--active';
+  }
+
   _findElements() {
-    this.menu = this.root.querySelector('.js-header__burger-menu-wrapper');
-    this.button = this.root.querySelector('.js-header__burger-button');
+    this.menu = this.root.querySelector(this.burgerMenuWrapperSelector);
+    this.button = this.root.querySelector(this.burgerButtonSelector);
   }
 
   _bindEventsListeners() {
     this.button.addEventListener(
       'pointerdown',
-      this._handleButtonPointerDown.bind(this),
+      this._handleButtonPointerDown.bind(this)
     );
     this.button.addEventListener(
       'keydown',
-      this._handleButtonKeyDown.bind(this),
+      this._handleButtonKeyDown.bind(this)
     );
   }
 
   _handleButtonPointerDown() {
     this._toggle();
 
-    this.menu.classList.contains('header__burger-menu-wrapper--visible')
+    this.menu.classList.contains(this.burgerMenuWrapperVisibleModifier)
       ? this._addDocumentListener()
       : this._removeDocumentListener();
   }
@@ -40,7 +50,7 @@ class Header {
       event.preventDefault();
       this._toggle();
 
-      this.menu.classList.contains('header__burger-menu-wrapper--visible')
+      this.menu.classList.contains(this.burgerMenuWrapperVisibleModifier)
         ? this._addDocumentListener()
         : this._removeDocumentListener();
     }
@@ -49,14 +59,14 @@ class Header {
   _addDocumentListener() {
     document.addEventListener(
       'pointerdown',
-      this._handleDocumentPointerDown.bind(this),
+      this._handleDocumentPointerDown.bind(this)
     );
   }
 
   _removeDocumentListener() {
     document.removeEventListener(
       'pointerdown',
-      this._handleDocumentPointerDown.bind(this),
+      this._handleDocumentPointerDown.bind(this)
     );
   }
 
@@ -69,13 +79,13 @@ class Header {
   }
 
   _close() {
-    this.button.classList.remove('header__burger-button--active');
-    this.menu.classList.remove('header__burger-menu-wrapper--visible');
+    this.button.classList.remove(this.burgerButtonActiveModifier);
+    this.menu.classList.remove(this.burgerMenuWrapperVisibleModifier);
   }
 
   _toggle() {
-    this.button.classList.toggle('header__burger-button--active');
-    this.menu.classList.toggle('header__burger-menu-wrapper--visible');
+    this.button.classList.toggle(this.burgerButtonActiveModifier);
+    this.menu.classList.toggle(this.burgerMenuWrapperVisibleModifier);
   }
 }
 

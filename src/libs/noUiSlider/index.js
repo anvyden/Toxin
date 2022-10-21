@@ -45,9 +45,14 @@ class RangeSlider {
     }
   }
 
+  _getSelectors() {
+    this.sliderSelector = '.js-range-slider__slider';
+    this.sliderValueSelector = '.js-range-slider__value';
+  }
+
   _getElements() {
-    this.slider = this.root.querySelector('.js-range-slider__slider');
-    this.sliderValue = this.root.querySelector('.js-range-slider__value');
+    this.slider = this.root.querySelector(this.sliderSelector);
+    this.sliderValue = this.root.querySelector(this.sliderValueSelector);
   }
 
   _addClassesForStyles() {

@@ -5,16 +5,33 @@ class Menu {
   }
 
   _init() {
-    this.arrow = this.root.querySelector('.js-menu__item-arrow');
-    this.subMenu = this.root.querySelector('.js-menu__sub-menu');
+    this._getSelectors();
+    this._findDOMElements();
     this._bindItemListeners();
     this._bindDocumentListener();
+  }
+
+  _getSelectors() {
+    this.arrowSelector = '.js-menu__item-arrow';
+    this.subMenuSelector = '.js-menu__sub-menu';
+
+    this.arrowRotateModifier = 'menu__item-arrow--rotate';
+    this.subMenuVisibleModifier = 'menu__sub-menu--visible';
+
+    this.linkDataType = 'link';
+    this.arrowDataType = 'arrow';
+    this.itemDataType = 'item';
+  }
+
+  _findDOMElements() {
+    this.arrow = this.root.querySelector(this.arrowSelector);
+    this.subMenu = this.root.querySelector(this.subMenuSelector);
   }
 
   _bindItemListeners() {
     this.root.addEventListener(
       'pointerdown',
-      this._handleItemPointerDown.bind(this),
+      this._handleItemPointerDown.bind(this)
     );
     this.root.addEventListener('keydown', this._handleItemKeyDown.bind(this));
   }
@@ -33,14 +50,17 @@ class Menu {
 
   _handleItemPointerDown(event) {
     const { target } = event;
-    const isItem = target.dataset.type === 'item' || target.dataset.type === 'link' || target.dataset.type === 'arrow';
+    const isItem =
+      target.dataset.type === this.itemDataType ||
+      target.dataset.type === this.linkDataType ||
+      target.dataset.type === this.arrowDataType;
 
     if (isItem) {
       this._toggleSubMenu();
       this._rotateArrow();
     }
 
-    this.subMenu.classList.contains('menu__sub-menu--visible')
+    this.subMenu.classList.contains(this.subMenuVisibleModifier)
       ? this._addDocumentListener()
       : this._removeDocumentListener();
   }
@@ -59,7 +79,7 @@ class Menu {
       this._closeSubMenu();
     }
 
-    this.subMenu.classList.contains('menu__sub-menu--visible')
+    this.subMenu.classList.contains(this.subMenuVisibleModifier)
       ? this._addDocumentListener()
       : this._removeDocumentListener();
   }
@@ -74,16 +94,16 @@ class Menu {
   }
 
   _rotateArrow() {
-    this.arrow.classList.toggle('menu__item-arrow--rotate');
+    this.arrow.classList.toggle(this.arrowRotateModifier);
   }
 
   _toggleSubMenu() {
-    this.subMenu.classList.toggle('menu__sub-menu--visible');
+    this.subMenu.classList.toggle(this.subMenuVisibleModifier);
   }
 
   _closeSubMenu() {
-    this.subMenu.classList.remove('menu__sub-menu--visible');
-    this.arrow.classList.remove('menu__item-arrow--rotate');
+    this.subMenu.classList.remove(this.subMenuVisibleModifier);
+    this.arrow.classList.remove(this.arrowRotateModifier);
   }
 }
 

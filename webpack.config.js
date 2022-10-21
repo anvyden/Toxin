@@ -14,7 +14,7 @@ const isProd = !isDev;
 const PATHS = {
   src: path.join(__dirname, './src'),
   dist: path.join(__dirname, './dist'),
-  assets: 'assets/',
+  assets: 'assets',
 };
 
 const getFiles = (dir, filetype) => {
@@ -31,15 +31,23 @@ const getFiles = (dir, filetype) => {
 const PAGES_DIR = `${PATHS.src}/pages`;
 const PAGES_FOLDERS = fs.readdirSync(PAGES_DIR);
 const PAGES = getFiles(PAGES_FOLDERS, 'pug');
-const PAGES_ENTRY_FILES = getFiles(PAGES_FOLDERS, 'js');
+// const PAGES_ENTRY_FILES = getFiles(PAGES_FOLDERS, 'js');
 const PAGES_ENTRYS = {};
 
-PAGES_ENTRY_FILES.forEach((pageEntryFile, index) => {
-  const filename = pageEntryFile.split('.')[0];
-  PAGES_ENTRYS[
-    filename
-  ] = `${PAGES_DIR}/${PAGES_FOLDERS[index]}/${pageEntryFile}`;
-});
+PAGES_FOLDERS.forEach(page => {
+  PAGES_ENTRYS[page] = `${PAGES_DIR}/${page}/index.js`
+})
+
+// PAGES_ENTRY_FILES.forEach((pageEntryFile, index) => {
+//   const filename = pageEntryFile.split('.')[0];
+//   PAGES_ENTRYS[
+//     filename
+//   ] = `${PAGES_DIR}/${PAGES_FOLDERS[index]}/${pageEntryFile}`;
+// });
+
+const filename = (ext) =>
+  isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`;
+const assetFileName = isDev ? `[name][ext]` : `[hash][ext][query]`;
 
 const optimization = () => {
   const config = {
@@ -82,10 +90,6 @@ const optimization = () => {
 
   return config;
 };
-
-const filename = (ext) =>
-  isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`;
-const assetFileName = isDev ? `[name][ext]` : `[hash][ext][query]`;
 
 const cssLoaders = (extra) => {
   const loaders = [
@@ -168,7 +172,7 @@ const plugins = () => {
       'window.jquery': 'jquery',
     }),
     new MiniCssExtractPlugin({
-      filename: `${PATHS.assets}css/${filename('css')}`,
+      filename: `${PATHS.assets}/css/${filename('css')}`,
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -188,7 +192,7 @@ module.exports = {
   mode: 'development',
   entry: PAGES_ENTRYS,
   output: {
-    filename: `${PATHS.assets}js/[name].js`,
+    filename: `${PATHS.assets}/js/${filename('js')}`,
     path: PATHS.dist,
     clean: true,
   },
@@ -238,7 +242,7 @@ module.exports = {
         type: 'asset/resource',
         exclude: [/fonts/],
         generator: {
-          filename: `${PATHS.assets}img/${assetFileName}`,
+          filename: `${PATHS.assets}/img/${assetFileName}`,
         },
       },
       {
@@ -246,7 +250,7 @@ module.exports = {
         type: 'asset/resource',
         include: [/fonts/],
         generator: {
-          filename: `${PATHS.assets}fonts/${assetFileName}`,
+          filename: `${PATHS.assets}/fonts/${assetFileName}`,
         },
       },
       {

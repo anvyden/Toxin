@@ -21,6 +21,7 @@ class Datepicker {
   _init() {
     const { initialDates, inline = false, size = '' } = this.props;
 
+    this._getSelector();
     this._findDOMElements();
     this._setup();
 
@@ -81,22 +82,38 @@ class Datepicker {
     }
   }
 
+  _getSelector() {
+    this.startInputDataType = 'date-dropdown-start';
+    this.endInputDataType = 'date-dropdown-end';
+    this.singleInputDataType = 'filter-date-dropdown';
+    this.arrowButtonsDataType = 'arrow';
+    this.acceptButtonDataType = 'apply';
+    this.clearButtonDataType = 'clear';
+
+    this.startInputSelector = `[data-type="${this.startInputDataType}"]`;
+    this.endInputSelector = `[data-type="${this.endInputDataType}"]`;
+    this.singleInputSelector = `[data-type="${this.singleInputDataType}"]`;
+    this.arrowButtonsSelector = `[data-type="${this.arrowButtonsDataType}"]`;
+
+    this.datepickerActiveClass = '-active-';
+    this.arrowButtonRotateModifier = 'text-field__arrow-button--rotate';
+    this.datepickerButtonHiddenModifier = 'air-datepicker-button--hidden';
+    this.datepickerSizeSmallModifier = 'air-datepicker--size-small';
+  }
+
   _findDOMElements() {
     const { hasTwoInputs } = this.props;
 
-    this.filterDateDropdown = this.root.querySelector(
-      '[data-type="filter-date-dropdown"]'
-    );
-    this.arrowButtons = this.root.querySelectorAll('[data-type="arrow"]');
-
     if (hasTwoInputs) {
-      this.startInput = this.root.querySelector(
-        '[data-type="date-dropdown-start"]'
-      );
-      this.endInput = this.root.querySelector(
-        '[data-type="date-dropdown-end"]'
+      this.startInput = this.root.querySelector(this.startInputSelector);
+      this.endInput = this.root.querySelector(this.endInputSelector);
+    } else {
+      this.filterDateDropdown = this.root.querySelector(
+        this.singleInputSelector
       );
     }
+
+    this.arrowButtons = this.root.querySelectorAll(this.arrowButtonsSelector);
   }
 
   _createButtons() {
@@ -105,7 +122,7 @@ class Datepicker {
       attrs: {
         type: 'button',
         tabindex: '-1',
-        'data-type': 'apply',
+        'data-type': this.acceptButtonDataType,
       },
       onClick: () => {
         this._close();
@@ -114,11 +131,11 @@ class Datepicker {
 
     this.clearButton = {
       content: 'Очистить',
-      className: 'air-datepicker-button--hidden',
+      className: this.datepickerButtonHiddenModifier,
       attrs: {
         type: 'button',
         tabindex: '-1',
-        'data-type': 'clear',
+        'data-type': this.clearButtonDataType,
       },
       onClick: (datepicker) => {
         datepicker.clear();
@@ -157,7 +174,7 @@ class Datepicker {
   }
 
   _onChangeView(view) {
-    if (view === 'months' || view === 'years') {
+    if (view !== 'days') {
       this._hideButtons();
     } else {
       this._showButtons();
@@ -172,10 +189,10 @@ class Datepicker {
   _handleDateDropdownClick({ target }) {
     const { type } = target.dataset;
 
-    if (type === 'date-dropdown-start') this._toggle();
-    if (type === 'date-dropdown-end') this._toggle();
-    if (type === 'arrow') this._toggle();
-    if (type === 'filter-date-dropdown') this._toggle();
+    if (type === this.startInputDataType) this._toggle();
+    if (type === this.endInputDataType) this._toggle();
+    if (type === this.singleInputDataType) this._toggle();
+    if (type === this.arrowButtonsDataType) this._toggle();
   }
 
   _handleDateDropdownKeyDown(event) {
@@ -185,10 +202,10 @@ class Datepicker {
     if (code === 'Space') {
       event.preventDefault();
 
-      if (type === 'date-dropdown-start') this._toggle();
-      if (type === 'date-dropdown-end') this._toggle();
-      if (type === 'arrow') this._toggle();
-      if (type === 'filter-date-dropdown') this._toggle();
+      if (type === this.startInputDataType) this._toggle();
+      if (type === this.endInputDataType) this._toggle();
+      if (type === this.singleInputDataType) this._toggle();
+      if (type === this.arrowButtonsDataType) this._toggle();
     }
 
     if (code === 'Enter') {
@@ -209,17 +226,17 @@ class Datepicker {
   }
 
   get isOpen() {
-    return this.container.classList.contains('-active-');
+    return this.container.classList.contains(this.datepickerActiveClass);
   }
 
   _close() {
-    this.container.classList.remove('-active-');
+    this.container.classList.remove(this.datepickerActiveClass);
     this._arrowDown();
     document.removeEventListener('pointerdown', this.handleDocumentPoitnerDown);
   }
 
   _open() {
-    this.container.classList.add('-active-');
+    this.container.classList.add(this.datepickerActiveClass);
     this._arrowUp();
     document.addEventListener('pointerdown', this.handleDocumentPoitnerDown);
   }
@@ -234,22 +251,22 @@ class Datepicker {
 
   _arrowUp() {
     this.arrowButtons.forEach((arrow) =>
-      arrow.classList.add('text-field__arrow-button--rotate')
+      arrow.classList.add(this.arrowButtonRotateModifier)
     );
   }
 
   _arrowDown() {
     this.arrowButtons.forEach((arrow) =>
-      arrow.classList.remove('text-field__arrow-button--rotate')
+      arrow.classList.remove(this.arrowButtonRotateModifier)
     );
   }
 
   _showClearButton() {
-    this.clearButton.classList.remove('air-datepicker-button--hidden');
+    this.clearButton.classList.remove(this.datepickerButtonHiddenModifier);
   }
 
   _hideClearButton() {
-    this.clearButton.classList.add('air-datepicker-button--hidden');
+    this.clearButton.classList.add(this.datepickerButtonHiddenModifier);
   }
 
   _showButtons() {
@@ -261,7 +278,7 @@ class Datepicker {
   }
 
   _createSmallDatepicker() {
-    this.container.classList.add('air-datepicker--size-small');
+    this.container.classList.add(this.datepickerSizeSmallModifier);
   }
 }
 
