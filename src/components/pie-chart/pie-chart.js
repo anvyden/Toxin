@@ -16,7 +16,7 @@ class PieChart {
 
   _init() {
     this._getSelectors();
-    this.root.insertAdjacentHTML('afterbegin', PieChart.getMainTemplate());
+    this.root.insertAdjacentHTML('afterbegin', this._getMainTemplate());
     this.totalVotes = this._getTotalVotes();
 
     this._addChartElements();
@@ -24,9 +24,21 @@ class PieChart {
   }
 
   _getSelectors() {
-    this.chartBodySelector = '.js-pie-chart__body';
-    this.legendBodySelector = '.js-pie-chart__legend';
-    this.votesBodySelector = '.js-pie-chart__votes';
+    this.chartClass = 'pie-chart__chart';
+    this.chartBodyClass = 'pie-chart__body';
+    this.chartLineClass = 'pie-chart__line';
+    this.legendBodyClass = 'pie-chart__legend';
+    this.legendListClass = 'pie-chart__legend-list';
+    this.legendItemClass = 'pie-chart__legend-item';
+    this.votesBodyClass = 'pie-chart__votes';
+    this.votesCountClass = 'pie-chart__votes-count';
+    this.votesTextClass = 'pie-chart__votes-text';
+
+    this.chartLineFocusModifier = 'pie-chart__line--focused';
+
+    this.chartBodySelector = `.js-${this.chartBodyClass}`;
+    this.legendBodySelector = `.js-${this.legendBodyClass}`;
+    this.votesBodySelector = `.js-${this.votesBodyClass}`;
   }
 
   _getTotalVotes() {
@@ -56,7 +68,7 @@ class PieChart {
 
       this.chartBody.insertAdjacentHTML(
         'afterbegin',
-        PieChart.getLinearGradientTemplate(
+        this._getLinearGradientTemplate(
           item.id,
           item.firstStopColor,
           item.secondStopColor
@@ -64,20 +76,20 @@ class PieChart {
       );
       this.chartBody.insertAdjacentHTML(
         'beforeend',
-        PieChart.getLineTemplate(item.id, strokeDasharray, strokeDashoffset)
+        this._getLineTemplate(item.id, strokeDasharray, strokeDashoffset)
       );
       this.legendList.insertAdjacentHTML(
         'afterbegin',
-        PieChart.getLegendItemTemplate(item.id, item.text)
+        this._getLegendItemTemplate(item.id, item.text)
       );
     });
 
-    this.votesBody.innerHTML = PieChart.getVotesTemplate(this.totalVotes);
+    this.votesBody.innerHTML = this._getVotesTemplate(this.totalVotes);
   }
 
   _createLegendList() {
     this.legendList = document.createElement('ul');
-    this.legendList.classList.add('pie-chart__legend-list');
+    this.legendList.classList.add(this.legendListClass);
 
     return this.legendList;
   }
@@ -98,13 +110,11 @@ class PieChart {
     if (id) {
       this.items.forEach((item) => {
         if (item.id === id) {
-          this.votesBody.innerHTML = PieChart.getVotesTemplate(
-            item.votesAmount
-          );
-          this.votesBody.classList.add(`pie-chart__votes--${id}`);
+          this.votesBody.innerHTML = this._getVotesTemplate(item.votesAmount);
+          this.votesBody.classList.add(`${this.votesBodyClass}--${id}`);
 
           const currentLine = this.chartBody.querySelector(`[data-id=${id}]`);
-          currentLine.classList.add('pie-chart__line--focused');
+          currentLine.classList.add(this.chartLineFocusModifier);
         }
       });
     }
@@ -112,24 +122,24 @@ class PieChart {
 
   _handleChartBlur({ target }) {
     const { id } = target.dataset;
-    this.votesBody.innerHTML = PieChart.getVotesTemplate(this.totalVotes);
-    this.votesBody.classList.remove(`pie-chart__votes--${id}`);
+    this.votesBody.innerHTML = this._getVotesTemplate(this.totalVotes);
+    this.votesBody.classList.remove(`${this.votesBodyClass}--${id}`);
 
     const currentLine = this.chartBody.querySelector(`[data-id=${id}]`);
-    if (currentLine) currentLine.classList.remove('pie-chart__line--focused');
+    if (currentLine) currentLine.classList.remove(this.chartLineFocusModifier);
   }
 
-  static getMainTemplate() {
+  _getMainTemplate() {
     return `
-      <div class='pie-chart__chart'>
-        <svg class='pie-chart__body js-pie-chart__body' viewBox='0 0 120 120'></svg>
-        <div class='pie-chart__votes js-pie-chart__votes'></div>
+      <div class='${this.chartClass}'>
+        <svg class='${this.chartBodyClass} js-${this.chartBodyClass}' viewBox='0 0 120 120'></svg>
+        <div class='${this.votesBodyClass} js-${this.votesBodyClass}'></div>
       </div>
-      <div class='pie-chart__legend js-pie-chart__legend'></div>
+      <div class='${this.legendBodyClass} js-${this.legendBodyClass}'></div>
     `;
   }
 
-  static getLinearGradientTemplate(
+  _getLinearGradientTemplate(
     id = '',
     firstStopColor = '',
     secondStopColor = ''
@@ -142,26 +152,26 @@ class PieChart {
     `;
   }
 
-  static getLineTemplate(id = '', strokeDasharray = '', strokeDashoffset = '') {
+  _getLineTemplate(id = '', strokeDasharray = '', strokeDashoffset = '') {
     return `
-      <circle class='pie-chart__line' cx='50%' cy='50%' r='58' stroke-width='4' stroke='url(#${id})' data-id=${id} stroke-dasharray='${strokeDasharray}, 360' stroke-dashoffset='${strokeDashoffset}'></circle>
+      <circle class='${this.chartLineClass}' cx='50%' cy='50%' r='58' stroke-width='4' stroke='url(#${id})' data-id=${id} stroke-dasharray='${strokeDasharray}, 360' stroke-dashoffset='${strokeDashoffset}'></circle>
     `;
   }
 
-  static getVotesTemplate(votes = 0) {
+  _getVotesTemplate(votes = 0) {
     return `
-      <h3 class='pie-chart__votes-count'>${votes}</h3>
-      <h3 class='pie-chart__votes-text'>${declination(votes, [
-        'голос',
-        'голоса',
-        'голосов',
-      ])}</h3>
+      <h3 class='${this.votesCountClass}'>${votes}</h3>
+      <h3 class='${this.votesTextClass}'>${declination(votes, [
+      'голос',
+      'голоса',
+      'голосов',
+    ])}</h3>
     `;
   }
 
-  static getLegendItemTemplate(id = '', text = '') {
+  _getLegendItemTemplate(id = '', text = '') {
     return `
-      <li class='pie-chart__legend-item pie-chart__legend-item--${id}' data-id=${id} tabindex='0'>
+      <li class='${this.legendItemClass} ${this.legendItemClass}--${id}' data-id=${id} tabindex='0'>
         ${text}
       </li>
     `;
