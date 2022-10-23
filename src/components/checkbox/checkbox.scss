@@ -1,0 +1,83 @@
+@import '~/scss/variables';
+@import '~/scss/mixins';
+
+.checkbox {
+  color: $darkShade50;
+  line-height: rem(20);
+
+  &__description {
+    display: inline-block;
+    margin-top: rem(3);
+    font-size: rem(12);
+    line-height: rem(14.63);
+    white-space: pre-line;
+  }
+
+  &__title {
+    &::before {
+      position: absolute;
+      top: 0;
+      left: rem(-30);
+      width: rem(20);
+      height: rem(20);
+      border: $mainBorder;
+      border-radius: $mainBorderRadius;
+      content: '';
+    }
+
+    &--bold {
+      color: $darkShade75;
+      font-weight: bold;
+    }
+  }
+
+  &__label {
+    position: relative;
+    display: inline-block;
+    margin-left: rem(30);
+    cursor: pointer;
+
+    &:hover {
+      color: $darkShade75;
+
+      > .checkbox {
+        &__title {
+          &::before {
+            border-color: $purple;
+          }
+        }
+      }
+    }
+  }
+
+  &__input {
+    position: absolute;
+    outline: none;
+    appearance: none;
+
+    &:checked + .checkbox {
+      &__title {
+        &::before {
+          background: url('~/components/checkbox/img/checkbox-checked.svg')
+            no-repeat center;
+          border-color: $purple;
+        }
+      }
+    }
+
+    &:focus-visible ~ .checkbox {
+      &__title {
+        color: $darkShade75;
+
+        &::before {
+          border: 0;
+          outline: $focusOutline;
+        }
+      }
+
+      &__description {
+        color: $darkShade75;
+      }
+    }
+  }
+}

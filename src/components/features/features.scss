@@ -2,6 +2,12 @@
 @import '~/scss/mixins';
 
 .features {
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
   &__item {
     display: flex;
     margin-bottom: rem(20);
@@ -33,7 +39,12 @@
     }
 
     &-title {
+      margin: 0;
       font-weight: bold;
+    }
+
+    &-subtitle {
+      margin: 0;
     }
   }
 }

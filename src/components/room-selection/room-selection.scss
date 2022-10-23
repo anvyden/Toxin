@@ -19,6 +19,9 @@
     grid-template-columns: repeat(auto-fit, rem(270));
     justify-content: center;
     max-width: rem(835);
+    margin: 0;
+    padding: 0;
+    list-style: none;
 
     @media screen and (max-width: 767px) {
       max-width: rem(580);

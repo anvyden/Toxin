@@ -16,9 +16,14 @@
 
   &__link {
     display: flex;
+    text-decoration: none;
 
     &:focus-visible {
       outline: $thinFocusOutline;
     }
+  }
+
+  &__img {
+    max-width: 100%;
   }
 }

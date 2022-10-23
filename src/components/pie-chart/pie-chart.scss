@@ -3,6 +3,8 @@
 
 .pie-chart {
   display: flex;
+  margin: 0;
+  padding: 0;
 
   &__chart {
     position: relative;
@@ -78,6 +80,12 @@
   &__legend {
     margin-top: rem(26.5);
     margin-left: rem(45);
+
+    &-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
 
     &-item {
       position: relative;

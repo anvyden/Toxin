@@ -2,6 +2,12 @@
 @import '~/scss/mixins';
 
 .bullet-list {
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
   &__item {
     position: relative;
     margin-bottom: rem(10);

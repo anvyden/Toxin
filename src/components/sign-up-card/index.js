@@ -1,6 +1,6 @@
 import '~/components/text';
 import '~/components/text-field';
-import '~/components/radio-button';
+import '~/components/radio-buttons';
 import '~/components/toggle-button';
 import '~/components/button';
 

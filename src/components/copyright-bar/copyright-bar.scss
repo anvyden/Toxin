@@ -23,7 +23,9 @@
   &__socials {
     &-list {
       display: flex;
+      margin: 0;
       padding: 0 rem(1) 0 0;
+      list-style: none;
     }
 
     &-item {
@@ -37,6 +39,7 @@
       &-link {
         font-size: rem(24);
         line-height: rem(23);
+        text-decoration: none;
         cursor: pointer;
         @include text-gradient-fill($primaryGradient);
 

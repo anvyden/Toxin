@@ -5,16 +5,16 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
   height: 100%;
+  margin: 0;
   color: $darkShade75;
   font-weight: $mainFontWeight;
   font-size: $mainFontSize;
   font-family: $mainFont;
+  line-height: $mainLineHeight;
   background: #fff;
 
   @media screen and (max-width: 1199px) {
@@ -28,23 +28,7 @@ html {
 
 body {
   height: 100%;
+  margin: 0;
   font-size: rem(14);
   line-height: rem(24);
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  padding: 0;
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-}
-
-h1 {
-  margin: 0;
 }

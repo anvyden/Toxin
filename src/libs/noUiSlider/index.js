@@ -20,6 +20,7 @@ class RangeSlider {
   _init() {
     const { min, max, step, minStartValue, maxStartValue } = this.props;
 
+    this._getSelectors();
     this._getElements();
     this._addClassesForStyles();
 

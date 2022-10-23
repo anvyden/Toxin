@@ -1,4 +1,5 @@
 include ~/components/text/text
+include ~/components/checkbox/checkbox
 
 mixin checkbox-list(options={})
   -
@@ -44,22 +45,17 @@ mixin checkbox-list(options={})
           hasUpper: true
         })
 
-    ul.checkbox-list__list.js-checkbox-list__list(class=[hiddenModifier, richModifier])
+    ul&attributes({
+      class: [
+        'checkbox-list__list',
+        'js-checkbox-list__list',
+        hiddenModifier,
+        richModifier
+      ]
+    })
       each item in items
-
         -
-          const { title, description, name, isChecked } = item
+          item.isRich = isRich
 
-          const itemRichModifier = isRich && 'checkbox-list__item--rich'
-
-        li&attributes({
-          class: [
-            'checkbox-list__item',
-            itemRichModifier,
-          ]
-        })
-          label.checkbox-list__item-label
-            input(class='checkbox-list__item-input' type='checkbox' name=name checked=isChecked)
-            span(class=`checkbox-list__item-text`)=title
-            if (isRich)
-              span.checkbox-list__item-description=description
+        li.checkbox-list__item
+          +checkbox(item)

@@ -1,5 +1,5 @@
 include ~/components/features/features
-include ~/components/comments/comments
+include ~/components/comment/comment
 
 mixin room-info()
   .room-info
@@ -10,13 +10,11 @@ mixin room-info()
             { icon: 'location_city', title: 'Удобство', subtitle: 'Окно в каждой из спален', hasBottomLine: true }
           ])
       .room-info__comments
-        +comments([
-            {
-              imgName: 'murad_sarafanov.jpg',
-              name: 'Мурад Сарафанов',
-              dateOfComment: '5 дней назад',
-              text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
-              likeCount: 12,
-              likeIsActive: true,
-            }
-          ])
+        +comment({
+          imgName: 'murad_sarafanov.jpg',
+          name: 'Мурад Сарафанов',
+          dateOfComment: '5 дней назад',
+          text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+          likeCount: 12,
+          likeIsActive: true,
+        })

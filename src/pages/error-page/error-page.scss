@@ -19,10 +19,15 @@
 
     &-link {
       display: flex;
+      text-decoration: none;
 
       &:focus-visible {
         outline: $focusOutline;
       }
+    }
+
+    &-img {
+      max-width: 100%;
     }
   }
 
@@ -34,7 +39,7 @@
   }
 
   &__error {
-    margin-bottom: rem(40);
+    margin: 0 0 rem(40) 0;
     color: transparent;
     font-size: rem(100);
     background-image: $primaryGradient;
@@ -42,7 +47,7 @@
   }
 
   &__heading {
-    margin-bottom: rem(40);
+    margin: 0 0 rem(40) 0;
     color: transparent;
     font-size: rem(50);
     background-image: $primaryGradient;

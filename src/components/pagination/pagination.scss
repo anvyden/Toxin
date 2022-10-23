@@ -6,7 +6,9 @@
 
   &__list {
     display: flex;
-    margin-bottom: rem(8);
+    margin: 0 0 rem(8) 0;
+    padding: 0;
+    list-style: none;
   }
 
   &__item {
@@ -23,6 +25,7 @@
       color: $darkShade50;
       line-height: rem(40);
       text-align: center;
+      text-decoration: none;
       border-radius: 50%;
       user-select: none;
 

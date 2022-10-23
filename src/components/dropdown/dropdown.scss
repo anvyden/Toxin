@@ -43,6 +43,7 @@
     position: absolute;
     top: rem(10);
     right: rem(10);
+    padding: 0;
     color: $darkShade50;
     background-color: transparent;
     border: none;
@@ -71,6 +72,11 @@
     box-shadow: $secondaryBoxShadow;
   }
 
+  &__list {
+    margin: 0;
+    padding: 0;
+  }
+
   &--opened {
     .dropdown {
       &__input {
@@ -97,6 +103,10 @@
 
     &:last-child {
       margin-bottom: rem(8);
+    }
+
+    &-name {
+      margin: 0;
     }
 
     &-controls {
@@ -130,11 +140,15 @@
         cursor: not-allowed;
       }
     }
+
+    &-counter {
+      margin: 0;
+    }
   }
 
   &__buttons {
     display: flex;
     justify-content: space-between;
-    margin: rem(19) rem(4) rem(10) rem(11);
+    margin: rem(21) rem(5) rem(12) rem(12);
   }
 }

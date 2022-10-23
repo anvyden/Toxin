@@ -1,4 +1,5 @@
 import '~/components/text';
+import '~/components/checkbox';
 
 import CheckboxList from './checkbox-list';
 import './checkbox-list.scss';

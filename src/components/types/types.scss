@@ -2,6 +2,12 @@
 @import '~/scss/mixins';
 
 .types {
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
   &__item {
     margin-bottom: rem(52);
   }
@@ -41,10 +47,14 @@
 
   &__header {
     width: 37px;
-    margin-right: rem(30);
+    margin: 0 rem(30) 0 0;
     color: $darkShade25;
     font-weight: normal;
     text-align: right;
+  }
+
+  &__text {
+    margin: 0;
   }
 
   &__header--upper {

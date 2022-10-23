@@ -1,0 +1,29 @@
+include ~/components/like-button/like-button
+
+mixin comment(options = {})
+  -
+    const {
+      imgName,
+      name,
+      dateOfComment,
+      text,
+      likeCount,
+      likeIsActive
+    } = options
+
+  .comment
+    .comment__header
+      .comment__avatar-wrapper
+        img&attributes({
+          class: 'comment__avatar',
+          src: require(`@pages/room-details/img/avatars/${imgName}`),
+          alt:'avatar',
+        })
+      .comment__info
+        p.comment__name=name
+        p.comment__date-of-comment=dateOfComment
+    .comment__body
+      .comment__like-wrapper
+        +like-button({ count: likeCount, isActive: likeIsActive })
+      .comment__text-wrapper
+        span.comment__text=text

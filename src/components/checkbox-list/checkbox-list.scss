@@ -2,8 +2,6 @@
 @import '~/scss/mixins';
 
 .checkbox-list {
-  width: 100%;
-
   &__heading {
     margin-bottom: rem(17);
   }
@@ -22,6 +20,7 @@
 
   &__button {
     margin-right: rem(10);
+    padding: 0;
     color: $darkShade50;
     background: transparent;
     border: none;
@@ -39,24 +38,17 @@
 
   &__item {
     margin-bottom: rem(10);
-    color: $darkShade50;
-    line-height: rem(20);
 
     &:last-child {
       margin-bottom: 0;
     }
-
-    &--rich {
-      .checkbox-list {
-        &__item-text {
-          color: $darkShade75;
-          font-weight: bold;
-        }
-      }
-    }
   }
 
   &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
     &--hidden {
       display: none;
     }
@@ -65,75 +57,6 @@
       .checkbox-list {
         &__item {
           margin-bottom: rem(7);
-        }
-      }
-    }
-  }
-
-  &__item-description {
-    display: inline-block;
-    margin-top: rem(3);
-    font-size: rem(12);
-    line-height: rem(14.63);
-    white-space: pre-line;
-  }
-
-  &__item-text::before {
-    position: absolute;
-    top: 0;
-    left: rem(-30);
-    width: rem(20);
-    height: rem(20);
-    border: $mainBorder;
-    border-radius: $mainBorderRadius;
-    content: '';
-  }
-
-  &__item-label {
-    position: relative;
-    display: inline-block;
-    margin-left: rem(30);
-    cursor: pointer;
-
-    &:hover {
-      color: $darkShade75;
-
-      > .checkbox-list {
-        &__item-text::before {
-          border-color: $purple;
-        }
-      }
-    }
-  }
-
-  &__item-input {
-    position: absolute;
-    outline: none;
-    appearance: none;
-
-    &:checked + .checkbox-list {
-      &__item-text {
-        &::before {
-          background: url('~/components/checkbox-list/img/checkbox-checked.svg')
-            no-repeat center;
-          border-color: $purple;
-        }
-      }
-    }
-
-    &:focus-visible + .checkbox-list {
-      &__item-text {
-        color: $darkShade75;
-
-        &::before {
-          border: 0;
-          outline: $focusOutline;
-        }
-
-        + .checkbox-list {
-          &__item-description {
-            color: $darkShade75;
-          }
         }
       }
     }

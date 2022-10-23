@@ -2,6 +2,10 @@
 @import '~/scss/mixins';
 
 .comments {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
   &__comment {
     width: 100%;
     margin-bottom: rem(22.5);
@@ -12,60 +16,6 @@
 
     &:last-child {
       margin-bottom: 0;
-    }
-
-    &-header {
-      display: flex;
-
-      @media screen and (max-width: 568px) {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-    }
-
-    &-avatar {
-      width: rem(48);
-      height: rem(48);
-      object-fit: cover;
-      border: $avatarBorder;
-      border-radius: 50%;
-      filter: drop-shadow($avatarBoxShadow);
-
-      &-wrapper {
-        margin-right: rem(10);
-
-        @media screen and (max-width: 568px) {
-          margin-right: 0;
-        }
-      }
-    }
-
-    &-name {
-      font-weight: bold;
-    }
-
-    &-body {
-      display: flex;
-      margin-top: rem(3);
-      margin-left: rem(4);
-
-      @media screen and (max-width: 568px) {
-        flex-direction: column;
-        margin-top: 0;
-        margin-left: 0;
-      }
-    }
-
-    &-like-wrapper {
-      margin-top: rem(2);
-      margin-right: rem(15);
-
-      @media screen and (max-width: 568px) {
-        order: 1;
-        margin-top: rem(6);
-        margin-right: 0;
-      }
     }
   }
 }

@@ -1,3 +1,3 @@
-import '~/components/like-button';
+import '~/components/comment';
 
 import './comments.scss';
