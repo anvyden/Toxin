@@ -35,11 +35,6 @@
   }
 
   &__menu {
-    & > .text {
-      margin-top: rem(4);
-      margin-bottom: rem(22);
-    }
-
     &:nth-child(2) {
       margin-right: rem(57.5);
     }
@@ -59,13 +54,18 @@
         margin-right: 0;
       }
     }
+
+    &-title {
+      margin-top: rem(4);
+      margin-bottom: rem(22);
+    }
   }
 
   &__subscription {
     max-width: rem(260);
     margin-top: rem(4);
 
-    & > .text {
+    &-title {
       margin-bottom: rem(18);
     }
 

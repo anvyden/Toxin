@@ -12,7 +12,8 @@ mixin footer({ logoLink } = {})
           +logo({ active: true, link: logoLink })
           p.footer__company-presentation='Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»'
         .footer__menu
-          +text({ text: 'Навигация', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+          .footer__menu-title
+            +text({ text: 'Навигация', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
           +menu({ 
             options: {
               column: true
@@ -25,7 +26,8 @@ mixin footer({ logoLink } = {})
             ]
           })
         .footer__menu
-          +text({ text: 'О нас', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+          .footer__menu-title
+            +text({ text: 'О нас', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
           +menu({ 
             options: {
               column: true
@@ -38,7 +40,8 @@ mixin footer({ logoLink } = {})
             ]
           })
         .footer__menu
-          +text({ text: 'Служба поддержки', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+          .footer__menu-title
+            +text({ text: 'Служба поддержки', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
           +menu({
             options: {
               column: true
@@ -50,7 +53,8 @@ mixin footer({ logoLink } = {})
             ]
           })
         .footer__subscription
-          +text({ text: 'Подписка', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+          .footer__subscription-title
+            +text({ text: 'Подписка', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
           p.footer__subscription-text='Получайте специальные предложения и новости сервиса'
           form.footer__subscription-form
             +text-field({

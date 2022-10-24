@@ -17,26 +17,21 @@
     margin-bottom: rem(40);
   }
 
-  &__toggle-buttons-wrapper {
-    > .toggle-button {
-      &:first-child {
-        margin-bottom: rem(14);
-      }
-    }
-  }
-
   &__toggle-buttons {
     margin-bottom: rem(45);
   }
 
+  &__toggle-button {
+    margin-bottom: rem(14);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
   &__like-buttons-wrapper {
     display: flex;
-
-    > .like-button {
-      &:first-child {
-        margin-right: rem(10);
-      }
-    }
+    gap: rem(10);
   }
 
   &__like-buttons {

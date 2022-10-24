@@ -20,7 +20,8 @@ mixin booking-card(options)
               span.booking-card__room-number-symbol='№' 
               span.booking-card__room-number-value.js-booking-card__room-number-value='888'
             if (luxe)
-              +text({ text: 'Люкс', type: 'h3', color: 'purple', bold: true, hasUpper: true })
+              .booking-card__luxe
+                +text({ text: 'Люкс', type: 'h3', color: 'purple', bold: true, hasUpper: true })
           .booking-card__room-price-info
             span.booking-card__room-price-value.js-booking-card__room-price-value='9 990₽'
             span.booking-card__room-price-day='в сутки'

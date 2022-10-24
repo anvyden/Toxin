@@ -24,7 +24,8 @@ mixin room-card(options = {})
               span.room-card__number-symbol='№'
               span.room-card__number-value=number
             if (luxe)
-              +text({ text: 'люкс', type: 'h3', color: 'purple', bold: true, hasUpper: true })
+              .room-card__luxe
+                +text({ text: 'люкс', type: 'h3', color: 'purple', bold: true, hasUpper: true })
           .room-card__price
             span.room-card__price-value=price
             span.room-card__price-text='в сутки'

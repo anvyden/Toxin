@@ -25,10 +25,6 @@
     &-details {
       display: flex;
       align-items: flex-end;
-
-      > .text {
-        padding-bottom: rem(2);
-      }
     }
 
     &-symbol {
@@ -36,6 +32,10 @@
       font-size: rem(14);
       line-height: rem(17.07);
     }
+  }
+
+  &__luxe {
+    padding-bottom: rem(2);
   }
 
   &__room-price {

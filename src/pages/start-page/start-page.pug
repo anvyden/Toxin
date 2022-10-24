@@ -40,17 +40,33 @@ html(lang="ru")
               alt: 'logo',
             })
         .start-page__UI-kit-menu
-          h2.start-page__heading='UI kit'
+          h2&attributes({
+            class: [
+              'start-page__heading',
+              'start-page__heading--color-primary'
+            ]
+          })='UI kit'
           +menu({
             items: [
               { text: 'colors-types', link: './colors-type.html' },
               { text: 'form-elements', link: './form-elements.html' },
               { text: 'cards', link: './cards.html' },
               { text: 'headers-footers', link: './headers-footers.html' },
-            ]
+            ],
+            options: {
+              color: 'purple',
+              itemsCentered: true,
+              animationBorder: true,
+              animationFontSize: true
+            }
           })
         .start-page__site-menu
-          h2.start-page__heading='Pages'
+          h2&attributes({
+            class: [
+              'start-page__heading',
+              'start-page__heading--color-secondary'
+            ]
+          })='Pages'
           +menu({
             items: [
               { text: 'landing-page', link: './landing-page.html' },
@@ -58,6 +74,12 @@ html(lang="ru")
               { text: 'room-details', link: './room-details.html' },
               { text: 'registration', link: './registration.html' },
               { text: 'sign-in', link: './sign-in.html' },
-            ]
+            ],
+            options: {
+              color: 'green',
+              itemsCentered: true,
+              animationBorder: true,
+              animationFontSize: true
+            }
           })
     

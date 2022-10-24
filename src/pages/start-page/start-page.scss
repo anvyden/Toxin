@@ -39,93 +39,24 @@
     line-height: rem(24);
     text-align: center;
     background-clip: text;
+
+    &--color {
+      &-primary {
+        background-image: $primaryGradient;
+      }
+
+      &-secondary {
+        background-image: $secondaryGradient;
+      }
+    }
   }
 
   &__UI-kit-menu {
     margin-bottom: rem(50);
-
-    .start-page {
-      &__heading {
-        background-image: $primaryGradient;
-      }
-    }
-
-    .menu {
-      &__item {
-        &-link {
-          color: $purple;
-
-          &::after {
-            background-color: $purple;
-          }
-        }
-      }
-    }
-  }
-
-  &__site-menu {
-    .start-page {
-      &__heading {
-        background-image: $secondaryGradient;
-      }
-    }
-
-    .menu {
-      &__item {
-        &-link {
-          color: $green;
-
-          &::after {
-            background-color: $green;
-          }
-        }
-      }
-    }
   }
 
   &__UI-kit-menu,
   &__site-menu {
     min-height: rem(80);
-
-    .menu {
-      &__list {
-        justify-content: center;
-      }
-
-      &__item {
-        @media screen and (max-width: 1023px) {
-          border-bottom: none;
-        }
-
-        &-link {
-          font-weight: bold;
-          font-size: rem(18);
-          transition: font 0.5s ease;
-
-          &::after {
-            position: absolute;
-            bottom: rem(-8);
-            left: 0;
-            width: 0;
-            height: rem(3);
-            transition: width 0.5s ease;
-            content: '';
-
-            @media screen and (max-width: 1023px) {
-              bottom: 0;
-            }
-          }
-
-          &:hover,
-          &:focus-visible {
-            font-size: rem(24);
-
-            &::after {
-              width: 100%;
-            }
-          }
-        }
-      }
-    }
   }
 }

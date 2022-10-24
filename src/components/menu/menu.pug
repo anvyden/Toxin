@@ -2,31 +2,71 @@ include ~/components/sub-menu/sub-menu
 
 mixin menu({ items = [], options = {} })
   -
-    const { column, isNavigation = false } = options 
+    const {
+      column,
+      itemsCentered,
+      isNavigation = false,
+      color,
+      animationBorder,
+      animationFontSize
+    } = options 
+
+    const colors = ['purple', 'green']
 
     const listColumnModifier = column && 'menu__list--column'
+    const listCenterModifier = itemsCentered && 'menu__list--items-centered'
     const itemColumnModifier = column && 'menu__item--column'
+    const itemColorModifier =
+      colors.includes(color) && `menu__item-link--${color}`
+    const itemAnimationBorderModifier =
+      animationBorder && 'menu__item-link--animation-border'
+    const itemAnimationFontSizeModifier =
+      animationFontSize && 'menu__item-link--animation-font-size'
     const wrapperTag = isNavigation ? 'nav' : 'div'
 
   .menu 
     #{wrapperTag}.menu__menu
-      ul.menu__list(class=listColumnModifier)
+      ul&attributes({
+        class: [
+          'menu__list',
+          listColumnModifier,
+          listCenterModifier
+        ]
+      })
         each item in items 
           -
             const { text, link, isActive, subMenu, subMenuItems = [] } = item
-            const itemModifier = subMenu && 'menu__item--with-arrow js-menu__item'
+            const itemModifier =
+              subMenu && 'menu__item--with-arrow js-menu__item'
             const activeLinkClass = isActive && 'menu__item-link--active'
 
-          li.menu__item(class=[itemModifier, itemColumnModifier] data-type='item')
+          li&attributes({
+            class: [
+              'menu__item',
+              itemModifier,
+              itemColumnModifier
+            ],
+            'data-type': 'item'
+          })
             a&attributes({
-              class: ['menu__item-link', activeLinkClass],
+              class: [
+                'menu__item-link',
+                activeLinkClass,
+                itemColorModifier,
+                itemAnimationBorderModifier,
+                itemAnimationFontSizeModifier
+              ],
               href: link,
               tabindex: 0,
               'data-type': 'link'
             })=text 
             if subMenu 
               span&attributes({
-                class: ['menu__item-arrow', 'material-icons', 'js-menu__item-arrow'],
+                class: [
+                  'menu__item-arrow',
+                  'material-icons',
+                  'js-menu__item-arrow'
+                ],
                 'data-type': 'arrow'
               })='expand_more'
               .menu__sub-menu.js-menu__sub-menu

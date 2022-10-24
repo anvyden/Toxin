@@ -43,12 +43,7 @@
   &__authorization {
     display: flex;
     justify-content: space-between;
-
-    > .button {
-      &:first-child {
-        margin-right: rem(19.5);
-      }
-    }
+    gap: rem(19.5);
 
     &-complete {
       position: relative;
@@ -181,13 +176,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: rem(10);
         padding: rem(15) 0;
-
-        & > .button {
-          &:first-child {
-            margin-bottom: rem(10);
-          }
-        }
       }
 
       &-complete {

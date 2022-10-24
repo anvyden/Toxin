@@ -31,8 +31,10 @@ mixin controls()
         .controls__title
           +text({ text: 'toggle', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
         .controls__toggle-buttons-wrapper
-          +toggle-button({ text: 'Получать спецпредложения', name: 'offers1', isChecked: true })
-          +toggle-button({ text: 'Получать спецпредложения', name: 'offers2' })
+          .controls__toggle-button
+            +toggle-button({ text: 'Получать спецпредложения', name: 'offers1', isChecked: true })
+          .controls__toggle-button
+            +toggle-button({ text: 'Получать спецпредложения', name: 'offers2' })
       .controls__like-buttons
         .controls__title
           +text({ text: 'like button', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
