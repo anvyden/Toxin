@@ -9,65 +9,62 @@
   }
 
   &__item {
+    display: flex;
+    align-items: center;
+    color: $darkShade100;
     margin-bottom: rem(20);
-  }
 
-  &__item:last-child {
-    margin-bottom: rem(20);
-  }
-}
+    &:last-child {
+      margin-bottom: rem(0);
+    }
 
-.color {
-  display: flex;
-  align-items: center;
-  color: $darkShade100;
+    &-img {
+      width: 70px;
+      height: 70px;
+      margin-right: rem(40);
+      border-radius: 6px;
 
-  &--dark-shade-100 {
-    background-color: $darkShade100;
-  }
+      &--dark-shade-100 {
+        background-color: $darkShade100;
+      }
 
-  &--dark-shade-75 {
-    background-color: $darkShade75;
-  }
+      &--dark-shade-75 {
+        background-color: $darkShade75;
+      }
 
-  &--dark-shade-50 {
-    background-color: $darkShade50;
-  }
+      &--dark-shade-50 {
+        background-color: $darkShade50;
+      }
 
-  &--dark-shade-25 {
-    background-color: $darkShade25;
-  }
+      &--dark-shade-25 {
+        background-color: $darkShade25;
+      }
 
-  &--dark-shade-5 {
-    background-color: $darkShade5;
-  }
+      &--dark-shade-5 {
+        background-color: $darkShade5;
+      }
 
-  &--purple {
-    background-color: $purple;
-  }
+      &--purple {
+        background-color: $purple;
+      }
 
-  &--green {
-    background-color: $green;
-  }
+      &--green {
+        background-color: $green;
+      }
+    }
 
-  &__img {
-    width: 70px;
-    height: 70px;
-    margin-right: rem(40);
-    border-radius: 6px;
-  }
+    &-description {
+      font-size: rem(19);
+      line-height: rem(27.8);
+    }
 
-  &__description {
-    font-size: rem(19);
-    line-height: rem(27.8);
-  }
+    &-name {
+      margin: 0;
+      font-weight: 700;
+    }
 
-  &__name {
-    margin: 0;
-    font-weight: 700;
-  }
-
-  &__hex {
-    margin: 0;
+    &-hex {
+      margin: 0;
+    }
   }
 }

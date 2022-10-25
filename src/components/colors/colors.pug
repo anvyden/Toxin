@@ -14,8 +14,8 @@ mixin colors( colorList=[] )
             const { color } = item
             const colorModifier = colors.includes(color) && color
 
-          li(class=`color colors__item`)
-            div(class=`color__img color--${colorModifier}`)
-            .color__description
-              p.color__name=item.name
-              p.color__hex=item.hex
+          li(class=`colors__item`)
+            div(class=`colors__item-img colors__item-img--${colorModifier}`)
+            .colors__item-description
+              p.colors__item-name=item.name
+              p.colors__item-hex=item.hex

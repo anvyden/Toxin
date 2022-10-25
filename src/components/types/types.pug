@@ -9,11 +9,15 @@ mixin types( typeList=[] )
         each item in typeList
           -
             const { type, typeHeaderHasUpper } = item
-            const typeModifier = types.includes(type) && type
-            let typeHeaderClass = `type__header`
+            const itemModifier = types.includes(type) && type
+            const itemHeaderUpper =
+              typeHeaderHasUpper && 'types__item-header--upper'
 
-            if (typeHeaderHasUpper) typeHeaderClass += ` type__header--upper`
-
-          li(class=`type types__item type--${typeModifier}`)
-            p(class=typeHeaderClass)=item.title
-            p(class=`type__text type__text--${typeModifier}`)=item.text
+          li(class=`types__item types__item--${itemModifier}`)
+            p(class=['types__item-header', itemHeaderUpper])=item.title
+            p&attributes({
+              class: [
+                'types__item-text',
+                `types__item-text--${itemModifier}`
+              ]
+            })=item.text

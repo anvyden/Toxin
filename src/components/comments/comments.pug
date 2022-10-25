@@ -1,7 +1,8 @@
 include ~/components/comment/comment
 
 mixin comments( commentsList=[] )
-  ul.comments
-    each comment in commentsList
-      li.comments__comment
-        +comment(comment)
+  .comments
+    ul.comments__list
+      each comment in commentsList
+        li.comments__comment
+          +comment(comment)
