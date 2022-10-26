@@ -163,12 +163,12 @@ class PieChart {
       <h3 class='${this.votesCountClass}'>${votes}</h3>
       <h3 class='${this.votesTextClass}'>
         ${declination(
-          votes, 
+          votes,
           [
             'голос',
             'голоса',
             'голосов',
-          ]
+          ],
         )}
       </h3>
     `;
