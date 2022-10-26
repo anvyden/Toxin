@@ -42,8 +42,8 @@
 
   &__authorization {
     display: flex;
-    justify-content: space-between;
     gap: rem(19.5);
+    justify-content: space-between;
 
     &-complete {
       position: relative;
@@ -175,8 +175,8 @@
       @media screen and (max-width: 767px) {
         display: flex;
         flex-direction: column;
-        align-items: center;
         gap: rem(10);
+        align-items: center;
         padding: rem(15) 0;
       }
 

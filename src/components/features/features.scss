@@ -13,8 +13,8 @@
     margin-bottom: rem(20);
 
     &--with-border {
-      border-bottom: $featuresBorder;
       padding-bottom: rem(13);
+      border-bottom: $featuresBorder;
     }
 
     &:last-child {

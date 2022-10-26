@@ -11,8 +11,8 @@
   &__item {
     display: flex;
     align-items: center;
-    color: $darkShade100;
     margin-bottom: rem(20);
+    color: $darkShade100;
 
     &:last-child {
       margin-bottom: rem(0);

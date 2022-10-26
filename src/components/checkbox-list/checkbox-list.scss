@@ -4,11 +4,11 @@
 .checkbox-list {
   &__title {
     margin: 0 0 rem(17) 0;
+    color: $darkShade100;
+    font-weight: 700;
     font-size: rem(12);
     line-height: rem(14.63);
-    font-weight: 700;
     text-transform: uppercase;
-    color: $darkShade100;
   }
 
   &__dropdown {
@@ -24,11 +24,11 @@
 
     &-title {
       margin: 0;
+      color: $darkShade100;
+      font-weight: 700;
       font-size: rem(12);
       line-height: rem(14.63);
-      font-weight: 700;
       text-transform: uppercase;
-      color: $darkShade100;
     }
 
     &-button {
@@ -39,11 +39,11 @@
       border: none;
       cursor: pointer;
       transition: transform 0.4s ease;
-  
+
       &:focus-visible {
         outline: $focusOutline;
       }
-  
+
       &--rotate {
         transform: rotateX(180deg);
       }

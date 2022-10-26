@@ -14,8 +14,8 @@
 
   &__avatar {
     width: rem(48);
-    height: rem(48);
     max-width: 100%;
+    height: rem(48);
     object-fit: cover;
     border: $avatarBorder;
     border-radius: 50%;

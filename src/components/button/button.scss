@@ -117,17 +117,17 @@
       &:disabled {
         background: none;
 
+        .button {
+          &__inner {
+            color: $darkShade50;
+          }
+        }
+
         &:hover {
           .button {
             &__inner {
               text-decoration: none;
             }
-          }
-        }
-
-        .button {
-          &__inner {
-            color: $darkShade50;
           }
         }
       }

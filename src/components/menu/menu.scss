@@ -116,8 +116,8 @@
       }
 
       &--animation-font-size {
-        font-size: rem(18);
         font-weight: bold;
+        font-size: rem(18);
         transition: font 0.5s ease;
 
         &:hover,
@@ -152,9 +152,11 @@
       &--with-arrow {
         padding: rem(10) 0 rem(10) rem(20);
 
-        .menu__item-link {
-          display: inline;
-          padding: 0;
+        .menu {
+          &__item-link {
+            display: inline;
+            padding: 0;
+          }
         }
       }
     }
