@@ -47,8 +47,19 @@ mixin header(options = {})
             })
         if (!logIn)
           .header__authorization
-            +button({ text: 'Войти', variant: 'fill-white', color: 'purple', size: 'medium', link: './sign-in.html' })
-            +button({ text: 'Зарегистрироваться', color: 'white', size: 'medium', link: './registration.html' })
+            +button({
+              text: 'Войти',
+              variant: 'fill-white',
+              color: 'purple',
+              size: 'medium',
+              link: './sign-in.html'
+            })
+            +button({
+              text: 'Зарегистрироваться',
+              color: 'white',
+              size: 'medium',
+              link: './registration.html'
+            })
         else
           .header__authorization-complete
             span.header__user='Юлий Цезарь'
@@ -96,8 +107,19 @@ mixin header(options = {})
             })
         if (!logIn)
           .header__burger-authorization
-            +button({ text: 'Войти', variant: 'fill-white', color: 'purple', size: 'medium', link: './sign-in.html' })
-            +button({ text: 'Зарегистрироваться', color: 'white', size: 'medium', link: './registration.html' })
+            +button({
+              text: 'Войти',
+              variant: 'fill-white',
+              color: 'purple',
+              size: 'medium',
+              link: './sign-in.html'
+            })
+            +button({
+              text: 'Зарегистрироваться',
+              color: 'white',
+              size: 'medium',
+              link: './registration.html'
+            })
         else
           .header__burger-authorization-complete
             span.header__user='Юлий Цезарь'

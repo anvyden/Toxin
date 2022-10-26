@@ -21,7 +21,8 @@ mixin dropdown(options={}, props={})
 
     const mainClass = 'dropdown js-dropdown'
     const inputClass = 'dropdown__input js-dropdown__input'
-    const buttonClass = 'dropdown__arrow-button material-icons js-dropdown__arrow-button'
+    const buttonClass 
+      = 'dropdown__arrow-button material-icons js-dropdown__arrow-button'
     const dropClass = 'dropdown__drop js-dropdown__drop'
     const itemClass = 'dropdown__item js-dropdown__item'
     const itemNameClass = 'dropdown__item-name js-dropdown__item-name'
@@ -93,5 +94,17 @@ mixin dropdown(options={}, props={})
                 })= '+'
         if (withButtons)
           .dropdown__buttons
-            +button({ text: 'очистить', variant: 'inline', color: 'purple', classForJs: 'js-dropdown__button--clear', dataType: 'clear' })
-            +button({ text: 'применить', variant: 'inline', color: 'purple', classForJs: 'js-dropdown__button--apply', dataType: 'apply' })
+            +button({
+              text: 'очистить',
+              variant: 'inline',
+              color: 'purple',
+              classForJs: 'js-dropdown__button--clear',
+              dataType: 'clear'
+            })
+            +button({
+              text: 'применить',
+              variant: 'inline',
+              color: 'purple',
+              classForJs: 'js-dropdown__button--apply',
+              dataType: 'apply'
+            })

@@ -12,9 +12,20 @@ mixin controls()
         +checkbox-list({
           title: 'checkbox buttons',
           items: [
-            { title: 'Можно курить', name: 'smoke'},
-            { title: 'Можно с питомцами', name: 'pets', isChecked: true},
-            { title: 'Можно пригласить гостей (до\u00A010\u00A0человек)', name: 'guests', isChecked: true }
+            {
+              title: 'Можно курить',
+              name: 'smoke'
+            },
+            {
+              title: 'Можно с питомцами',
+              name: 'pets',
+              isChecked: true
+            },
+            {
+              title: 'Можно пригласить гостей (до\u00A010\u00A0человек)',
+              name: 'guests',
+              isChecked: true
+            }
           ],
         })
       .controls__radio-buttons
@@ -44,9 +55,16 @@ mixin controls()
           })
         .controls__toggle-buttons-wrapper
           .controls__toggle-button
-            +toggle-button({ text: 'Получать спецпредложения', name: 'offers1', isChecked: true })
+            +toggle-button({
+              text: 'Получать спецпредложения',
+              name: 'offers1',
+              isChecked: true
+            })
           .controls__toggle-button
-            +toggle-button({ text: 'Получать спецпредложения', name: 'offers2' })
+            +toggle-button({
+              text: 'Получать спецпредложения',
+              name: 'offers2'
+            })
       .controls__like-buttons
         .controls__heading
           +heading({

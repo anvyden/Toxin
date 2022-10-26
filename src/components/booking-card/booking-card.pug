@@ -18,12 +18,24 @@ mixin booking-card(options)
           .booking-card__room-number-details
             h1(class='booking-card__room-number')
               span.booking-card__room-number-symbol='№' 
-              span.booking-card__room-number-value.js-booking-card__room-number-value='888'
+              span(class=[
+                'booking-card__room-number-value',
+                'js-booking-card__room-number-value'
+              ])='888'
             if (luxe)
               .booking-card__luxe
-                +heading({ title: 'Люкс', titleType: 'h3', titleColor: 'purple', titleBold: true, titleHasUpper: true })
+                +heading({
+                  title: 'Люкс',
+                  titleType: 'h3',
+                  titleColor: 'purple',
+                  titleBold: true,
+                  titleHasUpper: true
+                })
           .booking-card__room-price-info
-            span.booking-card__room-price-value.js-booking-card__room-price-value='9 990₽'
+            span(class=[
+              'booking-card__room-price-value',
+              'js-booking-card__room-price-value'
+            ])='9 990₽'
             span.booking-card__room-price-day='в сутки'
         .booking-card__datepicker
           +date-dropdown({
@@ -77,22 +89,36 @@ mixin booking-card(options)
           })
         .booking-card__calculation
           .booking-card__calculation-item
-            p.booking-card__days-value.js-booking-card__days-value='9 990₽ х 4 суток'
+            p(class=[
+              'booking-card__days-value',
+              'js-booking-card__days-value'
+            ])='9 990₽ х 4 суток'
             p.booking-card__days-sum.js-booking-card__days-sum='39 960₽'
           .booking-card__calculation-item
-            p.booking-card__services-value.js-booking-card__services-value='Сбор за услуги: скидка 2 179₽'
+            p(class=[
+              'booking-card__services-value',
+              'js-booking-card__services-value'
+            ])='Сбор за услуги: скидка 2 179₽'
             .booking-card__calculation-icon-wrapper
               .booking-card__calculation-icon='i'
             p.booking-card__services-sum.js-booking-card__services-sum='0₽'
           .booking-card__calculation-item
-            p.booking-card__additional-services-value='Сбор за дополнительные услуги'
+            p(class=[
+              'booking-card__additional-services-value'
+            ])='Сбор за дополнительные услуги'
             .booking-card__calculation-icon-wrapper
               .booking-card__calculation-icon='i'
-            p.booking-card__additional-services-sum.js-booking-card__additional-services-sum='300₽'
+            p(class=[
+              'booking-card__additional-services-sum',
+              'js-booking-card__additional-services-sum'
+            ])='300₽'
         .booking-card__total-price
           h2.booking-card__total-price-text='Итого'
           .booking-card__total-price-separator
-          h2.booking-card__total-price-sum.js-booking-card__total-price-sum='38 081₽'
+          h2(class=[
+            'booking-card__total-price-sum',
+            'js-booking-card__total-price-sum'
+          ])='38 081₽'
         .booking-card__booking-button
           +button({
             text: 'Забронировать',

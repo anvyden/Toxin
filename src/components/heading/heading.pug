@@ -19,15 +19,21 @@ mixin heading(options = {})
       'dark-shade-25', 'dark-shade-5', 'purple', 'green', 'black'
     ]
 
-    const titleTypeModifier = types.includes(titleType) && `heading__title--with-type-${titleType}`
-    const titleColorModifier = colors.includes(titleColor) && `heading__title--${titleColor}`
-    const titleBoldModifier = titleBold && 'heading__title--bold'
+    const titleTypeModifier
+      = types.includes(titleType) && `heading__title--with-type-${titleType}`
+    const titleColorModifier
+      = colors.includes(titleColor) && `heading__title--${titleColor}`
+    const titleBoldModifier= titleBold && 'heading__title--bold'
     const titleUpperModifier = titleHasUpper && 'heading__title--upper'
 
-    const subtitleTypeModifier = types.includes(subtitleType) && `heading__subtitle--with-type-${subtitleType}`
-    const subtitleColorModifier = colors.includes(subtitleColor) && `heading__subtitle--${subtitleColor}`
-    const subtitleBoldModifier = subtitleBold && 'heading__subtitle--bold'
-    const subtitleUpperModifier = subtitleHasUpper && 'heading__subtitle--upper'
+    const subtitleTypeModifier
+      = types.includes(subtitleType) && `heading__subtitle--with-type-${subtitleType}`
+    const subtitleColorModifier
+      = colors.includes(subtitleColor) && `heading__subtitle--${subtitleColor}`
+    const subtitleBoldModifier
+      = subtitleBold && 'heading__subtitle--bold'
+    const subtitleUpperModifier
+      = subtitleHasUpper && 'heading__subtitle--upper'
 
     const typeTag = {
       'h1': 'h1',

@@ -24,8 +24,10 @@ mixin text-field( options={} )
     const mainClass = 'text-field__input'
     const maskedClass = isMasked && 'js-masked-text-field'
     const focusedModifier = focused && 'text-field__input--focused'
-    const inputWithButtonModifier = withButton && 'text-field__input--with-button'
-    const arrowClass = 'text-field__arrow-button material-icons js-text-field__arrow-button'
+    const inputWithButtonModifier
+      = withButton && 'text-field__input--with-button'
+    const arrowClass
+      = 'text-field__arrow-button material-icons js-text-field__arrow-button'
     const subscribeButtonClass = 'text-field__button material-icons'
     const buttonModifier = isSubscribe && 'text-field__input--with-button'
     const lowerCaseModifier = isLowerCase && 'text-field__input--lowercase'

@@ -38,19 +38,23 @@ mixin checkboxs()
             ]
           })
       .checkboxs__rich-checkboxs
-        +checkbox-list({ title: 'rich checkbox buttons', isRich: true,
-        items: [
-          {
-            title: 'Широкий коридор',
-            description: `Ширина коридоров в номере не\u00A0менее 91 см.`,
-            name: 'wide-corridor'
-          },
-          {
-            title: 'Помощник для инвалидов',
-            description: `На 1 этаже вас встретит специалист и\u00A0проводит до номера.`,
-            name: 'assistant-for-disabled-persons'
-          },
-        ]})
+        +checkbox-list({
+          title: 'rich checkbox buttons',
+          isRich: true,
+          items: [
+            {
+              title: 'Широкий коридор',
+              description: `Ширина коридоров в номере не\u00A0менее 91 см.`,
+              name: 'wide-corridor'
+            },
+            {
+              title: 'Помощник для инвалидов',
+              description: `На 1 этаже вас встретит специалист
+                и\u00A0проводит до номера.`,
+              name: 'assistant-for-disabled-persons'
+            },
+          ]
+        })
       .checkboxs__bullet-list
         .checkboxs__bullet-list-heading
           +heading({

@@ -1,13 +1,14 @@
 mixin copyright-bar({ options = {}, socialItems = [] } = {})
   -
-    const { mobile } = options 
+    const { mobile } = options
 
     const containerModifier = mobile && 'copyright-bar__container--column'
 
   .copyright-bar
-    .copyright-bar__container(class=containerModifier) 
+    .copyright-bar__container(class=containerModifier)
       .copyright-bar__copyright
-        span.copyright-bar__copyright-text='Copyright © 2018 Toxin отель. Все права защищены.'
+        span.copyright-bar__copyright-text
+          | Copyright © 2018 Toxin отель. Все права защищены.
       .copyright-bar__socials 
         ul.copyright-bar__socials-list
           each socialItem in socialItems

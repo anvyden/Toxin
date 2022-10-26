@@ -28,16 +28,52 @@ mixin buttons()
           })
         .buttons__buttons-wrapper
           .buttons__buttons-group
-            +button({ text: 'click me', variant: 'background', size: 'small', color: 'white' })
-            +button({ text: 'click me', variant: 'background', size: 'small', color: 'white', disabled: true })
+            +button({
+              text: 'click me',
+              variant: 'background',
+              size: 'small',
+              color: 'white'
+            })
+            +button({
+              text: 'click me',
+              variant: 'background',
+              size: 'small',
+              color: 'white',
+              disabled: true
+              })
           .buttons__buttons-group
-            +button({ text: 'click me', variant: 'fill-white', size: 'small', color: 'purple' })
-            +button({ text: 'click me', variant: 'fill-white', size: 'small', color: 'purple', disabled: true })
+            +button({
+              text: 'click me',
+              variant: 'fill-white',
+              size: 'small',
+              color: 'purple'
+            })
+            +button({
+              text: 'click me',
+              variant: 'fill-white',
+              size: 'small',
+              color: 'purple',
+              disabled: true
+            })
           .buttons__buttons-group
-            +button({ text: 'click me', variant: 'inline', color: 'purple' })
-            +button({ text: 'click me', variant: 'inline', color: 'purple', disabled: true })
+            +button({
+              text: 'click me',
+              variant: 'inline',
+              color: 'purple'
+            })
+            +button({
+              text: 'click me',
+              variant: 'inline',
+              color: 'purple',
+              disabled: true
+            })
           .buttons__buttons-group
-            +button({ text: 'перейти к оплате', color: 'white', size: 'large', variant: 'with-arrow' })
+            +button({
+              text: 'перейти к оплате',
+              color: 'white',
+              size: 'large',
+              variant: 'with-arrow'
+            })
       .buttons__pagination
         .buttons__heading
           +heading({

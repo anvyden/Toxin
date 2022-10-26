@@ -25,9 +25,19 @@ mixin sign-up-card(options={})
       form(class='sign-up-card__form' action=formAction method=formMethod)
         .sign-up-card__person
           .sign-up-card__person-first-name
-            +text-field({ type: 'text', placeholder: 'Имя', name: 'first-name', autocomplete: 'on' })
+            +text-field({
+              type: 'text',
+              placeholder: 'Имя',
+              name: 'first-name',
+              autocomplete: 'on'
+            })
           .sign-up-card__person-last-name
-            +text-field({ type: 'text', placeholder: 'Фамилия', name: 'last-name', autocomplete: 'on' })
+            +text-field({
+              type: 'text',
+              placeholder: 'Фамилия',
+              name: 'last-name',
+              autocomplete: 'on'
+            })
           .sign-up-card__person-sex
             +radio-buttons({
               group: 'gender',
@@ -64,7 +74,10 @@ mixin sign-up-card(options={})
               autocomplete: 'on'
             })
           .sign-up-card__special-offers
-            +toggle-button({ text: 'Получать спецпредложения', name: 'special-offers' })
+            +toggle-button({
+              text: 'Получать спецпредложения',
+              name: 'special-offers'
+            })
         .sign-up-card__button
           +button({
             text: 'зарегистрироваться',

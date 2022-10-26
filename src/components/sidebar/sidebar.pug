@@ -62,9 +62,20 @@ mixin sidebar({} = {})
         +checkbox-list({
           title: 'Правила дома',
           items: [
-            { title: 'Можно курить', name: 'smoke' },
-            { title: 'Можно с питомцами', name: 'pets', isChecked: true },
-            { title: 'Можно пригласить гостей (до\u00A010\u00A0человек)', name: 'guests', isChecked: true },
+            {
+              title: 'Можно курить',
+              name: 'smoke'
+            },
+            {
+              title: 'Можно с питомцами',
+              name: 'pets',
+              isChecked: true
+            },
+            {
+              title: 'Можно пригласить гостей (до\u00A010\u00A0человек)',
+              name: 'guests',
+              isChecked: true
+            },
           ]
         })
       .sidebar__rich-checkboxs
@@ -79,7 +90,8 @@ mixin sidebar({} = {})
             },
             {
               title: 'Помощник для инвалидов',
-              description: `На 1 этаже вас встретит специалист и\u00A0проводит до номера.`,
+              description: `На 1 этаже вас встретит специалист 
+                и\u00A0проводит до номера.`,
               name: 'assistant-for-disabled-persons',
             },
           ]

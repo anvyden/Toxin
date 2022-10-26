@@ -10,7 +10,9 @@ mixin footer({ logoLink } = {})
       .footer__widgets-container
         .footer__company
           +logo({ active: true, link: logoLink })
-          p.footer__company-presentation='Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»'
+          p.footer__company-presentation
+            | Бронирование номеров в лучшем отеле 2019 года по версии
+            | ассоциации «Отельные взгляды»
         .footer__menu
           .footer__menu-heading
             +heading({
@@ -79,7 +81,8 @@ mixin footer({ logoLink } = {})
               titleBold: true,
               titleHasUpper: true
             })
-          p.footer__subscription-text='Получайте специальные предложения и новости сервиса'
+          p.footer__subscription-text
+            | Получайте специальные предложения и новости сервиса
           form.footer__subscription-form
             +text-field({
               type: 'email',
@@ -91,8 +94,17 @@ mixin footer({ logoLink } = {})
     .footer__copyright-bar
       +copyright-bar({
         socialItems: [
-          { fontAwesomeIconClass: 'fa-twitter', link: './error-page.html' },
-          { fontAwesomeIconClass: 'fa-facebook-square', link: './error-page.html' },
-          { fontAwesomeIconClass: 'fa-instagram', link: './error-page.html' },
+          {
+            fontAwesomeIconClass: 'fa-twitter',
+            link: './error-page.html'
+          },
+          {
+            fontAwesomeIconClass: 'fa-facebook-square',
+            link: './error-page.html'
+          },
+          {
+            fontAwesomeIconClass: 'fa-instagram',
+            link: './error-page.html'
+          },
         ]
       })

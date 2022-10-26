@@ -12,7 +12,16 @@ mixin checkbox(options = {})
 
   .checkbox
     label.checkbox__label
-      input(class='checkbox__input' type='checkbox' name=name checked=isChecked)
-      span(class=['checkbox__title', titleBoldModifier])=title
+      input(
+        class='checkbox__input'
+        type='checkbox'
+        name=name
+        checked=isChecked
+      )
+      span(
+        class=[
+          'checkbox__title',
+          titleBoldModifier
+        ])=title
       if (isRich)
         span.checkbox__description=description

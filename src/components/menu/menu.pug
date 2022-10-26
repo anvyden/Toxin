@@ -35,7 +35,14 @@ mixin menu({ items = [], options = {} })
       })
         each item in items 
           -
-            const { text, link, isActive, subMenu, subMenuItems = [] } = item
+            const {
+              text,
+              link,
+              isActive,
+              subMenu,
+              subMenuItems = []
+            } = item
+            
             const itemModifier =
               subMenu && 'menu__item--with-arrow js-menu__item'
             const activeLinkClass = isActive && 'menu__item-link--active'

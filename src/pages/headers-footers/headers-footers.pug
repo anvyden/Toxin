@@ -20,9 +20,16 @@ block content
   .headers-footers
     .headers-footers__container
       .headers-footers__header
-        +header({ logoLink: './error-page.html', firstItemMenuActive: true })
+        +header({
+          logoLink: './error-page.html',
+          firstItemMenuActive: true
+        })
       .headers-footers__header-logged-in
-        +header({ logIn: true, logoLink: './error-page.html', firstMenuItemActive: true })
+        +header({
+          logIn: true,
+          logoLink: './error-page.html',
+          firstMenuItemActive: true
+        })
       .headers-footers__footer
         +footer({ logoLink: './error-page.html' })
       .headers-footers__footer-mobile
