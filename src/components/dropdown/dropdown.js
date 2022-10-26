@@ -49,8 +49,7 @@ class Dropdown {
     this.input = this.dropdown.querySelector(this.inputSelector);
     this.arrowButton = this.dropdown.querySelector(this.arrowButtonSelector);
     this.items = this.dropdown.querySelectorAll(this.itemSelector);
-    this.clearButton =
-      this.dropdown.querySelector(this.clearButtonSelector) || '';
+    this.clearButton = this.dropdown.querySelector(this.clearButtonSelector) || '';
 
     this.itemsData = [...this.items].map((item) => ({
       decrement: item.querySelector(this.decrementSelector),
@@ -75,7 +74,7 @@ class Dropdown {
           : (value = 8);
 
         return [key, value];
-      })
+      }),
     );
   }
 
@@ -120,15 +119,15 @@ class Dropdown {
   _bindEventListeners() {
     this.dropdown.addEventListener(
       'pointerdown',
-      this._handleDropdownPointerDown.bind(this)
+      this._handleDropdownPointerDown.bind(this),
     );
     this.dropdown.addEventListener(
       'keydown',
-      this._handleDropdownKeyDown.bind(this)
+      this._handleDropdownKeyDown.bind(this),
     );
     document.addEventListener(
       'pointerdown',
-      this._handleDocumentPointerDown.bind(this)
+      this._handleDocumentPointerDown.bind(this),
     );
   }
 

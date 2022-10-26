@@ -31,7 +31,7 @@ class Menu {
   _bindItemListeners() {
     this.root.addEventListener(
       'pointerdown',
-      this._handleItemPointerDown.bind(this)
+      this._handleItemPointerDown.bind(this),
     );
     this.root.addEventListener('keydown', this._handleItemKeyDown.bind(this));
   }
@@ -50,10 +50,9 @@ class Menu {
 
   _handleItemPointerDown(event) {
     const { target } = event;
-    const isItem =
-      target.dataset.type === this.itemDataType ||
-      target.dataset.type === this.linkDataType ||
-      target.dataset.type === this.arrowDataType;
+    const isItem = target.dataset.type === this.itemDataType
+      || target.dataset.type === this.linkDataType
+      || target.dataset.type === this.arrowDataType;
 
     if (isItem) {
       this._toggleSubMenu();

@@ -31,13 +31,13 @@ class BookingCard {
     this.roomNumber.textContent = roomNumber;
     this.roomPrice.textContent = `${moneyFormat.to(roomPrice)}₽`;
     this.pricePerDays.textContent = `${moneyFormat.to(
-      roomPrice
+      roomPrice,
     )}₽ х ${days} ${declination(days, ['сутки', 'суток', 'суток'])}`;
     this.sumPriceInDays.textContent = `${moneyFormat.to(
-      priceForSelectedDays
+      priceForSelectedDays,
     )}₽`;
     this.servicesPrice.textContent = `Сбор за услуги: скидка ${moneyFormat.to(
-      discount
+      discount,
     )}₽`;
     this.servicesSumPrice.textContent = '0₽';
     this.additionalServicesSum.textContent = `${additionalServicesSum}₽`;
@@ -57,16 +57,16 @@ class BookingCard {
   }
 
   _getCorrectParams(days) {
-    const { roomNumber, roomPrice, discount, additionalServicesSum } =
-      this.params;
+    const {
+      roomNumber, roomPrice, discount, additionalServicesSum,
+    } = this.params;
 
     const correctRoomNumber = parseInt(roomNumber, 10);
     const correctRoomPrice = parseInt(roomPrice, 10);
     const correctDiscount = parseInt(discount, 10);
     const correctAdditionalServicesSum = parseInt(additionalServicesSum, 10);
     const priceForSelectedDays = correctRoomPrice * days;
-    const totalSum =
-      priceForSelectedDays - correctDiscount + correctAdditionalServicesSum;
+    const totalSum = priceForSelectedDays - correctDiscount + correctAdditionalServicesSum;
 
     return {
       roomNumber: correctRoomNumber,
@@ -86,8 +86,7 @@ class BookingCard {
     this.servicesPriceSelector = '.js-booking-card__services-value';
     this.servicesSumPriceSelector = '.js-booking-card__services-sum';
     this.totalSumSelector = '.js-booking-card__total-price-sum';
-    this.additionalServicesSumSelector =
-      '.js-booking-card__additional-services-sum';
+    this.additionalServicesSumSelector = '.js-booking-card__additional-services-sum';
   }
 
   _getElemetns() {
@@ -98,7 +97,7 @@ class BookingCard {
     this.servicesPrice = this.root.querySelector(this.servicesPriceSelector);
     this.servicesSumPrice = this.root.querySelector(this.servicesSumPriceSelector);
     this.additionalServicesSum = this.root.querySelector(
-      this.additionalServicesSumSelector
+      this.additionalServicesSumSelector,
     );
     this.totalSum = this.root.querySelector(this.totalSumSelector);
   }

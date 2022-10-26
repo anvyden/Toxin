@@ -6,6 +6,6 @@ const dateMask = Inputmask('datetime', {
   clearIncomplete: true,
   showMaskOnHover: false,
   showMaskOnFocus: false,
-})
+});
 
 export default dateMask;

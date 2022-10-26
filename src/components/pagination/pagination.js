@@ -60,7 +60,7 @@ class Pagination {
         const arrow = this._createArrow(value);
         arrow.addEventListener(
           'pointerdown',
-          this._handleArrowPointerDown.bind(this)
+          this._handleArrowPointerDown.bind(this),
         );
         arrow.addEventListener('keydown', this._handleArrowKeyDown.bind(this));
 
@@ -71,7 +71,7 @@ class Pagination {
         if (value !== '...') {
           item.addEventListener(
             'pointerdown',
-            this._handleItemPointerDown.bind(this)
+            this._handleItemPointerDown.bind(this),
           );
           item.addEventListener('keydown', this._handleItemKeyDown.bind(this));
         }
@@ -133,12 +133,9 @@ class Pagination {
 
     const correctValues = values.map((value) => {
       const isExtremeValue = value === 1 || value === countOfPages;
-      const isMoreDataValueByTwo =
-        countOfPages - (dataValue + 2) > 2 && value > dataValue + 2;
-      const isLessDataValueByTwo =
-        dataValue - 2 - 1 > 2 && value < dataValue - 2;
-      const isDiffersByLessThanTwo =
-        dataValue + 2 >= value && value >= dataValue - 2;
+      const isMoreDataValueByTwo = countOfPages - (dataValue + 2) > 2 && value > dataValue + 2;
+      const isLessDataValueByTwo = dataValue - 2 - 1 > 2 && value < dataValue - 2;
+      const isDiffersByLessThanTwo = dataValue + 2 >= value && value >= dataValue - 2;
 
       if (isExtremeValue) {
         return value;
@@ -164,10 +161,8 @@ class Pagination {
       ...secondHalf.filter((item, index) => secondHalf.indexOf(item) === index),
     ];
 
-    if (dataValue !== 1)
-      this.filteredValues = ['arrow_back', ...this.filteredValues];
-    if (dataValue !== countOfPages)
-      this.filteredValues = [...this.filteredValues, 'arrow_forward'];
+    if (dataValue !== 1) this.filteredValues = ['arrow_back', ...this.filteredValues];
+    if (dataValue !== countOfPages) this.filteredValues = [...this.filteredValues, 'arrow_forward'];
 
     return this.filteredValues;
   }
@@ -183,8 +178,7 @@ class Pagination {
     this.item = document.createElement('li');
     this.item.classList.add(this.itemClass);
 
-    if (this.dataValue === value)
-      this.item.classList.add(this.itemActiveModifier);
+    if (this.dataValue === value) this.item.classList.add(this.itemActiveModifier);
     if (value === '...') this.item.classList.add(this.itemDisabledModifier);
 
     const link = document.createElement('a');

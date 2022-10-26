@@ -14,8 +14,7 @@ class Header {
     this.burgerMenuWrapperSelector = '.js-header__burger-menu-wrapper';
     this.burgerButtonSelector = '.js-header__burger-button';
 
-    this.burgerMenuWrapperVisibleModifier =
-      'header__burger-menu-wrapper--visible';
+    this.burgerMenuWrapperVisibleModifier = 'header__burger-menu-wrapper--visible';
     this.burgerButtonActiveModifier = 'header__burger-button--active';
   }
 
@@ -27,11 +26,11 @@ class Header {
   _bindEventsListeners() {
     this.button.addEventListener(
       'pointerdown',
-      this._handleButtonPointerDown.bind(this)
+      this._handleButtonPointerDown.bind(this),
     );
     this.button.addEventListener(
       'keydown',
-      this._handleButtonKeyDown.bind(this)
+      this._handleButtonKeyDown.bind(this),
     );
   }
 
@@ -59,14 +58,14 @@ class Header {
   _addDocumentListener() {
     document.addEventListener(
       'pointerdown',
-      this._handleDocumentPointerDown.bind(this)
+      this._handleDocumentPointerDown.bind(this),
     );
   }
 
   _removeDocumentListener() {
     document.removeEventListener(
       'pointerdown',
-      this._handleDocumentPointerDown.bind(this)
+      this._handleDocumentPointerDown.bind(this),
     );
   }
 

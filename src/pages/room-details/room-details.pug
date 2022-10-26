@@ -113,15 +113,10 @@ block content
               ])
           section.room-details__comments
             .room-details__comments-heading
-              +heading({
-                title: 'Отзывы посетителей номера',
-                titleType: 'h2',
-                titleColor: 'dark-shade-100',
-                titleBold: true,
-                subtitle: '2 отзыва',
-                subtitleType: 'p',
-                subtitleColor: 'dark-shade-50'
-              })
+              h2.room-details__comments-heading-title
+                | Отзывы посетителей номера
+              p.room-details__comments-heading-subtitle
+                | 2 отзыва
             .room-details__comments-list
               +comments([
                 {

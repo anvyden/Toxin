@@ -71,16 +71,16 @@ class PieChart {
         this._getLinearGradientTemplate(
           item.id,
           item.firstStopColor,
-          item.secondStopColor
-        )
+          item.secondStopColor,
+        ),
       );
       this.chartBody.insertAdjacentHTML(
         'beforeend',
-        this._getLineTemplate(item.id, strokeDasharray, strokeDashoffset)
+        this._getLineTemplate(item.id, strokeDasharray, strokeDashoffset),
       );
       this.legendList.insertAdjacentHTML(
         'afterbegin',
-        this._getLegendItemTemplate(item.id, item.text)
+        this._getLegendItemTemplate(item.id, item.text),
       );
     });
 
@@ -97,7 +97,7 @@ class PieChart {
   _addEventsListeners() {
     this.root.addEventListener(
       'pointerover',
-      this._handleChartFocus.bind(this)
+      this._handleChartFocus.bind(this),
     );
     this.root.addEventListener('pointerout', this._handleChartBlur.bind(this));
     this.root.addEventListener('focusin', this._handleChartFocus.bind(this));
@@ -142,7 +142,7 @@ class PieChart {
   _getLinearGradientTemplate(
     id = '',
     firstStopColor = '',
-    secondStopColor = ''
+    secondStopColor = '',
   ) {
     return `
       <linearGradient id="${id}" x1='1' y1='0' x2='0' y2='0'>
@@ -161,11 +161,16 @@ class PieChart {
   _getVotesTemplate(votes = 0) {
     return `
       <h3 class='${this.votesCountClass}'>${votes}</h3>
-      <h3 class='${this.votesTextClass}'>${declination(votes, [
-      'голос',
-      'голоса',
-      'голосов',
-    ])}</h3>
+      <h3 class='${this.votesTextClass}'>
+        ${declination(
+          votes, 
+          [
+            'голос',
+            'голоса',
+            'голосов',
+          ]
+        )}
+      </h3>
     `;
   }
 

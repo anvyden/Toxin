@@ -18,7 +18,9 @@ class RangeSlider {
   }
 
   _init() {
-    const { min, max, step, minStartValue, maxStartValue } = this.props;
+    const {
+      min, max, step, minStartValue, maxStartValue,
+    } = this.props;
 
     this._getSelectors();
     this._getElements();
@@ -39,10 +41,12 @@ class RangeSlider {
         }),
       });
 
-      this.slider.noUiSlider.on('update', (values) => {
+      const onUpdateHandler = (values) => {
         const [first, second] = values;
         this.sliderValue.value = `${first}₽ - ${second}₽`;
-      });
+      }
+
+      this.slider.noUiSlider.on('update', onUpdateHandler);
     }
   }
 

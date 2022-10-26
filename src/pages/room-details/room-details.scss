@@ -122,7 +122,22 @@
     margin-bottom: rem(7);
 
     &-heading {
+      display: flex;
+      justify-content: space-between;
       margin-bottom: rem(20);
+
+      &-title {
+        margin: 0;
+        font-weight: 700;
+        font-size: rem(19);
+        line-height: rem(23.16);
+        color: $darkShade100;
+      }
+
+      &-subtitle {
+        margin: 0;
+        color: $darkShade50;
+      }
     }
 
     @media screen and (max-width: 767px) {

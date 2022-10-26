@@ -36,11 +36,11 @@ class Datepicker {
 
     this.root.addEventListener(
       'pointerdown',
-      this._handleDateDropdownClick.bind(this)
+      this._handleDateDropdownClick.bind(this),
     );
     this.root.addEventListener(
       'keydown',
-      this._handleDateDropdownKeyDown.bind(this)
+      this._handleDateDropdownKeyDown.bind(this),
     );
     this._bindDocumentListener();
 
@@ -109,7 +109,7 @@ class Datepicker {
       this.endInput = this.root.querySelector(this.endInputSelector);
     } else {
       this.filterDateDropdown = this.root.querySelector(
-        this.singleInputSelector
+        this.singleInputSelector,
       );
     }
 
@@ -250,15 +250,11 @@ class Datepicker {
   }
 
   _arrowUp() {
-    this.arrowButtons.forEach((arrow) =>
-      arrow.classList.add(this.arrowButtonRotateModifier)
-    );
+    this.arrowButtons.forEach((arrow) => arrow.classList.add(this.arrowButtonRotateModifier));
   }
 
   _arrowDown() {
-    this.arrowButtons.forEach((arrow) =>
-      arrow.classList.remove(this.arrowButtonRotateModifier)
-    );
+    this.arrowButtons.forEach((arrow) => arrow.classList.remove(this.arrowButtonRotateModifier));
   }
 
   _showClearButton() {
