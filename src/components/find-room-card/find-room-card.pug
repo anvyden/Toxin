@@ -1,4 +1,4 @@
-include ~/components/text/text
+include ~/components/heading/heading
 include ~/components/dropdown/dropdown
 include ~/components/date-dropdown/date-dropdown
 include ~/components/button/button
@@ -13,8 +13,13 @@ mixin find-room-card(options={})
 
   .find-room-card
     .find-room-card__container
-      .find-room-card__title
-        +text({ text: title, type: 'h1', color: 'dark-shade-100', bold: true })
+      .find-room-card__heading
+        +heading({
+          title: title,
+          titleType: 'h1',
+          titleColor: 'dark-shade-100',
+          titleBold: true
+        })
       form(class='find-room-card__form' action=formAction method=formMethod)
         .find-room-card__datepicker 
           +date-dropdown({
@@ -36,7 +41,7 @@ mixin find-room-card(options={})
           })
         .find-room-card__dropdown-guests
           +dropdown({
-            hasTitle: true,
+            hasHeading: true,
             withButtons: true,
             title: 'Гости',
             placeholder: 'Сколько гостей',

@@ -1,5 +1,5 @@
 include ~/components/logo/logo
-include ~/components/text/text
+include ~/components/heading/heading
 include ~/components/text-field/text-field
 include ~/components/menu/menu
 include ~/components/copyright-bar/copyright-bar
@@ -12,8 +12,14 @@ mixin footer({ logoLink } = {})
           +logo({ active: true, link: logoLink })
           p.footer__company-presentation='Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»'
         .footer__menu
-          .footer__menu-title
-            +text({ text: 'Навигация', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+          .footer__menu-heading
+            +heading({
+              title: 'Навигация',
+              titleType: 'h3',
+              titleColor: 'dark-shade-100',
+              titleBold: true,
+              titleHasUpper: true
+            })
           +menu({ 
             options: {
               column: true
@@ -26,8 +32,14 @@ mixin footer({ logoLink } = {})
             ]
           })
         .footer__menu
-          .footer__menu-title
-            +text({ text: 'О нас', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+          .footer__menu-heading
+            +heading({
+              title: 'О нас',
+              titleType: 'h3',
+              titleColor: 'dark-shade-100',
+              titleBold: true,
+              titleHasUpper: true
+            })
           +menu({ 
             options: {
               column: true
@@ -40,8 +52,14 @@ mixin footer({ logoLink } = {})
             ]
           })
         .footer__menu
-          .footer__menu-title
-            +text({ text: 'Служба поддержки', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+          .footer__menu-heading
+            +heading({
+              title: 'Служба поддержки',
+              titleType: 'h3',
+              titleColor: 'dark-shade-100',
+              titleBold: true,
+              titleHasUpper: true
+            })
           +menu({
             options: {
               column: true
@@ -53,8 +71,14 @@ mixin footer({ logoLink } = {})
             ]
           })
         .footer__subscription
-          .footer__subscription-title
-            +text({ text: 'Подписка', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+          .footer__subscription-heading
+            +heading({
+              title: 'Подписка',
+              titleType: 'h3',
+              titleColor: 'dark-shade-100',
+              titleBold: true,
+              titleHasUpper: true
+            })
           p.footer__subscription-text='Получайте специальные предложения и новости сервиса'
           form.footer__subscription-form
             +text-field({

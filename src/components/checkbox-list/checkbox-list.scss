@@ -2,8 +2,13 @@
 @import '~/scss/mixins';
 
 .checkbox-list {
-  &__heading {
-    margin-bottom: rem(17);
+  &__title {
+    margin: 0 0 rem(17) 0;
+    font-size: rem(12);
+    line-height: rem(14.63);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $darkShade100;
   }
 
   &__dropdown {
@@ -16,23 +21,32 @@
     &:focus-visible {
       outline: $focusOutline;
     }
-  }
 
-  &__button {
-    margin-right: rem(10);
-    padding: 0;
-    color: $darkShade50;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.4s ease;
-
-    &:focus-visible {
-      outline: $focusOutline;
+    &-title {
+      margin: 0;
+      font-size: rem(12);
+      line-height: rem(14.63);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $darkShade100;
     }
 
-    &--rotate {
-      transform: rotateX(180deg);
+    &-button {
+      margin-right: rem(10);
+      padding: 0;
+      color: $darkShade50;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+  
+      &:focus-visible {
+        outline: $focusOutline;
+      }
+  
+      &--rotate {
+        transform: rotateX(180deg);
+      }
     }
   }
 

@@ -1,4 +1,4 @@
-import '~/components/text';
+import '~/components/heading';
 import dateMask from '@libs/inputmask';
 
 import './text-field.scss';

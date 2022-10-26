@@ -13,10 +13,10 @@ class CheckboxList {
   _getSelectors() {
     this.dropdownSelector = '.js-checkbox-list__dropdown';
     this.listSelector = '.js-checkbox-list__list';
-    this.buttonSelector = '.js-checkbox-list__button';
+    this.buttonSelector = '.js-checkbox-list__dropdown-button';
 
     this.listHiddenModifier = 'checkbox-list__list--hidden';
-    this.buttonRotateModifier = 'checkbox-list__button--rotate';
+    this.buttonRotateModifier = 'checkbox-list__dropdown-button--rotate';
   }
 
   _getElements() {

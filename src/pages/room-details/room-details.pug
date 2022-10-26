@@ -1,5 +1,5 @@
 extends ~/layouts/main-layout/main-layout
-include ~/components/text/text
+include ~/components/heading/heading
 include ~/components/features/features
 include ~/components/bullet-list/bullet-list
 include ~/components/comments/comments
@@ -45,8 +45,13 @@ block content
       .room-details__content
         .room-details__information
           section.room-details__features
-            .room-details__features-title
-              +text({ text: 'Сведения о номере', type: 'h2', color: 'dark-shade-100', bold: true })
+            .room-details__features-heading
+              +heading({
+                title: 'Сведения о номере',
+                titleType: 'h2',
+                titleColor: 'dark-shade-100',
+                titleBold: true
+              })
             .room-details__features-list
               +features([
                 { icon: 'insert_emoticon', title: 'Комфорт', subtitle: 'Шумопоглощающие стены', hasBottomLine: true },
@@ -54,8 +59,13 @@ block content
                 { icon: 'whatshot', title: 'Уют', subtitle: 'Номер оснащён камином' },
               ])
           section.room-details__impressions
-            .room-details__impressions-title
-              +text({ text: 'Впечатления от номера', type: 'h2', color: 'dark-shade-100', bold: true })
+            .room-details__impressions-heading
+              +heading({
+                title: 'Впечатления от номера',
+                titleType: 'h2',
+                titleColor: 'dark-shade-100',
+                titleBold: true
+              })
             .room-details__impressions-chart
               +pie-chart([
                 {
@@ -89,8 +99,15 @@ block content
               ])
           section.room-details__comments
             .room-details__comments-heading
-              +text({ text: 'Отзывы посетителей номера', type: 'h2', color: 'dark-shade-100', bold: true })
-              +text({ text: '2 отзыва', type: 'p', color: 'dark-shade-50' })
+              +heading({
+                title: 'Отзывы посетителей номера',
+                titleType: 'h2',
+                titleColor: 'dark-shade-100',
+                titleBold: true,
+                subtitle: '2 отзыва',
+                subtitleType: 'p',
+                subtitleColor: 'dark-shade-50'
+              })
             .room-details__comments-list
               +comments([
                 {
@@ -110,8 +127,13 @@ block content
                 },
               ])
           section.room-details__rules
-            .room-details__rules-title
-              +text({ text: 'Правила', type: 'h2', color: 'dark-shade-100', bold: true })
+            .room-details__rules-heading
+              +heading({
+                title: 'Правила',
+                titleType: 'h2',
+                titleColor: 'dark-shade-100',
+                titleBold: true
+              })
             .room-details__rules-list
               +bullet-list([
                 'Нельзя с питомцами',
@@ -119,8 +141,13 @@ block content
                 `Время прибытия — после 13:00, а\u00A0выезд до 12:00`,
               ])
           section.room-details__cancel
-            .room-details__cancel-title
-              +text({ text: 'Отмена', type: 'h2', color: 'dark-shade-100', bold: true })
+            .room-details__cancel-heading
+              +heading({
+                title: 'Отмена',
+                titleType: 'h2',
+                titleColor: 'dark-shade-100',
+                titleBold: true
+              })
             span.room-details__cancel-text='Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.'
         section.room-details__booking
           +booking-card({

@@ -1,4 +1,4 @@
-include ~/components/text/text
+include ~/components/heading/heading
 include ~/components/text-field/text-field
 include ~/components/radio-buttons/radio-buttons
 include ~/components/toggle-button/toggle-button
@@ -15,8 +15,13 @@ mixin sign-up-card(options={})
 
   .sign-up-card
     .sign-up-card__container
-      .sign-up-card__title
-        +text({ text: title, type: 'h1', color: 'dark-shade-100', bold: true })
+      .sign-up-card__heading
+        +heading({
+          title: title,
+          titleType: 'h1',
+          titleColor: 'dark-shade-100',
+          titleBold: true
+        })
       form(class='sign-up-card__form' action=formAction method=formMethod)
         .sign-up-card__person
           .sign-up-card__person-first-name
@@ -33,7 +38,7 @@ mixin sign-up-card(options={})
             })
         .sign-up-card__date-birth
           +text-field({
-            hasTitle: true,
+            hasHeading: true,
             title: 'Дата рождения',
             type: 'text',
             placeholder: 'ДД.ММ.ГГГГ',
@@ -44,7 +49,7 @@ mixin sign-up-card(options={})
         .sign-up-card__login-details
           .sign-up-card__email
             +text-field({
-              hasTitle: true,
+              hasHeading: true,
               title: 'Данные для входа в сервис',
               type: 'email',
               placeholder: 'Email',
@@ -69,7 +74,7 @@ mixin sign-up-card(options={})
             size: 'large',
           })
         .sign-up-card__log-in
-          +text({ text: 'Уже есть аккаунт на Toxin', type: 'p', color: 'black' })
+          .sign-up-card__log-in-question='Уже есть аккаунт на Toxin?'
           +button({
             text: 'Войти',
             variant: 'fill-white',

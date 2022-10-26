@@ -7,7 +7,7 @@
     padding: rem(39) rem(29) rem(31) rem(29);
   }
 
-  &__title {
+  &__heading {
     margin-bottom: rem(20);
   }
 
@@ -27,5 +27,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    &-question {
+      color: $black;
+    }
   }
 }

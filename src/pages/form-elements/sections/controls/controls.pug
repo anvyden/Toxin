@@ -1,4 +1,4 @@
-include ~/components/text/text
+include ~/components/heading/heading
 include ~/components/checkbox-list/checkbox-list
 include ~/components/radio-buttons/radio-buttons
 include ~/components/toggle-button/toggle-button
@@ -18,8 +18,14 @@ mixin controls()
           ],
         })
       .controls__radio-buttons
-        .controls__title
-          +text({ text: 'radio buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+        .controls__heading
+          +heading({
+            title: 'radio buttons',
+            titleType: 'h3',
+            titleColor: 'dark-shade-100',
+            titleBold: true,
+            titleHasUpper: true
+          })
         +radio-buttons({
           group: 'gender',
           items: [
@@ -28,22 +34,40 @@ mixin controls()
           ],
         })
       .controls__toggle-buttons
-        .controls__title
-          +text({ text: 'toggle', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+        .controls__heading
+          +heading({
+            title: 'toggle',
+            titleType: 'h3',
+            titleColor: 'dark-shade-100',
+            titleBold: true,
+            titleHasUpper: true
+          })
         .controls__toggle-buttons-wrapper
           .controls__toggle-button
             +toggle-button({ text: 'Получать спецпредложения', name: 'offers1', isChecked: true })
           .controls__toggle-button
             +toggle-button({ text: 'Получать спецпредложения', name: 'offers2' })
       .controls__like-buttons
-        .controls__title
-          +text({ text: 'like button', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+        .controls__heading
+          +heading({
+            title: 'like button',
+            titleType: 'h3',
+            titleColor: 'dark-shade-100',
+            titleBold: true,
+            titleHasUpper: true
+          })
         .controls__like-buttons-wrapper
           +like-button({ count: 2 })
           +like-button({ count: 12, isActive: true })
       .controls__rate-buttons
-        .controls__title
-          +text({ text: 'rate button', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+        .controls__heading
+          +heading({
+            title: 'rate button',
+            titleType: 'h3',
+            titleColor: 'dark-shade-100',
+            titleBold: true,
+            titleHasUpper: true
+          })
         .controls__rate-buttons-wrapper
           +star-rating(4)
           +star-rating(5)

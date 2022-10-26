@@ -1,4 +1,4 @@
-include ~/components/text/text
+include ~/components/heading/heading
 include ~/components/checkbox-list/checkbox-list
 include ~/components/bullet-list/bullet-list
 
@@ -52,8 +52,14 @@ mixin checkboxs()
           },
         ]})
       .checkboxs__bullet-list
-        .checkboxs__bullet-list-title
-          +text({ text: 'bullet list', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+        .checkboxs__bullet-list-heading
+          +heading({
+            title: 'bullet list',
+            titleType: 'h3',
+            titleColor: 'dark-shade-100',
+            titleBold: true,
+            titleHasUpper: true
+          })
         .checkboxs__bullet-list-wrapper
           +bullet-list([
             'Нельзя с питомцами',

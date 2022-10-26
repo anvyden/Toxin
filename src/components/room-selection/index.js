@@ -1,4 +1,4 @@
-import '~/components/text';
+import '~/components/heading';
 import '~/components/room-card';
 import '~/components/pagination';
 

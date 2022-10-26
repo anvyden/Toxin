@@ -27,7 +27,7 @@ mixin date-dropdown(options={})
       .date-dropdown__wrapper 
         .date-dropdown__start 
           +text-field({
-            hasTitle: true,
+            hasHeading: true,
             title,
             type,
             dataType,
@@ -39,7 +39,7 @@ mixin date-dropdown(options={})
           })
         .date-dropdown__end 
           +text-field({
-            hasTitle: true,
+            hasHeading: true,
             title: titleEnd,
             type,
             dataType: dataTypeEnd,
@@ -52,7 +52,7 @@ mixin date-dropdown(options={})
   else
     .date-dropdown.js-date-dropdown(data-props=props)
       +text-field({
-        hasTitle: true,
+        hasHeading: true,
         title,
         type,
         dataType,

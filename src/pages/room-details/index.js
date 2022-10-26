@@ -3,7 +3,7 @@ import '~/assets/fonts/material-icons/material-icons.scss';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '~/scss/settings.scss';
 import '~/layouts/main-layout';
-import '~/components/text';
+import '~/components/heading';
 import '~/components/features';
 import '~/components/bullet-list';
 import '~/components/comments';

@@ -101,13 +101,13 @@
   }
 
   &__features {
-    &-title {
+    &-heading {
       margin-bottom: rem(21);
     }
   }
 
   &__impressions {
-    &-title {
+    &-heading {
       margin-bottom: rem(21);
     }
 
@@ -122,8 +122,6 @@
     margin-bottom: rem(7);
 
     &-heading {
-      display: flex;
-      justify-content: space-between;
       margin-bottom: rem(20);
     }
 
@@ -144,7 +142,7 @@
   }
 
   &__rules {
-    &-title {
+    &-heading {
       margin-bottom: rem(18);
       margin-left: rem(20);
     }
@@ -157,7 +155,7 @@
   &__cancel {
     max-width: rem(341);
 
-    &-title {
+    &-heading {
       margin-bottom: rem(18);
     }
 

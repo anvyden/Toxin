@@ -1,4 +1,3 @@
-include ~/components/text/text
 include ~/components/checkbox/checkbox
 
 mixin checkbox-list(options={})
@@ -19,32 +18,19 @@ mixin checkbox-list(options={})
   .checkbox-list(class=expandableClassForJs)
     if (expandable)
       .checkbox-list__dropdown.js-checkbox-list__dropdown(tabindex=0)
-        +text({
-          text: title,
-          type: 'h3',
-          color: 'dark-shade-100',
-          bold: true,
-          hasUpper: true
-        })
+        h3.checkbox-list__dropdown-title=title
         button&attributes({
         class: [
-          'checkbox-list__button',
+          'checkbox-list__dropdown-button',
           'material-icons',
-          'js-checkbox-list__button',
+          'js-checkbox-list__dropdown-button',
           rotateModifier
         ],
         type: 'button'
         })='expand_more'
     else
-      .checkbox-list__heading
-        +text({
-          text: title,
-          type: 'h3',
-          color: 'dark-shade-100',
-          bold: true,
-          hasUpper: true
-        })
-
+      h3.checkbox-list__title=title
+        
     ul&attributes({
       class: [
         'checkbox-list__list',

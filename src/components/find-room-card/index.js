@@ -1,4 +1,4 @@
-import '~/components/text';
+import '~/components/heading';
 import '~/components/dropdown';
 import '~/components/date-dropdown';
 import '~/components/button';

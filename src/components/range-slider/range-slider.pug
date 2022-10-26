@@ -1,14 +1,14 @@
-include ~/components/text/text
+include ~/components/heading/heading
 
 mixin range-slider({ title='', description='' } = {}, props = {})
   div(class=['range-slider', 'js-range-slider'], data-props=props)
     .range-slider__heading
-      +text({
-        text: title,
-        type: 'h3',
-        color: 'dark-shade-100',
-        bold: true,
-        hasUpper: true
+      +heading({
+        title: title,
+        titleType: 'h3',
+        titleColor: 'dark-shade-100',
+        titleBold: true,
+        titleHasUpper: true
       })
       input&attributes({
         class: "range-slider__value js-range-slider__value",

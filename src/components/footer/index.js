@@ -1,5 +1,5 @@
 import '~/components/logo';
-import '~/components/text';
+import '~/components/heading';
 import '~/components/text-field';
 import '~/components/menu';
 import '~/components/copyright-bar';

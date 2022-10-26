@@ -1,4 +1,4 @@
-include ~/components/text/text
+include ~/components/heading/heading
 include ~/components/star-rating/star-rating
 include ~/components/slider/slider
 
@@ -25,7 +25,13 @@ mixin room-card(options = {})
               span.room-card__number-value=number
             if (luxe)
               .room-card__luxe
-                +text({ text: 'люкс', type: 'h3', color: 'purple', bold: true, hasUpper: true })
+                +heading({
+                  title: 'Люкс',
+                  titleType: 'h3',
+                  titleColor: 'purple',
+                  titleBold: true,
+                  titleHasUpper: true
+                })
           .room-card__price
             span.room-card__price-value=price
             span.room-card__price-text='в сутки'

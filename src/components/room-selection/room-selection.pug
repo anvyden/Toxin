@@ -1,11 +1,16 @@
-include ~/components/text/text
+include ~/components/heading/heading
 include ~/components/room-card/room-card
 include ~/components/pagination/pagination
 
 mixin room-selection({ title, rooms = [] } = {})
   section.room-selection
     .room-selection__heading
-      +text({ text: title, type: 'h1', color: 'dark-shade-100', bold: true })
+      +heading({
+        title: title,
+        titleType: 'h1',
+        titleColor: 'dark-shade-100',
+        titleBold: true
+      })
     ul.room-selection__rooms
       each room in rooms
         li.room-selection__room

@@ -1,4 +1,4 @@
-import '~/components/text';
+import '~/components/heading';
 import '~/components/text-field';
 import '~/components/radio-buttons';
 import '~/components/toggle-button';

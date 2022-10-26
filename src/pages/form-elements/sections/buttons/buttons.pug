@@ -1,4 +1,4 @@
-include ~/components/text/text
+include ~/components/heading/heading
 include ~/components/button/button
 include ~/components/pagination/pagination
 include ~/components/range-slider/range-slider
@@ -19,7 +19,13 @@ mixin buttons()
         })
       .buttons__buttons
         .buttons__heading
-          +text({ text: 'buttons', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+          +heading({
+            title: 'buttons',
+            titleType: 'h3',
+            titleColor: 'dark-shade-100',
+            titleBold: true,
+            titleHasUpper: true
+          })
         .buttons__buttons-wrapper
           .buttons__buttons-group
             +button({ text: 'click me', variant: 'background', size: 'small', color: 'white' })
@@ -34,7 +40,13 @@ mixin buttons()
             +button({ text: 'перейти к оплате', color: 'white', size: 'large', variant: 'with-arrow' })
       .buttons__pagination
         .buttons__heading
-          +text({ text: 'pagination', type: 'h3', color: 'dark-shade-100', bold: true, hasUpper: true })
+          +heading({
+            title: 'pagination',
+            titleType: 'h3',
+            titleColor: 'dark-shade-100',
+            titleBold: true,
+            titleHasUpper: true
+          })
         .buttons__pagination-wrapper
           +pagination({
             countOfItems: 180,

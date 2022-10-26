@@ -1,4 +1,4 @@
-include ~/components/text/text
+include ~/components/heading/heading
 include ~/components/text-field/text-field
 include ~/components/button/button
 
@@ -13,8 +13,13 @@ mixin sign-in-card(options)
 
   .sign-in-card
     .sign-in-card__container
-      .sign-in-card__title
-        +text({ text: title, type: 'h1', color: 'dark-shade-100', bold: true })
+      .sign-in-card__heading
+        +heading({
+          title: title,
+          titleType: 'h1',
+          titleColor: 'dark-shade-100',
+          titleBold: true
+        })
       form(class='sign-up-card__form' action=formAction method=formMethod)
         .sign-in-card__login-details
           .sign-in-card__email
@@ -40,7 +45,7 @@ mixin sign-in-card(options)
             size: 'large'
           })
         .sign-in-card__sign-up
-          +text({ text: 'Нет аккаунта на Toxin?', type: 'p', color: 'black' })
+          .sign-in-card__sign-up-question='Нет аккаунта на Toxin?'
           +button({
             text: 'Создать',
             link: signUpLink,

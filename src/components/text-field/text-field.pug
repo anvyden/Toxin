@@ -1,11 +1,11 @@
-include ~/components/text/text
+include ~/components/heading/heading
 
 mixin text-field( options={} )
   -
     const {
       type,
       placeholder,
-      hasTitle,
+      hasHeading,
       title,
       subtitle,
       name,
@@ -50,22 +50,19 @@ mixin text-field( options={} )
     }
 
   .text-field
-    if (hasTitle)
-      .text-field__title
-        +text({
-          text: title,
-          type: 'h3',
-          color: 'dark-shade-100',
-          bold: true,
-          hasUpper: true
+    if (hasHeading)
+      .text-field__heading
+        +heading({
+          title: title,
+          titleType: 'h3',
+          titleColor: 'dark-shade-100',
+          titleBold: true,
+          titleHasUpper: true,
+          subtitle: subtitle,
+          subtitleType: 'h3',
+          subtitleColor: 'dark-shade-50',
+          subtitleHasUpper: true
         })
-        if (subtitle)
-          +text({
-            text: subtitle,
-            type: 'h3',
-            color: 'dark-shade-50',
-            hasUpper: true
-          })
     .text-field__wrapper
       input&attributes(attrs)
       if (hasArrow)

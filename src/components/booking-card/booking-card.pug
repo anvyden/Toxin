@@ -1,4 +1,4 @@
-include ~/components/text/text
+include ~/components/heading/heading
 include ~/components/dropdown/dropdown
 include ~/components/date-dropdown/date-dropdown
 include ~/components/button/button
@@ -21,7 +21,7 @@ mixin booking-card(options)
               span.booking-card__room-number-value.js-booking-card__room-number-value='888'
             if (luxe)
               .booking-card__luxe
-                +text({ text: 'Люкс', type: 'h3', color: 'purple', bold: true, hasUpper: true })
+                +heading({ title: 'Люкс', titleType: 'h3', titleColor: 'purple', titleBold: true, titleHasUpper: true })
           .booking-card__room-price-info
             span.booking-card__room-price-value.js-booking-card__room-price-value='9 990₽'
             span.booking-card__room-price-day='в сутки'
@@ -52,7 +52,7 @@ mixin booking-card(options)
           })
         .booking-card__dropdown-guests
           +dropdown({
-            hasTitle: true,
+            hasHeading: true,
             withButtons: true,
             title: 'Гости',
             placeholder: 'Сколько гостей',

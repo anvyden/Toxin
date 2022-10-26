@@ -1,4 +1,4 @@
-import '~/components/text';
+import '~/components/heading';
 
 import RangeSlider from '~/libs/nouislider';
 import './range-slider.scss';

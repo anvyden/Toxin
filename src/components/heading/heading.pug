@@ -1,0 +1,59 @@
+mixin heading(options = {})
+  -
+    const {
+      title,
+      titleType,
+      titleColor,
+      titleBold,
+      titleHasUpper,
+      subtitle,
+      subtitleType,
+      subtitleColor,
+      subtitleBold,
+      subtitleHasUpper
+    } = options
+
+    const types = ['h1', 'h2', 'h3']
+    const colors = [
+      'dark-shade-100', 'dark-shade-75', 'dark-shade-50',
+      'dark-shade-25', 'dark-shade-5', 'purple', 'green', 'black'
+    ]
+
+    const titleTypeModifier = types.includes(titleType) && `heading__title--with-type-${titleType}`
+    const titleColorModifier = colors.includes(titleColor) && `heading__title--${titleColor}`
+    const titleBoldModifier = titleBold && 'heading__title--bold'
+    const titleUpperModifier = titleHasUpper && 'heading__title--upper'
+
+    const subtitleTypeModifier = types.includes(subtitleType) && `heading__subtitle--with-type-${subtitleType}`
+    const subtitleColorModifier = colors.includes(subtitleColor) && `heading__subtitle--${subtitleColor}`
+    const subtitleBoldModifier = subtitleBold && 'heading__subtitle--bold'
+    const subtitleUpperModifier = subtitleHasUpper && 'heading__subtitle--upper'
+
+    const typeTag = {
+      'h1': 'h1',
+      'h2': 'h2',
+      'h3': 'h3',
+      'span': 'span',
+      'p': 'p'
+    }
+
+  .heading
+    #{typeTag[titleType]}&attributes({
+      class: [
+        'heading__title',
+        titleTypeModifier,
+        titleColorModifier,
+        titleBoldModifier,
+        titleUpperModifier
+      ]
+    })= title
+    if (subtitle)
+      #{typeTag[subtitleType]}&attributes({
+        class: [
+          'heading__subtitle',
+          subtitleTypeModifier,
+          subtitleColorModifier,
+          subtitleBoldModifier,
+          subtitleUpperModifier
+        ]
+      })= subtitle

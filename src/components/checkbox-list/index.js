@@ -1,4 +1,3 @@
-import '~/components/text';
 import '~/components/checkbox';
 
 import CheckboxList from './checkbox-list';

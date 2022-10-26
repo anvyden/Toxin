@@ -6,7 +6,7 @@ mixin dropdowns()
       .dropdowns__services
         .dropdowns__dropdown-default
           +dropdown({
-            hasTitle: true,
+            hasHeading: true,
             title: 'dropdown',
             subtitle: 'default',
             value: '2 спальни, 2 кровати...',
@@ -32,7 +32,7 @@ mixin dropdowns()
           })
         .dropdowns__dropdown-expanded
           +dropdown({
-            hasTitle: true,
+            hasHeading: true,
             title: 'dropdown',
             subtitle: 'expanded',
             isOpened: true,
@@ -60,7 +60,7 @@ mixin dropdowns()
       .dropdowns__guests
         .dropdowns__dropdown-guests
           +dropdown({
-            hasTitle: true,
+            hasHeading: true,
             title: 'dropdown',
             isOpened: true,
             withButtons: true,
@@ -85,7 +85,7 @@ mixin dropdowns()
           })
         .dropdowns__dropdown-guests-selected
           +dropdown({
-            hasTitle: true,
+            hasHeading: true,
             title: 'dropdown',
             isOpened: true,
             withButtons: true,

@@ -7,7 +7,7 @@ mixin fields()
     .fields__container
       .fields__text-field
         +text-field({
-          hasTitle: true,
+          hasHeading: true,
           title: 'text field',
           subtitle: 'default',
           type: 'text',
@@ -16,7 +16,7 @@ mixin fields()
         })
       .fields__text-field
         +text-field({
-          hasTitle: true,
+          hasHeading: true,
           title: 'text field',
           subtitle: 'hover / focus',
           focused: true,
@@ -27,7 +27,7 @@ mixin fields()
         })
       .fields__dropdown
         +dropdown({
-          hasTitle: true,
+          hasHeading: true,
           withButtons: true,
           title: 'dropdown',
           value: 'Сколько гостей',
@@ -52,7 +52,7 @@ mixin fields()
           })
       .fields__masked-text-field
         +text-field({
-          hasTitle: true,
+          hasHeading: true,
           title: 'masked text field',
           type: 'text',
           name: 'date',
@@ -94,7 +94,7 @@ mixin fields()
         })
       .fields__subscription-text-field
         +text-field({
-          hasTitle: true,
+          hasHeading: true,
           title: 'subscription text field',
           type: 'text',
           name: 'subscription',
