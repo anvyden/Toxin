@@ -31,19 +31,11 @@ const getFiles = (dir, filetype) => {
 const PAGES_DIR = `${PATHS.src}/pages`;
 const PAGES_FOLDERS = fs.readdirSync(PAGES_DIR);
 const PAGES = getFiles(PAGES_FOLDERS, 'pug');
-// const PAGES_ENTRY_FILES = getFiles(PAGES_FOLDERS, 'js');
 const PAGES_ENTRYS = {};
 
 PAGES_FOLDERS.forEach(page => {
   PAGES_ENTRYS[page] = `${PAGES_DIR}/${page}/index.js`
 })
-
-// PAGES_ENTRY_FILES.forEach((pageEntryFile, index) => {
-//   const filename = pageEntryFile.split('.')[0];
-//   PAGES_ENTRYS[
-//     filename
-//   ] = `${PAGES_DIR}/${PAGES_FOLDERS[index]}/${pageEntryFile}`;
-// });
 
 const filename = (ext) =>
   isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`;
