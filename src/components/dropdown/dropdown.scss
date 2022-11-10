@@ -132,9 +132,8 @@
         outline: $focusOutline;
       }
 
-      &--disabled {
-        color: $darkShade5;
-        border-color: $darkShade5;
+      &:disabled {
+        opacity: 0.4;
         cursor: not-allowed;
       }
     }
