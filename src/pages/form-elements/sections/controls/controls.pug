@@ -5,87 +5,31 @@ include ~/components/toggle-button/toggle-button
 include ~/components/like-button/like-button
 include ~/components/star-rating/star-rating
 
-mixin controls()
+mixin controls(controls = {})
   .controls
     .controls__container
       .controls__checkbox-buttons
-        +checkbox-list({
-          title: 'checkbox buttons',
-          items: [
-            {
-              title: 'Можно курить',
-              name: 'smoke'
-            },
-            {
-              title: 'Можно с питомцами',
-              name: 'pets',
-              isChecked: true
-            },
-            {
-              title: 'Можно пригласить гостей (до\u00A010\u00A0человек)',
-              name: 'guests',
-              isChecked: true
-            }
-          ],
-        })
+        +checkbox-list(controls.checkboxList)
       .controls__radio-buttons
         .controls__heading
-          +heading({
-            title: 'radio buttons',
-            titleType: 'h3',
-            titleColor: 'dark-shade-100',
-            titleBold: true,
-            titleHasUpper: true
-          })
-        +radio-buttons({
-          group: 'gender',
-          items: [
-            { text: 'Мужчина', value: 'man', isChecked: true},
-            { text: 'Женщина', value: 'woman'}
-          ],
-        })
+          +heading(controls.radioButtons.heading)
+        +radio-buttons(controls.radioButtons.buttons)
       .controls__toggle-buttons
         .controls__heading
-          +heading({
-            title: 'toggle',
-            titleType: 'h3',
-            titleColor: 'dark-shade-100',
-            titleBold: true,
-            titleHasUpper: true
-          })
+          +heading(controls.toggleButtons.heading)
         .controls__toggle-buttons-wrapper
-          .controls__toggle-button
-            +toggle-button({
-              text: 'Получать спецпредложения',
-              name: 'offers1',
-              isChecked: true
-            })
-          .controls__toggle-button
-            +toggle-button({
-              text: 'Получать спецпредложения',
-              name: 'offers2'
-            })
+          each button in controls.toggleButtons.buttons
+            .controls__toggle-button
+              +toggle-button(button)
       .controls__like-buttons
         .controls__heading
-          +heading({
-            title: 'like button',
-            titleType: 'h3',
-            titleColor: 'dark-shade-100',
-            titleBold: true,
-            titleHasUpper: true
-          })
+          +heading(controls.likeButtons.heading)
         .controls__like-buttons-wrapper
-          +like-button({ count: 2 })
-          +like-button({ count: 12, isActive: true })
+          each button in controls.likeButtons.buttons
+            +like-button(button)
       .controls__rate-buttons
         .controls__heading
-          +heading({
-            title: 'rate button',
-            titleType: 'h3',
-            titleColor: 'dark-shade-100',
-            titleBold: true,
-            titleHasUpper: true
-          })
+          +heading(controls.rateButtons.heading)
         .controls__rate-buttons-wrapper
-          +star-rating(4)
-          +star-rating(5)
+          each rating in controls.rateButtons.ratings
+            +star-rating(rating)

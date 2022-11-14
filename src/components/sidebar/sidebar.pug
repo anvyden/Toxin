@@ -23,28 +23,30 @@ mixin sidebar({} = {})
         })
       .sidebar__dropdown-guests
         +dropdown({
-          hasHeading: true,
-          title: 'Гости',
-          withButtons: true,
-          name: 'guests',
-          placeholder: 'Сколько гостей',
-          items: [
-            { text: 'Взрослые', counter: '2', dataId: 'adults' },
-            { text: 'Дети', counter: '0', dataId: 'children' },
-            { text: 'Младенцы', counter: '1', dataId: 'babies' },
-          ]
-        },
-        {
-          type: 'guests',
-          maxLengthItems: {
-            item0: 10,
-            item1: 15,
-            item2: 6,
+          options: {
+            hasHeading: true,
+            title: 'Гости',
+            withButtons: true,
+            name: 'guests',
+            placeholder: 'Сколько гостей',
+            items: [
+              { text: 'Взрослые', counter: '2', dataId: 'adults' },
+              { text: 'Дети', counter: '0', dataId: 'children' },
+              { text: 'Младенцы', counter: '1', dataId: 'babies' },
+            ]
           },
-          plurals: {
-            guests: ['гость', 'гостя', 'гостей'],
-            babies: ['младенец', 'младенца', 'младенцев'],
-          },
+          props: {
+            type: 'guests',
+            maxLengthItems: {
+              item0: 10,
+              item1: 15,
+              item2: 6,
+            },
+            plurals: {
+              guests: ['гость', 'гостя', 'гостей'],
+              babies: ['младенец', 'младенца', 'младенцев'],
+            },
+          }
         })
       .sidebar__range-slider
         +range-slider({
@@ -98,28 +100,30 @@ mixin sidebar({} = {})
         })
       .sidebar__dropdown-comfort
         +dropdown({
-          hasHeading: true,
-          title: 'Удобства номера',
-          placeholder: 'Удобства номера',
-          name: 'comfort',
-          items: [
-            { text: 'Спальни', counter: '2', dataId: 'bedrooms' },
-            { text: 'Кровати', counter: '2', dataId: 'beds' },
-            { text: 'Ванные комнаты', counter: '0', dataId: 'bathrooms' },
-          ]
-        },
-        {
-          type: 'comfort',
-          maxLengthItems: {
-            item0: 10,
-            item1: 15,
-            item2: 6,
+          options: {
+            hasHeading: true,
+            title: 'Удобства номера',
+            placeholder: 'Удобства номера',
+            name: 'comfort',
+            items: [
+              { text: 'Спальни', counter: '2', dataId: 'bedrooms' },
+              { text: 'Кровати', counter: '2', dataId: 'beds' },
+              { text: 'Ванные комнаты', counter: '0', dataId: 'bathrooms' },
+            ]
           },
-          plurals: {
-            bedrooms: ['спальня', 'спальни', 'спален'],
-            beds: ['кровать', 'кровати', 'кроватей'],
-            bathrooms: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
-          },
+          props: {
+            type: 'comfort',
+            maxLengthItems: {
+              item0: 10,
+              item1: 15,
+              item2: 6,
+            },
+            plurals: {
+              bedrooms: ['спальня', 'спальни', 'спален'],
+              beds: ['кровать', 'кровати', 'кроватей'],
+              bathrooms: ['ванная комната', 'ванные комнаты', 'ванных комнат'],
+            },
+          }
         })
       .sidebar__expandable-checkboxs
         +checkbox-list({

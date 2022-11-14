@@ -12,6 +12,8 @@ include ~/components/menu/menu
     pinned: 'static/favicon/active/safari-pinned-tab.svg',
   }
 
+  const pageParams = require('@pages/start-page/data/page-data.json')
+
 doctype html
 html(lang="ru")
   head
@@ -46,20 +48,7 @@ html(lang="ru")
               'start-page__heading--color-primary'
             ]
           })='UI kit'
-          +menu({
-            items: [
-              { text: 'colors-types', link: './colors-type.html' },
-              { text: 'form-elements', link: './form-elements.html' },
-              { text: 'cards', link: './cards.html' },
-              { text: 'headers-footers', link: './headers-footers.html' },
-            ],
-            options: {
-              color: 'purple',
-              itemsCentered: true,
-              animationBorder: true,
-              animationFontSize: true
-            }
-          })
+          +menu(pageParams.menus[0])
         .start-page__site-menu
           h2&attributes({
             class: [
@@ -67,19 +56,5 @@ html(lang="ru")
               'start-page__heading--color-secondary'
             ]
           })='Pages'
-          +menu({
-            items: [
-              { text: 'landing-page', link: './landing-page.html' },
-              { text: 'search-room', link: './search-room.html' },
-              { text: 'room-details', link: './room-details.html' },
-              { text: 'registration', link: './registration.html' },
-              { text: 'sign-in', link: './sign-in.html' },
-            ],
-            options: {
-              color: 'green',
-              itemsCentered: true,
-              animationBorder: true,
-              animationFontSize: true
-            }
-          })
+          +menu(pageParams.menus[1])
     

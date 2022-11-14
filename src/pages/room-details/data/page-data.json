@@ -1,0 +1,116 @@
+{
+  "featuresSection": {
+    "heading": {
+      "title": "Сведения о номере",
+      "titleType": "h2",
+      "titleColor": "dark-shade-100",
+      "titleBold": true
+    },
+    "features": [
+      {
+        "icon": "insert_emoticon",
+        "title": "Комфорт",
+        "subtitle": "Шумопоглощающие стены",
+        "hasBottomLine": true
+      },
+      {
+        "icon": "location_city",
+        "title": "Удобство",
+        "subtitle": "Окно в каждой из спален",
+        "hasBottomLine": true
+      },
+      {
+        "icon": "whatshot",
+        "title": "Уют",
+        "subtitle": "Номер оснащён камином"
+      }
+    ]
+  },
+  "impressionsSection": {
+    "heading": {
+      "title": "Впечатления от номера",
+      "titleType": "h2",
+      "titleColor": "dark-shade-100",
+      "titleBold": true
+    },
+    "pieChart": [
+      {
+        "id": "disappointed",
+        "text": "Разочарован",
+        "votesAmount": 0,
+        "firstStopColor": "#919191",
+        "secondStopColor": "#3D4975"
+      },
+      {
+        "id": "satisfactorily",
+        "text": "Удовлетворительно",
+        "votesAmount": 260,
+        "firstStopColor": "#BC9CFF",
+        "secondStopColor": "#8BA4F9"
+      },
+      {
+        "id": "good",
+        "votesAmount": 260,
+        "text": "Хорошо",
+        "firstStopColor": "#6FCF97",
+        "secondStopColor": "#66D2EA"
+      },
+      {
+        "id": "sumptuously",
+        "text": "Великолепно",
+        "votesAmount": 520,
+        "firstStopColor": "#FFE39C",
+        "secondStopColor": "#FFBA9C"
+      }
+    ]
+  },
+  "commentsSection": {
+    "title": "Отзывы посетителей номера",
+    "count": "2 отзыва",
+    "comments": [
+      {
+        "imgName": "murad_sarafanov.jpg",
+        "name": "Мурад Сарафанов",
+        "dateOfComment": "5 дней назад",
+        "likeCount": "12",
+        "likeIsActive": true,
+        "text": "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
+      },
+      {
+        "imgName": "patricia_steklyshkova.jpg",
+        "name": "Патрисия Стёклышкова",
+        "dateOfComment": "Неделю назад",
+        "likeCount": "2",
+        "text": "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент"
+      }
+    ]
+  },
+  "rulesSection": {
+    "heading": {
+      "title": "Правила",
+      "titleType": "h2",
+      "titleColor": "dark-shade-100",
+      "titleBold": true
+    },
+    "rulesList": [
+      "Нельзя с питомцами",
+      "Без вечеринок и мероприятий",
+      "Время прибытия — после 13:00, а выезд до 12:00"
+    ]
+  },
+  "cancelSection": {
+    "heading": {
+      "title": "Отмена",
+      "titleType": "h2",
+      "titleColor": "dark-shade-100",
+      "titleBold": true
+    },
+    "info": "Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."
+  },
+  "bookingSection": {
+    "bookingCard": {
+      "luxe": true,
+      "formAction": "./error-page.html"
+    }
+  }
+}

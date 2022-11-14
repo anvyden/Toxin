@@ -14,14 +14,13 @@ block variables
       pinned: 'static/favicon/active/safari-pinned-tab.svg',
     }
 
+    const pageParams = require('@pages/landing-page/data/page-data.json')
+
 block content
   main.landing
     .landing__container
       .landing__find-room-card
-        +find-room-card({
-          title: 'Найдём номера под ваши\u00A0пожелания',
-          formAction: './search-room.html'
-        })
+        +find-room-card(pageParams.findRoomCard)
       .landing__presentation
         span.landing__presentation-text
           | Лучшие номера для вашей работы, отдыха и просто вдохновения

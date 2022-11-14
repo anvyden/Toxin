@@ -2,71 +2,17 @@ include ~/components/heading/heading
 include ~/components/checkbox-list/checkbox-list
 include ~/components/bullet-list/bullet-list
 
-mixin checkboxs()
+mixin checkboxs(checkboxs = {})
   .checkboxs
     .checkboxs__container
       .checkboxs__expandable-checkboxs
-        .checkboxs__expandable-checkbox
-          +checkbox-list({
-            expandable: true,
-            title: 'expandable checkbox list',
-            items: [
-              { title: 'Завтрак', name: 'breakfast' },
-              { title: 'Письменный стол', name: 'table', isChecked: true },
-              { title: 'Стул для кормления', name: 'chair', isChecked: true },
-              { title: 'Кроватка', name: 'bed', isChecked: true },
-              { title: 'Телевизор', name: 'tv1' },
-              { title: 'Шампунь', name: 'shampoo1' },
-              { title: 'Телевизор', name: 'tv2' },
-              { title: 'Шампунь', name: 'shampoo2' },
-            ]
-          })
-        .checkboxs__expandable-checkbox
-          +checkbox-list({
-            title: 'expandable checkbox list',
-            expandable: true,
-            isOpened: true,
-            items: [
-              { title: 'Завтрак', name: 'breakfast' },
-              { title: 'Письменный стол', name: 'table', isChecked: true },
-              { title: 'Стул для кормления', name: 'chair', isChecked: true },
-              { title: 'Кроватка', name: 'bed', isChecked: true },
-              { title: 'Телевизор', name: 'tv1' },
-              { title: 'Шампунь', name: 'shampoo1' },
-              { title: 'Телевизор', name: 'tv2' },
-              { title: 'Шампунь', name: 'shampoo2' },
-            ]
-          })
+        each checkboxList in checkboxs.checkboxsLists
+          .checkboxs__expandable-checkbox
+            +checkbox-list(checkboxList)
       .checkboxs__rich-checkboxs
-        +checkbox-list({
-          title: 'rich checkbox buttons',
-          isRich: true,
-          items: [
-            {
-              title: 'Широкий коридор',
-              description: `Ширина коридоров в номере не\u00A0менее 91 см.`,
-              name: 'wide-corridor'
-            },
-            {
-              title: 'Помощник для инвалидов',
-              description: `На 1 этаже вас встретит специалист
-                и\u00A0проводит до номера.`,
-              name: 'assistant-for-disabled-persons'
-            },
-          ]
-        })
+        +checkbox-list(checkboxs.richCheckboxList)
       .checkboxs__bullet-list
         .checkboxs__bullet-list-heading
-          +heading({
-            title: 'bullet list',
-            titleType: 'h3',
-            titleColor: 'dark-shade-100',
-            titleBold: true,
-            titleHasUpper: true
-          })
+          +heading(checkboxs.bulletList.heading)
         .checkboxs__bullet-list-wrapper
-          +bullet-list([
-            'Нельзя с питомцами',
-            'Без вечеринок и мероприятий',
-            `Время прибытия — после 13:00, а\u00A0выезд до 12:00`,
-          ])
+          +bullet-list(checkboxs.bulletList.items)

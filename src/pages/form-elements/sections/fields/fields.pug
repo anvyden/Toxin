@@ -2,102 +2,19 @@ include ~/components/text-field/text-field
 include ~/components/dropdown/dropdown
 include ~/components/date-dropdown/date-dropdown
 
-mixin fields()
+mixin fields(fields = {})
   section.fields
     .fields__container
-      .fields__text-field
-        +text-field({
-          hasHeading: true,
-          title: 'text field',
-          subtitle: 'default',
-          type: 'text',
-          name: 'textField',
-          placeholder: 'Email'
-        })
-      .fields__text-field
-        +text-field({
-          hasHeading: true,
-          title: 'text field',
-          subtitle: 'hover / focus',
-          focused: true,
-          type: 'text',
-          name: 'textFieldFocused',
-          placeholder: 'Email',
-          value: 'This is pretty awesome'
-        })
+      each textField in fields.textFields
+        .fields__text-field
+          +text-field(textField)
       .fields__dropdown
-        +dropdown({
-          hasHeading: true,
-          withButtons: true,
-          title: 'dropdown',
-          value: 'Сколько гостей',
-          placeholder: 'Сколько гостей',
-          items: [
-              { text: 'Взрослые', counter: '0', dataId: 'adults' },
-              { text: 'Дети', counter: '0', dataId: 'children' },
-              { text: 'Младенцы', counter: '0', dataId: 'babies' },
-            ]
-          },
-          {
-            type: 'guests',
-            maxLengthItems: {
-              item0: 10,
-              item1: 15,
-              item2: 6,
-            },
-            plurals: {
-              guests: ['гость', 'гостя', 'гостей'],
-              babies: ['младенец', 'младенца', 'младенцев'],
-            },
-          })
+        +dropdown(fields.dropdown)
       .fields__masked-text-field
-        +text-field({
-          hasHeading: true,
-          title: 'masked text field',
-          type: 'text',
-          name: 'date',
-          placeholder: 'ДД.ММ.ГГГГ',
-          isMasked: true
-        })
+        +text-field(fields.maskedTextField)
       .fields__date-dropdown
-        +date-dropdown({
-            hasTwoInputs: true,
-            type: 'text',
-            dataType: 'date-dropdown-start',
-            dataTypeEnd: 'date-dropdown-end',
-            name: 'date-start',
-            nameEnd: 'date-end',
-            placeholder: 'ДД.ММ.ГГГГ',
-            hasArrow: true,
-            isReadonly: true,
-            title: 'date dropdown',
-            titleEnd: 'date dropdown',
-            props: {
-              hasTwoInputs: true,
-              initialDates: ['2019-08-19', '2019-08-23'],
-            },
-          })
+        +date-dropdown(fields.dateDropdown)
       .fields__filter-date-dropdown
-        +date-dropdown({
-          type: 'text',
-          dataType: 'filter-date-dropdown',
-          name: 'date',
-          placeholder: 'ДД.ММ - ДД.ММ',
-          hasArrow: true,
-          readonly: true,
-          isLowerCase: true,
-          title: 'filter date dropdown',
-          props: {
-            initialDates: ['2019-08-19', '2019-08-23'],
-            size: 'small',
-          },
-        })
+        +date-dropdown(fields.filterDateDropdown)
       .fields__subscription-text-field
-        +text-field({
-          hasHeading: true,
-          title: 'subscription text field',
-          type: 'text',
-          name: 'subscription',
-          placeholder: 'Email',
-          isSubscribe: true
-        })
+        +text-field(fields.subscriptionTextField)

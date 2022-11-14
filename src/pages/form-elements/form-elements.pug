@@ -19,20 +19,22 @@ block variables
       pinned: 'static/favicon/inactive/safari-pinned-tab.svg',
     }
 
+    const pageParams = require('@pages/form-elements/data/page-data.json')
+
 block content
   main.form-elements
     .form-elements__container
       .form-elements__fields-controls-buttons-wrapper
         .form-elements__fields
-          +fields
+          +fields(pageParams.fieldsSection)
         .form-elements__controls
-          +controls
+          +controls(pageParams.controlsSection)
         .form-elements__buttons
-          +buttons
+          +buttons(pageParams.buttonsSection)
       .form-elements__dropdowns-checkboxs-room-wrapper
         .form-elements__dropdowns
-          +dropdowns
+          +dropdowns(pageParams.dropdownsSection)
         .form-elements__checkboxs
-          +checkboxs
+          +checkboxs(pageParams.checkboxsSection)
         .form-elements__room-info
-          +room-info
+          +room-info(pageParams.roomInfoSection)

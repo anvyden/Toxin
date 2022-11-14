@@ -41,28 +41,30 @@ mixin find-room-card(options={})
           })
         .find-room-card__dropdown-guests
           +dropdown({
-            hasHeading: true,
-            withButtons: true,
-            title: 'Гости',
-            placeholder: 'Сколько гостей',
-            name: 'guests',
-            items: [
-              { text: 'Взрослые', counter: '0', dataId: 'adults' },
-              { text: 'Дети', counter: '0', dataId: 'children' },
-              { text: 'Младенцы', counter: '0', dataId: 'babies' },
-            ],
-          },
-          {
-            type: 'guests',
-            maxLengthItems: {
-              item0: 5,
-              item1: 10,
-              item2: 10,
+            options: {
+              hasHeading: true,
+              withButtons: true,
+              title: 'Гости',
+              placeholder: 'Сколько гостей',
+              name: 'guests',
+              items: [
+                { text: 'Взрослые', counter: '0', dataId: 'adults' },
+                { text: 'Дети', counter: '0', dataId: 'children' },
+                { text: 'Младенцы', counter: '0', dataId: 'babies' },
+              ],
             },
-            plurals: {
-              guests: ['гость', 'гостя', 'гостей'],
-              babies: ['младенец', 'младенца', 'младенцев'],
-            },
+            props:{
+              type: 'guests',
+              maxLengthItems: {
+                item0: 5,
+                item1: 10,
+                item2: 10,
+              },
+              plurals: {
+                guests: ['гость', 'гостя', 'гостей'],
+                babies: ['младенец', 'младенца', 'младенцев'],
+              },
+            }
           })
         .find-room-card__button
           +button({

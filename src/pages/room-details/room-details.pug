@@ -19,6 +19,8 @@ block variables
       pinned: 'static/favicon/active/safari-pinned-tab.svg',
     }
 
+    const pageParams = require('@pages/room-details/data/page-data.json')
+
 block content
   main.room-details
     .room-details__room-imgs
@@ -46,128 +48,31 @@ block content
         .room-details__information
           section.room-details__features
             .room-details__features-heading
-              +heading({
-                title: 'Сведения о номере',
-                titleType: 'h2',
-                titleColor: 'dark-shade-100',
-                titleBold: true
-              })
+              +heading(pageParams.featuresSection.heading)
             .room-details__features-list
-              +features([
-                {
-                  icon: 'insert_emoticon',
-                  title: 'Комфорт',
-                  subtitle: 'Шумопоглощающие стены',
-                  hasBottomLine: true
-                },
-                {
-                  icon: 'location_city',
-                  title: 'Удобство',
-                  subtitle: 'Окно в каждой из спален',
-                  hasBottomLine: true
-                },
-                {
-                  icon: 'whatshot',
-                  title: 'Уют',
-                  subtitle: 'Номер оснащён камином'
-                },
-              ])
+              +features(pageParams.featuresSection.features)
           section.room-details__impressions
             .room-details__impressions-heading
-              +heading({
-                title: 'Впечатления от номера',
-                titleType: 'h2',
-                titleColor: 'dark-shade-100',
-                titleBold: true
-              })
+              +heading(pageParams.impressionsSection.heading)
             .room-details__impressions-chart
-              +pie-chart([
-                {
-                  id: 'disappointed',
-                  text: 'Разочарован',
-                  votesAmount: 0,
-                  firstStopColor: '#919191',
-                  secondStopColor: '#3D4975',
-                },
-                {
-                  id: 'satisfactorily',
-                  text: 'Удовлетворительно',
-                  votesAmount: 260,
-                  firstStopColor: '#BC9CFF',
-                  secondStopColor: '#8BA4F9',
-                },
-                {
-                  id: 'good',
-                  votesAmount: 260,
-                  text: 'Хорошо',
-                  firstStopColor: '#6FCF97',
-                  secondStopColor: '#66D2EA',
-                },
-                {
-                  id: 'sumptuously',
-                  text: 'Великолепно',
-                  votesAmount: 520,
-                  firstStopColor: '#FFE39C',
-                  secondStopColor: '#FFBA9C',
-                },
-              ])
+              +pie-chart(pageParams.impressionsSection.pieChart)
           section.room-details__comments
             .room-details__comments-heading
               h2.room-details__comments-heading-title
-                | Отзывы посетителей номера
+                | #{pageParams.commentsSection.title}
               p.room-details__comments-heading-subtitle
-                | 2 отзыва
+                | #{pageParams.commentsSection.count}
             .room-details__comments-list
-              +comments([
-                {
-                  imgName: 'murad_sarafanov.jpg',
-                  name: 'Мурад Сарафанов',
-                  dateOfComment: '5 дней назад',
-                  likeCount: '12',
-                  likeIsActive: true,
-                  text: `Великолепный матрас на кровати в основной спальне!
-                    А пуфик вообще потрясающий. И стены, действительно,
-                    шумоподавляющие. Выкрикивал комплименты повару
-                    — никто не жаловался из соседей.`
-                },
-                {
-                  imgName: 'patricia_steklyshkova.jpg',
-                  name: 'Патрисия Стёклышкова',
-                  dateOfComment: 'Неделю назад',
-                  likeCount: '2',
-                  text: `Обслуживание на высоте! Всё аккуратно, чисто.
-                    Завтраки в номер советую заказать, каждый день
-                    новое блюдо и десерт как комплимент`
-                },
-              ])
+              +comments(pageParams.commentsSection.comments)
           section.room-details__rules
             .room-details__rules-heading
-              +heading({
-                title: 'Правила',
-                titleType: 'h2',
-                titleColor: 'dark-shade-100',
-                titleBold: true
-              })
+              +heading(pageParams.rulesSection.heading)
             .room-details__rules-list
-              +bullet-list([
-                'Нельзя с питомцами',
-                'Без вечеринок и мероприятий',
-                `Время прибытия — после 13:00, а\u00A0выезд до 12:00`,
-              ])
+              +bullet-list(pageParams.rulesSection.rulesList)
           section.room-details__cancel
             .room-details__cancel-heading
-              +heading({
-                title: 'Отмена',
-                titleType: 'h2',
-                titleColor: 'dark-shade-100',
-                titleBold: true
-              })
+              +heading(pageParams.cancelSection.heading)
             span.room-details__cancel-text
-              | Бесплатная отмена в течение 48 ч. После этого при отмене не
-              | позднее чем за 5 дн. до прибытия вы получите полный возврат за
-              | вычетом сбора за услуги.'
+              | #{pageParams.cancelSection.info}
         section.room-details__booking
-          +booking-card({
-            luxe: true,
-            formAction: './error-page.html',
-          })
+          +booking-card(pageParams.bookingSection.bookingCard)

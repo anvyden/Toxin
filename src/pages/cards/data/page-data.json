@@ -1,0 +1,63 @@
+{
+  "findRoomCard": {
+    "title": "Найдём номера под ваши пожелания",
+    "formAction": "./error-page.html"
+  },
+  "signUpCard": {
+    "title": "Регистрация аккаунта",
+    "logInlink": "./error-page.html",
+    "formAction": "./error-page.html"
+  },
+  "bookingCard": {
+    "luxe": true,
+    "formAction": "./error-page.html"
+  },
+  "signInCard": {
+    "title": "Войти",
+    "signUpLink": "./error-page.html",
+    "formAction": "./error-page.html"
+  },
+  "datepicker": {
+    "demo": true,
+    "props": {
+      "inline": true,
+      "initialDates": [
+        "2019-08-19",
+        "2019-08-23"
+      ]
+    }
+  },
+  "roomCards": [
+    {
+      "number": "888",
+      "price": "9 990₽",
+      "rating": 5,
+      "luxe": true,
+      "reviews": {
+        "count": "145",
+        "text": "Отзывов"
+      },
+      "imgs": [
+        "room-888.jpg",
+        "room-888.jpg",
+        "room-888.jpg",
+        "room-888.jpg"
+      ]
+    },
+    {
+      "number": "840",
+      "price": "9 900₽",
+      "rating": 4,
+      "reviews": {
+        "count": "65",
+        "text": "Отзывов"
+      },
+      "imgs": [
+        "room-840.jpg",
+        "room-840.jpg",
+        "room-840.jpg",
+        "room-840.jpg"
+      ]
+    }
+  ]
+}

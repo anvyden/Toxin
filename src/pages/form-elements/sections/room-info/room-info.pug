@@ -1,33 +1,10 @@
 include ~/components/features/features
 include ~/components/comment/comment
 
-mixin room-info()
+mixin room-info(roomInfo = {})
   .room-info
     .room-info__container
       .room-info__features
-        +features([
-            {
-              icon: 'insert_emoticon',
-              title: 'Комфорт',
-              subtitle: 'Шумопоглощающие стены',
-              hasBottomLine: true
-            },
-            {
-              icon: 'location_city',
-              title: 'Удобство',
-              subtitle: 'Окно в каждой из спален',
-              hasBottomLine: true
-            }
-          ])
+        +features(roomInfo.features)
       .room-info__comments
-        +comment({
-          imgName: 'murad_sarafanov.jpg',
-          name: 'Мурад Сарафанов',
-          dateOfComment: '5 дней назад',
-          text: `Великолепный матрас на кровати в основной спальне!
-            А пуфик вообще потрясающий. И стены, действительно,
-            шумоподавляющие. Выкрикивал комплименты повару — никто не
-            жаловался из соседей.`,
-          likeCount: 12,
-          likeIsActive: true,
-        })
+        +comment(roomInfo.comment)

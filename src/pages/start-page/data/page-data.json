@@ -1,0 +1,60 @@
+{
+  "menus": [
+    {
+      "items": [
+        {
+          "text": "colors-types",
+          "link": "./colors-type.html"
+        },
+        {
+          "text": "form-elements",
+          "link": "./form-elements.html"
+        },
+        {
+          "text": "cards",
+          "link": "./cards.html"
+        },
+        {
+          "text": "headers-footers",
+          "link": "./headers-footers.html"
+        }
+      ],
+      "options": {
+        "color": "purple",
+        "itemsCentered": true,
+        "animationBorder": true,
+        "animationFontSize": true
+      }
+    },
+    {
+      "items": [
+        {
+          "text": "landing-page",
+          "link": "./landing-page.html"
+        },
+        {
+          "text": "search-room",
+          "link": "./search-room.html"
+        },
+        {
+          "text": "room-details",
+          "link": "./room-details.html"
+        },
+        {
+          "text": "registration",
+          "link": "./registration.html"
+        },
+        {
+          "text": "sign-in",
+          "link": "./sign-in.html"
+        }
+      ],
+      "options": {
+        "color": "green",
+        "itemsCentered": true,
+        "animationBorder": true,
+        "animationFontSize": true
+      }
+    }
+  ]
+}

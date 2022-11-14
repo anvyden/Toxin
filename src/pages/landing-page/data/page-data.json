@@ -1,0 +1,6 @@
+{
+  "findRoomCard": {
+    "title": "Найдём номера под ваши пожелания",
+    "formAction": "./search-room.html"
+  }
+}

@@ -14,12 +14,10 @@ block variables
       pinned: 'static/favicon/active/safari-pinned-tab.svg',
     }
 
+    const pageParams = require('@pages/registration/data/page-data.json')
+
 block content
   main.sign-up
     .sign-up__container
       .sign-up__sign-up-card
-        +sign-up-card({
-          title: 'Регистрация аккаунта',
-          logInlink: './sign-in.html',
-          formAction: './landing-page.html'
-        })
+        +sign-up-card(pageParams.signUpCard)

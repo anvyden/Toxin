@@ -1,0 +1,7 @@
+{
+  "signInCard": {
+    "title": "Войти",
+    "signUpLink": "./registration.html",
+    "formAction": "./landing-page.html"
+  }
+}

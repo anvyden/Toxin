@@ -16,7 +16,6 @@
     &-group {
       display: flex;
       gap: 20px;
-      max-width: rem(218);
       margin-bottom: rem(30);
 
       &:nth-child(3) {
@@ -24,7 +23,6 @@
       }
 
       &:last-child {
-        max-width: rem(320);
         margin-bottom: 0;
       }
     }

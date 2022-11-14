@@ -3,88 +3,21 @@ include ~/components/button/button
 include ~/components/pagination/pagination
 include ~/components/range-slider/range-slider
 
-mixin buttons()
+mixin buttons(buttons = {})
   .buttons
     .buttons__container
       .buttons__range-slider
-        +range-slider({
-          title: 'Range slider',
-        },
-        {
-          min: 0,
-          max: 15000,
-          step: 50,
-          minStartValue: 5000,
-          maxStartValue: 10000,
-        })
+        +range-slider(buttons.rangeSlider)
       .buttons__buttons
         .buttons__heading
-          +heading({
-            title: 'buttons',
-            titleType: 'h3',
-            titleColor: 'dark-shade-100',
-            titleBold: true,
-            titleHasUpper: true
-          })
+          +heading(buttons.buttonsBlock.heading)
         .buttons__buttons-wrapper
-          .buttons__buttons-group
-            +button({
-              text: 'click me',
-              variant: 'background',
-              size: 'small',
-              color: 'white'
-            })
-            +button({
-              text: 'click me',
-              variant: 'background',
-              size: 'small',
-              color: 'white',
-              disabled: true
-              })
-          .buttons__buttons-group
-            +button({
-              text: 'click me',
-              variant: 'fill-white',
-              size: 'small',
-              color: 'purple'
-            })
-            +button({
-              text: 'click me',
-              variant: 'fill-white',
-              size: 'small',
-              color: 'purple',
-              disabled: true
-            })
-          .buttons__buttons-group
-            +button({
-              text: 'click me',
-              variant: 'inline',
-              color: 'purple'
-            })
-            +button({
-              text: 'click me',
-              variant: 'inline',
-              color: 'purple',
-              disabled: true
-            })
-          .buttons__buttons-group
-            +button({
-              text: 'перейти к оплате',
-              color: 'white',
-              size: 'large',
-              variant: 'with-arrow'
-            })
+          each buttonGroup in buttons.buttonsBlock.buttons
+            .buttons__buttons-group
+              each button in buttonGroup
+                +button(button)
       .buttons__pagination
         .buttons__heading
-          +heading({
-            title: 'pagination',
-            titleType: 'h3',
-            titleColor: 'dark-shade-100',
-            titleBold: true,
-            titleHasUpper: true
-          })
+          +heading(buttons.pagination.heading)
         .buttons__pagination-wrapper
-          +pagination({
-            countOfItems: 180,
-            itemsPerPage: 12,
-          })
+          +pagination(buttons.pagination.options)

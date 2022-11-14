@@ -18,73 +18,26 @@ block variables
       pinned: 'static/favicon/inactive/safari-pinned-tab.svg',
     }
 
+    const pageParams = require('@pages/cards/data/page-data.json')
+
 block content
   .cards
     .cards__container
       .cards__wrapper
         .cards__find-room-card
-          +find-room-card({
-            title: 'Найдём номера под ваши\u00A0пожелания',
-            formAction: './error-page.html'           
-          })
+          +find-room-card(pageParams.findRoomCard)
         .cards__sing-up-card
-          +sign-up-card({
-            title: 'Регистрация аккаунта',
-            logInlink: './error-page.html',
-            formAction: './error-page.html'
-          })
+          +sign-up-card(pageParams.signUpCard)
       .cards__wrapper
         .cards__booking-card
-          +booking-card({
-            luxe: true,
-            formAction: './error-page.html',
-          })
+          +booking-card(pageParams.bookingCard)
         .cards__sing-in-card
-          +sign-in-card({
-            title: 'Войти',
-            signUpLink: './error-page.html',
-            formAction: './error-page.html'
-          })
+          +sign-in-card(pageParams.signInCard)
       .cards__wrapper
         .cards__datepicker
-          +date-dropdown({
-            demo: true,
-            props: {
-              inline: true,
-              initialDates: ['2019-08-19', '2019-08-23']
-            }
-          })
+          +date-dropdown(pageParams.datepicker)
         .cards__room-cards
-          .cards__room-card
-            +room-card({
-              number: '888',
-              price: '9 990₽',
-              rating: 5,
-              luxe: true,
-              reviews: {
-                count: '145',
-                text: 'Отзывов'
-              },
-              imgs: [
-                'room-888.jpg',
-                'room-888.jpg',
-                'room-888.jpg',
-                'room-888.jpg',
-              ]
-            })
-          .cards__room-card
-            +room-card({
-              number: '840',
-              price: '9 900₽',
-              rating: 4,
-              reviews: {
-                count: '65',
-                text: 'Отзывов'
-              },
-              imgs: [
-                'room-840.jpg',
-                'room-840.jpg',
-                'room-840.jpg',
-                'room-840.jpg',
-              ]
-            })
+          each card in pageParams.roomCards
+            .cards__room-card
+              +room-card(card)
+            

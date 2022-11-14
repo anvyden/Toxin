@@ -16,21 +16,16 @@ block variables
       pinned: 'static/favicon/inactive/safari-pinned-tab.svg',
     }
 
+    const pageParams = require('@pages/headers-footers/data/page-data.json')
+
 block content
   .headers-footers
     .headers-footers__container
       .headers-footers__header
-        +header({
-          logoLink: './error-page.html',
-          firstItemMenuActive: true
-        })
+        +header(pageParams.header)
       .headers-footers__header-logged-in
-        +header({
-          logIn: true,
-          logoLink: './error-page.html',
-          firstMenuItemActive: true
-        })
+        +header(pageParams.headerLoggedIn)
       .headers-footers__footer
-        +footer({ logoLink: './error-page.html' })
+        +footer(pageParams.footer)
       .headers-footers__footer-mobile
-        +footer-mobile({ logoLink: './error-page.html' })
+        +footer-mobile(pageParams.footerMobile)

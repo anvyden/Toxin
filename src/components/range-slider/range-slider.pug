@@ -1,6 +1,9 @@
 include ~/components/heading/heading
 
-mixin range-slider({ title='', description='' } = {}, props = {})
+mixin range-slider({options = {}, props = {}} = {})
+  -
+    const { title='', description='' } = options
+
   div(class=['range-slider', 'js-range-slider'], data-props=props)
     .range-slider__heading
       +heading({

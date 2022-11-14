@@ -1,0 +1,7 @@
+{
+  "signUpCard": {
+    "title": "Регистрация аккаунта",
+    "logInlink": "./sign-in.html",
+    "formAction": "./landing-page.html"
+  }
+}
