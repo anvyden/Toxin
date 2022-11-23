@@ -1,9 +1,7 @@
-include ~/components/menu/menu
-
 -
-  const title = 'Toxin start-page'
-  const description = 'Toxin start-page description'
-  const keywords = 'Toxin start-page keywords'
+  const title = 'Toxin error-page'
+  const description = 'Toxin error-page description'
+  const keywords = 'Toxin error-page keywords'
   const faviconPaths = {
     apple: 'static/favicon/active/apple-touch-icon.png',
     big: 'static/favicon/active/favicon-32x32.png',
@@ -11,8 +9,6 @@ include ~/components/menu/menu
     manifest: `static/favicon/active/site.webmanifest`,
     pinned: 'static/favicon/active/safari-pinned-tab.svg',
   }
-
-  const pageParams = require('@pages/start-page/data/page-data.json')
 
 doctype html
 html(lang="ru")
@@ -32,29 +28,16 @@ html(lang="ru")
     link(rel="mask-icon", href=faviconPaths.pinned, color="#5bbad5")
     title #{title}
   body
-    main.start-page
-      .start-page__container 
-        .start-page__logo 
-          a.start-page__logo-link(href='./landing-page.html')
+    main.error
+      .error__container 
+        .error__logo 
+          a.error__logo-link(href='./landing.html')
             img&attributes({
-              class: 'start-page__logo-img',
-              src: require('@pages/start-page/img/start-page-logo.svg'),
+              class: 'error__logo-img',
+              src: require('@pages/error/img/logo.svg'),
               alt: 'logo',
             })
-        .start-page__UI-kit-menu
-          h2&attributes({
-            class: [
-              'start-page__heading',
-              'start-page__heading--color-primary'
-            ]
-          })='UI kit'
-          +menu(pageParams.menus[0])
-        .start-page__site-menu
-          h2&attributes({
-            class: [
-              'start-page__heading',
-              'start-page__heading--color-secondary'
-            ]
-          })='Pages'
-          +menu(pageParams.menus[1])
-    
+        .error__content    
+          h1.error__number= '404'
+          h2.error__heading= 'Page not found'
+          a.error__link(href='./start.html')= 'Back to home'

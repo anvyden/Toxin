@@ -1,4 +1,5 @@
 import '~/assets/fonts/montserrat/montserrat.scss';
 import '~/scss/settings.scss';
+import '~/components/menu';
 
-import './error-page.scss';
+import './start.scss';

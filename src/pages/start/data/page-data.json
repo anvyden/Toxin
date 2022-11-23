@@ -29,8 +29,8 @@
     {
       "items": [
         {
-          "text": "landing-page",
-          "link": "./landing-page.html"
+          "text": "landing",
+          "link": "./landing.html"
         },
         {
           "text": "search-room",

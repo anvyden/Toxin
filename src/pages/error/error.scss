@@ -1,7 +1,7 @@
 @import '~/scss/variables';
 @import '~/scss/mixins';
 
-.error-page {
+.error {
   display: flex;
   min-height: 100vh;
   padding: rem(20) 0 0 0;
@@ -38,7 +38,7 @@
     text-transform: uppercase;
   }
 
-  &__error {
+  &__number {
     margin: 0 0 rem(40) 0;
     color: transparent;
     font-size: rem(100);

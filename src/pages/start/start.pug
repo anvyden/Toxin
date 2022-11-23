@@ -1,7 +1,9 @@
+include ~/components/menu/menu
+
 -
-  const title = 'Toxin error-page'
-  const description = 'Toxin error-page description'
-  const keywords = 'Toxin error-page keywords'
+  const title = 'Toxin start-page'
+  const description = 'Toxin start-page description'
+  const keywords = 'Toxin start-page keywords'
   const faviconPaths = {
     apple: 'static/favicon/active/apple-touch-icon.png',
     big: 'static/favicon/active/favicon-32x32.png',
@@ -9,6 +11,8 @@
     manifest: `static/favicon/active/site.webmanifest`,
     pinned: 'static/favicon/active/safari-pinned-tab.svg',
   }
+
+  const pageParams = require('@pages/start/data/page-data.json')
 
 doctype html
 html(lang="ru")
@@ -28,16 +32,29 @@ html(lang="ru")
     link(rel="mask-icon", href=faviconPaths.pinned, color="#5bbad5")
     title #{title}
   body
-    main.error-page
-      .error-page__container 
-        .error-page__logo 
-          a.error-page__logo-link(href='./landing-page.html')
+    main.start
+      .start__container
+        .start__logo
+          a.start__logo-link(href='./landing.html')
             img&attributes({
-              class: 'error-page__logo-img',
-              src: require('@pages/error-page/img/error-page-logo.svg'),
+              class: 'start__logo-img',
+              src: require('@pages/start/img/logo.svg'),
               alt: 'logo',
             })
-        .error-page__content    
-          h1.error-page__error= '404'
-          h2.error-page__heading= 'Page not found'
-          a.error-page__link(href='./start-page.html')= 'Back to home'
+        .start__UI-kit-menu
+          h2&attributes({
+            class: [
+              'start__heading',
+              'start__heading--color-primary'
+            ]
+          })='UI kit'
+          +menu(pageParams.menus[0])
+        .start__site-menu
+          h2&attributes({
+            class: [
+              'start__heading',
+              'start__heading--color-secondary'
+            ]
+          })='Pages'
+          +menu(pageParams.menus[1])
+    

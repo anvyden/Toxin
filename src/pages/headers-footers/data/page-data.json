@@ -1,17 +1,17 @@
 {
   "header": {
-    "logoLink": "./error-page.html",
+    "logoLink": "./error.html",
     "firstItemMenuActive": true
   },
   "headerLoggedIn": {
     "logIn": true,
-    "logoLink": "./error-page.html",
+    "logoLink": "./error.html",
     "firstMenuItemActive": true
   },
   "footer": {
-    "logoLink": "./error-page.html"
+    "logoLink": "./error.html"
   },
   "footerMobile": {
-    "logoLink": "./error-page.html"
+    "logoLink": "./error.html"
   }
 }

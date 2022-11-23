@@ -5,4 +5,4 @@ import '~/scss/settings.scss';
 import '~/layouts/main-layout';
 import '~/components/find-room-card';
 
-import './landing-page.scss';
+import './landing.scss';
