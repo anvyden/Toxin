@@ -50,16 +50,17 @@ mixin sidebar({} = {})
         })
       .sidebar__range-slider
         +range-slider({
-          title: 'Диапазон цены',
-          description: 'Стоимость за сутки пребывания в номере',
-        },
-        {
-          min: 0,
-          max: 15000,
-          step: 50,
-          minStartValue: 5000,
-          maxStartValue: 10000,
-        })
+          options: {
+            title: 'Диапазон цены',
+            description: 'Стоимость за сутки пребывания в номере',
+          },
+          props: {
+            min: 0,
+            max: 15000,
+            step: 50,
+            minStartValue: 5000,
+            maxStartValue: 10000,
+          }})
       .sidebar__checkboxs
         +checkbox-list({
           title: 'Правила дома',

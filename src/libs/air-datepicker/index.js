@@ -54,6 +54,7 @@ class Datepicker {
       dateFormat: 'dd MMM',
       range: true,
       multipleDatesSeparator: ' - ',
+      minDate: new Date(),
       buttons: this._createButtons(),
       navTitles: {
         days: 'MMMM yyyy',
