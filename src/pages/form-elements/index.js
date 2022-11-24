@@ -1,5 +1,5 @@
 import '~/scss/settings.scss';
-import '~/layouts/UI-kit-layout';
+import '~/layouts/UI-kit';
 import '~/assets/fonts/montserrat/montserrat.scss';
 import '~/assets/fonts/material-icons/material-icons.scss';
 import '@pages/form-elements/sections/buttons';

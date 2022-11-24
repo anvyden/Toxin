@@ -18,10 +18,10 @@ html(lang="ru")
     +favicon({ active: true })
     title #{title}
   body
-    .page-wrapper
+    .page
       block header
         +header({ logoLink: './landing.html' })
-      .page-content
+      .page__content
         block content
       block footer
         +footer({ logoLink: './landing.html' })
