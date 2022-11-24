@@ -1,3 +1,4 @@
+include ~/components/favicon/favicon
 include ~/components/header/header
 include ~/components/footer/footer
 include ~/components/footer-mobile/footer-mobile
@@ -14,11 +15,7 @@ html(lang="ru")
     meta(name="keywords", content=keywords)
     meta(name="msapplication-TileColor", content="#2b5797")
     meta(name="theme-color", content="#000000")
-    link(rel="apple-touch-icon", sizes="180x180", href=faviconPaths.apple)
-    link(rel="icon", type="image/png", sizes="32x32", href=faviconPaths.big)
-    link(rel="icon", type="image/png", sizes="16x16", href=faviconPaths.small)
-    link(rel="manifest", href=faviconPaths.manifest)
-    link(rel="mask-icon", href=faviconPaths.pinned, color="#5bbad5")
+    +favicon({ active: true })
     title #{title}
   body
     .page-wrapper

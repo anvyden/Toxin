@@ -1,14 +1,9 @@
+include ~/components/favicon/favicon
+
 -
   const title = 'Toxin error-page'
   const description = 'Toxin error-page description'
   const keywords = 'Toxin error-page keywords'
-  const faviconPaths = {
-    apple: 'static/favicon/active/apple-touch-icon.png',
-    big: 'static/favicon/active/favicon-32x32.png',
-    small: 'static/favicon/active/favicon-16x16.png',
-    manifest: `static/favicon/active/site.webmanifest`,
-    pinned: 'static/favicon/active/safari-pinned-tab.svg',
-  }
 
 doctype html
 html(lang="ru")
@@ -21,11 +16,7 @@ html(lang="ru")
     meta(name="msapplication-TileColor", content="#00aba9")
     meta(name="msapplication-TileImage", content="/mstile-144x144.png")
     meta(name="theme-color", content="#ffffff")
-    link(rel="apple-touch-icon", sizes="180x180", href=faviconPaths.apple)
-    link(rel="icon", type="image/png", sizes="32x32", href=faviconPaths.big)
-    link(rel="icon", type="image/png", sizes="16x16", href=faviconPaths.small)
-    link(rel="manifest", href=faviconPaths.manifest)
-    link(rel="mask-icon", href=faviconPaths.pinned, color="#5bbad5")
+    +favicon({ active: true })
     title #{title}
   body
     main.error
