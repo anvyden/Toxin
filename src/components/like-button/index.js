@@ -1,4 +1,4 @@
-import LikeButton from './like-button';
+import LikeButton from './LikeButton';
 import './like-button.scss';
 
 const likeButtons = document.querySelectorAll('.js-like-button__button');

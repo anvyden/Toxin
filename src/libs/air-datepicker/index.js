@@ -1,6 +1,6 @@
 import AirDatepicker from 'air-datepicker';
 
-import BookingCard from '~/components/booking-card/booking-card';
+import BookingCard from '~/components/booking-card/BookingCard';
 
 import './air-datepicker.scss';
 

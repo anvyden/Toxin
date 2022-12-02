@@ -4,4 +4,4 @@ import '~/layouts/UI-kit';
 import '~/components/colors';
 import '~/components/types';
 
-import './colors-type.scss';
+import './colors-types.scss';

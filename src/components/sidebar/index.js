@@ -3,7 +3,7 @@ import '~/components/date-dropdown';
 import '~/components/range-slider';
 import '~/components/checkbox-list';
 
-import Sidebar from './sidebar';
+import Sidebar from './Sidebar';
 import './sidebar.scss';
 
 const sidebars = document.querySelectorAll('.js-sidebar');

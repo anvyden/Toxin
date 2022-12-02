@@ -1,4 +1,4 @@
-import PieChart from './pie-chart';
+import PieChart from './PieChart';
 import './pie-chart.scss';
 
 const pieCharts = document.querySelectorAll('.js-pie-chart');
