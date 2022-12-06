@@ -210,8 +210,14 @@
         "titleHasUpper": true
       },
       "ratings": [
-        4,
-        5
+        {
+          "isButton": "true",
+          "rating": 4
+        },
+        {
+          "isButton": "true",
+          "rating": 5
+        }
       ]
     }
   },

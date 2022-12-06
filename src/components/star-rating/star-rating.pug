@@ -1,8 +1,24 @@
-mixin star-rating(rating=0)
-  .star-rating
-    if rating <= 5
-      - const empty = 5 - rating;
-      - for (let i = 0; i < rating; i++)
-        span.star-rating__star
-      - for (let i = 0; i < empty; i++)
-        span.star-rating__empty-star
+mixin star-rating(options = {})
+  - const { isRating, rating=0, isButton } = options
+  - const ratingJsClass = isButton && 'js-star-rating'
+  - const dataRating = isButton && rating
+
+  .star-rating(class=ratingJsClass data-rating=dataRating)
+    if isRating
+      if rating <= 5
+        - const empty = 5 - rating;
+        - for (let i = 0; i < rating; i++)
+          span.star-rating__star.star-rating__star--fill
+        - for (let i = 0; i < empty; i++)
+          span.star-rating__star.star-rating__star--empty
+    else if isButton
+      - for (let i = 0; i < 5; i++)
+        span&attributes({
+          class: [
+            'star-rating__star',
+            'star-rating__star--button',
+            'js-star-rating__star'
+          ],
+          tabindex: 0,
+          'data-value': i + 1
+        })

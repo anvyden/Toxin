@@ -9,14 +9,24 @@
   @include text-gradient-fill($primaryGradient);
 
   &__star {
-    &::before {
-      content: '\e838';
+    &--empty {
+      &::before {
+        content: '\e83a';
+      }
     }
-  }
 
-  &__empty-star {
-    &::before {
-      content: '\e83a';
+    &--fill {
+      &::before {
+        content: '\e838';
+      }
+    }
+
+    &--button {
+      cursor: pointer;
+
+      &:focus-visible {
+        outline: $thinFocusOutline;
+      }
     }
   }
 }
