@@ -2,7 +2,7 @@
 
 Практика верстки сайта по поиску номеров отеля.
 
-[**Стартовая страница проекта**](https://anvyden.github.io/Toxin/start-page.html)
+[**Стартовая страница проекта**](https://anvyden.github.io/Toxin/start.html)
 
 ## Особенности проекта
 
