@@ -33,9 +33,9 @@ const PAGES_FOLDERS = fs.readdirSync(PAGES_DIR);
 const PAGES = getFiles(PAGES_FOLDERS, 'pug');
 const PAGES_ENTRYS = {};
 
-PAGES_FOLDERS.forEach(page => {
-  PAGES_ENTRYS[page] = `${PAGES_DIR}/${page}/index.js`
-})
+PAGES_FOLDERS.forEach((page) => {
+  PAGES_ENTRYS[page] = `${PAGES_DIR}/${page}/index.js`;
+});
 
 const filename = (ext) =>
   isDev ? `[name].${ext}` : `[name].[fullhash].${ext}`;
@@ -230,9 +230,17 @@ module.exports = {
         use: cssLoaders('sass-loader'),
       },
       {
-        test: /\.(?:ico|png|jpg|jpeg|svg|gif)$/,
+        test: /\.(?:ico|png|jpg|jpeg|gif)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: `${PATHS.assets}/img/${assetFileName}`,
+        },
+      },
+      {
+        test: /\.svg/,
         type: 'asset/resource',
         exclude: [/fonts/],
+        use: 'svgo-loader',
         generator: {
           filename: `${PATHS.assets}/img/${assetFileName}`,
         },
