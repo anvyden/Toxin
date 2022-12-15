@@ -333,6 +333,12 @@
         }
       }
 
+      &.-disabled- {
+        &.-focus- {
+          background: $primaryGradientTransparent;
+        }
+      }
+
       &.-other-month- {
         color: $darkShade25;
 

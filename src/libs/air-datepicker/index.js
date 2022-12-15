@@ -19,7 +19,7 @@ class Datepicker {
   }
 
   _init() {
-    const { initialDates, inline = false, size = '' } = this.props;
+    const { initialDates = [], inline = false, size = '' } = this.props;
 
     this._getSelector();
     this._findDOMElements();
@@ -36,11 +36,11 @@ class Datepicker {
 
     this.root.addEventListener(
       'pointerdown',
-      this._handleDateDropdownClick.bind(this),
+      this._handleDateDropdownClick.bind(this)
     );
     this.root.addEventListener(
       'keydown',
-      this._handleDateDropdownKeyDown.bind(this),
+      this._handleDateDropdownKeyDown.bind(this)
     );
     this._bindDocumentListener();
 
@@ -110,7 +110,7 @@ class Datepicker {
       this.endInput = this.root.querySelector(this.endInputSelector);
     } else {
       this.filterDateDropdown = this.root.querySelector(
-        this.singleInputSelector,
+        this.singleInputSelector
       );
     }
 
@@ -183,8 +183,40 @@ class Datepicker {
   }
 
   _setInitialDates(dates = []) {
-    this.datepicker.selectDate(dates);
-    this._showClearButton();
+    console.log(dates)
+    if (Array.isArray(dates)) {
+      let initialDates;
+
+      if (dates.length === 0) {
+        initialDates = [
+          this._getDate(new Date(), 1),
+          this._getDate(new Date(), 4),
+        ];
+      } else if (dates.length === 1) {
+        initialDates = [dates[0], this._getDate(dates[0], 4)];
+      } else {
+        initialDates = dates;
+      }
+
+      console.log(initialDates)
+
+      this.datepicker.selectDate(initialDates);
+      this._showClearButton();
+    }
+  }
+
+  _getDate(receivedDate, days) {
+    const date = new Date(receivedDate);
+
+    date.setDate(date.getDate() + days);
+
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    const correctDate = `${year}-${month}-${day}`;
+
+    return correctDate;
   }
 
   _handleDateDropdownClick({ target }) {
@@ -251,11 +283,15 @@ class Datepicker {
   }
 
   _arrowUp() {
-    this.arrowButtons.forEach((arrow) => arrow.classList.add(this.arrowButtonRotateModifier));
+    this.arrowButtons.forEach((arrow) =>
+      arrow.classList.add(this.arrowButtonRotateModifier)
+    );
   }
 
   _arrowDown() {
-    this.arrowButtons.forEach((arrow) => arrow.classList.remove(this.arrowButtonRotateModifier));
+    this.arrowButtons.forEach((arrow) =>
+      arrow.classList.remove(this.arrowButtonRotateModifier)
+    );
   }
 
   _showClearButton() {

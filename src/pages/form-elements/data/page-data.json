@@ -87,11 +87,7 @@
       "title": "date dropdown",
       "titleEnd": "date dropdown",
       "props": {
-        "hasTwoInputs": true,
-        "initialDates": [
-          "2019-08-19",
-          "2019-08-23"
-        ]
+        "hasTwoInputs": true
       }
     },
     "filterDateDropdown": {
@@ -104,10 +100,6 @@
       "isLowerCase": true,
       "title": "filter date dropdown",
       "props": {
-        "initialDates": [
-          "2019-08-19",
-          "2019-08-23"
-        ],
         "size": "small"
       }
     },

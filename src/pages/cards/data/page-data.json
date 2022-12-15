@@ -20,11 +20,7 @@
   "datepicker": {
     "demo": true,
     "props": {
-      "inline": true,
-      "initialDates": [
-        "2019-08-19",
-        "2019-08-23"
-      ]
+      "inline": true
     }
   },
   "roomCards": [
