@@ -16,7 +16,7 @@ class CheckboxList {
     this.buttonSelector = '.js-checkbox-list__dropdown-button';
 
     this.listHiddenModifier = 'checkbox-list__list--hidden';
-    this.buttonRotateModifier = 'checkbox-list__dropdown-button--rotate';
+    this.buttonRotateModifier = 'checkbox-list__dropdown-button--rotated';
   }
 
   _getElements() {

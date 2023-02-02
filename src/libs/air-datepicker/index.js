@@ -97,7 +97,7 @@ class Datepicker {
     this.arrowButtonsSelector = `[data-type="${this.arrowButtonsDataType}"]`;
 
     this.datepickerActiveClass = '-active-';
-    this.arrowButtonRotateModifier = 'text-field__arrow-button--rotate';
+    this.arrowButtonRotateModifier = 'text-field__arrow-button--rotated';
     this.datepickerButtonHiddenModifier = 'air-datepicker-button--hidden';
     this.datepickerSizeSmallModifier = 'air-datepicker--size-small';
   }

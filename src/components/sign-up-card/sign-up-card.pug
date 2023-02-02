@@ -82,7 +82,7 @@ mixin sign-up-card(options={})
           +button({
             text: 'зарегистрироваться',
             type: 'submit',
-            variant: 'with-arrow',
+            withArrow: true,
             color: 'white',
             size: 'large',
           })
@@ -90,7 +90,7 @@ mixin sign-up-card(options={})
           .sign-up-card__log-in-question='Уже есть аккаунт на Toxin?'
           +button({
             text: 'Войти',
-            variant: 'fill-white',
+            variant: 'outlined',
             color: 'purple',
             size: 'small',
             link: logInlink,

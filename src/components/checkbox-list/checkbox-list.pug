@@ -14,7 +14,7 @@ mixin checkbox-list(options={})
     const hiddenModifier
       = expandable && !isOpened && 'checkbox-list__list--hidden'
     const rotateModifier
-      = expandable && isOpened && 'checkbox-list__button--rotate'
+      = expandable && isOpened && 'checkbox-list__button--rotated'
     const richModifier = isRich && 'checkbox-list__list--rich'
 
   .checkbox-list(class=expandableClassForJs)

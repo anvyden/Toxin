@@ -73,29 +73,29 @@
     visibility: hidden;
   }
 
-  &--variant {
-    &-with-arrow {
-      width: 100%;
+  &--with-arrow {
+    width: 100%;
 
-      .button {
-        &__inner {
-          position: relative;
+    .button {
+      &__inner {
+        position: relative;
 
-          &::after {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            font-weight: normal;
-            font-size: rem(24);
-            font-family: 'Material Icons', Arial, sans-serif;
-            line-height: rem(24);
-            text-transform: none;
-            content: 'arrow_forward';
-          }
+        &::after {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          font-weight: normal;
+          font-size: rem(24);
+          font-family: 'Material Icons', Arial, sans-serif;
+          line-height: rem(24);
+          text-transform: none;
+          content: 'arrow_forward';
         }
       }
     }
+  }
 
+  &--variant {
     &-inline {
       width: auto;
       padding: 0;

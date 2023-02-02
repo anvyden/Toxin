@@ -249,13 +249,13 @@
         [
           {
             "text": "click me",
-            "variant": "fill-white",
+            "variant": "outlined",
             "size": "small",
             "color": "purple"
           },
           {
             "text": "click me",
-            "variant": "fill-white",
+            "variant": "outlined",
             "size": "small",
             "color": "purple",
             "disabled": true
@@ -279,7 +279,7 @@
             "text": "перейти к оплате",
             "color": "white",
             "size": "large",
-            "variant": "with-arrow"
+            "withArrow": true
           }
         ]
       ]

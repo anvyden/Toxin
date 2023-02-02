@@ -8,6 +8,7 @@ mixin button(options)
       link,
       size,
       color,
+      withArrow,
       dataType,
       classForJs
     } = options
@@ -17,12 +18,11 @@ mixin button(options)
 
     const mainClass = 'button'
     const buttonTag = link ? 'a' : 'button'
+    const buttonWithArrowModifier = withArrow && 'button--with-arrow'
     const buttonInlineModifier
       = variant === 'inline' && `button--variant-${variant}`
-    const buttonWithArrowModifier
-      = variant === 'with-arrow' && `button--variant-${variant}`
-    const buttonBackgroundModifier
-      = variant === 'fill-white' && `button__inner--fill-white`
+    const buttonOutlinedModifier
+      = variant === 'outlined' && `button__inner--fill-white`
     const buttonSizeModifier
       = sizes.includes(size) && `button--size-${size}`
     const sizeModifier
@@ -48,7 +48,7 @@ mixin button(options)
           mainClass,
           buttonInlineModifier,
           buttonWithArrowModifier,
-          buttonSizeModifier
+          buttonSizeModifier,
         ],
         href: link
       }
@@ -60,7 +60,7 @@ mixin button(options)
         'button__inner',
         sizeModifier,
         colorModifier,
-        buttonBackgroundModifier
+        buttonOutlinedModifier
       ]
       'data-type'=dataType)=text
 

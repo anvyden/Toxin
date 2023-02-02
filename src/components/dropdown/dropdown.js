@@ -34,7 +34,7 @@ class Dropdown {
 
     this.dropdownOpenModifier = 'dropdown--opened';
     this.buttonHidderModifier = 'button--hidden';
-    this.arrowButtonRotateModifier = 'dropdown__arrow-button--rotate';
+    this.arrowButtonRotateModifier = 'dropdown__arrow-button--rotated';
 
     this.inputDataType = 'input';
     this.arrowButtonDataType = 'arrow';

@@ -15,7 +15,7 @@ class Menu {
     this.arrowSelector = '.js-menu__item-arrow';
     this.subMenuSelector = '.js-menu__sub-menu';
 
-    this.arrowRotateModifier = 'menu__item-arrow--rotate';
+    this.arrowRotateModifier = 'menu__item-arrow--rotated';
     this.subMenuVisibleModifier = 'menu__sub-menu--visible';
 
     this.linkDataType = 'link';
