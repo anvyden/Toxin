@@ -54,11 +54,7 @@ mixin find-room-card(options={})
             },
             props:{
               type: 'guests',
-              maxLengthItems: {
-                item0: 5,
-                item1: 10,
-                item2: 10,
-              },
+              maxLengthItems: [5, 10, 10],
               plurals: {
                 guests: ['гость', 'гостя', 'гостей'],
                 babies: ['младенец', 'младенца', 'младенцев'],

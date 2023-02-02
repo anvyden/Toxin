@@ -47,11 +47,7 @@
       },
       "props": {
         "type": "guests",
-        "maxLengthItems": {
-          "item0": 10,
-          "item1": 15,
-          "item2": 6
-        },
+        "maxLengthItems": [10, 15, 6],
         "plurals": {
           "guests": [
             "гость",
@@ -330,11 +326,7 @@
       },
       "props": {
         "type": "comfort",
-        "maxLengthItems": {
-          "item0": 10,
-          "item1": 15,
-          "item2": 6
-        },
+        "maxLengthItems": [10, 15, 6],
         "plurals": {
           "bedrooms": [
             "спальня",
@@ -382,11 +374,7 @@
       },
       "props": {
         "type": "comfort",
-        "maxLengthItems": {
-          "item0": 10,
-          "item1": 15,
-          "item2": 6
-        },
+        "maxLengthItems": [10, 15, 6],
         "plurals": {
           "bedrooms": [
             "спальня",
@@ -433,11 +421,7 @@
       },
       "props": {
         "type": "guests",
-        "maxLengthItems": {
-          "item0": 10,
-          "item1": 15,
-          "item2": 6
-        },
+        "maxLengthItems": [10, 15, 6],
         "plurals": {
           "guests": [
             "гость",
@@ -480,11 +464,7 @@
       },
       "props": {
         "type": "guests",
-        "maxLengthItems": {
-          "item0": 10,
-          "item1": 15,
-          "item2": 6
-        },
+        "maxLengthItems": [10, 15, 6],
         "plurals": {
           "guests": [
             "гость",

@@ -36,11 +36,7 @@ mixin sidebar({} = {})
           },
           props: {
             type: 'guests',
-            maxLengthItems: {
-              item0: 10,
-              item1: 15,
-              item2: 6,
-            },
+            maxLengthItems: [10, 15, 6],
             plurals: {
               guests: ['гость', 'гостя', 'гостей'],
               babies: ['младенец', 'младенца', 'младенцев'],
@@ -113,11 +109,7 @@ mixin sidebar({} = {})
           },
           props: {
             type: 'comfort',
-            maxLengthItems: {
-              item0: 10,
-              item1: 15,
-              item2: 6,
-            },
+            maxLengthItems: [10, 15, 6],
             plurals: {
               bedrooms: ['спальня', 'спальни', 'спален'],
               beds: ['кровать', 'кровати', 'кроватей'],

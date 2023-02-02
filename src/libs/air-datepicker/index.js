@@ -183,7 +183,6 @@ class Datepicker {
   }
 
   _setInitialDates(dates = []) {
-    console.log(dates)
     if (Array.isArray(dates)) {
       let initialDates;
 
@@ -197,8 +196,6 @@ class Datepicker {
       } else {
         initialDates = dates;
       }
-
-      console.log(initialDates)
 
       this.datepicker.selectDate(initialDates);
       this._showClearButton();

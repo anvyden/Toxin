@@ -17,7 +17,7 @@ class Dropdown {
   _init() {
     this._getSelector();
     this._findDOMElements();
-    this._checkOptions();
+    // this._checkOptions();
     this._setDataIndexItems();
     this._validateItems();
     this._bindEventListeners();
@@ -59,30 +59,6 @@ class Dropdown {
     }));
   }
 
-  _checkOptions() {
-    const keys = this.getMaxLengthItems
-      ? Object.keys(this.getMaxLengthItems)
-      : [];
-
-    this.props.maxLengthItems = Object.fromEntries(
-      [...this.items].map((_, index) => {
-        const key = `item${index}`;
-        let value;
-
-        keys.includes(key)
-          ? (value = this.props.maxLengthItems[key])
-          : (value = 8);
-
-        return [key, value];
-      })
-    );
-  }
-
-  get getMaxLengthItems() {
-    const { maxLengthItems } = this.props;
-    return maxLengthItems;
-  }
-
   _setDataIndexItems() {
     this.items.forEach((item, i) => {
       this.item = item;
@@ -91,10 +67,11 @@ class Dropdown {
   }
 
   _validateItems() {
-    const maxLengthItems = this.getMaxLengthItems;
+    const { maxLengthItems } = this.props;
+
 
     this.itemsData.forEach((item, index) => {
-      const itemMaxLength = maxLengthItems[`item${index}`];
+      const itemMaxLength = maxLengthItems[index];
       this.itemData = item;
 
       if (Number(item.counter.textContent) <= 0) {
@@ -175,21 +152,21 @@ class Dropdown {
 
   _increment(target) {
     const { parentNode } = target;
+    const { maxLengthItems } = this.props;
 
     const counter = parentNode.querySelector(this.counterSelector);
     const increment = parentNode.querySelector(this.incrementSelector);
     const decrement = parentNode.querySelector(this.decrementSelector);
     const item = target.closest(this.itemSelector);
 
-    const maxLengthItems = this.getMaxLengthItems;
     const currentValue = Number(counter.textContent);
     const newValue = currentValue + 1;
 
-    if (currentValue < maxLengthItems[`item${item.dataset.index}`]) {
+    if (currentValue < maxLengthItems[item.dataset.index]) {
       counter.textContent = newValue;
     }
 
-    if (newValue === maxLengthItems[`item${item.dataset.index}`]) {
+    if (newValue === maxLengthItems[item.dataset.index]) {
       this._setItemButtonDisabled(increment);
     }
 
@@ -203,13 +180,13 @@ class Dropdown {
 
   _decrement(target) {
     const { parentNode } = target;
+    const { maxLengthItems } = this.props;
 
     const counter = parentNode.querySelector(this.counterSelector);
     const increment = parentNode.querySelector(this.incrementSelector);
     const decrement = parentNode.querySelector(this.decrementSelector);
     const item = target.closest(this.itemSelector);
 
-    const maxLengthItems = this.getMaxLengthItems;
     const currentValue = Number(counter.textContent);
     const newValue = currentValue - 1;
 
@@ -222,7 +199,7 @@ class Dropdown {
       this._checkClearButton();
     }
 
-    if (newValue < maxLengthItems[`item${item.dataset.index}`]) {
+    if (newValue < maxLengthItems[item.dataset.index]) {
       this._setItemButtonActive(increment);
     }
 
