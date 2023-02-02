@@ -37,15 +37,15 @@ class Menu {
   }
 
   _bindDocumentListener() {
-    this.handleDocumentPoinerDown = this._handleDocumentPoinerDown.bind(this);
+    this.handleDocumentPointerDown = this._handleDocumentPointerDown.bind(this);
   }
 
   _addDocumentListener() {
-    document.addEventListener('pointerdown', this.handleDocumentPoinerDown);
+    document.addEventListener('pointerdown', this.handleDocumentPointerDown);
   }
 
   _removeDocumentListener() {
-    document.removeEventListener('pointerdown', this.handleDocumentPoinerDown);
+    document.removeEventListener('pointerdown', this.handleDocumentPointerDown);
   }
 
   _handleItemPointerDown(event) {
@@ -83,7 +83,7 @@ class Menu {
       : this._removeDocumentListener();
   }
 
-  _handleDocumentPoinerDown(event) {
+  _handleDocumentPointerDown(event) {
     const { target } = event;
 
     if (!this.root.contains(target)) {

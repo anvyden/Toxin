@@ -17,7 +17,6 @@ class Dropdown {
   _init() {
     this._getSelector();
     this._findDOMElements();
-    // this._checkOptions();
     this._setDataIndexItems();
     this._validateItems();
     this._bindEventListeners();
@@ -33,7 +32,7 @@ class Dropdown {
     this.counterSelector = '.js-dropdown__item-counter';
 
     this.dropdownOpenModifier = 'dropdown--opened';
-    this.buttonHidderModifier = 'button--hidden';
+    this.buttonHiddenModifier = 'button--hidden';
     this.arrowButtonRotateModifier = 'dropdown__arrow-button--rotated';
 
     this.inputDataType = 'input';
@@ -233,8 +232,8 @@ class Dropdown {
       const total = this._countTotal();
 
       total === 0
-        ? this.clearButton.classList.add(this.buttonHidderModifier)
-        : this.clearButton.classList.remove(this.buttonHidderModifier);
+        ? this.clearButton.classList.add(this.buttonHiddenModifier)
+        : this.clearButton.classList.remove(this.buttonHiddenModifier);
     }
   }
 
