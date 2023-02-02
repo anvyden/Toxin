@@ -247,10 +247,10 @@ class Datepicker {
   }
 
   _bindDocumentListener() {
-    this.handleDocumentPoitnerDown = this._handleDocumentPoitnerDown.bind(this);
+    this.handleDocumentPointerDown = this._handleDocumentPointerDown.bind(this);
   }
 
-  _handleDocumentPoitnerDown(event) {
+  _handleDocumentPointerDown(event) {
     if (!this._isPointerDownOnDatepicker(event)) this._close();
   }
 
@@ -265,13 +265,13 @@ class Datepicker {
   _close() {
     this.container.classList.remove(this.datepickerActiveClass);
     this._arrowDown();
-    document.removeEventListener('pointerdown', this.handleDocumentPoitnerDown);
+    document.removeEventListener('pointerdown', this.handleDocumentPointerDown);
   }
 
   _open() {
     this.container.classList.add(this.datepickerActiveClass);
     this._arrowUp();
-    document.addEventListener('pointerdown', this.handleDocumentPoitnerDown);
+    document.addEventListener('pointerdown', this.handleDocumentPointerDown);
   }
 
   _toggle() {

@@ -353,6 +353,10 @@
           background: $primaryGradientTransparent;
         }
 
+        &.-current- {
+          color: #fff;
+        }
+
         &.-in-range- {
           color: $darkShade25;
           background: none;
