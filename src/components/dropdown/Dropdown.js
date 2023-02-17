@@ -68,7 +68,6 @@ class Dropdown {
   _validateItems() {
     const { maxLengthItems } = this.props;
 
-
     this.itemsData.forEach((item, index) => {
       const itemMaxLength = maxLengthItems[index];
       this.itemData = item;
@@ -277,7 +276,7 @@ class Dropdown {
 
   _toggle() {
     if (this.isOpen) {
-      this._close()
+      this._close();
     } else {
       this._open();
     }
