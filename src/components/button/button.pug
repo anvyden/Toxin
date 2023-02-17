@@ -22,7 +22,7 @@ mixin button(options)
     const buttonInlineModifier
       = variant === 'inline' && `button--variant-${variant}`
     const buttonOutlinedModifier
-      = variant === 'outlined' && `button__inner--fill-white`
+      = variant === 'outlined' && `button--variant-${variant}`
     const buttonSizeModifier
       = sizes.includes(size) && `button--size-${size}`
     const sizeModifier
@@ -35,6 +35,7 @@ mixin button(options)
         class: [
           mainClass,
           buttonInlineModifier,
+          buttonOutlinedModifier,
           buttonWithArrowModifier,
           buttonSizeModifier,
           classForJs
@@ -60,7 +61,6 @@ mixin button(options)
         'button__inner',
         sizeModifier,
         colorModifier,
-        buttonOutlinedModifier
       ]
       'data-type'=dataType)=text
 

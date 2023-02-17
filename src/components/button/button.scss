@@ -38,9 +38,9 @@
       }
     }
 
-    &--fill-white {
-      background: #fff;
-    }
+    // &--fill-white {
+    //   background: #fff;
+    // }
 
     &--text-white {
       color: #fff;
@@ -129,6 +129,14 @@
               text-decoration: none;
             }
           }
+        }
+      }
+    }
+
+    &-outlined {
+      .button {
+        &__inner {
+          background: #fff;
         }
       }
     }
