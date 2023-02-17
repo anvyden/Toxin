@@ -277,7 +277,7 @@ class Dropdown {
 
   _toggle() {
     if (this.isOpen) {
-      this._close();
+      this._close()
     } else {
       this._open();
     }
