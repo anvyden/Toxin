@@ -31,6 +31,7 @@ mixin text-field( options={} )
     const subscribeButtonClass = 'text-field__button material-icons'
     const buttonModifier = isSubscribe && 'text-field__input--with-button'
     const lowerCaseModifier = isLowerCase && 'text-field__input--lowercase'
+    const readonlyModifier = isReadonly && 'text-field__input--readonly'
 
     const attrs = {
       class: [
@@ -38,6 +39,7 @@ mixin text-field( options={} )
         focusedModifier,
         inputWithButtonModifier,
         lowerCaseModifier,
+        readonlyModifier,
         buttonModifier,
         maskedClass
       ],

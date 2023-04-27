@@ -44,6 +44,10 @@
     &--lowercase {
       text-transform: lowercase;
     }
+
+    &--readonly {
+      cursor: pointer;
+    }
   }
 
   &__arrow-button {
